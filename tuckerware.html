@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+   <head>
+   <meta charset="UTF-8">
+      <title>a good catch</title>
+      <link  rel="stylesheet"  href="css/tuckerware.css"/>
+      <link rel="stylesheet" href="css/txtstyle.css" />
+      <link  rel="stylesheet"  href="extras/lightbox/dist/css/lightbox.css"/>
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+      <script type = "text/javascript" src = "http://code.jquery.com/jquery-latest.min.js"></script>
+      <script type = "text/javascript" src = "scripts/tuckerware.js"></script>
+      <script type = "text/javascript"  src="scripts/angular-min.js"></script>
+      <script type = "text/javascript" src="extras/lightbox/dist/js/lightbox.js" ></script>
+      <script type = "text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+   </head>
+   <body ng-app = "loaderApp" ng-controller="loaderController">
+     <!-- Banner holds Icon, Name, Moto, and Menu  -->
+    <div id = "banner_area">
+         <div id = "initial_content">
+           <!-- Non-menu banner items -->
+            <ul>
+                <li>  <a href="img/UI/photo_icon.png" data-lightbox="photo_icon" data-title="My caption"><img  id = "camera" src = "img/UI/photo_icon.png" onclick="openSelfGallery()"/></a></li>
+                <li>austin tucker</li>
+                <li id = "welcome_motto"> welcome to my domain</li>
+            </ul>
+         </div>
+         <!-- Menu for page transitions
+                D(ebut), R(eveal), E(Entertain), A(maze), M(ore)
+                ~= Introduction, Bio, Apps and Art, Thoughts, Contact -->
+         <ul id = "main_menu">
+           <li onmouseover = "menuGlow(0)" ng-click="showPage(0)"><a href = "#">Debut</a></li>
+           <li onmouseover = "menuGlow(1)" ng-click="showPage(1)"><a href = "#">R</a></li>
+           <li onmouseover = "menuGlow(2)" ng-click="showPage(2)"><a href = "#">E</a></li>
+           <li onmouseover = "menuGlow(3)" ng-click="showPage(3)"><a href = "#">A</a></li>
+           <li onmouseover = "menuGlow(4)" ng-click="showPage(4)"><a href = "#">M</a></li>
+         </ul>
+     </div>
+     <div id = "space_block">
+     </div>
+     <!-- Panels are abstract yet below the banner space -->
+    <div id = "panels_wrapper">
+      <!-- For Title and Content -->
+        <div id = "left_panel" >
+        <!-- <pre  id = "main_content" ng-bind-html = "contentA"   [onload="string"] [autoscroll="string"]>{{ content }}</pre> -->
+        <pre id = "main_content"></pre>
+      </div>
+      <!-- For Settings and Logo -->
+        <div id = "right_panel">
+            <div id = "settings_cog" onclick="deploySettings()"><a href = "">*</a></div>
+            <div id = "site_logo">LOGO</div>
+        </div>
+    </div>
+
+   </body>
+</html>
