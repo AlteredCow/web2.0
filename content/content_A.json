@@ -1,8 +1,8 @@
-{ 
-	"titles": [ 
-		{"title":"John",  "content":"huh"},
-		{"title":"Jessie",, "content":"hmm"},
-		{"title":"Johanna",  "content":"hmm"},
+{
+	"titles": [
+		{"title":"PHILOS",  "content":"huh"},
+		{"title":"OBSERVE",, "content":"hmm"},
+		{"title":"QUESTION",  "content":"hmm"},
 		{"title":"Joy", "content":"hmm"},
 		{"title":"Mary", "content":"hmm"},
 		{"title":"Peter", "content":"huh"},
@@ -12,4 +12,3 @@
 		{"title":"Samantha", "content":"hmm"}
 	]
 }
-  

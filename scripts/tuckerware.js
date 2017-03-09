@@ -2,6 +2,7 @@ $(document).ready(function(){
   $("#initial_content").height($("#main_menu").height());
   $("#space_block").height($("#initial_content").height());
 	$("#right_panel").height($("#left_panel").height());
+  $('#main_content').load("content/content_D.html");
 
   var app = angular.module('loaderApp', []);
     app.controller('loaderController', function($scope, $http) {
@@ -19,13 +20,15 @@ $(document).ready(function(){
       $("#main_content").fadeOut('slow', function(){
             $http.get(file)
       			   .success(function(content){
-
               $("#main_content").html(content).replace(/\n/g,'<br/>');
       		});
       }).fadeIn();
 
+
       } // end of showPage()
     }); // end of Angular
+
+
 }); // end of document.ready()
 
 // highlight hovered; dull the remaining
