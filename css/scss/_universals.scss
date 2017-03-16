@@ -1,8 +1,11 @@
-// variables
+// general variables
 @import "colors";
 $bg-primary: $color_light-grey;
-$main_font-family: calibri;
+$bg-banner: $color_light-grey;
 $score: 4px solid black;
+$min-width: 655px;
+$thmb-sm: 100px;
+
 
 // "fills" <a> link
 .link-buffer{
@@ -11,9 +14,17 @@ $score: 4px solid black;
   display: inline-block;
 }
 
-.thumbnail_small{
-
+.compact{
+  padding: 0;
+  margin: 0;
 }
+
+.expanded{
+  height: 100%;
+  width: 100%;
+}
+
+
 
 // template for shadowing
 @mixin box-shadow-main($type, $color){
@@ -22,32 +33,58 @@ $score: 4px solid black;
 	 -webkit-box-shadow: $type 0px  4px 10px $color;
 }
 
+@mixin outline-text($weight, $color){
+  text-shadow: -1*$weight 0 $color, 0 $weight $color, $weight 0 $color, 0 -1*$weight $color;
+}
+
+@mixin glow-wrap($weight, $color){
+
+  // foundation
+  border: 1px solid $color;
+
+    //stop blocky feel
+   -webkit-border-radius: $weight;
+      -moz-border-radius: $weight;
+           border-radius: $weight;
+
+    // glow effect
+   -webkit-box-shadow: 0px 0px $weight $color;
+      -moz-box-shadow: 0px 0px $weight $color;
+           box-shadow: 0px 0px $weight $color;
+}
+
 /* ----- HTML TAGS ------------------------ */
 
 html, body{
 	width: 100%;
-	min-width: 655px;
-	padding: 0;
-	margin: 0;
+	min-width: $min-width;
+	@extend .compact;
 	background: $bg-primary;
-	text-align: center;
+  text-align: center;
 }
 
 a{
 	text-decoration:  none;
+  color: $color_link-primary;
+
+  a:visited{
+    color: red;
+  }
 }
 
-a:visited{
-	color:blue;
-}
 
 li{
 	list-style-type:  none;
 }
 
 h1, h2, ul{
-	margin: 0;
-	padding: 0;
+  @extend .compact;
+}
+
+h1{
+  color: $color_h1;
+  opacity: 0.4;
+  @include outline-text(1px, $color_dark-grey);
 }
 
 /* ----------------------------------------*/

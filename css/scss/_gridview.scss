@@ -1,18 +1,23 @@
+@import "fonts";
 $grid-box-color: #333;
-
-// DIV as WRAPPER
-.gridview{
-    box-sizing: border-box;
-    border-right: 1px solid black; // TEMP /
+.gridview{ // div | wrapper
     color: $grid-box-color;
-}
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 0;
+    span{
+      font-size: $font_size-header;
+      font-family: $font_family-header;
+      font-weight: 300;
+      display: inline-block;
+      vertical-align: top;
+      width: 50%;
+      float: left;
+      overflow: hidden;
+      padding-bottom: 200px;
+   }
+   span :hover{
+     color: $color_hovered-primary;
+   }
 
-// As many rows as you care for
-.grid-row{
-  width: 100%;
-}
-
-// ASSERT: 4 COLUMNS
-.grid-col{
-  width: 25%;
 }

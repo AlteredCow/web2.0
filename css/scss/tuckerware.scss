@@ -5,15 +5,36 @@
 @import "a_theme";
 @import "m_theme";
 @import "colors";
+@import "fonts";
 @import "universals";
 @charset "utf-8";
 
 
 /* ---- UPPER ---------------- */
 
-#banner_area{
+#banner{
 	width: 100%;
 }
+
+#banner_introduction{
+	float:left;
+	width: 50%;
+	text-align: right;
+
+    li{
+    	width: 33%;
+    	height: 50px;
+    	float: right;
+    	vertical-align: bottom;
+    	position:relative;
+    	top: 50px;
+    	font-size: 20px;
+    	text-shadow:  1px 1px $color_fair-grey;
+  }
+
+}
+
+
 
 #welcome_motto{
 	color: $color_deep-red;
@@ -31,44 +52,34 @@
 }
 
 #camera{
+	width: $thmb-sm * 0.75;
+	height: $thmb-sm * 0.75;
+
+	background: $bg-banner;
+	margin-bottom:  50px;
+	cursor: pointer;
 	padding: 10px 10px 0px 10px;
+	@include  glow-wrap(4px, $color_fair-grey);
+
 }
 
 #camera:hover{
-	height: 75px;
-	width: 75px;
-	border-bottom: $score;
-	background: $bg-primary;
+	@include  glow-wrap(4px, $color_dark-grey);
+
+
 }
-#initial_content{
-	float:left;
-	width: 50%;
-	text-align: right;
 
-
-    li{
-    	width: 33%;
-    	height: 50px;
-    	float: right;
-    	vertical-align: bottom;
-    	position:relative;
-    	top:50px;
-    	font-size: 20px;
-    	text-shadow:  1px 1px #cbcbcb;
-  }
-
-
-
-    img{
-    	width: 50px;
-    	height: 50px;
-    	margin-bottom:  50px;
-    	cursor: pointer;
-  }
-}
 /* ---- MAIN CONTENT AREA ------------ */
 
 @import "gridview";
+
+
+@media screen and (max-width: $min-width) {
+	.gridview > span{
+		font-size: 1rem;
+	}
+}
+
 
 #panels_wrapper{
 }
@@ -78,26 +89,26 @@
 	float: left;
 	width: 80%;
 	min-height:  750px;
-	@include box-shadow-main(inset, $color_deep-red);
+	@include box-shadow-main(inset, $color_dark-grey);
 }
 
 #right_panel{
 	float: right;
 	width: 20%;
-	background: #ccc;
+	background: $color_fair-grey;
 	border-left:  $score;
 	margin-left:-5px;
 }
 
 
 #main_content{
-	font-family: $main_font-family;
+	font-family: $font_family-main;
 	padding: 50px;
 	font-size: 24px;
 	padding: auto;
 	vertical-align: middle;
 	position: absolute;
-	width: 60%;
+	width: 70%;
 
 }
 
@@ -107,7 +118,7 @@
 /* ---- RIGHTSIDE PANEL ------------ */
 
 #settings_cog{
-	background: #cbcbcb;
+	background: $color_fair-grey;
 	height: 100px;
 	font-size:  104px;
 
