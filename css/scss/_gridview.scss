@@ -1,0 +1,18 @@
+$grid-box-color: #333;
+
+// DIV as WRAPPER
+.gridview{
+    box-sizing: border-box;
+    border-right: 1px solid black; // TEMP /
+    color: $grid-box-color;
+}
+
+// As many rows as you care for
+.grid-row{
+  width: 100%;
+}
+
+// ASSERT: 4 COLUMNS
+.grid-col{
+  width: 25%;
+}
