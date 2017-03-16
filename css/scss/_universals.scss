@@ -1,0 +1,53 @@
+// variables
+@import "colors";
+$bg-primary: $color_light-grey;
+$main_font-family: calibri;
+$score: 4px solid black;
+
+// "fills" <a> link
+.link-buffer{
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+.thumbnail_small{
+
+}
+
+// template for shadowing
+@mixin box-shadow-main($type, $color){
+  box-shadow: $type 0px  4px 10px $color;
+	 -moz-box-shadow: $type 0px  4px 10px $color;
+	 -webkit-box-shadow: $type 0px  4px 10px $color;
+}
+
+/* ----- HTML TAGS ------------------------ */
+
+html, body{
+	width: 100%;
+	min-width: 655px;
+	padding: 0;
+	margin: 0;
+	background: $bg-primary;
+	text-align: center;
+}
+
+a{
+	text-decoration:  none;
+}
+
+a:visited{
+	color:blue;
+}
+
+li{
+	list-style-type:  none;
+}
+
+h1, h2, ul{
+	margin: 0;
+	padding: 0;
+}
+
+/* ----------------------------------------*/

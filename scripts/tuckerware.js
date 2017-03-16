@@ -3,6 +3,7 @@ $(document).ready(function(){
   $("#space_block").height($("#initial_content").height());
 	$("#right_panel").height($("#left_panel").height());
   $('#main_content').load("content/content_D.html");
+  $("#main_menu li:first").trigger('mouseover');
 
   var app = angular.module('loaderApp', []);
     app.controller('loaderController', function($scope, $http) {

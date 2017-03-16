@@ -1,48 +1,13 @@
-@import "gridview";
+// order is important, yo
+
 @import "r_theme";
 @import "e_theme";
 @import "a_theme";
 @import "m_theme";
-
+@import "colors";
+@import "universals";
 @charset "utf-8";
 
-$bg-primary: #EAEAEA;
-$color_fair-grey: red;
-$color_scarlet: #ff2400;
-
-@mixin box-shadow-main($type, $color){
-  box-shadow: $type 0px  5px 10px $color;
-	 -moz-box-shadow: $type 0px  5px 10px $color;
-	 -webkit-box-shadow: $type 0px  5px 10px $color;
-}
-
-
-/* ---- UNIVERSALS ------------ */
-html, body{
-	width: 100%;
-	min-width: 655px;
-	padding: 0;
-	margin: 0;
-	background: $bg-primary;
-	text-align: center;
-}
-
-a{
-	text-decoration:  none;
-}
-
-a:visited{
-	color:blue;
-}
-
-li{
-	list-style-type:  none;
-}
-
-h1, h2, ul{
-	margin: 0;
-	padding: 0;
-}
 
 /* ---- UPPER ---------------- */
 
@@ -50,16 +15,17 @@ h1, h2, ul{
 	width: 100%;
 }
 
-#banner_area div, #banner_area ul{
-}
-
-
 #welcome_motto{
-	color: $color_scarlet;
+	color: $color_deep-red;
 }
+
+#my_name{
+  font-weight: bold;
+}
+
 
 #space_block{
-	border-bottom: 5px solid black;
+	border-bottom: $score;
 	height: 100px;
 	width: 100%;
 }
@@ -71,16 +37,13 @@ h1, h2, ul{
 #camera:hover{
 	height: 75px;
 	width: 75px;
-	border-bottom: 3px solid black;
+	border-bottom: $score;
 	background: $bg-primary;
 }
-
-/* ---- MAIN CONTENT AREA ------------ */
-
 #initial_content{
 	float:left;
 	width: 50%;
-	text-align: center;
+	text-align: right;
 
 
     li{
@@ -94,6 +57,8 @@ h1, h2, ul{
     	text-shadow:  1px 1px #cbcbcb;
   }
 
+
+
     img{
     	width: 50px;
     	height: 50px;
@@ -101,6 +66,9 @@ h1, h2, ul{
     	cursor: pointer;
   }
 }
+/* ---- MAIN CONTENT AREA ------------ */
+
+@import "gridview";
 
 #panels_wrapper{
 }
@@ -110,19 +78,20 @@ h1, h2, ul{
 	float: left;
 	width: 80%;
 	min-height:  750px;
-	@include box-shadow-main(inset, $color_scarlet);
+	@include box-shadow-main(inset, $color_deep-red);
 }
 
 #right_panel{
 	float: right;
 	width: 20%;
 	background: #ccc;
-	border-left:  5px solid black;
+	border-left:  $score;
 	margin-left:-5px;
 }
 
+
 #main_content{
-	font-family: calibri;
+	font-family: $main_font-family;
 	padding: 50px;
 	font-size: 24px;
 	padding: auto;
@@ -132,34 +101,7 @@ h1, h2, ul{
 
 }
 
-
-/* ---- DREAM MENU ---------------- */
-#main_menu{
-	float:right;
-	width: 50%;
-}
-
-#main_menu li{
-	box-sizing: border-box;
-	display: inline-block;
-	float: left; width: 15%;
-	text-align: right;
-	height: 100px;
-	line-height: 120px;
-	font-weight: bold;
-	margin-left: 5px;
-	padding-right: 10px;
-	 text-shadow: 2px 2px 5px #999;
-	 font-size:  24px;
-	 color:blue;
-}
-
-#main_menu li > a{
-	width: 100%;
-	height: 100%;
-	display: inline-block;
-	padding-right: 10px;
-}
+@import "dream-menu";
 
 
 /* ---- RIGHTSIDE PANEL ------------ */
