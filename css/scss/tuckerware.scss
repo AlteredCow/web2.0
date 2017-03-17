@@ -14,22 +14,29 @@
 
 #banner{
 	width: 100%;
+
+	li{
+		font-size: $font_size-banner;
+	}
+
+
 }
 
 #banner_introduction{
+
 	float:left;
 	width: 50%;
 	text-align: right;
+font-weight: bold;
 
     li{
-    	width: 33%;
+    	width: 50%;
     	height: 50px;
+
     	float: right;
     	vertical-align: bottom;
     	position:relative;
     	top: 50px;
-    	font-size: 20px;
-    	text-shadow:  1px 1px $color_fair-grey;
   }
 
 }
@@ -38,10 +45,10 @@
 
 #welcome_motto{
 	color: $color_deep-red;
+
 }
 
 #my_name{
-  font-weight: bold;
 }
 
 
@@ -72,6 +79,8 @@
 /* ---- MAIN CONTENT AREA ------------ */
 
 @import "gridview";
+$leftsideWith: 80%;
+$rightsideWidth: 100% - $leftsideWith;
 
 
 @media screen and (max-width: $min-width) {
@@ -82,15 +91,39 @@
 
 
 #panels_wrapper{
+
+	height: 100%;
+
+	> div{
+		height: 100%;
+	}
 }
 
 
 #left_panel{
 	float: left;
 	width: 80%;
-	min-height:  750px;
-	@include box-shadow-main(inset, $color_dark-grey);
+
 }
+
+#footnote_left, #footnote_right{
+	font-size: $font_size-footnote;
+	position:fixed;
+ 	bottom: 0;
+}
+
+#footnote_left{
+	color:  grey;
+	margin-left: 5px;
+
+}
+
+#footnote_right{
+	color: $color_deep-red;
+	right: 21%;
+}
+
+
 
 #right_panel{
 	float: right;
@@ -98,19 +131,29 @@
 	background: $color_fair-grey;
 	border-left:  $score;
 	margin-left:-5px;
+
 }
 
 
-#main_content{
+#main_content, .defaultContentLayout{
 	font-family: $font_family-main;
-	padding: 50px;
-	font-size: 24px;
-	padding: auto;
-	vertical-align: middle;
-	position: absolute;
-	width: 70%;
+	font-size: $font_size-article;
+	width: 80%;
+	text-align: justify;
+}
+
+.topicRow{
 
 }
+
+.topicRowPresentation{
+  display:inline-block;
+  width: 100px;
+  height: 100px;
+  background: white;
+  display: none;
+}
+
 
 @import "dream-menu";
 

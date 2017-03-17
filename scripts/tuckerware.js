@@ -2,7 +2,7 @@ $(document).ready(function(){
   $("#initial_content").height($("#main_menu").height());
   $("#space_block").height($("#initial_content").height());
 	$("#right_panel").height($("#left_panel").height());
-  $('#main_content').load("content/content_D.html");
+  $('#main_content').load("content/content_D.txt");
   $("#main_menu li:first").trigger('mouseover');
 
   var app = angular.module('loaderApp', []);
@@ -14,14 +14,14 @@ $(document).ready(function(){
       // find file by menu selection
       var file_letter  =  "DREAM"[menu_choice];
       var isJSON = (menu_choice== 2 || menu_choice == 3);
-      var extension = "." +  (isJSON? "json" : "html");
+      var extension = "." +  (isJSON? "json" : "txt");
       var file = "content/content_"+ file_letter + extension;
 
       // swap content through fade-transition
       $("#main_content").fadeOut('slow', function(){
             $http.get(file)
       			   .success(function(content){
-              $("#main_content").html(content).replace(/\n/g,'<br/>');
+              $("#main_content").html(content);
       		});
       }).fadeIn();
 
@@ -69,3 +69,16 @@ function openSelfGallery(){
 function deploySettings(){
 
 }
+
+function expand(theme_letter, theme_topic, row){
+  var nth_child = " :nth-child(" + row + ")";
+  $(".topicRow" + nth_child).fadeIn(800);
+
+}
+
+$( ".topicRow > span > a " ).click(function() {
+  // var nth_child = " :nth-child(" + row + ")";
+
+
+console.log($("div:hidden:first"));
+});

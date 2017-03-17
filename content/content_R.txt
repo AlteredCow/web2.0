@@ -1,0 +1,15 @@
+<h1>reveal</h1>
+
+<div class="gridview">
+  <!-- Each newline renders a new row-->
+
+<div class ="topicRow">
+  <span><a href = "javascript:expand('R', 'education', 1);">EDUCATION</a></span><span><a href = " javascript:expand('R', 'interests', 1)">INTERESTS</a></span>
+<div class = "topicRowPresentation">a</div>
+</div>
+
+  <div class ="topicRow"><span><a href = " javascript:expand('R', 'favorites', 2)">FAVORITES</a></span>
+<div class = "topicRowPresentation">a</div>
+    </div>
+
+</div>

@@ -1,9 +1,12 @@
 // general variables
 @import "colors";
+@import "fonts";
+
 $bg-primary: $color_light-grey;
 $bg-banner: $color_light-grey;
 $score: 4px solid black;
 $min-width: 655px;
+$min-height: 900px;
 $thmb-sm: 100px;
 
 
@@ -56,9 +59,12 @@ $thmb-sm: 100px;
 /* ----- HTML TAGS ------------------------ */
 
 html, body{
-	width: 100%;
+
+  @extend .compact;
+@extend .expanded;
+  font-family: $font_family-main;
 	min-width: $min-width;
-	@extend .compact;
+  min-height: $min-height;
 	background: $bg-primary;
   text-align: center;
 }
@@ -67,9 +73,6 @@ a{
 	text-decoration:  none;
   color: $color_link-primary;
 
-  a:visited{
-    color: red;
-  }
 }
 
 

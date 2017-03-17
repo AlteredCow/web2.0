@@ -1,0 +1,12 @@
+<div class = "defaultContentLayout">
+  <hr>
+  <strong>Hey!</strong>
+  Wise choice visiting here
+  The name is Austin Tucker
+  <br>
+  I have things to share
+  You will enjoy these things
+  So welcome yourself -- explore
+  <hr>
+
+</div>
