@@ -94,6 +94,7 @@ $rightsideWidth: 100% - $leftsideWith;
 
 	height: 100%;
 
+
 	> div{
 		height: 100%;
 	}
@@ -103,27 +104,7 @@ $rightsideWidth: 100% - $leftsideWith;
 #left_panel{
 	float: left;
 	width: 80%;
-
 }
-
-#footnote_left, #footnote_right{
-	font-size: $font_size-footnote;
-	position:fixed;
- 	bottom: 0;
-}
-
-#footnote_left{
-	color:  grey;
-	margin-left: 5px;
-
-}
-
-#footnote_right{
-	color: $color_deep-red;
-	right: 21%;
-}
-
-
 
 #right_panel{
 	float: right;
@@ -134,22 +115,47 @@ $rightsideWidth: 100% - $leftsideWith;
 
 }
 
-
 #main_content, .defaultContentLayout{
 	font-family: $font_family-main;
 	font-size: $font_size-article;
 	width: 80%;
 	text-align: justify;
+	margin: 0 auto;
+	height: 95%;
 }
+
+#footnotes{
+	height: 5%;
+	width: 100%;
+	background: blue;
+}
+
+#footnote_left, #footnote_right{
+	font-size: $font_size-footnote;
+	position:fixed;
+ 	bottom: 0;
+}
+#footnote_left{
+	float:left;
+	margin-left: 5px;
+	color:  grey;
+}
+
+#footnote_right{
+	float:right;
+	right: 21%;
+	color: $color_deep-red;
+}
+
 
 .topicRow{
 
 }
 
 .topicRowPresentation{
-  display:inline-block;
-  width: 100px;
-  height: 100px;
+	clear: both;
+  width: 500px;
+  height: 500px;
   background: white;
   display: none;
 }

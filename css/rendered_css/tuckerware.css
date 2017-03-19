@@ -114,19 +114,6 @@ h1 {
   float: left;
   width: 80%; }
 
-#footnote_left, #footnote_right {
-  font-size: 11px;
-  position: fixed;
-  bottom: 0; }
-
-#footnote_left {
-  color: grey;
-  margin-left: 5px; }
-
-#footnote_right {
-  color: #cc1d00;
-  right: 21%; }
-
 #right_panel {
   float: right;
   width: 20%;
@@ -138,12 +125,34 @@ h1 {
   font-family: calibri;
   font-size: 1.8rem;
   width: 80%;
-  text-align: justify; }
+  text-align: justify;
+  margin: 0 auto;
+  height: 95%; }
+
+#footnotes {
+  height: 5%;
+  width: 100%;
+  background: blue; }
+
+#footnote_left, #footnote_right {
+  font-size: 11px;
+  position: fixed;
+  bottom: 0; }
+
+#footnote_left {
+  float: left;
+  margin-left: 5px;
+  color: grey; }
+
+#footnote_right {
+  float: right;
+  right: 21%;
+  color: #cc1d00; }
 
 .topicRowPresentation {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
+  clear: both;
+  width: 500px;
+  height: 500px;
   background: white;
   display: none; }
 

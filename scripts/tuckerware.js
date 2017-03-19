@@ -2,8 +2,10 @@ $(document).ready(function(){
   $("#initial_content").height($("#main_menu").height());
   $("#space_block").height($("#initial_content").height());
 	$("#right_panel").height($("#left_panel").height());
-  $('#main_content').load("content/content_D.txt");
+  $('#main_content').load("content/D/intro_D.txt");
   $("#main_menu li:first").trigger('mouseover');
+
+
 
   var app = angular.module('loaderApp', []);
     app.controller('loaderController', function($scope, $http) {
@@ -15,7 +17,7 @@ $(document).ready(function(){
       var file_letter  =  "DREAM"[menu_choice];
       var isJSON = (menu_choice== 2 || menu_choice == 3);
       var extension = "." +  (isJSON? "json" : "txt");
-      var file = "content/content_"+ file_letter + extension;
+      var file = "content/"+ file_letter + "/intro_" + file_letter + extension;
 
       // swap content through fade-transition
       $("#main_content").fadeOut('slow', function(){
@@ -31,6 +33,10 @@ $(document).ready(function(){
 
 
 }); // end of document.ready()
+
+// semi-globals
+var topicRow_priorNumber = 0;
+var theme_topic_prior = "education";
 
 // highlight hovered; dull the remaining
 function menuGlow(hovered){
@@ -70,15 +76,27 @@ function deploySettings(){
 
 }
 
-function expand(theme_letter, theme_topic, row){
-  var nth_child = " :nth-child(" + row + ")";
-  $(".topicRow" + nth_child).fadeIn(800);
+function expandTopic(theme_letter, theme_topic, topicRow_currentNumber){
+  topicRow_currentNumber--; // offset 0-index-origin
+  const FADE_TIME = 800;
+  var topicRow_prior = $(".topicRowPresentation:eq("+topicRow_priorNumber+")");
+  var topicRow_selection = $(".topicRowPresentation:eq("+topicRow_currentNumber+")");
+  var on_same_row = (topicRow_priorNumber) == (topicRow_currentNumber);
+  var on_same_topic = theme_topic == theme_topic_prior;
+  var was_visible = topicRow_prior.is(":visible");
 
-}
-
-$( ".topicRow > span > a " ).click(function() {
-  // var nth_child = " :nth-child(" + row + ")";
-
-
-console.log($("div:hidden:first"));
-});
+  if (on_same_topic && was_visible){
+      topicRow_prior.fadeOut(FADE_TIME);
+  } else if (on_same_row){
+    var file = "content/" +  theme_letter + "/" + theme_topic + ".txt";
+    $("#main_content").load(file);
+  } else { // different row (and topic)
+    topicRow_prior.fadeOut(FADE_TIME);
+  }
+    if (!was_visible || !on_same_row){
+      topicRow_selection.fadeIn(FADE_TIME);
+    }
+    // now update globals for later selections
+      topicRow_priorNumber = topicRow_currentNumber;
+      theme_topic_prior = theme_topic ;
+  }

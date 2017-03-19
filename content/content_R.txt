@@ -3,12 +3,14 @@
 <div class="gridview">
   <!-- Each newline renders a new row-->
 
+<!-- row 1 -->
 <div class ="topicRow">
-  <span><a href = "javascript:expand('R', 'education', 1);">EDUCATION</a></span><span><a href = " javascript:expand('R', 'interests', 1)">INTERESTS</a></span>
+  <span><a href = "javascript:expandTopic('R', 'education', 1);">EDUCATION</a></span><span><a href = " javascript:expandTopic('R', 'interests', 1)">INTERESTS</a></span>
 <div class = "topicRowPresentation">a</div>
 </div>
 
-  <div class ="topicRow"><span><a href = " javascript:expand('R', 'favorites', 2)">FAVORITES</a></span>
+<!-- row 2 -->
+  <div class ="topicRow"><span><a href = " javascript:expandTopic('R', 'favorites', 2);">FAVORITES</a></span>
 <div class = "topicRowPresentation">a</div>
     </div>
 

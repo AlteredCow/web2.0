@@ -1,12 +1,16 @@
 <div class = "defaultContentLayout">
-  <hr>
+  <hr/>
   <strong>Hey!</strong>
   Wise choice visiting here
   The name is Austin Tucker
-  <br>
+  <br/>
+[img here]
+  <br/>
   I have things to share
   You will enjoy these things
-  So welcome yourself -- explore
-  <hr>
-
+  So welcome yourself and go explore
+  <br/>
+[--> here]
+  <br/>
+  <hr/>
 </div>
