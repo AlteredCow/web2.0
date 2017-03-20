@@ -82,21 +82,31 @@ function expandTopic(theme_letter, theme_topic, topicRow_currentNumber){
   var topicRow_prior = $(".topicRowPresentation:eq("+topicRow_priorNumber+")");
   var topicRow_selection = $(".topicRowPresentation:eq("+topicRow_currentNumber+")");
   var on_same_row = (topicRow_priorNumber) == (topicRow_currentNumber);
-  var on_same_topic = theme_topic == theme_topic_prior;
+  var on_same_topic = (theme_topic) ==  (theme_topic_prior);
   var was_visible = topicRow_prior.is(":visible");
 
-  if (on_same_topic && was_visible){
-      topicRow_prior.fadeOut(FADE_TIME);
-  } else if (on_same_row){
-    var file = "content/" +  theme_letter + "/" + theme_topic + ".txt";
-    $("#main_content").load(file);
-  } else { // different row (and topic)
-    topicRow_prior.fadeOut(FADE_TIME);
-  }
-    if (!was_visible || !on_same_row){
-      topicRow_selection.fadeIn(FADE_TIME);
+  if ((on_same_topic && was_visible) || (!on_same_row)){
+      topicRow_prior.fadeOut(FADE_TIME/2);
+    } else if (on_same_row){
+
     }
-    // now update globals for later selections
+    if (!was_visible || !on_same_row){
+        topicRow_selection.fadeIn(FADE_TIME);
+    }
+      // now update globals for later selections
       topicRow_priorNumber = topicRow_currentNumber;
       theme_topic_prior = theme_topic ;
-  }
+
+
+      // NOW: load content
+      var file = "content/" +  theme_letter + "/" + theme_topic + ".txt";
+      topicRow_selection.load(file);
+}
+
+$('a[data-remote]').click(function() {
+    var containerId = this.attr('Rr1');
+    var url = this.attr('href');
+    $('#' + containerId).load(url);
+
+    return false; // stop from navigating to the clicked link
+});

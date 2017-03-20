@@ -5,13 +5,13 @@
 
   <!-- row 1 -->
   <div class ="topicRow">
-    <span><a href = "javascript:expandTopic('R', 'education', 1);">EDUCATION</a></span><span><a href = " javascript:expandTopic('R', 'interests', 1)">INTERESTS</a></span>
-    <div class = "topicRowPresentation">aaaaaaaaaaa</div>
+    <span><a data-remote = "true" data-container = "topicRowPresentation" data-remote = "true" data-container = "topicRowPresentation" data-remote = "true" data-container = "Rr1" href = "javascript:expandTopic('R', 'education', 1);">EDUCATION</a></span><span><a data-remote = "true" data-container = "Rr1" href = " javascript:expandTopic('R', 'interests', 1)">INTERESTS</a></span>
+    <div id = "Rr1" class = "topicRowPresentation">aaaaaaaaaaa</div>
   </div>
 
   <!-- row 2 -->
   <div class ="topicRow">
-    <span><a href = " javascript:expandTopic('R', 'favorites', 2);">FAVORITES</a></span>
+    <span><a  data-remote = "true" data-container = "Rr1" href = " javascript:expandTopic('R', 'favorites', 2);">FAVORITES</a></span>
     <div class = "topicRowPresentation">aaaaaaaaaaa</div>
   </div>
 

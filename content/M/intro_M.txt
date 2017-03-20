@@ -2,3 +2,12 @@ basic
 SOCIAL
 git
 web
+
+<div class="gridview">
+  <!-- Each newline renders a new row-->
+
+  <!-- row 1 -->
+  <div class ="topicRow">
+    <span><a data-remote = "true" data-container = "topicRowPresentation" data-remote = "true" data-container = "topicRowPresentation" data-remote = "true" data-container = "Rr1" href = "javascript:expandTopic('R', 'education', 1);">EDUCATION</a></span><span><a data-remote = "true" data-container = "Rr1" href = " javascript:expandTopic('R', 'interests', 1)">INTERESTS</a></span>
+    <div id = "Rr1" class = "topicRowPresentation">aaaaaaaaaaa</div>
+  </div>

@@ -1,21 +1,22 @@
 /* ---- DREAM MENU ---------------- */
 #main_menu{
-	float:right;
+	float: right;
 	width: 50%;
 
   li{
   	box-sizing: border-box;
   	display: inline-block;
   	float: left; width: 15%;
+
   	text-align: right;
-  	height: 100px;
+		font-weight: bold;
+		text-shadow: 2px 2px 5px #999;
+		font-size:  $font_size-banner;
+
+		height: 100px;
   	line-height: 120px;
-  	font-weight: bold;
   	margin-left: 5px;
   	padding-right: 10px;
-  	 text-shadow: 2px 2px 5px #999;
-  	 font-size:  24px;
-  	 color:blue;
   }
 
   li > a{

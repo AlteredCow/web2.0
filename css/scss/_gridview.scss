@@ -10,16 +10,15 @@ $grid-box-color: #333;
     span{
       font-size: $font_size-header;
       font-family: $font_family-header;
-      font-weight: 300;
-      display: inline-block;
+      font-weight: 400;
+
+      padding-bottom: 80px;
       vertical-align: top;
       width: 50%;
       float: left;
-      overflow: hidden;
-      padding-bottom: 200px;
    }
    span :hover{
-     color: $color_hovered-primary;
+      color: $color_hovered-primary;
    }
 
 }

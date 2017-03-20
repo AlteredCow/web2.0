@@ -15,7 +15,7 @@
 html, body {
   font-family: calibri;
   min-width: 655px;
-  min-height: 900px;
+  min-height: 800px;
   background: #EAEAEA;
   text-align: center; }
 
@@ -32,40 +32,32 @@ h1 {
   text-shadow: -1px 0 #666, 0 1px #666, 1px 0 #666, 0 -1px #666; }
 
 /* ----------------------------------------*/
-/* ---- UPPER ---------------- */
-#banner {
-  width: 100%; }
-  #banner li {
-    font-size: 1.6rem; }
-
-#banner_introduction {
-  float: left;
-  width: 50%;
-  text-align: right;
-  font-weight: bold; }
-  #banner_introduction li {
-    width: 50%;
-    height: 50px;
-    float: right;
-    vertical-align: bottom;
-    position: relative;
-    top: 50px; }
-
-#welcome_motto {
-  color: #cc1d00; }
-
+/* ---- UPPER / BANNER ---------------- */
 #space_block {
   border-bottom: 4px solid black;
-  height: 100px;
+  height: 120px;
   width: 100%; }
+
+#banner {
+  width: 100%; }
+  #banner * {
+    font-weight: bold;
+    font-size: 1.7rem;
+    width: 22%; }
+  #banner p {
+    float: left;
+    padding: 10px;
+    white-space: nowrap;
+    line-height: 50px; }
 
 #camera {
   width: 75px;
   height: 75px;
-  background: #EAEAEA;
-  margin-bottom: 50px;
+  top: 10px;
+  position: absolute;
+  padding: 10px;
   cursor: pointer;
-  padding: 10px 10px 0px 10px;
+  background: #EAEAEA;
   border: 1px solid #ccc;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -75,6 +67,8 @@ h1 {
   box-shadow: 0px 0px 4px #ccc; }
 
 #camera:hover {
+  width: 85px;
+  height: 85px;
   border: 1px solid #666;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -82,6 +76,26 @@ h1 {
   -webkit-box-shadow: 0px 0px 4px #666;
   -moz-box-shadow: 0px 0px 4px #666;
   box-shadow: 0px 0px 4px #666; }
+
+/* ---- DREAM MENU ---------------- */
+#main_menu {
+  float: right;
+  width: 50%; }
+  #main_menu li {
+    box-sizing: border-box;
+    display: inline-block;
+    float: left;
+    width: 15%;
+    text-align: right;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px #999;
+    font-size: 1.7rem;
+    height: 100px;
+    line-height: 120px;
+    margin-left: 5px;
+    padding-right: 10px; }
+  #main_menu li > a {
+    padding-right: 10px; }
 
 /* ---- MAIN CONTENT AREA ------------ */
 .gridview {
@@ -92,18 +106,16 @@ h1 {
   .gridview span {
     font-size: 2rem;
     font-family: Century Gothic;
-    font-weight: 300;
-    display: inline-block;
+    font-weight: 400;
+    padding-bottom: 80px;
     vertical-align: top;
     width: 50%;
-    float: left;
-    overflow: hidden;
-    padding-bottom: 200px; }
+    float: left; }
   .gridview span :hover {
     color: #00b3b3; }
 
 @media screen and (max-width: 655px) {
-  .gridview > span {
+  .gridview > span, #main_content, .defaultContentLayout {
     font-size: 1rem; } }
 #panels_wrapper {
   height: 100%; }
@@ -111,33 +123,36 @@ h1 {
     height: 100%; }
 
 #left_panel {
+  width: 80%;
   float: left;
-  width: 80%; }
+  border-right: 4px solid black; }
 
 #right_panel {
-  float: right;
   width: 20%;
   background: #ccc;
-  border-left: 4px solid black;
+  float: right;
   margin-left: -5px; }
 
 #main_content, .defaultContentLayout {
   font-family: calibri;
   font-size: 1.8rem;
-  width: 80%;
+  width: 90%;
   text-align: justify;
   margin: 0 auto;
   height: 95%; }
 
 #footnotes {
   height: 5%;
-  width: 100%;
-  background: blue; }
+  width: 79%;
+  padding-top: 2px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #EAEAEA; }
 
 #footnote_left, #footnote_right {
-  font-size: 11px;
-  position: fixed;
-  bottom: 0; }
+  font-size: 0.9rem;
+  position: fixed; }
 
 #footnote_left {
   float: left;
@@ -151,31 +166,10 @@ h1 {
 
 .topicRowPresentation {
   clear: both;
-  width: 500px;
+  width: 100%;
   height: 500px;
-  background: white;
-  display: none; }
-
-/* ---- DREAM MENU ---------------- */
-#main_menu {
-  float: right;
-  width: 50%; }
-  #main_menu li {
-    box-sizing: border-box;
-    display: inline-block;
-    float: left;
-    width: 15%;
-    text-align: right;
-    height: 100px;
-    line-height: 120px;
-    font-weight: bold;
-    margin-left: 5px;
-    padding-right: 10px;
-    text-shadow: 2px 2px 5px #999;
-    font-size: 24px;
-    color: blue; }
-  #main_menu li > a {
-    padding-right: 10px; }
+  display: none;
+  font-size: 1.8rem; }
 
 /* ---- RIGHTSIDE PANEL ------------ */
 #settings_cog {
