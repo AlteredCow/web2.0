@@ -31,27 +31,23 @@
      </div>
      <div id = "space_block">
      </div>
-     <!-- Panels are abstract and below the banner box -->
-    <div id = "panels_wrapper">
-      <!-- For Title and Content -->
-        <div id = "left_panel" >
-          <pre  id = "main_content"></pre>
-          <span id = "footnotes">
-            <p  id = "footnote_left" >
-              Site Under Construction | Stick Around
-            </p>
-            <p  id = "footnote_right">
-              welcome to my domain
-            </p>
-        </span>
+   <!-- Two panels: one for content , one for settings and extras  -->
+    <!-- For Title and Content -->
+    <div id = "left_panel" class = "panel" >
+      <pre  id = "main_content"></pre>
+      <span id = "footnotes">
+        <p  id = "footnote_left" >
+          Site Under Construction | Stick Around
+        </p>
+        <p  id = "footnote_right">
+          welcome to my domain
+        </p>
+      </span>
+</div>
+    <!-- For Settings and Logo -->
+      <div id = "right_panel" class = "panel">
+          <div id = "settings_cog" onclick="deploySettings()"><a href = "">*</a></div>
+          <div id = "site_logo">LOGO</div>
       </div>
-      <!-- For Settings and Logo -->
-        <div id = "right_panel">
-            <div id = "settings_cog" onclick="deploySettings()"><a href = "">*</a></div>
-            <div id = "site_logo">LOGO</div>
-        </div>
-
-    </div>
-
    </body>
 </html>

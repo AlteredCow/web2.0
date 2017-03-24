@@ -24,6 +24,7 @@ $(document).ready(function(){
             $http.get(file)
       			   .success(function(content){
               $("#main_content").html(content);
+              // $(".topic_choice:eq(0)")[0].click(); //auto-scroll
       		});
       }).fadeIn();
 
@@ -76,37 +77,22 @@ function deploySettings(){
 
 }
 
-function expandTopic(theme_letter, theme_topic, topicRow_currentNumber){
-  topicRow_currentNumber--; // offset 0-index-origin
-  const FADE_TIME = 800;
-  var topicRow_prior = $(".topicRowPresentation:eq("+topicRow_priorNumber+")");
-  var topicRow_selection = $(".topicRowPresentation:eq("+topicRow_currentNumber+")");
-  var on_same_row = (topicRow_priorNumber) == (topicRow_currentNumber);
-  var on_same_topic = (theme_topic) ==  (theme_topic_prior);
-  var was_visible = topicRow_prior.is(":visible");
+function expandTopic(theme_letter, theme_topic, topic_index){
+  const SCROLL_TIME = 950;
+  var content_display = $(".contentDisplay");
+  var spacing = content_display.offset().top-150;
+  $('html,body').stop().animate({scrollTop: spacing}, SCROLL_TIME);
 
-  if ((on_same_topic && was_visible) || (!on_same_row)){
-      topicRow_prior.fadeOut(FADE_TIME/2);
-    } else if (on_same_row){
+    /*
+    * Now load data.
+    * Contact data needs only 1 file.
+    */
+    var file = "content/" +  theme_letter + "/" + theme_topic + ".txt";
+    if (theme_letter == 'M'){
 
+    } else {
+      content_display.load(file);
     }
-    if (!was_visible || !on_same_row){
-        topicRow_selection.fadeIn(FADE_TIME);
-    }
-      // now update globals for later selections
-      topicRow_priorNumber = topicRow_currentNumber;
-      theme_topic_prior = theme_topic ;
 
 
-      // NOW: load content
-      var file = "content/" +  theme_letter + "/" + theme_topic + ".txt";
-      topicRow_selection.load(file);
 }
-
-$('a[data-remote]').click(function() {
-    var containerId = this.attr('Rr1');
-    var url = this.attr('href');
-    $('#' + containerId).load(url);
-
-    return false; // stop from navigating to the clicked link
-});
