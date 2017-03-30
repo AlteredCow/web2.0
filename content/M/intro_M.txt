@@ -3,9 +3,9 @@
 <div class="gridview">
   <!-- row 1 -->
   <span><a class = "topic_choice" href = "javascript:expandTopic('M', 'contact', 1);">basics</a></span>
-  <span><a class = "topic_choice" href = "javascript:expandTopic('M', 'contact', 1);">social media</a></span>
-  <span><a class = "topic_choice" href = "javascript:expandTopic('M', 'contact', 2);">github</a></span>
-  <span><a class = "topic_choice" href = "javascript:expandTopic('M', 'contact', 2);">personal web</a></span>
+  <span><a class = "topic_choice" href = "javascript:expandTopic('M', 'contact', 2);">social media</a></span>
+  <span><a class = "topic_choice" href = "javascript:expandTopic('M', 'contact', 3);">github</a></span>
+  <span><a class = "topic_choice" href = "javascript:expandTopic('M', 'contact', 4);">personal web</a></span>
   <!-- Screen -->
-  <div  class = "contentDisplay">aaaaaaaaaaa</div>
+  <div  class = "contentDisplay"></div>
 </div>

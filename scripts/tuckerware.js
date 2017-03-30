@@ -15,7 +15,8 @@ $(document).ready(function(){
 
       // find file by menu selection
       var file_letter  =  "DREAM"[menu_choice];
-      var isJSON = (menu_choice== 2 || menu_choice == 3);
+      // var isJSON = (menu_choice== 2 || menu_choice == 3);
+      var isJSON = false;
       var extension = "." +  (isJSON? "json" : "txt");
       var file = "content/"+ file_letter + "/intro_" + file_letter + extension;
 
@@ -87,12 +88,17 @@ function expandTopic(theme_letter, theme_topic, topic_index){
     * Now load data.
     * Contact data needs only 1 file.
     */
-    var file = "content/" +  theme_letter + "/" + theme_topic + ".txt";
-    if (theme_letter == 'M'){
-
+    var parent_dir = "content/" +  theme_letter + "/"
+    var file = parent_dir;
+    if (theme_letter === "M"){
+        file +=   "contact_listing.txt";
+        $.ajax({
+            type: "GET", url:file, dataType: "text"
+        }).done(function (data) {
+            content_display.html(data.split("\n")[topic_index]);
+      });
     } else {
+      file +=  theme_topic + ".txt";
       content_display.load(file);
     }
-
-
 }

@@ -1,0 +1,6 @@
+<div>
+    <p>email: tucker.585@osu.edu<br/>mobile: (614) 806 - 6243</p>
+    <p><a href = "#">facebook: fb.com/alteredcow</a></p>
+    <p><a href = "https://github.com/AlteredCow">Head to GitHub!</a></p>
+    <p><a href = "#">Go to Site!</a></p>
+</div>
