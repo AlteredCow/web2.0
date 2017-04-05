@@ -1,6 +1,6 @@
 /*
 Error: Inconsistent indentation: "\t " was used for indentation, but the rest of the document was indented using 1 tab.
-        on line 95 of tuckerware.css
+        on line 95 of css/tuckerware.css
 
 90: #left_panel{
 91: 	float: left;
@@ -15,7 +15,7 @@ Error: Inconsistent indentation: "\t " was used for indentation, but the rest of
 100: 	float: right;
 
 Backtrace:
-tuckerware.css:95
+css/tuckerware.css:95
 C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:486:in `block in tabulate'
 C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:444:in `each'
 C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:444:in `each_with_index'
@@ -40,4 +40,4 @@ C:/Ruby23-x64/bin/sass:22:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Inconsistent indentation: \"\t \" was used for indentation, but the rest of the document was indented using 1 tab.\A         on line 95 of tuckerware.css\A \A 90: #left_panel{\A 91: 	float: left;\A 92: 	width: 80%;\A 93: 	min-height:  750px;\A 94: 	box-shadow: inset 0px  5px 10px #444;\A 95: 	 -moz-box-shadow: inset 0px  5px 10px #444;\A 96: 	 -webkit-box-shadow: inset 0px  5px 10px #444;\A 97: }\A 98: \A 99: #right_panel{\A 100: 	float: right;"; }
+  content: "Error: Inconsistent indentation: \"\t \" was used for indentation, but the rest of the document was indented using 1 tab.\A         on line 95 of css/tuckerware.css\A \A 90: #left_panel{\A 91: 	float: left;\A 92: 	width: 80%;\A 93: 	min-height:  750px;\A 94: 	box-shadow: inset 0px  5px 10px #444;\A 95: 	 -moz-box-shadow: inset 0px  5px 10px #444;\A 96: 	 -webkit-box-shadow: inset 0px  5px 10px #444;\A 97: }\A 98: \A 99: #right_panel{\A 100: 	float: right;"; }
