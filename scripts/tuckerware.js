@@ -1,18 +1,22 @@
-$(document).ready(function(){
+function normalizeHeights(){
   $("#initial_content").height($("#main_menu").height());
   $("#space_block").height($("#initial_content").height());
-	$("#right_panel").height($("#left_panel").height());
-  $('#main_content').load("content/D/intro_D.txt");
-  $("#main_menu li:first").trigger('mouseover');
+  console.log($(".defaultContentLayout:eq(0)").height());
+  $("#left_panel").height($(".defaultContentLayout").height());
+  $("#right_panel").height($("#left_panel").height());
+}
 
+$(document).ready(function(){
+  // setting the stage here
+  normalizeHeights();
+  $('#main_content').load("content/D/intro_D.txt"); // call first page onload
+  $("#main_menu li:first").trigger('mouseover');  // highlight 'D'
 
-
+  // Angular use --> loading content from file compartments
   var app = angular.module('loaderApp', []);
     app.controller('loaderController', function($scope, $http) {
-
   /*------------- CHANGING TOPICS ---------------------------------*/
     $scope.showPage = function (menu_choice) {
-
       // find file by menu selection
       var file_letter  =  "DREAM"[menu_choice];
       // var isJSON = (menu_choice== 2 || menu_choice == 3);
@@ -28,10 +32,10 @@ $(document).ready(function(){
               // $(".topic_choice:eq(0)")[0].click(); //auto-scroll
       		});
       }).fadeIn();
+      normalizeHeights();
+    } // end of showPage()
 
-
-      } // end of showPage()
-    }); // end of Angular
+  }); // end of Angular
 
 
 }); // end of document.ready()
@@ -69,6 +73,11 @@ function launchWord(hovered){
   $("#main_menu > li").eq(hovered).html("<a href = '#'>" + menu_choices[hovered]  +  "</a>" );
 }
 
+function clickPage(newPage){
+  $("#main_menu :eq("+newPage+")")[0].click();
+  window.scrollTo(0,0);
+  $("#main_menu :nth-child("+newPage+")").trigger('mouseover');
+}
 
 function openSelfGallery(){
 
@@ -79,11 +88,11 @@ function deploySettings(){
 }
 
 function expandTopic(theme_letter, theme_topic, topic_index){
+  $(".contentDisplay").show();
   const SCROLL_TIME = 950;
-  var content_display = $(".contentDisplay");
-  var spacing = content_display.offset().top-150;
+  const CONTENT_DISPLAY = $(".contentDisplay");
+  var spacing = CONTENT_DISPLAY.offset().top-150; // -150 as slight adjust
   $('html,body').stop().animate({scrollTop: spacing}, SCROLL_TIME);
-
     /*
     * Now load data.
     * Contact data needs only 1 file.
@@ -91,14 +100,16 @@ function expandTopic(theme_letter, theme_topic, topic_index){
     var parent_dir = "content/" +  theme_letter + "/"
     var file = parent_dir;
     if (theme_letter === "M"){
+      // reading from 1 file only
         file +=   "contact_listing.txt";
         $.ajax({
             type: "GET", url:file, dataType: "text"
         }).done(function (data) {
-            content_display.html(data.split("\n")[topic_index]);
+            CONTENT_DISPLAY.html(data.split("\n")[topic_index]);
       });
     } else {
+      // file depends on the topic here
       file +=  theme_topic + ".txt";
-      content_display.load(file);
+      CONTENT_DISPLAY.load(file);
     }
 }

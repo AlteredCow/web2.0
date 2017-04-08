@@ -1,5 +1,5 @@
 <h1>amaze</h1>
 
 <div class = "defaultContentLayout">
-	meow
+	iOS mail layout
 </div>

@@ -1,6 +1,7 @@
 // general variables
 @import "colors";
 @import "fonts";
+@import "mixins";
 
 $bg-primary: $color_light-grey;
 $bg-banner: $color_light-grey;
@@ -9,6 +10,8 @@ $min-width: 655px;
 $min-height: 800px;
 $max-height: 800px;
 $thmb-sm: 100px;
+$space-sm: 10px;
+$space-tiny: 2px;
 
 
 // "fills" <a> link
@@ -29,38 +32,11 @@ $thmb-sm: 100px;
 }
 
 .contentDisplay{
-	clear: both;
+  display: none; // to start of course
+  clear: both;
   width: 100%;
   height: 500px;
 	font-size: $font_size-article;
-}
-
-
-// template for shadowing
-@mixin box-shadow-main($type, $color){
-  box-shadow: $type 0px  4px 10px $color;
-	 -moz-box-shadow: $type 0px  4px 10px $color;
-	 -webkit-box-shadow: $type 0px  4px 10px $color;
-}
-
-@mixin outline-text($weight, $color){
-  text-shadow: -1*$weight 0 $color, 0 $weight $color, $weight 0 $color, 0 -1*$weight $color;
-}
-
-@mixin glow-wrap($weight, $color){
-
-  // foundation
-  border: 1px solid $color;
-
-    //stop blocky feel
-   -webkit-border-radius: $weight;
-      -moz-border-radius: $weight;
-           border-radius: $weight;
-
-    // glow effect
-   -webkit-box-shadow: 0px 0px $weight $color;
-      -moz-box-shadow: 0px 0px $weight $color;
-           box-shadow: 0px 0px $weight $color;
 }
 
 /* ----- HTML TAGS ------------------------ */
@@ -78,7 +54,6 @@ html, body{
 a{
 	text-decoration:  none;
   color: $color_link-primary;
-
 }
 
 
@@ -95,5 +70,6 @@ h1{
   opacity: 0.4;
   @include outline-text(1px, $color_dark-grey);
 }
+
 
 /* ----------------------------------------*/

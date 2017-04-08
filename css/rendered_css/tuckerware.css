@@ -1,43 +1,197 @@
-/*
-Error: Inconsistent indentation: "\t " was used for indentation, but the rest of the document was indented using 1 tab.
-        on line 95 of tuckerware.css
+#main_photo {
+  width: 400px;
+  height: 230px;
+  border: 2px solid; }
 
-90: #left_panel{
-91: 	float: left;
-92: 	width: 80%;
-93: 	min-height:  750px;
-94: 	box-shadow: inset 0px  5px 10px #444;
-95: 	 -moz-box-shadow: inset 0px  5px 10px #444;
-96: 	 -webkit-box-shadow: inset 0px  5px 10px #444;
-97: }
-98: 
-99: #right_panel{
-100: 	float: right;
+#goto_arrow {
+  width: 80px;
+  height: 80px;
+  cursor: pointer; }
 
-Backtrace:
-tuckerware.css:95
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:486:in `block in tabulate'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:444:in `each'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:444:in `each_with_index'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:444:in `tabulate'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:409:in `_to_tree'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:381:in `_render_with_sourcemap'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:298:in `render_with_sourcemap'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:294:in `watch'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin.rb:109:in `method_missing'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/exec/sass_scss.rb:360:in `watch_or_update'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/exec/sass_scss.rb:51:in `process_result'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/exec/base.rb:52:in `parse'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/exec/base.rb:19:in `parse!'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/bin/sass:13:in `<top (required)>'
-C:/Ruby23-x64/bin/sass:22:in `load'
-C:/Ruby23-x64/bin/sass:22:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Inconsistent indentation: \"\t \" was used for indentation, but the rest of the document was indented using 1 tab.\A         on line 95 of tuckerware.css\A \A 90: #left_panel{\A 91: 	float: left;\A 92: 	width: 80%;\A 93: 	min-height:  750px;\A 94: 	box-shadow: inset 0px  5px 10px #444;\A 95: 	 -moz-box-shadow: inset 0px  5px 10px #444;\A 96: 	 -webkit-box-shadow: inset 0px  5px 10px #444;\A 97: }\A 98: \A 99: #right_panel{\A 100: 	float: right;"; }
+#read_more {
+  color: #888; }
+
+.link-buffer, #main_menu li > a {
+  width: 100%;
+  height: 100%;
+  display: inline-block; }
+
+.compact, html, body, h1, h2, ul {
+  padding: 0;
+  margin: 0; }
+
+.expanded, html, body {
+  height: 100%;
+  width: 100%; }
+
+.contentDisplay {
+  display: none;
+  clear: both;
+  width: 100%;
+  height: 500px;
+  font-size: 1.8rem; }
+
+/* ----- HTML TAGS ------------------------ */
+html, body {
+  font-family: calibri;
+  min-width: 655px;
+  min-height: 800px;
+  background: #EAEAEA; }
+
+a {
+  text-decoration: none;
+  color: blue; }
+
+li {
+  list-style-type: none; }
+
+h1 {
+  color: #999;
+  opacity: 0.4;
+  text-shadow: -1px 0 #666, 0 1px #666, 1px 0 #666, 0 -1px #666; }
+
+/* ----------------------------------------*/
+/* ---- UPPER / BANNER ---------------- */
+#space_block {
+  border-bottom: 4px solid black;
+  height: 120px;
+  width: 100%; }
+
+#banner {
+  width: 100%; }
+  #banner * {
+    font-weight: lighter;
+    font-size: 1.7rem;
+    width: 22%; }
+  #banner p {
+    float: left;
+    padding: 10px;
+    white-space: nowrap;
+    line-height: 50px; }
+
+#photobook_icon {
+  width: 75px;
+  height: 75px;
+  top: 10px;
+  position: absolute;
+  padding: 10px 5px 10px 10px;
+  cursor: pointer;
+  background: #EAEAEA;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 4px #ccc;
+  -moz-box-shadow: 0px 0px 4px #ccc;
+  box-shadow: 0px 0px 4px #ccc; }
+
+#photobook_icon:hover {
+  width: 85px;
+  height: 85px;
+  border: 1px solid #666;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 4px #666;
+  -moz-box-shadow: 0px 0px 4px #666;
+  box-shadow: 0px 0px 4px #666; }
+
+/* ---- DREAM MENU ---------------- */
+#main_menu {
+  float: right;
+  width: 50%; }
+  #main_menu li {
+    box-sizing: border-box;
+    display: inline-block;
+    float: left;
+    width: 15%;
+    text-align: right;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px #999;
+    font-size: 1.7rem;
+    height: 100px;
+    line-height: 120px;
+    margin-left: 5px;
+    padding-right: 10px; }
+  #main_menu li > a {
+    padding-right: 10px; }
+
+/* ---- MAIN CONTENT AREA ------------ */
+.gridview {
+  color: #333;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 0; }
+  .gridview span {
+    font-size: 2rem;
+    font-family: Century Gothic;
+    font-weight: 400;
+    padding-bottom: 80px;
+    vertical-align: top;
+    width: 50%;
+    float: left; }
+  .gridview span :hover {
+    color: #00b3b3; }
+
+@media screen and (max-width: 655px) {
+  .gridview > span, #main_content, .defaultContentLayout {
+    font-size: 1rem; } }
+.panel {
+  height: 100%; }
+
+#left_panel {
+  float: left;
+  width: 80%;
+  height: 950px;
+  overflow-x: scroll; }
+
+#main_content, .defaultContentLayout {
+  font-family: calibri;
+  font-size: 1.8rem;
+  width: 90%;
+  text-align: justify;
+  margin: 0 auto;
+  clear: both; }
+
+#footnotes {
+  height: 5%;
+  width: 79%;
+  padding: 2px; }
+  #footnotes p {
+    font-size: 0.9rem;
+    padding: 2px; }
+
+#footnote_left {
+  float: left;
+  color: grey; }
+
+#footnote_right {
+  float: right;
+  right: 21%;
+  color: #cc1d00; }
+
+#right_panel {
+  float: right;
+  width: 20%;
+  background: #ccc;
+  height: 950px; }
+
+/* ---- RIGHTSIDE PANEL ------------ */
+#settings_cog {
+  background: #ccc;
+  height: 100px;
+  font-size: 104px; }
+
+#settings_cog a {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  color: #333333; }
+
+#settings_cog a:hover {
+  background: cyan; }
+
+#site_logo {
+  background: #000; }
+
+/*# sourceMappingURL=tuckerware.css.map */

@@ -1,9 +1,10 @@
 // order is important, yo
 
-@import "r_theme";
-@import "e_theme";
-@import "a_theme";
-@import "m_theme";
+@import "d_specific";
+@import "r_specific";
+@import "e_specific";
+@import "a_specific";
+@import "m_specific";
 @import "colors";
 @import "fonts";
 @import "universals";
@@ -27,26 +28,26 @@
 }
 	p{
 		float: left;
-		padding: 10px;
+		padding: $space-sm;
 		white-space: nowrap;
 		line-height: 50px;
 	}
 }
 
-#camera{
+#photobook_icon{
 	width: $thmb-sm * 0.75;
 	height: $thmb-sm * 0.75;
-	top: 10px;
+	top: $space-sm;
 	position: absolute;
 
-	padding: 10px;
+	padding: $space-sm $space-sm/2 $space-sm $space-sm;
 	cursor: pointer;
 	background: $bg-banner;
 	@include  glow-wrap(4px, $color_fair-grey);
 
 }
 
-#camera:hover{
+#photobook_icon:hover{
 	width: $thmb-sm * 0.85 ;
 	height: $thmb-sm * 0.85;
 	@include  glow-wrap(4px, $color_dark-grey);
@@ -79,7 +80,7 @@ $rightsideWidth: 100% - $leftsideWidth;
 	float: left;
 	width: $leftsideWidth;
 	height: 950px;
-
+	overflow-x: scroll;
 }
 
 
@@ -89,24 +90,23 @@ $rightsideWidth: 100% - $leftsideWidth;
 	width: 90%;
 	text-align: justify;
 	margin: 0 auto;
-	height: 95%;
-
+	clear: both;
 }
 
 #footnotes{
 	height: 5%;
 	width: $leftsideWidth - 1%;
-	padding: 2px;
+	padding: $space-tiny;
 
 	 p{
 		font-size: $font_size-footnote;
-		padding: 2px;
+		padding: $space-tiny;
+
 	}
 }
 
 #footnote_left{
 	float:left;
-	margin-left: 5px;
 	color:  grey;
 }
 
@@ -122,11 +122,6 @@ $rightsideWidth: 100% - $leftsideWidth;
 	background: $color_fair-grey;
 	height: 950px;
 }
-
-
-
-
-
 
 /* ---- RIGHTSIDE PANEL ------------ */
 

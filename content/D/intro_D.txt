@@ -4,14 +4,14 @@
   Wise choice visiting here
   The name is Austin Tucker
   <br/>
-[img here]
+<img id = "main_photo" src = "img/personal/hh_grey.jpg"/>
   <br/>
   I have things to share
   You will enjoy these things
   So welcome yourself and go explore
-  <br/>
-[--> here]
-[Read more]
-  <br/>
+
+  <a href = "javascript:expandTopic('D', 'read_more', 0)">Read More</a> first?
+  Or let us<a href = "javascript:clickPage(2)"> begin</a>?
+  <div class = "contentDisplay"></div>
   <hr/>
 </div>

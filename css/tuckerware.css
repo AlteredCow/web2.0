@@ -92,8 +92,8 @@ h1, h2, ul{
 	width: 80%;
 	min-height:  750px;
 	box-shadow: inset 0px  5px 10px #444;
-	 -moz-box-shadow: inset 0px  5px 10px #444;
-	 -webkit-box-shadow: inset 0px  5px 10px #444;
+ -moz-box-shadow: inset 0px  5px 10px #444;
+ -webkit-box-shadow: inset 0px  5px 10px #444;
 }
 
 #right_panel{

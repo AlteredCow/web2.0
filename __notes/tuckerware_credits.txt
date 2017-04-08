@@ -2,3 +2,13 @@ Photo-icon:
 openclipart > Maiconfz
 https://openclipart.org/detail/244452/camera-icon
 AS OF  02/08/2017
+
+Gallery-icon:
+openclipart > dannya
+https://openclipart.org/detail/200715/primary-photobook
+AS OF 04/04/2017
+
+Green right arrow:
+openclipart > cyberscooty
+https://openclipart.org/detail/191324/arrow-simple-way-green
+AS OF 04/04/2017

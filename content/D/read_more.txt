@@ -1,0 +1,10 @@
+<p id = "read_more">
+  Foremost, this website is a playground.
+  It in itself is a project of mine, a builder of technical prowess.
+  It portrays both me and the productions of my soul.
+  So this includes artwork, other websites, and pondering remarks.
+  Basically, it's a hub! A gallery! A place for both you and me.
+
+  ♥
+<a href = "javascript:clickPage(2)"> Now let's get rolling!</a>
+  </p>
