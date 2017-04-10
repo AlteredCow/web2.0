@@ -33,18 +33,21 @@ $space-tiny: 2px;
 
 .contentDisplay{
   display: none; // to start of course
-  clear: both;
-  width: 100%;
-  height: 500px;
 	font-size: $font_size-article;
 }
 
 /* ----- HTML TAGS ------------------------ */
 
+html{
+  overflow-y: auto;
+  width: 100%;
+}
+
 html, body{
 
   @extend .compact;
   @extend .expanded;
+  
   font-family: $font_family-main;
 	min-width: $min-width;
   min-height: $min-height;

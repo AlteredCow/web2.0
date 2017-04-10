@@ -13,32 +13,34 @@
 
 /* ---- UPPER / BANNER ---------------- */
 
-#space_block{
-	border-bottom: $score;
-	height: 120px;
-	width: 100%;
+#banner{
+	border-bottom: 3px solid black;
+	display: flex;
+	justify-content: space-between;
+	font-size: $font_size-banner;
+	height: 130px;
+	-webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+	*{
+		font-weight: lighter;
+	}
+	p{
+		white-space: nowrap;
+		line-height: 100px;
+		padding-left: 25px;
+	}
+	a > img {
+	}
+
 }
 
-#banner{
-	width: 100%;
-  *{
-			font-weight: lighter;
-			font-size: $font_size-banner;
-			width: 22%;
-}
-	p{
-		float: left;
-		padding: $space-sm;
-		white-space: nowrap;
-		line-height: 50px;
-	}
-}
 
 #photobook_icon{
 	width: $thmb-sm * 0.75;
 	height: $thmb-sm * 0.75;
-	top: $space-sm;
-	position: absolute;
+
 
 	padding: $space-sm $space-sm/2 $space-sm $space-sm;
 	cursor: pointer;
@@ -59,7 +61,7 @@
 /* ---- MAIN CONTENT AREA ------------ */
 
 @import "gridview";
-$leftsideWidth: 80%;
+$leftsideWidth: 90%;
 $rightsideWidth: 100% - $leftsideWidth;
 
 
@@ -69,28 +71,25 @@ $rightsideWidth: 100% - $leftsideWidth;
 	}
 }
 
-
-.panel{
-	height: 100%;
-
-}
-
-
 #left_panel{
-	float: left;
 	width: $leftsideWidth;
-	height: 950px;
-	overflow-x: scroll;
 }
 
 
+#right_panel{
+	width: $rightsideWidth;
+	background: $color_fair-grey;
+	float: right;
+}
+
+#main_content{width: $leftsideWidth;}
 #main_content, .defaultContentLayout{
 	font-family: $font_family-main;
 	font-size: $font_size-article;
-	width: 90%;
 	text-align: justify;
-	margin: 0 auto;
-	clear: both;
+	float: left;
+	overflow: auto;
+
 }
 
 #footnotes{
@@ -114,14 +113,9 @@ $rightsideWidth: 100% - $leftsideWidth;
 	float:right;
 	right: 21%;
 	color: $color_deep-red;
+
 }
 
-#right_panel{
-	float: right;
-	width: $rightsideWidth;
-	background: $color_fair-grey;
-	height: 950px;
-}
 
 /* ---- RIGHTSIDE PANEL ------------ */
 

@@ -1,9 +1,8 @@
 function normalizeHeights(){
   $("#initial_content").height($("#main_menu").height());
-  $("#space_block").height($("#initial_content").height());
-  console.log($(".defaultContentLayout:eq(0)").height());
-  $("#left_panel").height($(".defaultContentLayout").height());
-  $("#right_panel").height($("#left_panel").height());
+  $("html").height(window.innerHeight);
+  $("#right_panel").height($("#main_content").innerHeight);
+  console.log($("#main_content").innerHeight);
 }
 
 $(document).ready(function(){
@@ -15,24 +14,25 @@ $(document).ready(function(){
   // Angular use --> loading content from file compartments
   var app = angular.module('loaderApp', []);
     app.controller('loaderController', function($scope, $http) {
-  /*------------- CHANGING TOPICS ---------------------------------*/
+
+    // select file by menu selection
     $scope.showPage = function (menu_choice) {
-      // find file by menu selection
-      var file_letter  =  "DREAM"[menu_choice];
-      // var isJSON = (menu_choice== 2 || menu_choice == 3);
+      const MOTTO = "DREAM";
+      var file_letter  =  MOTTO[menu_choice];
+      var isJSON = (menu_choice== 2 || menu_choice == 3);
       var isJSON = false;
       var extension = "." +  (isJSON? "json" : "txt");
       var file = "content/"+ file_letter + "/intro_" + file_letter + extension;
 
-      // swap content through fade-transition
-      $("#main_content").fadeOut('slow', function(){
+      // fade-transition animation
+      $("#main_content").fadeOut('fast', function(){
             $http.get(file)
       			   .success(function(content){
               $("#main_content").html(content);
-              // $(".topic_choice:eq(0)")[0].click(); //auto-scroll
       		});
       }).fadeIn();
-      normalizeHeights();
+      normalizeHeights(); // tidying
+
     } // end of showPage()
 
   }); // end of Angular
@@ -41,14 +41,14 @@ $(document).ready(function(){
 }); // end of document.ready()
 
 // semi-globals
-var topicRow_priorNumber = 0;
-var theme_topic_prior = "education";
+var theme_topic_shown = "education";
 
 // highlight hovered; dull the remaining
 function menuGlow(hovered){
-  var bar_visibility = "0px solid black";
-    $("#main_menu > li").each(function(index, value){
+  var bar_visibility = "0";
 
+    // full scan and update
+    $("#main_menu > li").each(function(index, value){
       var current_letter = $("#main_menu > li ").eq(index);
         if (index == hovered){
           // highlighting
@@ -56,11 +56,11 @@ function menuGlow(hovered){
             $(current_letter).css("width","30%");
         } else {
           // dulling
-            bar_visibility = "0px solid black";
+            bar_visibility = "0";
             $(current_letter).css("width","15%");
         }
 
-        // updating
+        // applying updates
         $(current_letter ).html("DREAM"[index]);
         $(current_letter ).css("border-bottom", bar_visibility);
         launchWord(hovered);
@@ -74,9 +74,10 @@ function launchWord(hovered){
 }
 
 function clickPage(newPage){
+  // click to page; reset window position; highlight menu choice
   $("#main_menu :eq("+newPage+")")[0].click();
-  window.scrollTo(0,0);
   $("#main_menu :nth-child("+newPage+")").trigger('mouseover');
+  window.scrollTo(0,0);
 }
 
 function openSelfGallery(){
@@ -93,23 +94,22 @@ function expandTopic(theme_letter, theme_topic, topic_index){
   const CONTENT_DISPLAY = $(".contentDisplay");
   var spacing = CONTENT_DISPLAY.offset().top-150; // -150 as slight adjust
   $('html,body').stop().animate({scrollTop: spacing}, SCROLL_TIME);
-    /*
-    * Now load data.
-    * Contact data needs only 1 file.
-    */
+
+    // Load the major data.
     var parent_dir = "content/" +  theme_letter + "/"
     var file = parent_dir;
-    if (theme_letter === "M"){
-      // reading from 1 file only
+    if (theme_letter === "M"){  // 1 file only
         file +=   "contact_listing.txt";
         $.ajax({
             type: "GET", url:file, dataType: "text"
         }).done(function (data) {
+          // splits data from single file
             CONTENT_DISPLAY.html(data.split("\n")[topic_index]);
       });
     } else {
-      // file depends on the topic here
+      // here, file depends on the chosen topic
       file +=  theme_topic + ".txt";
       CONTENT_DISPLAY.load(file);
     }
+    normalizeHeights();
 }

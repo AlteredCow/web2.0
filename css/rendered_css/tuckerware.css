@@ -9,7 +9,9 @@
   cursor: pointer; }
 
 #read_more {
-  color: #888; }
+  color: #888;
+  border: 1px solid black;
+  background: white; }
 
 .link-buffer, #main_menu li > a {
   width: 100%;
@@ -26,12 +28,13 @@
 
 .contentDisplay {
   display: none;
-  clear: both;
-  width: 100%;
-  height: 500px;
   font-size: 1.8rem; }
 
 /* ----- HTML TAGS ------------------------ */
+html {
+  overflow-y: auto;
+  width: 100%; }
+
 html, body {
   font-family: calibri;
   min-width: 655px;
@@ -52,28 +55,25 @@ h1 {
 
 /* ----------------------------------------*/
 /* ---- UPPER / BANNER ---------------- */
-#space_block {
-  border-bottom: 4px solid black;
-  height: 120px;
-  width: 100%; }
-
 #banner {
-  width: 100%; }
+  border-bottom: 3px solid black;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.7rem;
+  height: 130px;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
   #banner * {
-    font-weight: lighter;
-    font-size: 1.7rem;
-    width: 22%; }
+    font-weight: lighter; }
   #banner p {
-    float: left;
-    padding: 10px;
     white-space: nowrap;
-    line-height: 50px; }
+    line-height: 100px;
+    padding-left: 25px; }
 
 #photobook_icon {
   width: 75px;
   height: 75px;
-  top: 10px;
-  position: absolute;
   padding: 10px 5px 10px 10px;
   cursor: pointer;
   background: #EAEAEA;
@@ -102,17 +102,13 @@ h1 {
   width: 50%; }
   #main_menu li {
     box-sizing: border-box;
-    display: inline-block;
     float: left;
     width: 15%;
-    text-align: right;
     font-weight: bold;
     text-shadow: 2px 2px 5px #999;
     font-size: 1.7rem;
     height: 100px;
-    line-height: 120px;
-    margin-left: 5px;
-    padding-right: 10px; }
+    line-height: 100px; }
   #main_menu li > a {
     padding-right: 10px; }
 
@@ -136,26 +132,27 @@ h1 {
 @media screen and (max-width: 655px) {
   .gridview > span, #main_content, .defaultContentLayout {
     font-size: 1rem; } }
-.panel {
-  height: 100%; }
-
 #left_panel {
-  float: left;
-  width: 80%;
-  height: 950px;
-  overflow-x: scroll; }
+  width: 90%; }
+
+#right_panel {
+  width: 10%;
+  background: #ccc;
+  float: right; }
+
+#main_content {
+  width: 90%; }
 
 #main_content, .defaultContentLayout {
   font-family: calibri;
   font-size: 1.8rem;
-  width: 90%;
   text-align: justify;
-  margin: 0 auto;
-  clear: both; }
+  float: left;
+  overflow: auto; }
 
 #footnotes {
   height: 5%;
-  width: 79%;
+  width: 89%;
   padding: 2px; }
   #footnotes p {
     font-size: 0.9rem;
@@ -169,12 +166,6 @@ h1 {
   float: right;
   right: 21%;
   color: #cc1d00; }
-
-#right_panel {
-  float: right;
-  width: 20%;
-  background: #ccc;
-  height: 950px; }
 
 /* ---- RIGHTSIDE PANEL ------------ */
 #settings_cog {
