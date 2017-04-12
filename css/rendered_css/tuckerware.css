@@ -28,17 +28,17 @@
 
 .contentDisplay {
   display: none;
-  font-size: 1.8rem; }
+  font-size: 1.8rem;
+  clear: both; }
 
 /* ----- HTML TAGS ------------------------ */
 html {
-  overflow-y: auto;
-  width: 100%; }
+  overflow-y: auto; }
 
 html, body {
   font-family: calibri;
   min-width: 655px;
-  min-height: 800px;
+  min-height: 1000px;
   background: #EAEAEA; }
 
 a {
@@ -132,9 +132,6 @@ h1 {
 @media screen and (max-width: 655px) {
   .gridview > span, #main_content, .defaultContentLayout {
     font-size: 1rem; } }
-#left_panel {
-  width: 90%; }
-
 #right_panel {
   width: 10%;
   background: #ccc;
@@ -152,11 +149,9 @@ h1 {
 
 #footnotes {
   height: 5%;
-  width: 89%;
   padding: 2px; }
   #footnotes p {
-    font-size: 0.9rem;
-    padding: 2px; }
+    font-size: 0.9rem; }
 
 #footnote_left {
   float: left;

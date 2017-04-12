@@ -24,3 +24,12 @@
       -moz-box-shadow: 0px 0px $weight $color;
            box-shadow: 0px 0px $weight $color;
 }
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+    
+  }
+}

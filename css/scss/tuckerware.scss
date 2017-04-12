@@ -71,9 +71,6 @@ $rightsideWidth: 100% - $leftsideWidth;
 	}
 }
 
-#left_panel{
-	width: $leftsideWidth;
-}
 
 
 #right_panel{
@@ -81,6 +78,7 @@ $rightsideWidth: 100% - $leftsideWidth;
 	background: $color_fair-grey;
 	float: right;
 }
+
 
 #main_content{width: $leftsideWidth;}
 #main_content, .defaultContentLayout{
@@ -91,16 +89,12 @@ $rightsideWidth: 100% - $leftsideWidth;
 	overflow: auto;
 
 }
-
 #footnotes{
 	height: 5%;
-	width: $leftsideWidth - 1%;
 	padding: $space-tiny;
 
 	 p{
 		font-size: $font_size-footnote;
-		padding: $space-tiny;
-
 	}
 }
 

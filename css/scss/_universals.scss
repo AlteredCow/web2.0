@@ -7,7 +7,7 @@ $bg-primary: $color_light-grey;
 $bg-banner: $color_light-grey;
 $score: 4px solid black;
 $min-width: 655px;
-$min-height: 800px;
+$min-height: 1000px;
 $max-height: 800px;
 $thmb-sm: 100px;
 $space-sm: 10px;
@@ -31,27 +31,29 @@ $space-tiny: 2px;
   width: 100%;
 }
 
+
 .contentDisplay{
   display: none; // to start of course
 	font-size: $font_size-article;
+  clear:both;
 }
 
 /* ----- HTML TAGS ------------------------ */
 
 html{
   overflow-y: auto;
-  width: 100%;
 }
 
 html, body{
 
   @extend .compact;
   @extend .expanded;
-  
+
   font-family: $font_family-main;
 	min-width: $min-width;
   min-height: $min-height;
 	background: $bg-primary;
+
 }
 
 a{

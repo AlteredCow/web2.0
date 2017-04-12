@@ -1,19 +1,31 @@
+
+// occurs onload, on-page-switch, on-topic-switch
 function normalizeHeights(){
-  $("#initial_content").height($("#main_menu").height());
-  $("html").height(window.innerHeight);
-  $("#right_panel").height($("#main_content").innerHeight);
-  console.log($("#main_content").innerHeight);
+  setTimeout(function() { // ample time to calculate
+    $("#initial_content").height($("#main_menu").height());
+    $("html").height($(document).height());
+    $("#right_panel").height($("html").height() - $("#banner").height());
+  }, 20);
+  // $("#right_panel").height($(".defaultContentLayout:first").height());
 }
 
 $(document).ready(function(){
+
   // setting the stage here
-  normalizeHeights();
   $('#main_content').load("content/D/intro_D.txt"); // call first page onload
   $("#main_menu li:first").trigger('mouseover');  // highlight 'D'
+    normalizeHeights();
+  // setTimeout(function() {
+  //   $("#main_menu li:first").click();
+  // },10);
 
   // Angular use --> loading content from file compartments
   var app = angular.module('loaderApp', []);
     app.controller('loaderController', function($scope, $http) {
+
+
+      // angular.element('#main_menu li:first').trigger('click');
+
 
     // select file by menu selection
     $scope.showPage = function (menu_choice) {
