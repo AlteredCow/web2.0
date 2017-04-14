@@ -1,5 +1,7 @@
 <h1>amaze</h1>
 
+<ul id = "archive_panel  ng-repeat = "topic in amaze_topics"">
+	<li ng-click = "amazeByTopic($index)">{{ topic.title  }}</li>
+</ul>
 <div class = "defaultContentLayout">
-	iOS mail layout
 </div>

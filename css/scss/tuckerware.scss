@@ -73,22 +73,23 @@ $rightsideWidth: 100% - $leftsideWidth;
 
 
 
-#right_panel{
-	width: $rightsideWidth;
-	background: $color_fair-grey;
-	float: right;
+
+
+#main_content{
+	width: $leftsideWidth;
 }
-
-
-#main_content{width: $leftsideWidth;}
 #main_content, .defaultContentLayout{
 	font-family: $font_family-main;
 	font-size: $font_size-article;
 	text-align: justify;
 	float: left;
 	overflow: auto;
+}
+#main_content > *{
+	padding: 15px;
 
 }
+
 #footnotes{
 	height: 5%;
 	padding: $space-tiny;
@@ -113,10 +114,41 @@ $rightsideWidth: 100% - $leftsideWidth;
 
 /* ---- RIGHTSIDE PANEL ------------ */
 
+#right_panel{
+	width: $rightsideWidth;
+	background: $color_fair-grey;
+	// float: right;
+	// height: 100%;
+	height: auto;
+	position: fixed;
+	right: 0;
+@include box-shadow-main(inset, #999);
+
+	a{
+		box-sizing:border-box;
+			font-size:  104px;
+					color: #333333;
+	}
+
+	a:hover{
+		background: #e50000;
+		@include box-shadow-main(inset, #999);
+	}
+
+}
+#right_panel, #right_panel > * {
+	@include box-shadow-menu(inset, $color_deep-red);
+	text-align: center;
+}
+
+
+
+
 #settings_cog{
 	background: $color_fair-grey;
 	height: 100px;
-	font-size:  104px;
+
+
 
 }
 
@@ -124,14 +156,13 @@ $rightsideWidth: 100% - $leftsideWidth;
 		height: 100%;
 		width: 100%;
 		display: inline-block;
-		color: #333333;
+
 }
 
-#settings_cog a:hover{
-	background:cyan;
-}
 
-#site_logo{
+#up_arrow{
+	@extend  .link-buffer;
 
-	background: #000;
+	height: 100px;
+	line-height: 100px;
 }

@@ -2,11 +2,15 @@
 // occurs onload, on-page-switch, on-topic-switch
 function normalizeHeights(){
   setTimeout(function() { // ample time to calculate
-    $("#initial_content").height($("#main_menu").height());
-    $("html").height($(document).height());
-    $("#right_panel").height($("html").height() - $("#banner").height());
-  }, 20);
+    // $("#initial_content").height($("#main_menu").height());
+    // $("html").height($(document).height());
+    // $("#right_panel").height($("html").height() - $("#banner").height());
+  }, 150);
   // $("#right_panel").height($(".defaultContentLayout:first").height());
+}
+
+function scrollToTop(){
+  $("html, body").animate({ scrollTop: 0 }, "slow");
 }
 
 $(document).ready(function(){
@@ -14,7 +18,6 @@ $(document).ready(function(){
   // setting the stage here
   $('#main_content').load("content/D/intro_D.txt"); // call first page onload
   $("#main_menu li:first").trigger('mouseover');  // highlight 'D'
-    normalizeHeights();
   // setTimeout(function() {
   //   $("#main_menu li:first").click();
   // },10);
@@ -40,12 +43,20 @@ $(document).ready(function(){
       $("#main_content").fadeOut('fast', function(){
             $http.get(file)
       			   .success(function(content){
+                //  var compiledeHTML = $compile(content)($scope);
+              // $("#main_content").html(compiledeHTML);
               $("#main_content").html(content);
       		});
       }).fadeIn();
-      normalizeHeights(); // tidying
+      // normalizeHeights(); // tidying
 
     } // end of showPage()
+
+    const AMAZE_ARCHIVES = "content/A/archives_list.txt";
+    $http.get(AMAZE_ARCHIVES)
+       .success(function(data){
+        $scope["amaze_topics"] = data.topics;
+      });
 
   }); // end of Angular
 
@@ -97,6 +108,9 @@ function openSelfGallery(){
 }
 
 function deploySettings(){
+  //var li_ = "<li><a href = ' '></a></li>"
+  // var appendage = li_ + li_ + li_
+  // $("#right_panel li:first").after(appendage);
 
 }
 

@@ -15,7 +15,7 @@
    <body ng-app = "loaderApp" ng-controller="loaderController">
      <!-- Banner holds Icon, Name, Moto, and Menu  -->
     <div id = "banner">
-           <p id = "my_name">Austin R. Tucker</p>
+           <p id = "my_name">Austin R Tucker</p>
            <!--  LIGHTBOX -->
                 <a href="img/UI/gallery_icon.png" data-lightbox="photo_icon" data-title="My caption"><img  id = "photobook_icon" src = "img/UI/gallery_icon.png" onclick="openSelfGallery()"/></a>
          <!-- Menu for page transitions
@@ -36,10 +36,11 @@
       </pre>
 
     <!-- For Settings and Logo -->
-      <div id = "right_panel" >
-          <div id = "settings_cog" onclick="deploySettings()"><a href = "">*</a></div>
-          <div id = "site_logo">LOGO</div>
-      </div>
+        <ul id = "right_panel" >
+            <li id = "settings_cog" onclick="deploySettings()"><a href = "">*</a></li>
+            <li><a id = "up_arrow" href = "javascript:scrollToTop()" >↑</a></li>
+            <li id = "site_logo">LOGO</li>
+        </ul>
       <!-- <span id = "footnotes">
         <p  id = "footnote_left" >
           Site Under Construction | Stick Around
@@ -48,6 +49,5 @@
           welcome to my domain
         </p>
       </span> -->
-      <br style="clear:both;"/>
    </body>
 </html>

@@ -1,9 +1,19 @@
-// template for shadowing
+// basic shadowing
 @mixin box-shadow-main($type, $color){
-  box-shadow: $type 0px  4px 10px $color;
- -moz-box-shadow: $type 0px  4px 10px $color;
- -webkit-box-shadow: $type 0px  4px 10px $color;
+  box-shadow: $type 0px  4px 7px $color;
+ -moz-box-shadow: $type 0px  4px 7px $color;
+ -webkit-box-shadow: $type 0px  4px 7px $color;
 }
+
+// menu shadowing
+@mixin box-shadow-menu($type, $color){
+  box-shadow: $type 0px  2px 7px $color;
+ -moz-box-shadow: $type 0px  2px 7px $color;
+ -webkit-box-shadow: $type 0px  2px 7px $color;
+}
+
+
+
 
 @mixin outline-text($weight, $color){
   text-shadow: -1*$weight 0 $color, 0 $weight $color, $weight 0 $color, 0 -1*$weight $color;
@@ -23,13 +33,4 @@
    -webkit-box-shadow: 0px 0px $weight $color;
       -moz-box-shadow: 0px 0px $weight $color;
            box-shadow: 0px 0px $weight $color;
-}
-
-@mixin clearfix() {
-  &::after {
-    display: block;
-    content: "";
-    clear: both;
-    
-  }
 }
