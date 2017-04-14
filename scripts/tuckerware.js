@@ -24,41 +24,59 @@ $(document).ready(function(){
 
   // Angular use --> loading content from file compartments
   var app = angular.module('loaderApp', []);
+
+  // angular.element('#main_menu li:first').trigger('click');
+  app.directive('includeReplace', function () {
+      return {
+          require: 'ngInclude',
+          link: function (scope, el, attrs) {
+            scope.showPage = function (menu_choice) {
+              const MOTTO = "DREAM";
+              var file_letter  =  MOTTO[menu_choice];
+              var isJSON = (menu_choice== 2 || menu_choice == 3);
+              var isJSON = false;
+              var extension = "." +  (isJSON? "json" : "txt");
+              var file = "content/"+ file_letter + "/intro_" + file_letter + extension;
+
+              // template.url = file;
+              templateUrl = file;
+              // $scope.apply();
+              // select file by menu selection
+
+                //
+                // // fade-transition animation
+                // $("#main_content").fadeOut('fast', function(){
+                //       $http.get(file)
+                // 			   .success(function(content){
+                //           //  var compiledeHTML = $compile(content)($scope);
+                //         // $("#main_content").html(compiledeHTML);
+                //         $("#main_content").html(content);
+                // 		});
+                // }).fadeIn();
+                // // normalizeHeights(); // tidying
+
+              } // end of showPage()
+
+
+          }
+      };
+    });
+
     app.controller('loaderController', function($scope, $http) {
 
 
-      // angular.element('#main_menu li:first').trigger('click');
 
-
-    // select file by menu selection
-    $scope.showPage = function (menu_choice) {
-      const MOTTO = "DREAM";
-      var file_letter  =  MOTTO[menu_choice];
-      var isJSON = (menu_choice== 2 || menu_choice == 3);
-      var isJSON = false;
-      var extension = "." +  (isJSON? "json" : "txt");
-      var file = "content/"+ file_letter + "/intro_" + file_letter + extension;
-
-      // fade-transition animation
-      $("#main_content").fadeOut('fast', function(){
-            $http.get(file)
-      			   .success(function(content){
-                //  var compiledeHTML = $compile(content)($scope);
-              // $("#main_content").html(compiledeHTML);
-              $("#main_content").html(content);
-      		});
-      }).fadeIn();
-      // normalizeHeights(); // tidying
-
-    } // end of showPage()
-
-    const AMAZE_ARCHIVES = "content/A/archives_list.txt";
-    $http.get(AMAZE_ARCHIVES)
-       .success(function(data){
-        $scope["amaze_topics"] = data.topics;
       });
 
-  }); // end of Angular
+
+
+    // const AMAZE_ARCHIVES = "content/A/archives_list.txt";
+    // $http.get(AMAZE_ARCHIVES)
+    //    .success(function(data){
+    //     $scope["amaze_topics"] = data.topics;
+    //   });
+
+
 
 
 }); // end of document.ready()
