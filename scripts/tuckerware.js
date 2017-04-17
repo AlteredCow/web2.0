@@ -1,14 +1,3 @@
-
-// occurs onload, on-page-switch, on-topic-switch
-function normalizeHeights(){
-  setTimeout(function() { // ample time to calculate
-    // $("#initial_content").height($("#main_menu").height());
-    // $("html").height($(document).height());
-    // $("#right_panel").height($("html").height() - $("#banner").height());
-  }, 150);
-  // $("#right_panel").height($(".defaultContentLayout:first").height());
-}
-
 function scrollToTop(){
   $("html, body").animate({ scrollTop: 0 }, "slow");
 }
@@ -18,54 +7,14 @@ $(document).ready(function(){
   // setting the stage here
   $('#main_content').load("content/D/intro_D.txt"); // call first page onload
   $("#main_menu li:first").trigger('mouseover');  // highlight 'D'
-  // setTimeout(function() {
-  //   $("#main_menu li:first").click();
-  // },10);
 
   // Angular use --> loading content from file compartments
   var app = angular.module('loaderApp', []);
-
-  // angular.element('#main_menu li:first').trigger('click');
-  app.directive('includeReplace', function () {
-      return {
-          require: 'ngInclude',
-          link: function (scope, el, attrs) {
-            scope.showPage = function (menu_choice) {
-              const MOTTO = "DREAM";
-              var file_letter  =  MOTTO[menu_choice];
-              var isJSON = (menu_choice== 2 || menu_choice == 3);
-              var isJSON = false;
-              var extension = "." +  (isJSON? "json" : "txt");
-              var file = "content/"+ file_letter + "/intro_" + file_letter + extension;
-
-              // template.url = file;
-              templateUrl = file;
-              // $scope.apply();
-              // select file by menu selection
-
-                //
-                // // fade-transition animation
-                // $("#main_content").fadeOut('fast', function(){
-                //       $http.get(file)
-                // 			   .success(function(content){
-                //           //  var compiledeHTML = $compile(content)($scope);
-                //         // $("#main_content").html(compiledeHTML);
-                //         $("#main_content").html(content);
-                // 		});
-                // }).fadeIn();
-                // // normalizeHeights(); // tidying
-
-              } // end of showPage()
-
-
-          }
-      };
-    });
-
-    app.controller('loaderController', function($scope, $http) {
-
-
-
+    app.controller('loaderController', function($scope) {
+      $scope.showPage = function (menu_choice) {
+         const MOTTO = "DREAM";
+         $scope.key_letter = MOTTO[menu_choice];
+       } // END(showPage)
       });
 
 
@@ -75,9 +24,6 @@ $(document).ready(function(){
     //    .success(function(data){
     //     $scope["amaze_topics"] = data.topics;
     //   });
-
-
-
 
 }); // end of document.ready()
 
@@ -155,5 +101,4 @@ function expandTopic(theme_letter, theme_topic, topic_index){
       file +=  theme_topic + ".txt";
       CONTENT_DISPLAY.load(file);
     }
-    normalizeHeights();
 }
