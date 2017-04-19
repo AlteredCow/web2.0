@@ -31,6 +31,18 @@
   font-size: 1.8rem;
   clear: both; }
 
+.ng-animate {
+  transition: 0.8s linear all; }
+
+.ng-enter {
+  opacity: 0; }
+
+.ng-enter.ng-enter-active {
+  opacity: 1; }
+
+.ng-leave {
+  opacity: 1; }
+
 /* ----- HTML TAGS ------------------------ */
 html {
   overflow-y: auto; }
@@ -38,7 +50,7 @@ html {
 html, body {
   font-family: calibri;
   min-width: 655px;
-  min-height: 700px;
+  min-height: 1000px;
   background: #EAEAEA; }
 
 a {
@@ -166,25 +178,18 @@ h1 {
   background: #ccc;
   height: auto;
   position: fixed;
-  right: 0;
-  box-shadow: inset 0px 4px 7px #999;
-  -moz-box-shadow: inset 0px 4px 7px #999;
-  -webkit-box-shadow: inset 0px 4px 7px #999; }
+  right: 0; }
   #right_panel a {
     box-sizing: border-box;
     font-size: 104px;
     color: #333333; }
   #right_panel a:hover {
-    background: #e50000;
-    box-shadow: inset 0px 4px 7px #999;
-    -moz-box-shadow: inset 0px 4px 7px #999;
-    -webkit-box-shadow: inset 0px 4px 7px #999; }
+    background: #ff2400;
+    color: white; }
 
 #right_panel, #right_panel > * {
-  box-shadow: inset 0px 2px 7px #cc1d00;
-  -moz-box-shadow: inset 0px 2px 7px #cc1d00;
-  -webkit-box-shadow: inset 0px 2px 7px #cc1d00;
-  text-align: center; }
+  text-align: center;
+  border-bottom: 2px solid black; }
 
 #settings_cog {
   background: #ccc;

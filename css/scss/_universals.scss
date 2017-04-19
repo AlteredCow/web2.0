@@ -7,8 +7,7 @@ $bg-primary: $color_light-grey;
 $bg-banner: $color_light-grey;
 $score: 4px solid black;
 $min-width: 655px;
-$min-height: 700px;
-$max-height: 800px;
+$min-height: 1000px;
 $thmb-sm: 100px;
 $space-sm: 10px;
 $space-tiny: 2px;
@@ -38,8 +37,20 @@ $space-tiny: 2px;
   clear:both;
 }
 
-.fadeAnimate{
+
+.ng-animate {
+  transition:0.8s linear all;
 }
+.ng-enter {
+  opacity:0;
+}
+.ng-enter.ng-enter-active {
+  opacity:1;
+}
+.ng-leave {
+  opacity:1;
+}
+
 
 /* ----- HTML TAGS ------------------------ */
 

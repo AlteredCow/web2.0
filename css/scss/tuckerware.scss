@@ -122,7 +122,6 @@ $rightsideWidth: 100% - $leftsideWidth;
 	height: auto;
 	position: fixed;
 	right: 0;
-@include box-shadow-main(inset, #999);
 
 	a{
 		box-sizing:border-box;
@@ -131,14 +130,15 @@ $rightsideWidth: 100% - $leftsideWidth;
 	}
 
 	a:hover{
-		background: #e50000;
-		@include box-shadow-main(inset, #999);
+		background: #ff2400;
+		color: white;
 	}
 
 }
 #right_panel, #right_panel > * {
-	@include box-shadow-menu(inset, $color_deep-red);
+	// @include box-shadow-menu(inset, $color_deep-red);
 	text-align: center;
+	border-bottom: 2px solid black;
 }
 
 
@@ -162,7 +162,6 @@ $rightsideWidth: 100% - $leftsideWidth;
 
 #up_arrow{
 	@extend  .link-buffer;
-
 	height: 100px;
 	line-height: 100px;
 }

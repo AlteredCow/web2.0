@@ -1,7 +1,12 @@
-<p>
-hey
-hey
-you
-you
-Idon'tlikeyourboyfriend
-</p>
+<button class = "accordian">P1</button>
+<div class = "panel">
+  Hey
+</div>
+<button class = "accordian">P1</button>
+<div class = "panel">
+  You
+</div>
+<button class = "accordian">P1</button>
+<div class = "panel">
+  There
+</div>
