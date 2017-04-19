@@ -1,28 +1,36 @@
 // TEMPLATE:
-// <button class = 'accordian'>P1</button>
-// <div class = "panel">
-//
-// </div>
+// <input type = "checkbox" id = "buttonCtrl"/>
+// <label class = "accordian" for = "buttonCtrl">P1</label>
 
-/* Style the buttons that are used to open and close the accordion panel */
-button.accordion {
-   background-color: #eee;
-   color: #444;
-   cursor: pointer;
-   padding: 18px;
-   width: 100%;
-   text-align: left;
-   border: none;
-   outline: none;
-   transition: 0.4s;
+
+$color_accordian-primary: "red";
+$color_accordian-secondary: "green";
+
+#buttonCtrl {
+    display: none;
+    margin: 0;
 }
 
-button.accordion.active, button.accordion:hover {
-   background-color: #ddd;
+.accordian {
+    width: 90%;
+    height: 100px;
+    padding: 10px;
+    box-shadow: 1px 1px 1px #000;
+    font-size: 40px;
+    line-height: 80px;
+    display: inline-block;
+    background: white;
 }
 
-.panel {
-   padding: 0 18px;
-   background-color: white;
-   display: none;
+.accordian:hover {
+    background: #c3e3fa;
+}
+
+
+.accordian:active {
+  outline: 1px solid black;
+  background: #99cbef;
+}
+
+#buttonCtrl:checked + label {
 }

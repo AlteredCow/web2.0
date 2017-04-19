@@ -1,5 +1,4 @@
 <div class = "defaultContentLayout">
-  <hr/>
   <strong>Hey!</strong>
   Wise choice visiting here
   The name is Austin Tucker
@@ -13,5 +12,4 @@
   <a href = "javascript:expandTopic('D', 'read_more', 0)">Read More</a> first?
   Or let us<a href = "javascript:clickPage(2)"> begin</a>?
   <div class = "contentDisplay"></div>
-  <hr/>
 </div>

@@ -8,10 +8,11 @@
 @import "colors";
 @import "fonts";
 @import "universals";
+@import "accordian";
 @charset "utf-8";
 
 
-/* ---- UPPER / BANNER ---------------- */
+/* ||| UPPER / BANNER ||||||||||||||| */
 
 #banner{
 	border-bottom: 3px solid black;
@@ -44,7 +45,7 @@
 
 	padding: $space-sm $space-sm/2 $space-sm $space-sm;
 	cursor: pointer;
-	background: $bg-banner;
+	background: $color_bg-primary;
 	@include  glow-wrap(4px, $color_fair-grey);
 
 }
@@ -58,7 +59,7 @@
 @import "dream-menu";
 
 
-/* ---- MAIN CONTENT AREA ------------ */
+/* ||| MAIN CONTENT AREA |||||||||||| */
 
 @import "gridview";
 $leftsideWidth: 90%;
@@ -67,17 +68,15 @@ $rightsideWidth: 100% - $leftsideWidth;
 
 @media screen and (max-width: $min-width) {
 	.gridview > span, #main_content, .defaultContentLayout{
-		font-size: 1rem;
+		font-size: 1.2rem;
 	}
 }
-
-
-
 
 
 #main_content{
 	width: $leftsideWidth;
 }
+
 #main_content, .defaultContentLayout{
 	font-family: $font_family-main;
 	font-size: $font_size-article;
@@ -89,6 +88,8 @@ $rightsideWidth: 100% - $leftsideWidth;
 	padding: 15px;
 
 }
+
+/* ||| FOOTNOTES |||||||||||| */
 
 #footnotes{
 	height: 5%;
@@ -112,21 +113,19 @@ $rightsideWidth: 100% - $leftsideWidth;
 }
 
 
-/* ---- RIGHTSIDE PANEL ------------ */
+/* ||| RIGHTSIDE PANEL |||||||||||| */
 
 #right_panel{
 	width: $rightsideWidth;
 	background: $color_fair-grey;
-	// float: right;
-	// height: 100%;
 	height: auto;
 	position: fixed;
 	right: 0;
 
 	a{
 		box-sizing:border-box;
-			font-size:  104px;
-					color: #333333;
+		font-size: 104px;
+		color: #333333;
 	}
 
 	a:hover{

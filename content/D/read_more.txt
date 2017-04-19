@@ -1,4 +1,4 @@
-<p id = "read_more">
+<p class="cleanbox" id = "read_more">
   Foremost, this website is a playground.
   It in itself is a project of mine, a builder of technical prowess.
   It portrays both me and the productions of my soul.

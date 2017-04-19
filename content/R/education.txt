@@ -1,12 +1,22 @@
-<button class = "accordian">P1</button>
-<div class = "panel">
-  Hey
+<div class = "cleanbox">
+  <h2>Essence</h2>
+  <ul>
+    <li>The Ohio State University</li>
+    <li>Class of 2017</li>
+    <li>Major - Philosophy</li>
+    <li>Minor - Computer & Information Science</li>
+    <li></li>
+  </ul>
 </div>
-<button class = "accordian">P1</button>
-<div class = "panel">
-  You
+<div class = "cleanbox">
+  <h2></h2>
+  <ul>
+    <li></li>
+  </ul>
 </div>
-<button class = "accordian">P1</button>
-<div class = "panel">
-  There
+<div class = "cleanbox">
+  <h2></h2>
+  <ul>
+    <li></li>
+  </ul>
 </div>

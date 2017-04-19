@@ -2,7 +2,7 @@
 
   $(document).ready(function(){
 
-    // setting the stage here
+    // SECTION: setting initial stage
     $('#main_content').load("content/D/intro_D.txt"); // call first page onload
     $("#main_menu li:first").trigger('mouseover');  // highlight 'D'
 
@@ -21,6 +21,19 @@
           $scope["amaze_topics"] = data.topics;
         });
       }]); // END(controller)
+
+
+  // // SECTION: adjust heights after resize
+  // $(window).on("resize", function() {
+  //     clearTimeout($(this).data('timer'));
+  //     $(this).data('timer', setTimeout(function() {
+  //             var doc_width = $(window).width();
+  //             var left_panel_width = $("#main_content").width();
+  //             $("#right_panel").width(doc_width - left_panel_width);
+  //             console.log("sneeze");
+  //         }, 400)
+  //     );
+  // });
 
   });
 
@@ -55,7 +68,7 @@ function deploySettings(){
 // @param topic_index: numerical key for element-hunting in single-file content
 // Each page has sub-content, sorted into several, narrower topics.
 // This funcion grabs and replaces the content file and slides to display area
-  function expandTopic(theme_letter, theme_topic, topic_index){
+function expandTopic(theme_letter, theme_topic, topic_index){
     $(".contentDisplay").show();
     const SCROLL_TIME = 950;
     const CONTENT_DISPLAY = $(".contentDisplay");
@@ -87,15 +100,16 @@ function launchWord(hovered){
   $("#main_menu > li").eq(hovered).html("<a href = '#'>" + menu_choices[hovered]  +  "</a>" );
 }
 
-// graphic finalize - to have accordian-layout
-function loadAccordians(){
-  var all_accord = $(".accordian").click(function(){
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    var disp = panel.style.display;
-    disp = disp === "block"? "none" : "block";
-  });
-}
+// // graphic finalize - to have accordian-layout
+// function loadAccordians(){
+//   $("button.accordian").on("click", function(){
+//     console.log('dog');
+//     this.classList.toggle("active");
+//     var panel = this.nextElementSibling;
+//     var disp = panel.style.display;
+//     disp = disp === "block"? "none" : "block";
+//   });
+// }
 
 // @param hovered: menu choice in-focus, namely hovered
 // graphic tracking - highlight hovered menu choice

@@ -4,7 +4,6 @@
 @import "mixins";
 
 $bg-primary: $color_light-grey;
-$bg-banner: $color_light-grey;
 $score: 4px solid black;
 $min-width: 655px;
 $min-height: 1000px;
@@ -30,14 +29,33 @@ $space-tiny: 2px;
   width: 100%;
 }
 
-
+// the primary 'screen' of data
 .contentDisplay{
   display: none; // to start of course
 	font-size: $font_size-article;
   clear:both;
 }
 
+.cleanbox{
+  padding: 5px;
+  background: white;
+  outline: 1px solid black;
 
+  ul{
+    font-size: 0;
+    margin: 0;
+  }
+  li{
+    font-size: 28px;
+    margin: 0;
+  }
+  li:nth-child(even){
+    background: $color_bg-light;
+  }
+
+}
+
+// after ng-include changes src
 .ng-animate {
   transition:0.8s linear all;
 }
@@ -66,7 +84,7 @@ html, body{
   font-family: $font_family-main;
 	min-width: $min-width;
   min-height: $min-height;
-	background: $bg-primary;
+	background: $color_bg-primary;
 
 }
 
@@ -88,6 +106,10 @@ h1{
   color: $color_h1;
   opacity: 0.4;
   @include outline-text(1px, $color_dark-grey);
+}
+
+h2{
+  color: $color_h2;
 }
 
 
