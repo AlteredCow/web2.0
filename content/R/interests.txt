@@ -1,2 +1,44 @@
-hmmm
-mmmm
+<div class = "cleanbox">
+  <h2>Arts</h2>
+  <ul>
+    <li>Painting</li>
+    <li>Pencil Graphics</li>
+    <li>Digital Illustration</li>
+    <li>Photography</li>
+    <li>Gift-making</li>
+    <li>Programming</li>
+    <li>Drums</li>
+    <li>Keyboard</li>
+  </ul>
+</div>
+<div class = "cleanbox">
+  <h2>Outdoors</h2>
+  <ul>
+    <li>Hiking</li>
+    <li>Biking</li>
+    <li>Running</li>
+    <li>Swimming</li>
+    <li>Kayaking</li>
+    <li>Plain adventuring!</li>
+  </ul>
+</div>
+<div class = "cleanbox">
+  <h2>Themes</h2>
+  <ul>
+    <li>Humanism</li>
+    <li>Philanthropy</li>
+    <li>OpenSource</li>
+    <li>Diversity</li>
+    <li>Self-Improvement</li>
+  </ul>
+</div>
+<div class = "cleanbox">
+  <h2>Aspriations</h2>
+  <ul>
+    <li>Travel the globe!</li>
+    <li>Build a nonprofit!</li>
+    <li>Bring smiles to many, many faces!</li>
+    <li>Show the love!</li>
+    <li>Keep my tea the right temp. for more than 2 minutes!!</li>
+  </ul>
+</div>

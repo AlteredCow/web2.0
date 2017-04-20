@@ -48,8 +48,13 @@ $space-tiny: 2px;
   li{
     font-size: 28px;
     margin: 0;
+    padding: 10px;
+    overflow: hidden;
   }
-  li:nth-child(even){
+  li:hover{
+    text-shadow: 2px 2px 6px #888;
+  }
+  li:nth-child(odd){
     background: $color_bg-light;
   }
 
