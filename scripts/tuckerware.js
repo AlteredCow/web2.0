@@ -14,13 +14,24 @@ $(document).ready(function() {
             } // END(showPage)
 
         // SECTION: Scan archive file - to render list on 'A' page
-
         const ARCHIVES = "content/A/archive.JSON";
         $http.get(ARCHIVES)
            .success(function(JSON){
-             console.log(JSON.topic);
-            $scope.amaze_topics = JSON.topic;
+            $scope.amazing_topics = JSON.topic;
           });
+
+
+        $scope.amazeByTopic = function($index) {
+            const CONTENT_DISPLAY = $(".contentDisplay");
+            const CONTENT_DISPLAY_BETA = $(".contentDisplayHelper");
+            CONTENT_DISPLAY.show();
+            CONTENT_DISPLAY_BETA.show();
+            var selected_topic = $scope.amazing_topics[$index];
+            CONTENT_DISPLAY.html(selected_topic.major);
+            CONTENT_DISPLAY_BETA.html(selected_topic.minor);
+          }
+
+
 
     }]); // END(controller)
 
@@ -47,9 +58,7 @@ $.tuckerware.private.theme_topic_shown = "education";
 /* |||||||||||| STANDARD FUNCTIONS  ||||||||||||||||||||||||||||||||||| */
 
 
-function amazeByTopic(index) {
 
-}
 
 // @param newPage: the letter indicating the page to load
 // flips pages - loads new page from menu choice
@@ -78,9 +87,9 @@ function deploySettings() {
 * This funcion grabs and replaces the content file and slides to display area
 */
 function expandTopic(theme_letter, theme_topic, topic_index) {
-    $(".contentDisplay").show();
-    const SCROLL_TIME = 950;
     const CONTENT_DISPLAY = $(".contentDisplay");
+    CONTENT_DISPLAY.show();
+    const SCROLL_TIME = 600;
     var spacing = CONTENT_DISPLAY.offset().top - 150; // -150 as slight adjust
     $('html,body').stop().animate({
         scrollTop: spacing

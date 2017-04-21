@@ -24,7 +24,7 @@
   height: 100%;
   width: 100%; }
 
-.contentDisplay {
+.contentDisplay, .contentDisplayHelper {
   display: none;
   font-size: 1.8rem;
   clear: both; }
@@ -40,9 +40,8 @@
     font-size: 28px;
     margin: 0;
     padding: 10px;
-    overflow: hidden; }
-  .cleanbox li:hover {
-    text-shadow: 2px 2px 6px #888; }
+    overflow: hidden;
+    text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88); }
   .cleanbox li:nth-child(odd) {
     background: rgba(143, 232, 232, 0.5); }
 

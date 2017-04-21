@@ -30,7 +30,7 @@ $space-tiny: 2px;
 }
 
 // the primary 'screen' of data
-.contentDisplay{
+.contentDisplay, .contentDisplayHelper{
   display: none; // to start of course
 	font-size: $font_size-article;
   clear:both;
@@ -50,9 +50,7 @@ $space-tiny: 2px;
     margin: 0;
     padding: 10px;
     overflow: hidden;
-  }
-  li:hover{
-    text-shadow: 2px 2px 6px #888;
+    text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
   }
   li:nth-child(odd){
     background: $color_bg-light;
