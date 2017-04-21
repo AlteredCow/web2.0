@@ -1,0 +1,20 @@
+{
+    "contact": [
+      {
+        "type": "basic",
+        "major": "<p>email: tucker.585@osu.edu<br/>mobile: (614) 806 - 6243</p>"
+      },
+      {
+        "type": "social",
+        "major": "<p><ul><li>@alteredcow</li><li><a target = '_blank' href = 'https://www.facebook.com/AlteredCow'>√ facebook</a></li><li><a target = '_blank' href = 'https://instagram.com/alteredcow'>√ instagram </a></li><li>√ SnapChat</li></ul></p>"
+      },
+      {
+        "type": "github",
+        "major": "<p><a target = '_blank' href = 'https://github.com/AlteredCow'>Head to GitHub!</a></p>"
+      },
+      {
+        "type": "personal",
+        "major": "<p><a href = './tuckerware.html'>Go to Site!</a></p>"
+      }
+    ]
+}

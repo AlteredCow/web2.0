@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
     // SECTION: setting initial stage
-    $('#main_content').load("content/D/intro_D.html"); // call first page onload
+    $('#main_content').load("content/D/base_D.html"); // call first page onload
     $("#main_menu li:first").trigger('mouseover'); // highlight 'D'
 
     // SECTION: Angular main use - to load compartments of data
@@ -10,26 +10,73 @@ $(document).ready(function() {
     loader_app.controller('loaderController', ['$scope', '$http', function($scope, $http) {
         $scope.showPage = function(menu_choice) {
                 const MOTTO = "DREAM";
-                $scope.key_letter = MOTTO[menu_choice];
+                var letter = MOTTO[menu_choice];
+                $scope.key_letter = letter;
+
+                // sections 'A' and 'M' read from JSON, not HTML
+                var isA = (letter === 'A');
+                var isM = (letter === 'M');
+                if (isA || isM){
+                  var json_dir = "A/archives";
+                  var json_root = "topic"
+                  if (isM){
+                    json_dir = "M/contacting";
+                    json_root = "contact";
+                  }
+                  var records = "content/" + json_dir + ".JSON";
+                  $http.get(records)
+                     .success(function(JSON){
+                       $scope.records = JSON[json_root];
+                    });
+
+                }
             } // END(showPage)
 
-        // SECTION: Scan archive file - to render list on 'A' page
-        const ARCHIVES = "content/A/archive.JSON";
-        $http.get(ARCHIVES)
-           .success(function(JSON){
-            $scope.amazing_topics = JSON.topic;
-          });
+
+      /* @param key_letter: the menu choice key_letter
+      * @param selected_topic: the selected sub-material
+      * @param topic_key: numerical key for various purposes
+      * Each page has sub-content, sorted into several, narrower topics.
+      * This funcion grabs and replaces the content file and slides to display area
+      */
+      $scope.expandTopic = function(key_letter, selected_topic, topic_key) {
+
+          var isA = (key_letter === 'A');
+          var isJSON = (isA || key_letter === 'M');
+          var doScroll = (!isA);
+          var hasHelperContent = (isA);
+
+          const CONTENT_DISPLAY = $(".contentDisplay");
+          CONTENT_DISPLAY.show();
 
 
-        $scope.amazeByTopic = function($index) {
-            const CONTENT_DISPLAY = $(".contentDisplay");
-            const CONTENT_DISPLAY_BETA = $(".contentDisplayHelper");
-            CONTENT_DISPLAY.show();
-            CONTENT_DISPLAY_BETA.show();
-            var selected_topic = $scope.amazing_topics[$index];
-            CONTENT_DISPLAY.html(selected_topic.major);
-            CONTENT_DISPLAY_BETA.html(selected_topic.minor);
+          if (doScroll){
+            const SCROLL_TIME = 900;
+            const OFFSET = 150;
+            var spacing = CONTENT_DISPLAY.offset().top - OFFSET;
+            $('html,body').stop().animate({
+              scrollTop: spacing
+            }, SCROLL_TIME);
           }
+
+          if (isJSON){
+              CONTENT_DISPLAY.html($scope.records[topic_key].major);
+          } else {
+            var parent_dir = "content/" + key_letter + "/";
+            var file = parent_dir;
+            file += selected_topic + ".html";
+            CONTENT_DISPLAY.load(file);
+          }
+          if (hasHelperContent){
+            const CONTENT_DISPLAY_BETA = $(".contentDisplayHelper");
+            CONTENT_DISPLAY_BETA.show();
+            var selected_topic = $scope.records[topic_key];
+            CONTENT_DISPLAY_BETA.html(selected_topic.minor);
+
+          }
+
+      }
+
 
 
 
@@ -53,7 +100,7 @@ $(document).ready(function() {
 /* |||||||||||| "GLOBALS" ||||||||||||||||||||||||||||||||||| */
 $.tuckerware = new Object();
 $.tuckerware.private = new Object();
-$.tuckerware.private.theme_topic_shown = "education";
+$.tuckerware.private.selected_topic_shown = "education";
 
 /* |||||||||||| STANDARD FUNCTIONS  ||||||||||||||||||||||||||||||||||| */
 
@@ -80,40 +127,7 @@ function deploySettings() {
 
 }
 
-/* @param theme_letter: the menu choice key_letter
-* @param theme_topic: the selected sub-material
-* @param topic_index: numerical key for element-hunting in single-file content
-* Each page has sub-content, sorted into several, narrower topics.
-* This funcion grabs and replaces the content file and slides to display area
-*/
-function expandTopic(theme_letter, theme_topic, topic_index) {
-    const CONTENT_DISPLAY = $(".contentDisplay");
-    CONTENT_DISPLAY.show();
-    const SCROLL_TIME = 600;
-    var spacing = CONTENT_DISPLAY.offset().top - 150; // -150 as slight adjust
-    $('html,body').stop().animate({
-        scrollTop: spacing
-    }, SCROLL_TIME);
 
-    // Load the major data.
-    var parent_dir = "content/" + theme_letter + "/"
-    var file = parent_dir;
-    if (theme_letter === "M") { // 1 file only
-        file += "contact_listing.html";
-        $.ajax({
-            type: "GET",
-            url: file,
-            dataType: "text"
-        }).done(function(data) {
-            // splits data from single file
-            CONTENT_DISPLAY.html(data.split("\n")[topic_index]);
-        });
-    } else {
-        // here, file depends on the chosen topic
-        file += theme_topic + ".html";
-        CONTENT_DISPLAY.load(file);
-    }
-}
 
 // @param hovered: menu choice in-focus, namely hovered
 // expands hovered menu item into full word of the DREAM acronym
