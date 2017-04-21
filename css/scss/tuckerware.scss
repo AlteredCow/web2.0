@@ -129,7 +129,7 @@ $rightsideWidth: 100% - $leftsideWidth;
 	}
 
 	a:hover{
-		background: #ff2400;
+		background: $color_list-hover;
 		color: white;
 	}
 

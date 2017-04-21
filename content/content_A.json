@@ -1,14 +1,6 @@
 {
-	"titles": [
-		{"title":"PHILOS",  "content":"huh"},
-		{"title":"OBSERVE",, "content":"hmm"},
-		{"title":"QUESTION",  "content":"hmm"},
-		{"title":"Joy", "content":"hmm"},
-		{"title":"Mary", "content":"hmm"},
-		{"title":"Peter", "content":"huh"},
-		{"title":"Sebastian",  "content":"huh"},
-		{"title":"Erika", "content":"hmm"},
-		{"title":"Patrick", "content":"huh"},
-		{"title":"Samantha", "content":"hmm"}
+	"topics": [
+		{"title":"PHILOS",  "major":"huh", "minor": "hmm"},
+		{"title":"PHILOS",  "major":"huh", "minor": "hmm"}
 	]
 }
