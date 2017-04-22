@@ -5,6 +5,7 @@ $(document).ready(function() {
     $('#main_content').load("content/D/base_D.html"); // call first page onload
     $("#main_menu li:first").trigger('mouseover'); // highlight 'D'
 
+    // TODO: move DOM-related functions to loader_app.directive
     // SECTION: Angular main use - to load compartments of data
     var loader_app = angular.module('loaderApp', ['ngAnimate']);
     loader_app.controller('loaderController', ['$scope', '$http', function($scope, $http) {
@@ -27,6 +28,11 @@ $(document).ready(function() {
                   $http.get(records)
                      .success(function(JSON){
                        $scope.records = JSON[json_root];
+                       if (isA){
+                         var length = $scope.records.length;
+                         var maxShow = $.tuckerware.private.archive_maxShow;
+                         $.tuckerware.private.archive_pagecount = Math.ceil(length/maxShow);
+                       }
                     });
 
                 }
@@ -40,6 +46,8 @@ $(document).ready(function() {
       * This funcion grabs and replaces the content file and slides to display area
       */
       $scope.expandTopic = function(key_letter, selected_topic, topic_key) {
+
+        // TODO: separe isA to its own function, wire in a loop
 
           var isA = (key_letter === 'A');
           var isJSON = (isA || key_letter === 'M');
@@ -58,8 +66,18 @@ $(document).ready(function() {
               scrollTop: spacing
             }, SCROLL_TIME);
           }
-
           if (isJSON){
+              if (isA){
+
+                // &
+                var offset = $.tuckerware.private.archive_counter;
+                offset *= maxShow;
+                if (offset >= length){
+                  offset = 0;
+                  topic_key = length -1;
+                }
+                topic_key += offset;
+              }
               CONTENT_DISPLAY.html($scope.records[topic_key].major);
           } else {
             var parent_dir = "content/" + key_letter + "/";
@@ -72,9 +90,46 @@ $(document).ready(function() {
             CONTENT_DISPLAY_BETA.show();
             var selected_topic = $scope.records[topic_key];
             CONTENT_DISPLAY_BETA.html(selected_topic.minor);
-
           }
       }
+
+      $scope.archivesTick = function(direction){
+        var page_now = $.tuckerware.private.archive_counter; //temp
+        var page_limit = $.tuckerware.private.archive_pagecount;
+
+        if (direction === 'up'){
+          page_now--;
+        } else {
+          page_now++;
+        }
+
+        // stay within bounds
+        if (page_now < 0){
+          page_now = page_limit-1;
+        } else if (page_now >= page_limit){
+          page_now = 0;
+        }
+        $.tuckerware.private.archive_counter = page_now;
+      }
+
+      $scope.grabArchives = function(){
+        const MAX_SHOW = $.tuckerware.private.archive_maxShow;
+        var row_offset = MAX_SHOW * $.tuckerware.private.archive_counter;
+        var available_topics = [];
+        for (var x = (0 + row_offset); x < (MAX_SHOW + row_offset); x++){
+          var current_topic = $scope.records[x];
+          if (current_topic){
+            available_topics.push($scope.records[x]);
+          }
+          else {
+            var empty_obj = '{"topic" : "", "major" : "" }';
+            available_topics.push(empty_obj);
+            console.log(empty_obj);
+          }
+        }
+        return available_topics;
+      }
+
     }]); // END(controller)
 
 
@@ -98,6 +153,9 @@ $(document).ready(function() {
 $.tuckerware = new Object();
 $.tuckerware.private = new Object();
 $.tuckerware.private.selected_topic_shown = "education";
+$.tuckerware.private.archive_counter = 0;
+$.tuckerware.private.archive_pagecount = 0;
+$.tuckerware.private.archive_maxShow = 5;
 
 /* |||||||||||| STANDARD FUNCTIONS  ||||||||||||||||||||||||||||||||||| */
 
