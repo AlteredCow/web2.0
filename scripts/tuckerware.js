@@ -74,13 +74,10 @@ $(document).ready(function() {
             CONTENT_DISPLAY_BETA.html(selected_topic.minor);
 
           }
-
       }
-
-
-
-
     }]); // END(controller)
+
+
 
 
     // // SECTION: adjust heights after resize

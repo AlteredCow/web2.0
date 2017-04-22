@@ -1,9 +1,13 @@
 <h1>amaze</h1>
 <ul class = "scrollList">
+		<li class = "headerBox">^</li>
 		<li  ng-repeat = "topic in records" ng-click = "expandTopic('A', 'archive', $index)">{{topic.title}}</li>
+		<li>v</li>
 </ul>
 
-<div class = "contentDisplay">
+<div class = "contentDisplay" style = "display: block;">
+	A*
 </div>
-<div class = "contentDisplayHelper">
+<div class = "contentDisplayHelper" style = "display: block;">
+	B*
 </div>

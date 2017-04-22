@@ -10,11 +10,11 @@
       },
       {
         "type": "github",
-        "major": "<p><a target = '_blank' href = 'https://github.com/AlteredCow'>Head to GitHub!</a></p>"
+        "major": "<p><a target = '_blank' href = 'https://github.com/AlteredCow'>To GitHub!</a></p>"
       },
       {
         "type": "personal",
-        "major": "<p><a href = './tuckerware.html'>Go to Site!</a></p>"
+        "major": "<p><a href = './tuckerware.html'>My personal site!</a></p>"
       }
     ]
 }

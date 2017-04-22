@@ -6,8 +6,8 @@
 @import "a_specific";
 @import "m_specific";
 @import "colors";
-@import "fonts";
 @import "universals";
+@import "fonts";
 @import "accordion";
 @charset "utf-8";
 
@@ -19,10 +19,12 @@
 	display: flex;
 	justify-content: space-between;
 	font-size: $font_size-banner;
+	font-weight: bold;
 	height: 130px;
 	-webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+	background: $color_bg-light;
 
 	*{
 		font-weight: lighter;
@@ -32,8 +34,6 @@
 		line-height: 100px;
 		padding-left: 25px;
 	}
-	a > img {
-	}
 
 }
 
@@ -42,10 +42,9 @@
 	width: $thmb-sm * 0.75;
 	height: $thmb-sm * 0.75;
 
-
 	padding: $space-sm $space-sm/2 $space-sm $space-sm;
 	cursor: pointer;
-	background: $color_bg-primary;
+	background: #9ecff2;
 	@include  glow-wrap(4px, $color_fair-grey);
 
 }
@@ -117,15 +116,18 @@ $rightsideWidth: 100% - $leftsideWidth;
 
 #right_panel{
 	width: $rightsideWidth;
-	background: $color_fair-grey;
 	height: auto;
 	position: fixed;
 	right: 0;
 
 	a{
 		box-sizing:border-box;
-		font-size: 104px;
+		font-size: 74px;
+		line-height: 100px;
 		color: #333333;
+
+		background: $color_light-grey;
+		@extend  .link-buffer;
 	}
 
 	a:hover{
@@ -137,7 +139,7 @@ $rightsideWidth: 100% - $leftsideWidth;
 #right_panel, #right_panel > * {
 	// @include box-shadow-menu(inset, $color_deep-red);
 	text-align: center;
-	border-bottom: 2px solid black;
+	border: 2px solid #888;
 }
 
 

@@ -41,6 +41,12 @@ $space-tiny: 2px;
   background: white;
   outline: 1px solid black;
 
+  a{
+      color: $color_link-hover;
+  }
+
+
+
   ul{
     font-size: 0;
     margin: 0;
@@ -51,22 +57,23 @@ $space-tiny: 2px;
     padding: 10px;
     overflow: hidden;
     text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
-  }
-  li:nth-child(odd){
-    background: $color_bg-light;
+
+    &:nth-child(odd){
+      background: $color_bg-light;
+    }
   }
 
 }
 
 // after ng-include changes src
 .ng-animate {
-  transition:0.8s linear all;
+  transition: 0.1s linear all;
 }
 .ng-enter {
   opacity:0;
-}
-.ng-enter.ng-enter-active {
-  opacity:1;
+  &.ng-enter-active {
+    opacity:1;
+  }
 }
 .ng-leave {
   opacity:1;
@@ -81,7 +88,8 @@ $space-tiny: 2px;
 
 .scrollList{
   font-size: 0;
-
+  width: 20%;
+  // max-height: 1000px;
 
   li{
     font-size: 28px;
@@ -89,10 +97,10 @@ $space-tiny: 2px;
     cursor: pointer;
     background: white;
     box-shadow:  0px  2px 7px #333;
-  }
-  li:hover{
-    background: $color_list-hover;
-  }
+    &:hover{
+      background: $color_list-hover;
+    }
+}
 
 }
 
