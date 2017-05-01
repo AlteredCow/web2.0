@@ -34,6 +34,7 @@ $space-tiny: 2px;
   display: none; // to start of course
 	font-size: $font_size-article;
   clear:both;
+  width: 70%;
 }
 
 .cleanbox{
@@ -89,6 +90,8 @@ $space-tiny: 2px;
 .scrollList{
   font-size: 0;
   width: 20%;
+  display: inline-block;
+  float: left;
   // max-height: 1000px;
 
   li{

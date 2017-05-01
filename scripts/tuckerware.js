@@ -1,3 +1,12 @@
+/* |||||||||||| "GLOBALS" ||||||||||||||||||||||||||||||||||| */
+$.tuckerware = new Object();
+$.tuckerware.private = new Object();
+$.tuckerware.private.selected_topic_shown = "education";
+$.tuckerware.private.archive_counter = 0;
+$.tuckerware.private.archive_pagecount = 0;
+$.tuckerware.private.archive_maxShow = 5;
+
+
 /* |||||||||||| ON-READY||||||||||||||||||||||||||||||||||| */
 $(document).ready(function() {
 
@@ -10,11 +19,14 @@ $(document).ready(function() {
     var loader_app = angular.module('loaderApp', ['ngAnimate']);
     loader_app.controller('loaderController', ['$scope', '$http', function($scope, $http) {
         $scope.showPage = function(menu_choice) {
+            // TODO: separate isA to its own function, wire in a loop
+
+              // swaps ng-include src
                 const MOTTO = "DREAM";
                 var letter = MOTTO[menu_choice];
                 $scope.key_letter = letter;
 
-                // sections 'A' and 'M' read from JSON, not HTML
+                // sections 'A' and 'M' require more work
                 var isA = (letter === 'A');
                 var isM = (letter === 'M');
                 if (isA || isM){
@@ -39,6 +51,7 @@ $(document).ready(function() {
             } // END(showPage)
 
 
+
       /* @param key_letter: the menu choice key_letter
       * @param selected_topic: the selected sub-material
       * @param topic_key: numerical key for various purposes
@@ -47,7 +60,7 @@ $(document).ready(function() {
       */
       $scope.expandTopic = function(key_letter, selected_topic, topic_key) {
 
-        // TODO: separe isA to its own function, wire in a loop
+        // TODO: separate isA to its own function, wire in a loop
 
           var isA = (key_letter === 'A');
           var isJSON = (isA || key_letter === 'M');
@@ -68,31 +81,33 @@ $(document).ready(function() {
           }
           if (isJSON){
               if (isA){
-
-                // &
+                var length = $scope.records.length;
                 var offset = $.tuckerware.private.archive_counter;
-                offset *= maxShow;
+                offset *= $.tuckerware.private.archive_maxShow;
                 if (offset >= length){
                   offset = 0;
-                  topic_key = length -1;
+                  topic_key = length - 1;
                 }
                 topic_key += offset;
               }
-              CONTENT_DISPLAY.html($scope.records[topic_key].major);
+              if (topic_key < length){
+                CONTENT_DISPLAY.html($scope.records[topic_key].major);
+              }
           } else {
             var parent_dir = "content/" + key_letter + "/";
             var file = parent_dir;
             file += selected_topic + ".html";
             CONTENT_DISPLAY.load(file);
           }
-          if (hasHelperContent){
+          if (hasHelperContent && topic_key < length){
             const CONTENT_DISPLAY_BETA = $(".contentDisplayHelper");
             CONTENT_DISPLAY_BETA.show();
-            var selected_topic = $scope.records[topic_key];
+            selected_topic = $scope.records[topic_key];
             CONTENT_DISPLAY_BETA.html(selected_topic.minor);
           }
       }
 
+      // navigates 'pages' of topic choices
       $scope.archivesTick = function(direction){
         var page_now = $.tuckerware.private.archive_counter; //temp
         var page_limit = $.tuckerware.private.archive_pagecount;
@@ -124,7 +139,6 @@ $(document).ready(function() {
           else {
             var empty_obj = '{"topic" : "", "major" : "" }';
             available_topics.push(empty_obj);
-            console.log(empty_obj);
           }
         }
         return available_topics;
@@ -148,14 +162,6 @@ $(document).ready(function() {
     // });
 
 });
-
-/* |||||||||||| "GLOBALS" ||||||||||||||||||||||||||||||||||| */
-$.tuckerware = new Object();
-$.tuckerware.private = new Object();
-$.tuckerware.private.selected_topic_shown = "education";
-$.tuckerware.private.archive_counter = 0;
-$.tuckerware.private.archive_pagecount = 0;
-$.tuckerware.private.archive_maxShow = 5;
 
 /* |||||||||||| STANDARD FUNCTIONS  ||||||||||||||||||||||||||||||||||| */
 
