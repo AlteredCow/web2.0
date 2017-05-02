@@ -1,12 +1,13 @@
 <h1>amaze</h1>
 <ul class = "scrollList">
 	<li>{{archives_pageNOW+1}} of {{archives_pageMAX}}</li>
-		<li ng-click = "archivesMove('up')">^</li>
+		<li class = "flipper" ng-click = "archivesMove('up')">^</li>
 		<li class = "choice" ng-repeat = "topic in grabArchives() track by $index" ng-click = "expandTopic('A', 'archive', $index)">{{topic.title}}</li>
-		<li ng-click = "archivesMove('down')">v</li>
+		<li class = "flipper"  ng-click = "archivesMove('down')">v</li>
 </ul>
-
-<div class = "contentDisplay" style = "display: inline-block; ">
-</div>
-<div class = "contentDisplayHelper" style = "display: inline-block; ">
+<div id = "archives_wrapper">
+	<div class = "contentDisplay">
+	</div>
+	<div class = "contentDisplayHelper">
+	</div>
 </div>

@@ -66,9 +66,11 @@ $(document).ready(function() {
           const CONTENT_DISPLAY = $(".contentDisplay");
           CONTENT_DISPLAY.show(); //  'display: hidden' in HTML
 
-          // A is super special aaaand annoying
+          // A and M are JSON; A is plain special
           if (key_letter === 'A'){
             expandArchives(topic_key);
+          } else if (key_letter === 'M'){
+            CONTENT_DISPLAY.html($scope.records[topic_key].major);
           } else {
             // scroll-to-display action
             const SCROLL_TIME = 900;
@@ -78,6 +80,7 @@ $(document).ready(function() {
               scrollTop: spacing
             }, SCROLL_TIME);
 
+            // now load file
             var parent_dir = "content/" + key_letter + "/";
             var file = parent_dir + selected_topic + ".html";
             CONTENT_DISPLAY.load(file);
@@ -88,7 +91,6 @@ $(document).ready(function() {
       $scope.archivesMove = function(direction){
         var page_now = $.tuckerware.private.archive_pageTRACKER;
         var page_limit = $scope.archives_pageMAX;
-
 
         if (direction === 'up'){
           page_now--;
@@ -102,31 +104,16 @@ $(document).ready(function() {
         } else if (page_now >= page_limit){
           page_now = 0;
         }
+
+        // updating globals
         $.tuckerware.private.archive_pageTRACKER = page_now;
         $scope.archives_pageNOW = page_now;
       }
 
-      // archive-list-builder -- to array, for display
-      $scope.grabArchives = function(){
-        const MAX_SHOW = $.tuckerware.private.archive_maxShow;
-        var row_offset = MAX_SHOW * $.tuckerware.private.archive_pageTRACKER;
-        var available_topics = [];
-        for (var x = (0 + row_offset); x < (MAX_SHOW + row_offset); x++){
-          var current_topic = $scope.records[x];
-          if (current_topic){
-            available_topics.push($scope.records[x]);
-          }
-          else {
-            var empty_obj = '{"topic" : "", "major" : "" }';
-            available_topics.push(empty_obj);
-          }
-        }
-        return available_topics;
-      }
 
 
       // @helps showPage, expandTopic
-      // @param:
+      // @param topic_key: index within JSON of chosen topic
       // controls content of 'A' section
       function expandArchives(topic_key){
         const CONTENT_DISPLAY = $(".contentDisplay");
@@ -152,9 +139,26 @@ $(document).ready(function() {
           const CONTENT_DISPLAY_BETA = $(".contentDisplayHelper");
           CONTENT_DISPLAY_BETA.show();
           CONTENT_DISPLAY_BETA.html(selected_topic.minor);
+        }
       }
 
+      // archive-list-builder -- to array, for display
+      $scope.grabArchives = function(){
+        const MAX_SHOW = $.tuckerware.private.archive_maxShow;
+        var row_offset = MAX_SHOW * $.tuckerware.private.archive_pageTRACKER;
+        var available_topics = [];
+        for (var x = (0 + row_offset); x < (MAX_SHOW + row_offset); x++){
+          var current_topic = $scope.records[x];
+          if (current_topic){
+            available_topics.push($scope.records[x]);
+          } else {
+            var empty_obj = '{"topic" : "", "major" : "" }';
+            available_topics.push(empty_obj);
+          }
+        }
+        return available_topics;
       }
+
 
     }]); // END(controller)
 

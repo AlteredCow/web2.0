@@ -77,9 +77,7 @@ $rightsideWidth: 100% - $leftsideWidth;
 #main_content, .defaultContentLayout{
 	font-family: $font_family-main;
 	font-size: $font_size-article;
-	text-align: justify;
 	float: left;
-	overflow: auto;
 }
 #main_content > *{
 	padding: 15px;

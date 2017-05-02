@@ -29,12 +29,19 @@ $space-tiny: 2px;
   width: 100%;
 }
 
-// the primary 'screen' of data
+// the primary 'screens' of data
 .contentDisplay, .contentDisplayHelper{
   display: none; // to start of course
 	font-size: $font_size-article;
   clear:both;
-  width: 70%;
+  // width: 70%;
+  white-space: initial;
+  padding: 15px;
+}
+
+.contentDisplayHelper{
+  color: #999;
+  background: white;
 }
 
 // text boxes with sleek list style
@@ -42,7 +49,7 @@ $space-tiny: 2px;
   padding: 5px;
   background: white;
   outline: 1px solid black;
-
+  margin-bottom: 60px;
   a{
       color: $color_link-hover;
   }
@@ -55,7 +62,6 @@ $space-tiny: 2px;
     font-size: 28px;
     margin: 0;
     padding: 10px;
-    overflow: hidden;
     text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
 
     &:nth-child(odd){
@@ -85,8 +91,15 @@ $space-tiny: 2px;
     cursor: pointer;
 }
 
+
+// arrow clickable meant for navigation
+.flipper{
+  cursor: pointer;
+  background: $color_link-flipper;
+}
+
 // default clickable styles
-.choice:hover{
+.choice:hover, .flipper:hover{
   color: white;
   cursor: pointer;
   background: $color_list-hover;
@@ -101,10 +114,10 @@ $space-tiny: 2px;
   // max-height: 1000px;
 
   li{
-    font-size: 28px;
+    font-size: 24px;
     padding: 10px;
-    background: white;
-    box-shadow:  0px  2px 7px #333;
+    box-shadow:  0px  0px 3px #333;
+    overflow: hidden;
 }
 
 
@@ -150,6 +163,7 @@ h1{
 
 h2{
   color: $color_h2;
+  margin: 60px 0px;
 }
 
 

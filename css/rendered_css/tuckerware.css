@@ -11,8 +11,9 @@
 #read_more {
   color: #888; }
 
-.headerBox {
-  font-weight: bold; }
+#archives_wrapper {
+  width: 50%;
+  display: inline-block; }
 
 .link-buffer, #main_menu li > a, #right_panel a, #up_arrow {
   width: 100%;
@@ -31,12 +32,18 @@
   display: none;
   font-size: 1.8rem;
   clear: both;
-  width: 70%; }
+  white-space: initial;
+  padding: 15px; }
+
+.contentDisplayHelper {
+  color: #999;
+  background: white; }
 
 .cleanbox {
   padding: 5px;
   background: white;
-  outline: 1px solid black; }
+  outline: 1px solid black;
+  margin-bottom: 60px; }
   .cleanbox a {
     color: #08c98c; }
   .cleanbox ul {
@@ -46,7 +53,6 @@
     font-size: 28px;
     margin: 0;
     padding: 10px;
-    overflow: hidden;
     text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88); }
     .cleanbox li:nth-child(odd) {
       background: #CBE5F8; }
@@ -67,7 +73,11 @@
 [x-ng-click] {
   cursor: pointer; }
 
-.choice:hover, #right_panel a:hover {
+.flipper {
+  cursor: pointer;
+  background: #b3dcf9; }
+
+.choice:hover, #right_panel a:hover, .flipper:hover {
   color: white;
   cursor: pointer;
   background: #CBE5F8; }
@@ -78,10 +88,10 @@
   display: inline-block;
   float: left; }
   .scrollList li {
-    font-size: 28px;
+    font-size: 24px;
     padding: 10px;
-    background: white;
-    box-shadow: 0px  2px 7px #333; }
+    box-shadow: 0px  0px 3px #333;
+    overflow: hidden; }
 
 /* ----- HTML TAGS ------------------------ */
 html {
@@ -106,7 +116,8 @@ h1 {
   text-shadow: -1px 0 #666, 0 1px #666, 1px 0 #666, 0 -1px #666; }
 
 h2 {
-  color: #777; }
+  color: #777;
+  margin: 60px 0px; }
 
 /* ----------------------------------------*/
 #buttonCtrl {
@@ -194,7 +205,6 @@ h2 {
 .gridview {
   color: #333;
   box-sizing: border-box;
-  width: 100%;
   font-size: 0; }
   .gridview span {
     font-size: 2rem;
@@ -216,9 +226,7 @@ h2 {
 #main_content, .defaultContentLayout {
   font-family: calibri;
   font-size: 1.8rem;
-  text-align: justify;
-  float: left;
-  overflow: auto; }
+  float: left; }
 
 #main_content > * {
   padding: 15px; }

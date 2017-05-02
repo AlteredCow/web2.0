@@ -5,7 +5,6 @@ $grid-box-color: #333;
 .gridview{ // div | wrapper
     color: $grid-box-color;
     box-sizing: border-box;
-    width: 100%;
     font-size: 0;
     span{
       font-size: $font_size-header;

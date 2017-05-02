@@ -6,15 +6,15 @@
       },
       {
         "type": "social",
-        "major": "<p><ul><li>@alteredcow</li><li><a target = '_blank' href = 'https://www.facebook.com/AlteredCow'>√ facebook</a></li><li><a target = '_blank' href = 'https://instagram.com/alteredcow'>√ instagram </a></li><li>√ SnapChat</li></ul></p>"
+        "major": "<p><em>@alteredcow</em><br><a target = '_blank' href = 'https://www.facebook.com/AlteredCow'>facebook</a>|<a target = '_blank' href = 'https://instagram.com/alteredcow'> instagram </a>| SnapChat</p>"
       },
       {
         "type": "github",
-        "major": "<p><a target = '_blank' href = 'https://github.com/AlteredCow'>To GitHub!</a></p>"
+        "major": "<p><a target = '_blank' href = 'https://github.com/AlteredCow'>to GitHub ~</a></p>"
       },
       {
         "type": "personal",
-        "major": "<p><a href = './tuckerware.html'>My personal site!</a></p>"
+        "major": "<p><a href = './tuckerware.html'>my personal site ~</a></p>"
       }
     ]
 }
