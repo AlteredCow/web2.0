@@ -110,7 +110,8 @@ $space-tiny: 2px;
   font-size: 0;
   width: 30%;
   display: inline-block;
-  float: left;
+  vertical-align: top;
+  // float: left;
   // max-height: 1000px;
 
   li{

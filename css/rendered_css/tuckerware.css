@@ -13,7 +13,12 @@
 
 #archives_wrapper {
   width: 50%;
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: top; }
+  #archives_wrapper .contentDisplay {
+    background: #edeaea; }
+  #archives_wrapper div {
+    border: 1px solid black; }
 
 .link-buffer, #main_menu li > a, #right_panel a, #up_arrow {
   width: 100%;
@@ -86,7 +91,7 @@
   font-size: 0;
   width: 30%;
   display: inline-block;
-  float: left; }
+  vertical-align: top; }
   .scrollList li {
     font-size: 24px;
     padding: 10px;
