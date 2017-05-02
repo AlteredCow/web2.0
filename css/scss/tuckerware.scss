@@ -5,9 +5,7 @@
 @import "e_specific";
 @import "a_specific";
 @import "m_specific";
-@import "colors";
 @import "universals";
-@import "fonts";
 @import "accordion";
 @charset "utf-8";
 
@@ -131,8 +129,7 @@ $rightsideWidth: 100% - $leftsideWidth;
 	}
 
 	a:hover{
-		background: $color_list-hover;
-		color: white;
+		@extend .choice:hover;
 	}
 
 }

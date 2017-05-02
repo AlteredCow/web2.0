@@ -16,34 +16,15 @@
    },
    {
       "title": "Tetris Effect",
-      "major": "The phenomenon of the brain altering your experiences based on\n      constant exposure to a particular activity.\n      It gets its name from the effect coming from playing Tetris extensively.\n      Without effort, the subject begins to see the world Tetris-like.\n      Blocks become more obvious, and the person overall is ready to play, being in 'Tetris-mode'.",
-      "minor": {
-         "#text": [
-            "This is incredible information!",
-            "I ran into this effect after heavily playing",
-            "My visual field became more cel-shaded -- which was both bizarre and awesome!"
-         ],
-         "a": [
-            {
-               "@href": "https://lifehacker.com/5982005/rewire-your-brain-for-positivity-and-happiness-using-the-tetris-effect",
-               "#text": "It can make you a happier person!"
-            },
-            {
-               "em": "Borderlands"
-            }
-         ]
-      }
+      "major": "The phenomenon of the brain altering your experiences based on\n      constant exposure to a particular activity.\n      It gets its name from the effect coming from playing Tetris extensively.\n      Without effort, the subject begins to see the world Tetris-like.\n      Blocks become more obvious, and the person overall is ready to play, being in 'Tetris-mode.'",
+      "minor":
+            "This is incredible information! <a href target = '_blank' ='https://lifehacker.com/5982005/rewire-your-brain-for-positivity-and-happiness-using-the-tetris-effect'>It can make you a happier person!</a>\n   I ran into this effect after heavily playing Borderlands</em>.\n  My visual field became more cel-shaded -- which was both bizarre and awesome!"
    },
    {
       "title": "Burn, baby Burn",
       "major": "There is no such thing as 'cold'.\n      Coldness is not a 'thing' such as water or smell. It is a lack of thing.\n      Temperature is a measure of average molecular activity.\n      So, coldness is a lack of heat, just as darkness is a lack of light.",
-      "minor": {
-         "#text": [
-            "Humans are great at 'making things from nothing'.\n      Our brains are costantly searching for meaning in the world.\n      We often find meaning by 'thingness'.\n      Look at all the objects that we give a more lively character to.\n      We call our prized possessions our babies and see faces in the clouds.\n      So, we are always interpreting -- all the time, every minute.\n      Let's be careful though, because we may easily fool ourselves.\n      Is that person truly angry at us? Was that event truly a miracle?\n      Or are we misinterpreting?\n      Also, bark at your roommates or your parents: you",
-            "'let the cold in.'"
-         ],
-         "em": "never"
-      }
+      "minor":
+            "Humans are great at 'making things from nothing'.\n      Our brains are costantly searching for meaning in the world.\n      We often find meaning by 'thingness'.\n      Look at all the objects that we give a more lively character to.\n      We call our prized possessions our babies and see faces in the clouds.\n      So, we are always interpreting -- all the time, every minute.\n      Let's be careful though, because we may easily fool ourselves.\n      Is that person truly angry at us? Was that event truly a miracle?\n      Or are we misinterpreting?\n      Also, bark at your roommates or your parents: you <em>never</em> 'let the cold in.'"
    },
    {
       "title": "Eat Up",
@@ -51,7 +32,7 @@
       "minor": "The circle of life is all around us!\n      If we want to go further, no life is possible without the sun.\n      So, the energy spent reading this was basically solar energy!\n      Praise the Sun ☼"
    },
    {
-      "title": "How Attractiv",
+      "title": "How Attractive",
       "major": "Gravitational pull is not only for heavier objects.\n      We see this misconception everywhere!\n      Not only does everything have a gravitational pull,\n      everything pulls everything else!",
       "minor": "Granted, we only see this for rather large objects.\n      Yet I pull you and you pull me.\n      All chairs in a room pull on each other to the smallest degree.\n      Gravity -- it's for everything to enjoy!\n      Maybe the hippies were right about the oceanic connectedness of the universe."
    },

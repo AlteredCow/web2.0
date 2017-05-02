@@ -37,6 +37,7 @@ $space-tiny: 2px;
   width: 70%;
 }
 
+// text boxes with sleek list style
 .cleanbox{
   padding: 5px;
   background: white;
@@ -45,8 +46,6 @@ $space-tiny: 2px;
   a{
       color: $color_link-hover;
   }
-
-
 
   ul{
     font-size: 0;
@@ -86,10 +85,17 @@ $space-tiny: 2px;
     cursor: pointer;
 }
 
+// default clickable styles
+.choice:hover{
+  color: white;
+  cursor: pointer;
+  background: $color_list-hover;
+}
 
+// currently: archives list
 .scrollList{
   font-size: 0;
-  width: 20%;
+  width: 30%;
   display: inline-block;
   float: left;
   // max-height: 1000px;
@@ -97,13 +103,10 @@ $space-tiny: 2px;
   li{
     font-size: 28px;
     padding: 10px;
-    cursor: pointer;
     background: white;
     box-shadow:  0px  2px 7px #333;
-    &:hover{
-      background: $color_list-hover;
-    }
 }
+
 
 }
 

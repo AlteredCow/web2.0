@@ -1,8 +1,11 @@
 /* |||||||||||| "GLOBALS" ||||||||||||||||||||||||||||||||||| */
+
+//TODO: redundancy in variables; mixing privacy; FIXXX
+//TODO: make 'Archives' its own (sub-)app
 $.tuckerware = new Object();
 $.tuckerware.private = new Object();
 $.tuckerware.private.selected_topic_shown = "education";
-$.tuckerware.private.archive_counter = 0;
+$.tuckerware.private.archive_pageTRACKER = 0;
 $.tuckerware.private.archive_pagecount = 0;
 $.tuckerware.private.archive_maxShow = 5;
 
@@ -44,6 +47,7 @@ $(document).ready(function() {
                          var length = $scope.records.length;
                          var maxShow = $.tuckerware.private.archive_maxShow;
                          $.tuckerware.private.archive_pagecount = Math.ceil(length/maxShow);
+                         $scope.archives_pageMAX = Math.ceil(length/maxShow);
                        }
                     });
 
@@ -59,58 +63,32 @@ $(document).ready(function() {
       * This funcion grabs and replaces the content file and slides to display area
       */
       $scope.expandTopic = function(key_letter, selected_topic, topic_key) {
-
-        // TODO: separate isA to its own function, wire in a loop
-
-          var isA = (key_letter === 'A');
-          var isJSON = (isA || key_letter === 'M');
-          var doScroll = (!isA);
-          var hasHelperContent = (isA);
-
           const CONTENT_DISPLAY = $(".contentDisplay");
-          CONTENT_DISPLAY.show();
+          CONTENT_DISPLAY.show(); //  'display: hidden' in HTML
 
-
-          if (doScroll){
+          // A is super special aaaand annoying
+          if (key_letter === 'A'){
+            expandArchives(topic_key);
+          } else {
+            // scroll-to-display action
             const SCROLL_TIME = 900;
             const OFFSET = 150;
             var spacing = CONTENT_DISPLAY.offset().top - OFFSET;
             $('html,body').stop().animate({
               scrollTop: spacing
             }, SCROLL_TIME);
-          }
-          if (isJSON){
-              if (isA){
-                var length = $scope.records.length;
-                var offset = $.tuckerware.private.archive_counter;
-                offset *= $.tuckerware.private.archive_maxShow;
-                if (offset >= length){
-                  offset = 0;
-                  topic_key = length - 1;
-                }
-                topic_key += offset;
-              }
-              if (topic_key < length){
-                CONTENT_DISPLAY.html($scope.records[topic_key].major);
-              }
-          } else {
+
             var parent_dir = "content/" + key_letter + "/";
-            var file = parent_dir;
-            file += selected_topic + ".html";
+            var file = parent_dir + selected_topic + ".html";
             CONTENT_DISPLAY.load(file);
-          }
-          if (hasHelperContent && topic_key < length){
-            const CONTENT_DISPLAY_BETA = $(".contentDisplayHelper");
-            CONTENT_DISPLAY_BETA.show();
-            selected_topic = $scope.records[topic_key];
-            CONTENT_DISPLAY_BETA.html(selected_topic.minor);
           }
       }
 
       // navigates 'pages' of topic choices
-      $scope.archivesTick = function(direction){
-        var page_now = $.tuckerware.private.archive_counter; //temp
-        var page_limit = $.tuckerware.private.archive_pagecount;
+      $scope.archivesMove = function(direction){
+        var page_now = $.tuckerware.private.archive_pageTRACKER;
+        var page_limit = $scope.archives_pageMAX;
+
 
         if (direction === 'up'){
           page_now--;
@@ -124,12 +102,14 @@ $(document).ready(function() {
         } else if (page_now >= page_limit){
           page_now = 0;
         }
-        $.tuckerware.private.archive_counter = page_now;
+        $.tuckerware.private.archive_pageTRACKER = page_now;
+        $scope.archives_pageNOW = page_now;
       }
 
+      // archive-list-builder -- to array, for display
       $scope.grabArchives = function(){
         const MAX_SHOW = $.tuckerware.private.archive_maxShow;
-        var row_offset = MAX_SHOW * $.tuckerware.private.archive_counter;
+        var row_offset = MAX_SHOW * $.tuckerware.private.archive_pageTRACKER;
         var available_topics = [];
         for (var x = (0 + row_offset); x < (MAX_SHOW + row_offset); x++){
           var current_topic = $scope.records[x];
@@ -142,6 +122,38 @@ $(document).ready(function() {
           }
         }
         return available_topics;
+      }
+
+
+      // @helps showPage, expandTopic
+      // @param:
+      // controls content of 'A' section
+      function expandArchives(topic_key){
+        const CONTENT_DISPLAY = $(".contentDisplay");
+        var pageNow = $scope.archives_pageNOW = $.tuckerware.private.archive_pageTRACKER;
+        var pageMax = $scope.archive_displayLIMIT = $.tuckerware.private.archive_maxShow;
+        var offset = pageNow * pageMax;
+        var numberOfArchives = $scope.records.length;
+
+        // offset adjusts choice # 1 - 5 by page number
+        if (offset >= numberOfArchives){
+          offset = 0;
+          topic_key = numberOfArchives- 1; // final archive
+        }
+        topic_key += offset;
+
+        // if selection is non-empty list option, then update
+        if (topic_key < numberOfArchives){
+          selected_topic = $scope.records[topic_key];
+
+          // upper content
+          CONTENT_DISPLAY.html(selected_topic.major);
+          // lower content
+          const CONTENT_DISPLAY_BETA = $(".contentDisplayHelper");
+          CONTENT_DISPLAY_BETA.show();
+          CONTENT_DISPLAY_BETA.html(selected_topic.minor);
+      }
+
       }
 
     }]); // END(controller)
@@ -162,6 +174,8 @@ $(document).ready(function() {
     // });
 
 });
+
+
 
 /* |||||||||||| STANDARD FUNCTIONS  ||||||||||||||||||||||||||||||||||| */
 
@@ -189,7 +203,7 @@ function deploySettings() {
 }
 
 
-
+// @helps menuGlow
 // @param hovered: menu choice in-focus, namely hovered
 // expands hovered menu item into full word of the DREAM acronym
 function launchWord(hovered) {

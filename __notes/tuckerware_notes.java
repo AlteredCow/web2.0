@@ -12,6 +12,7 @@ TRIVIAL / EASY
 	? remove delay (revert to skip-jump)
 	* some rewordings and additions ("Please keep in-reach!")
 	* add JavaDoc
+	% switch <classic> tags to more <semantic> ones
 
 SOME LENGTH
 	* brand self a logo [banner + tab] >> AT merge design (a flows to T)
