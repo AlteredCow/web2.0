@@ -5,23 +5,24 @@
 @import "e_specific";
 @import "a_specific";
 @import "m_specific";
-@import "colors";
-@import "fonts";
 @import "universals";
+@import "accordion";
 @charset "utf-8";
 
 
-/* ---- UPPER / BANNER ---------------- */
+/* ||| UPPER / BANNER ||||||||||||||| */
 
 #banner{
 	border-bottom: 3px solid black;
 	display: flex;
 	justify-content: space-between;
 	font-size: $font_size-banner;
+	font-weight: bold;
 	height: 130px;
 	-webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+	background: $color_bg-light;
 
 	*{
 		font-weight: lighter;
@@ -31,8 +32,6 @@
 		line-height: 100px;
 		padding-left: 25px;
 	}
-	a > img {
-	}
 
 }
 
@@ -41,10 +40,9 @@
 	width: $thmb-sm * 0.75;
 	height: $thmb-sm * 0.75;
 
-
 	padding: $space-sm $space-sm/2 $space-sm $space-sm;
 	cursor: pointer;
-	background: $bg-banner;
+	background: #9ecff2;
 	@include  glow-wrap(4px, $color_fair-grey);
 
 }
@@ -58,7 +56,7 @@
 @import "dream-menu";
 
 
-/* ---- MAIN CONTENT AREA ------------ */
+/* ||| MAIN CONTENT AREA |||||||||||| */
 
 @import "gridview";
 $leftsideWidth: 90%;
@@ -67,28 +65,26 @@ $rightsideWidth: 100% - $leftsideWidth;
 
 @media screen and (max-width: $min-width) {
 	.gridview > span, #main_content, .defaultContentLayout{
-		font-size: 1rem;
+		font-size: 1.2rem;
 	}
 }
-
-
-
 
 
 #main_content{
 	width: $leftsideWidth;
 }
+
 #main_content, .defaultContentLayout{
 	font-family: $font_family-main;
 	font-size: $font_size-article;
-	text-align: justify;
 	float: left;
-	overflow: auto;
 }
 #main_content > *{
 	padding: 15px;
 
 }
+
+/* ||| FOOTNOTES |||||||||||| */
 
 #footnotes{
 	height: 5%;
@@ -112,33 +108,33 @@ $rightsideWidth: 100% - $leftsideWidth;
 }
 
 
-/* ---- RIGHTSIDE PANEL ------------ */
+/* ||| RIGHTSIDE PANEL |||||||||||| */
 
 #right_panel{
 	width: $rightsideWidth;
-	background: $color_fair-grey;
-	// float: right;
-	// height: 100%;
 	height: auto;
 	position: fixed;
 	right: 0;
-@include box-shadow-main(inset, #999);
 
 	a{
 		box-sizing:border-box;
-			font-size:  104px;
-					color: #333333;
+		font-size: 74px;
+		line-height: 100px;
+		color: #333333;
+
+		background: $color_light-grey;
+		@extend  .link-buffer;
 	}
 
 	a:hover{
-		background: #e50000;
-		@include box-shadow-main(inset, #999);
+		@extend .choice:hover;
 	}
 
 }
 #right_panel, #right_panel > * {
-	@include box-shadow-menu(inset, $color_deep-red);
+	// @include box-shadow-menu(inset, $color_deep-red);
 	text-align: center;
+	border: 2px solid #888;
 }
 
 
@@ -162,7 +158,6 @@ $rightsideWidth: 100% - $leftsideWidth;
 
 #up_arrow{
 	@extend  .link-buffer;
-
 	height: 100px;
 	line-height: 100px;
 }

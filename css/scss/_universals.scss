@@ -4,11 +4,9 @@
 @import "mixins";
 
 $bg-primary: $color_light-grey;
-$bg-banner: $color_light-grey;
 $score: 4px solid black;
 $min-width: 655px;
-$min-height: 700px;
-$max-height: 800px;
+$min-height: 1000px;
 $thmb-sm: 100px;
 $space-sm: 10px;
 $space-tiny: 2px;
@@ -31,11 +29,99 @@ $space-tiny: 2px;
   width: 100%;
 }
 
-
-.contentDisplay{
+// the primary 'screens' of data
+.contentDisplay, .contentDisplayHelper{
   display: none; // to start of course
 	font-size: $font_size-article;
   clear:both;
+  // width: 70%;
+  white-space: initial;
+  padding: 15px;
+}
+
+.contentDisplayHelper{
+  color: #999;
+  background: white;
+}
+
+// text boxes with sleek list style
+.cleanbox{
+  padding: 5px;
+  background: white;
+  outline: 1px solid black;
+  margin-bottom: 60px;
+  a{
+      color: $color_link-hover;
+  }
+
+  ul{
+    font-size: 0;
+    margin: 0;
+  }
+  li{
+    font-size: 28px;
+    margin: 0;
+    padding: 10px;
+    text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
+
+    &:nth-child(odd){
+      background: $color_bg-light;
+    }
+  }
+
+}
+
+// after ng-include changes src
+.ng-animate {
+  transition: 0.1s linear all;
+}
+.ng-enter {
+  opacity:0;
+  &.ng-enter-active {
+    opacity:1;
+  }
+}
+.ng-leave {
+  opacity:1;
+}
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
+}
+
+
+// arrow clickable meant for navigation
+.flipper{
+  cursor: pointer;
+  background: $color_link-flipper;
+}
+
+// default clickable styles
+.choice:hover, .flipper:hover{
+  color: white;
+  cursor: pointer;
+  background: $color_list-hover;
+}
+
+// currently: archives list
+.scrollList{
+  font-size: 0;
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+  // float: left;
+  // max-height: 1000px;
+
+  li{
+    font-size: 24px;
+    padding: 20px;
+    box-shadow:  0px  0px 3px #333;
+    overflow: hidden;
+}
+
+
 }
 
 /* ----- HTML TAGS ------------------------ */
@@ -52,7 +138,7 @@ html, body{
   font-family: $font_family-main;
 	min-width: $min-width;
   min-height: $min-height;
-	background: $bg-primary;
+	background: $color_bg-primary;
 
 }
 
@@ -74,6 +160,11 @@ h1{
   color: $color_h1;
   opacity: 0.4;
   @include outline-text(1px, $color_dark-grey);
+}
+
+h2{
+  color: $color_h2;
+  margin: 60px 0px;
 }
 
 

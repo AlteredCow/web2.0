@@ -1,0 +1,36 @@
+// TEMPLATE:
+// <input type = "checkbox" id = "buttonCtrl"/>
+// <label class = "accordian" for = "buttonCtrl">P1</label>
+
+
+$color_accordian-primary: "red";
+$color_accordian-secondary: "green";
+
+#buttonCtrl {
+    display: none;
+    margin: 0;
+}
+
+.accordian {
+    width: 90%;
+    height: 100px;
+    padding: 10px;
+    box-shadow: 1px 1px 1px #000;
+    font-size: 40px;
+    line-height: 80px;
+    display: inline-block;
+    background: white;
+}
+
+.accordian:hover {
+    background: #c3e3fa;
+}
+
+
+.accordian:active {
+  outline: 1px solid black;
+  background: #99cbef;
+}
+
+#buttonCtrl:checked + label {
+}

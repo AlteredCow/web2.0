@@ -1,7 +1,7 @@
 #main_photo {
   width: 400px;
   height: 230px;
-  border: 2px solid; }
+  border: 2px solid #cbcbcb; }
 
 #goto_arrow {
   width: 80px;
@@ -9,11 +9,18 @@
   cursor: pointer; }
 
 #read_more {
-  color: #888;
-  border: 1px solid black;
-  background: white; }
+  color: #888; }
 
-.link-buffer, #main_menu li > a, #up_arrow {
+#archives_wrapper {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top; }
+  #archives_wrapper .contentDisplay {
+    background: #edeaea; }
+  #archives_wrapper div {
+    border: 1px solid black; }
+
+.link-buffer, #main_menu li > a, #right_panel a, #up_arrow {
   width: 100%;
   height: 100%;
   display: inline-block; }
@@ -26,10 +33,70 @@
   height: 100%;
   width: 100%; }
 
-.contentDisplay {
+.contentDisplay, .contentDisplayHelper {
   display: none;
   font-size: 1.8rem;
-  clear: both; }
+  clear: both;
+  white-space: initial;
+  padding: 15px; }
+
+.contentDisplayHelper {
+  color: #999;
+  background: white; }
+
+.cleanbox {
+  padding: 5px;
+  background: white;
+  outline: 1px solid black;
+  margin-bottom: 60px; }
+  .cleanbox a {
+    color: #08c98c; }
+  .cleanbox ul {
+    font-size: 0;
+    margin: 0; }
+  .cleanbox li {
+    font-size: 28px;
+    margin: 0;
+    padding: 10px;
+    text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88); }
+    .cleanbox li:nth-child(odd) {
+      background: #CBE5F8; }
+
+.ng-animate {
+  transition: 0.1s linear all; }
+
+.ng-enter {
+  opacity: 0; }
+  .ng-enter.ng-enter-active {
+    opacity: 1; }
+
+.ng-leave {
+  opacity: 1; }
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+  cursor: pointer; }
+
+.flipper {
+  cursor: pointer;
+  background: #b3dcf9; }
+
+.choice:hover, #right_panel a:hover, .flipper:hover {
+  color: white;
+  cursor: pointer;
+  background: #CBE5F8; }
+
+.scrollList {
+  font-size: 0;
+  width: 30%;
+  display: inline-block;
+  vertical-align: top; }
+  .scrollList li {
+    font-size: 24px;
+    padding: 20px;
+    box-shadow: 0px  0px 3px #333;
+    overflow: hidden; }
 
 /* ----- HTML TAGS ------------------------ */
 html {
@@ -38,12 +105,12 @@ html {
 html, body {
   font-family: calibri;
   min-width: 655px;
-  min-height: 700px;
-  background: #EAEAEA; }
+  min-height: 1000px;
+  background: #fafafa; }
 
 a {
   text-decoration: none;
-  color: blue; }
+  color: #5494f9; }
 
 li {
   list-style-type: none; }
@@ -53,17 +120,44 @@ h1 {
   opacity: 0.4;
   text-shadow: -1px 0 #666, 0 1px #666, 1px 0 #666, 0 -1px #666; }
 
+h2 {
+  color: #777;
+  margin: 60px 0px; }
+
 /* ----------------------------------------*/
-/* ---- UPPER / BANNER ---------------- */
+#buttonCtrl {
+  display: none;
+  margin: 0; }
+
+.accordian {
+  width: 90%;
+  height: 100px;
+  padding: 10px;
+  box-shadow: 1px 1px 1px #000;
+  font-size: 40px;
+  line-height: 80px;
+  display: inline-block;
+  background: white; }
+
+.accordian:hover {
+  background: #c3e3fa; }
+
+.accordian:active {
+  outline: 1px solid black;
+  background: #99cbef; }
+
+/* ||| UPPER / BANNER ||||||||||||||| */
 #banner {
   border-bottom: 3px solid black;
   display: flex;
   justify-content: space-between;
   font-size: 1.7rem;
+  font-weight: bold;
   height: 130px;
   -webkit-align-items: center;
   -ms-flex-align: center;
-  align-items: center; }
+  align-items: center;
+  background: #CBE5F8; }
   #banner * {
     font-weight: lighter; }
   #banner p {
@@ -76,7 +170,7 @@ h1 {
   height: 75px;
   padding: 10px 5px 10px 10px;
   cursor: pointer;
-  background: #EAEAEA;
+  background: #9ecff2;
   border: 1px solid #ccc;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -112,11 +206,10 @@ h1 {
   #main_menu li > a {
     padding-right: 10px; }
 
-/* ---- MAIN CONTENT AREA ------------ */
+/* ||| MAIN CONTENT AREA |||||||||||| */
 .gridview {
   color: #333;
   box-sizing: border-box;
-  width: 100%;
   font-size: 0; }
   .gridview span {
     font-size: 2rem;
@@ -127,24 +220,23 @@ h1 {
     width: 50%;
     float: left; }
   .gridview span :hover {
-    color: #00b3b3; }
+    color: #08c98c; }
 
 @media screen and (max-width: 655px) {
   .gridview > span, #main_content, .defaultContentLayout {
-    font-size: 1rem; } }
+    font-size: 1.2rem; } }
 #main_content {
   width: 90%; }
 
 #main_content, .defaultContentLayout {
   font-family: calibri;
   font-size: 1.8rem;
-  text-align: justify;
-  float: left;
-  overflow: auto; }
+  float: left; }
 
 #main_content > * {
   padding: 15px; }
 
+/* ||| FOOTNOTES |||||||||||| */
 #footnotes {
   height: 5%;
   padding: 2px; }
@@ -160,31 +252,22 @@ h1 {
   right: 21%;
   color: #cc1d00; }
 
-/* ---- RIGHTSIDE PANEL ------------ */
+/* ||| RIGHTSIDE PANEL |||||||||||| */
 #right_panel {
   width: 10%;
-  background: #ccc;
   height: auto;
   position: fixed;
-  right: 0;
-  box-shadow: inset 0px 4px 7px #999;
-  -moz-box-shadow: inset 0px 4px 7px #999;
-  -webkit-box-shadow: inset 0px 4px 7px #999; }
+  right: 0; }
   #right_panel a {
     box-sizing: border-box;
-    font-size: 104px;
-    color: #333333; }
-  #right_panel a:hover {
-    background: #e50000;
-    box-shadow: inset 0px 4px 7px #999;
-    -moz-box-shadow: inset 0px 4px 7px #999;
-    -webkit-box-shadow: inset 0px 4px 7px #999; }
+    font-size: 74px;
+    line-height: 100px;
+    color: #333333;
+    background: #fafafa; }
 
 #right_panel, #right_panel > * {
-  box-shadow: inset 0px 2px 7px #cc1d00;
-  -moz-box-shadow: inset 0px 2px 7px #cc1d00;
-  -webkit-box-shadow: inset 0px 2px 7px #cc1d00;
-  text-align: center; }
+  text-align: center;
+  border: 2px solid #888; }
 
 #settings_cog {
   background: #ccc;

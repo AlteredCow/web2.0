@@ -1,141 +1,322 @@
+/* |||||||||||| "GLOBALS" ||||||||||||||||||||||||||||||||||| */
 
-// occurs onload, on-page-switch, on-topic-switch
-function normalizeHeights(){
-  setTimeout(function() { // ample time to calculate
-    // $("#initial_content").height($("#main_menu").height());
-    // $("html").height($(document).height());
-    // $("#right_panel").height($("html").height() - $("#banner").height());
-  }, 150);
-  // $("#right_panel").height($(".defaultContentLayout:first").height());
-}
+//TODO: redundancy in variables; mixing privacy; FIXXX
+//TODO: make 'Archives' its own (sub-)app
+$.tuckerware = new Object();
+$.tuckerware.private = new Object();
+$.tuckerware.private.selected_topic_shown = "education";
+$.tuckerware.private.archive_pageTRACKER = 0;
+$.tuckerware.private.archive_pagecount = 0;
+$.tuckerware.private.archive_maxShow = 5;
 
-function scrollToTop(){
-  $("html, body").animate({ scrollTop: 0 }, "slow");
-}
-
-$(document).ready(function(){
-
-  // setting the stage here
-  $('#main_content').load("content/D/intro_D.txt"); // call first page onload
-  $("#main_menu li:first").trigger('mouseover');  // highlight 'D'
-  // setTimeout(function() {
-  //   $("#main_menu li:first").click();
-  // },10);
-
-  // Angular use --> loading content from file compartments
-  var app = angular.module('loaderApp', []);
-    app.controller('loaderController', function($scope, $http) {
+// (function(window, location) {
+//     window.addEventListener("popstate", function() {
+//             history.replaceState(state_history, document.title, location.pathname);
+//             setTimeout(function(){
+//
+//             },0);
+//       }
+//     }, false);
+// }(window, location));
 
 
-      // angular.element('#main_menu li:first').trigger('click');
+/* |||||||||||| ON-READY||||||||||||||||||||||||||||||||||| */
+$(document).ready(function() {
+
+    $("#main_menu li:first").trigger('mouseover'); // highlight 'D'
+
+    // TODO: move DOM-related functions to loader_app.directive
+    // SECTION: Angular main use - to load compartments of data
+    var loader_app = angular.module('loaderApp', ['ngAnimate']);
+
+    //
+    // loader_app.config(function($routeProvider){
+    //   $routeProvider
+    //     .when('page?p', {
+    //       reloadOnSearch: false
+    //     });
+    //
+    //   $scope.$on('$routeUpdate', function(){
+    //     $scope.sort = $location.search().sort;
+    //     $scope.order = $location.search().order;
+    //     $scope.offset = $location.search().offset;
+    //   });
+    //
+    // });
 
 
-    // select file by menu selection
-    $scope.showPage = function (menu_choice) {
-      const MOTTO = "DREAM";
-      var file_letter  =  MOTTO[menu_choice];
-      var isJSON = (menu_choice== 2 || menu_choice == 3);
-      var isJSON = false;
-      var extension = "." +  (isJSON? "json" : "txt");
-      var file = "content/"+ file_letter + "/intro_" + file_letter + extension;
+    // loader_app.factory('location', [
+    //     '$location',
+    //     '$route',
+    //     '$rootScope',
+    //     function ($location, $route, $rootScope) {
+    //         $location.noReload = function () {
+    //             var lastRoute = $route.current;
+    //             var un = $rootScope.$on('$locationChangeSuccess', function () {
+    //                 $route.current = lastRoute;
+    //                 un();
+    //             });
+    //             return $location;
+    //         };
+    //         return $location;
+    //     }
+    // ]);
 
-      // fade-transition animation
-      $("#main_content").fadeOut('fast', function(){
-            $http.get(file)
-      			   .success(function(content){
-                //  var compiledeHTML = $compile(content)($scope);
-              // $("#main_content").html(compiledeHTML);
-              $("#main_content").html(content);
-      		});
-      }).fadeIn();
-      // normalizeHeights(); // tidying
 
-    } // end of showPage()
+    loader_app.controller('loaderController', ['$scope', '$http', '$location', function($scope, $http, $location) {
 
-    const AMAZE_ARCHIVES = "content/A/archives_list.txt";
-    $http.get(AMAZE_ARCHIVES)
-       .success(function(data){
-        $scope["amaze_topics"] = data.topics;
+
+
+      $scope.$on('$locationChangeSuccess', function(event) {
+        event.defaultPrevented;
+        console.log("hey");
       });
 
-  }); // end of Angular
+        $scope.showPage = function(menu_choice) {
+            // TODO: separate isA to its own function, wire in a loop
+
+              // swaps ng-include src
+                const MOTTO = "DREAM";
+                var letter = MOTTO[menu_choice];
+                $scope.key_letter = letter;
+                // $location.search('part', $scope.key_letter);
+
+                $location.search("part?p", letter);
 
 
-}); // end of document.ready()
+                // history.replaceState(null, document.title, location.pathname + "/part?p=" + letter);
+                // window.location.replace(location.href + "part?p=" + letter);
+                // location.href += ("part?p=" + key_letter);
 
-// semi-globals
-var theme_topic_shown = "education";
+                // sections 'A' and 'M' require more work
+                var isA = (letter === 'A');
+                var isM = (letter === 'M');
+                if (isA || isM){
+                  var json_dir = "A/archives";
+                  var json_root = "topic"
+                  if (isM){
+                    json_dir = "M/contacting";
+                    json_root = "contact";
+                  }
+                  var records = "content/" + json_dir + ".JSON";
+                  $http.get(records)
+                     .success(function(JSON){
+                       $scope.records = JSON[json_root];
+                       if (isA){
+                         var length = $scope.records.length;
+                         var maxShow = $.tuckerware.private.archive_maxShow;
+                         $.tuckerware.private.archive_pagecount = Math.ceil(length/maxShow);
+                         $scope.archives_pageMAX = Math.ceil(length/maxShow);
+                       }
+                    });
 
-// highlight hovered; dull the remaining
-function menuGlow(hovered){
-  var bar_visibility = "0";
+                }
+            } // END(showPage)
+
+
+
+      /* @param key_letter: the menu choice key_letter
+      * @param selected_topic: the selected sub-material
+      * @param topic_key: numerical key for various purposes
+      * Each page has sub-content, sorted into several, narrower topics.
+      * This funcion grabs and replaces the content file and slides to display area
+      */
+      $scope.expandTopic = function(key_letter, selected_topic, topic_key) {
+          const CONTENT_DISPLAY = $(".contentDisplay");
+          CONTENT_DISPLAY.show(); //  'display: hidden' in HTML
+
+          // A and M are JSON; A is plain special
+          if (key_letter === 'A'){
+            expandArchives(topic_key);
+          } else if (key_letter === 'M'){
+            CONTENT_DISPLAY.html($scope.records[topic_key].major);
+          } else {
+            // scroll-to-display action
+            const SCROLL_TIME = 900;
+            const OFFSET = 150;
+            var spacing = CONTENT_DISPLAY.offset().top - OFFSET;
+            $('html,body').stop().animate({
+              scrollTop: spacing
+            }, SCROLL_TIME);
+
+            // now load file
+            var parent_dir = "content/" + key_letter + "/";
+            var file = parent_dir + selected_topic + ".html";
+            CONTENT_DISPLAY.load(file);
+          }
+      }
+
+      // navigates 'pages' of topic choices
+      $scope.archivesMove = function(direction){
+        var page_now = $.tuckerware.private.archive_pageTRACKER;
+        var page_limit = $scope.archives_pageMAX;
+
+        if (direction === 'up'){
+          page_now--;
+        } else {
+          page_now++;
+        }
+
+        // stay within bounds
+        if (page_now < 0){
+          page_now = page_limit-1;
+        } else if (page_now >= page_limit){
+          page_now = 0;
+        }
+
+        // updating globals
+        $.tuckerware.private.archive_pageTRACKER = page_now;
+        $scope.archives_pageNOW = page_now;
+      }
+
+
+
+      // @helps showPage, expandTopic
+      // @param topic_key: index within JSON of chosen topic
+      // controls content of 'A' section
+      function expandArchives(topic_key){
+        const CONTENT_DISPLAY = $(".contentDisplay");
+        var pageNow = $scope.archives_pageNOW = $.tuckerware.private.archive_pageTRACKER;
+        var pageMax = $scope.archive_displayLIMIT = $.tuckerware.private.archive_maxShow;
+        var offset = pageNow * pageMax;
+        var numberOfArchives = $scope.records.length;
+
+        // offset adjusts choice # 1 - 5 by page number
+        if (offset >= numberOfArchives){
+          offset = 0;
+          topic_key = numberOfArchives- 1; // final archive
+        }
+        topic_key += offset;
+
+        // if selection is non-empty list option, then update
+        if (topic_key < numberOfArchives){
+          selected_topic = $scope.records[topic_key];
+
+          // upper content
+          CONTENT_DISPLAY.html(selected_topic.major);
+          // lower content
+          const CONTENT_DISPLAY_BETA = $(".contentDisplayHelper");
+          CONTENT_DISPLAY_BETA.show();
+          CONTENT_DISPLAY_BETA.html(selected_topic.minor);
+        }
+      }
+
+      // archive-list-builder -- to array, for display
+      $scope.grabArchives = function(){
+        const MAX_SHOW = $.tuckerware.private.archive_maxShow;
+        var row_offset = MAX_SHOW * $.tuckerware.private.archive_pageTRACKER;
+        var available_topics = [];
+        for (var x = (0 + row_offset); x < (MAX_SHOW + row_offset); x++){
+          var current_topic = $scope.records[x];
+          if (current_topic){
+            available_topics.push($scope.records[x]);
+          } else {
+            var empty_obj = '{"topic" : "", "major" : "" }';
+            available_topics.push(empty_obj);
+          }
+        }
+        return available_topics;
+      }
+
+
+    }]); // END(controller)
+
+
+
+
+    // // SECTION: adjust heights after resize
+    // $(window).on("resize", function() {
+    //     clearTimeout($(this).data('timer'));
+    //     $(this).data('timer', setTimeout(function() {
+    //             var doc_width = $(window).width();
+    //             var left_panel_width = $("#main_content").width();
+    //             $("#right_panel").width(doc_width - left_panel_width);
+    //             console.log("sneeze");
+    //         }, 400)
+    //     );
+    // });
+
+});
+
+
+
+/* |||||||||||| STANDARD FUNCTIONS  ||||||||||||||||||||||||||||||||||| */
+
+
+
+
+// @param newPage: the letter indicating the page to load
+// flips pages - loads new page from menu choice
+function clickPage(newPage) {
+    // click to page; reset window position; highlight menu choice
+    $("#main_menu :eq(" + newPage + ")")[0].click();
+    $("#main_menu :nth-child(" + newPage + ")").trigger('mouseover');
+    window.scrollTo(0, 0);
+}
+
+
+/*
+* expands the right-panel menu for extended options
+*/
+function deploySettings() {
+    //var li_ = "<li><a href = ' '></a></li>"
+    // var appendage = li_ + li_ + li_
+    // $("#right_panel li:first").after(appendage);
+
+}
+
+
+// @helps menuGlow
+// @param hovered: menu choice in-focus, namely hovered
+// expands hovered menu item into full word of the DREAM acronym
+function launchWord(hovered) {
+    var menu_choices = ["Debut", "Reveal", "Entertain", "Amaze", "More"];
+    $("#main_menu > li").eq(hovered).html("<a href = '#'>" + menu_choices[hovered] + "</a>");
+}
+
+// // graphic finalize - to have accordian-layout
+// function loadAccordians(){
+//   $("button.accordian").on("click", function(){
+//     console.log('dog');
+//     this.classList.toggle("active");
+//     var panel = this.nextElementSibling;
+//     var disp = panel.style.display;
+//     disp = disp === "block"? "none" : "block";
+//   });
+// }
+
+// @param hovered: menu choice in-focus, namely hovered
+// graphic tracking - highlight hovered menu choice
+function menuGlow(hovered) {
+    var bar_visibility = "0";
 
     // full scan and update
-    $("#main_menu > li").each(function(index, value){
-      var current_letter = $("#main_menu > li ").eq(index);
-        if (index == hovered){
-          // highlighting
+    $("#main_menu > li").each(function(index, value) {
+        var current_letter = $("#main_menu > li ").eq(index);
+        if (index == hovered) {
+            // highlighting
             bar_visibility = "4px groove #B2D8B2";
-            $(current_letter).css("width","30%");
+            $(current_letter).css("width", "30%");
         } else {
-          // dulling
+            // dulling
             bar_visibility = "0";
-            $(current_letter).css("width","15%");
+            $(current_letter).css("width", "15%");
         }
 
         // applying updates
-        $(current_letter ).html("DREAM"[index]);
-        $(current_letter ).css("border-bottom", bar_visibility);
+        $(current_letter).html("DREAM" [index]);
+        $(current_letter).css("border-bottom", bar_visibility);
         launchWord(hovered);
     });
 }
 
-// expands hovered menu item into full word of the DREAM acronym
-function launchWord(hovered){
-  var menu_choices = ["Debut","Reveal", "Entertain", "Amaze", "More" ];
-  $("#main_menu > li").eq(hovered).html("<a href = '#'>" + menu_choices[hovered]  +  "</a>" );
-}
-
-function clickPage(newPage){
-  // click to page; reset window position; highlight menu choice
-  $("#main_menu :eq("+newPage+")")[0].click();
-  $("#main_menu :nth-child("+newPage+")").trigger('mouseover');
-  window.scrollTo(0,0);
-}
-
-function openSelfGallery(){
+// operates the LightBox
+function openSelfGallery() {
 
 }
 
-function deploySettings(){
-  //var li_ = "<li><a href = ' '></a></li>"
-  // var appendage = li_ + li_ + li_
-  // $("#right_panel li:first").after(appendage);
-
-}
-
-function expandTopic(theme_letter, theme_topic, topic_index){
-  $(".contentDisplay").show();
-  const SCROLL_TIME = 950;
-  const CONTENT_DISPLAY = $(".contentDisplay");
-  var spacing = CONTENT_DISPLAY.offset().top-150; // -150 as slight adjust
-  $('html,body').stop().animate({scrollTop: spacing}, SCROLL_TIME);
-
-    // Load the major data.
-    var parent_dir = "content/" +  theme_letter + "/"
-    var file = parent_dir;
-    if (theme_letter === "M"){  // 1 file only
-        file +=   "contact_listing.txt";
-        $.ajax({
-            type: "GET", url:file, dataType: "text"
-        }).done(function (data) {
-          // splits data from single file
-            CONTENT_DISPLAY.html(data.split("\n")[topic_index]);
-      });
-    } else {
-      // here, file depends on the chosen topic
-      file +=  theme_topic + ".txt";
-      CONTENT_DISPLAY.load(file);
-    }
-    normalizeHeights();
+function scrollToTop() {
+    $("html, body").animate({
+        scrollTop: 0
+    }, "slow");
 }

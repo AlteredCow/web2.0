@@ -5,12 +5,11 @@
       <title>great catch!</title>
       <link  rel="stylesheet"  href="css/rendered_css/tuckerware.css"/>
       <link  rel="stylesheet"  href="extras/lightbox/dist/css/lightbox.css"/>
-      <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
-      <script type = "text/javascript" src = "http://code.jquery.com/jquery-latest.min.js"></script>
+      <script type = "text/javascript" src = "scripts/jquery-min.js"></script>
       <script type = "text/javascript" src = "scripts/tuckerware.js"></script>
       <script type = "text/javascript"  src="scripts/angular-min.js"></script>
+      <script type = "text/javascript" src = "scripts/animate-min.js"></script>
       <script type = "text/javascript" src="extras/lightbox/dist/js/lightbox.js" ></script>
-      <script type = "text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
    </head>
    <body ng-app = "loaderApp" ng-controller="loaderController">
      <!-- Banner holds Icon, Name, Moto, and Menu  -->
@@ -32,12 +31,14 @@
 
    <!-- Two panels: one for content , one for settings and extras  -->
     <!-- For Title and Content -->
-      <pre  id = "main_content">
+
+
+      <pre  id = "main_content" ng-init = "key_letter = 'A'" ng-include src="'content/' + key_letter + '/base_' + key_letter + '.html'">
       </pre>
 
     <!-- For Settings and Logo -->
         <ul id = "right_panel" >
-            <li id = "settings_cog" onclick="deploySettings()"><a href = "">*</a></li>
+            <li id = "settings_cog" onclick="deploySettings()"><a href = "#">*</a></li>
             <li><a id = "up_arrow" href = "javascript:scrollToTop()" >↑</a></li>
             <li id = "site_logo">LOGO</li>
         </ul>
