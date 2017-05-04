@@ -9,18 +9,69 @@ $.tuckerware.private.archive_pageTRACKER = 0;
 $.tuckerware.private.archive_pagecount = 0;
 $.tuckerware.private.archive_maxShow = 5;
 
+// (function(window, location) {
+//     window.addEventListener("popstate", function() {
+//             history.replaceState(state_history, document.title, location.pathname);
+//             setTimeout(function(){
+//
+//             },0);
+//       }
+//     }, false);
+// }(window, location));
+
 
 /* |||||||||||| ON-READY||||||||||||||||||||||||||||||||||| */
 $(document).ready(function() {
 
-    // SECTION: setting initial stage
-    $('#main_content').load("content/D/base_D.html"); // call first page onload
     $("#main_menu li:first").trigger('mouseover'); // highlight 'D'
 
     // TODO: move DOM-related functions to loader_app.directive
     // SECTION: Angular main use - to load compartments of data
     var loader_app = angular.module('loaderApp', ['ngAnimate']);
-    loader_app.controller('loaderController', ['$scope', '$http', function($scope, $http) {
+
+    //
+    // loader_app.config(function($routeProvider){
+    //   $routeProvider
+    //     .when('page?p', {
+    //       reloadOnSearch: false
+    //     });
+    //
+    //   $scope.$on('$routeUpdate', function(){
+    //     $scope.sort = $location.search().sort;
+    //     $scope.order = $location.search().order;
+    //     $scope.offset = $location.search().offset;
+    //   });
+    //
+    // });
+
+
+    // loader_app.factory('location', [
+    //     '$location',
+    //     '$route',
+    //     '$rootScope',
+    //     function ($location, $route, $rootScope) {
+    //         $location.noReload = function () {
+    //             var lastRoute = $route.current;
+    //             var un = $rootScope.$on('$locationChangeSuccess', function () {
+    //                 $route.current = lastRoute;
+    //                 un();
+    //             });
+    //             return $location;
+    //         };
+    //         return $location;
+    //     }
+    // ]);
+
+
+    loader_app.controller('loaderController', ['$scope', '$http', '$location', function($scope, $http, $location) {
+
+
+
+      $scope.$on('$locationChangeSuccess', function(event) {
+        event.defaultPrevented;
+        console.log("hey");
+      });
+
         $scope.showPage = function(menu_choice) {
             // TODO: separate isA to its own function, wire in a loop
 
@@ -28,6 +79,14 @@ $(document).ready(function() {
                 const MOTTO = "DREAM";
                 var letter = MOTTO[menu_choice];
                 $scope.key_letter = letter;
+                // $location.search('part', $scope.key_letter);
+
+                $location.search("part?p", letter);
+
+
+                // history.replaceState(null, document.title, location.pathname + "/part?p=" + letter);
+                // window.location.replace(location.href + "part?p=" + letter);
+                // location.href += ("part?p=" + key_letter);
 
                 // sections 'A' and 'M' require more work
                 var isA = (letter === 'A');
