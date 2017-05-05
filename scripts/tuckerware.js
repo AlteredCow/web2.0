@@ -24,13 +24,13 @@ $(document).ready(function() {
 
       // TODO: acknowledge only when A and M
       $scope.archives_pageNOW = 0;
-      $scope.archives_showLIMIT = 5;
+       $scope.archives_displayLIMIT = 5;
       var archives = "content/A/archives.JSON";
       $http.get(archives)
          .success(function(JSON){
            const ARCHIVES_ROOT = "topic";
            $scope.records = JSON[ARCHIVES_ROOT];
-           $scope.archives_pageMAX = Math.ceil($scope.records.length / $scope.archives_showLIMIT);
+           $scope.archives_pageMAX = Math.ceil($scope.records.length /  $scope.archives_displayLIMIT);
         });
       var contacts = "content/M/contacting.JSON";
       $http.get(contacts)
@@ -96,8 +96,8 @@ $(document).ready(function() {
       // @helps showPage, expandTopic
       // @param topic_index: index within JSON of chosen topic
       // controls content of 'A' section
-      function expandArchives(topic_index){
-        var offset = $scope.archives_pageNOW * $scope.archives_displayLIMIT;
+      $scope.expandArchives = function(topic_index){
+        var offset = $scope.archives_pageNOW *  $scope.archives_displayLIMIT;
         var archiveCount = $scope.records.length;
 
         // offset adjusts choice # 1 - 5 by page number
@@ -115,13 +115,13 @@ $(document).ready(function() {
           $(".contentDisplay").show().html(selected_topic.major);
 
           // lower content
-          $(".contentDisplayHelper").html(selected_topic.minor);
+          $(".contentDisplayHelper").show().html(selected_topic.minor);
         }
       }
 
       // archives UI-list builder
       $scope.grabArchives = function(){
-        const SHOW_LIMIT = $scope.archives_showLIMIT;
+        const SHOW_LIMIT =  $scope.archives_displayLIMIT;
         var offset = SHOW_LIMIT * $scope.archives_pageNOW;
         var available_topics = [];
         // grabbing current (n-number of topics)

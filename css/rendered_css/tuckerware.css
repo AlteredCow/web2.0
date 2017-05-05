@@ -9,7 +9,8 @@
   cursor: pointer; }
 
 #read_more {
-  color: #888; }
+  color: #888;
+  padding: 20px; }
 
 #archives_wrapper {
   width: 50%;
@@ -18,6 +19,7 @@
   #archives_wrapper .contentDisplay {
     background: #edeaea; }
   #archives_wrapper div {
+    font-size: 20px;
     border: 1px solid black; }
 
 .link-buffer, #main_menu li > a, #right_panel a, #up_arrow {
@@ -45,22 +47,22 @@
   background: white; }
 
 .cleanbox {
-  padding: 5px;
   background: white;
-  outline: 1px solid black;
-  margin-bottom: 60px; }
-  .cleanbox a {
+  outline: 1px solid #d3d3d3;
+  width: 65%;
+  margin: 40px 0; }
+  .cleanbox :not(h2) {
+    text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88); }
+  .cleanbox a:hover {
     color: #08c98c; }
   .cleanbox ul {
-    font-size: 0;
-    margin: 0; }
-  .cleanbox li {
-    font-size: 28px;
-    margin: 0;
-    padding: 10px;
-    text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88); }
-    .cleanbox li:nth-child(odd) {
-      background: #CBE5F8; }
+    font-size: 0; }
+    .cleanbox ul li {
+      text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
+      font-size: 18px;
+      padding: 10px; }
+      .cleanbox ul li:nth-child(odd) {
+        background: #CBE5F8; }
 
 .ng-animate {
   transition: 0.1s linear all; }
@@ -91,11 +93,11 @@
 
 .scrollList {
   font-size: 0;
-  width: 30%;
+  width: 25%;
   display: inline-block;
   vertical-align: top; }
   .scrollList li {
-    font-size: 24px;
+    font-size: 18px;
     padding: 20px;
     box-shadow: 0px  0px 3px #333;
     overflow: hidden; }
@@ -124,7 +126,7 @@ h1 {
 
 h2 {
   color: #777;
-  margin: 60px 0px; }
+  padding: 40px 5px; }
 
 /* ----------------------------------------*/
 #buttonCtrl {
@@ -212,20 +214,43 @@ h2 {
     padding-right: 10px; }
 
 /* ||| MAIN CONTENT AREA |||||||||||| */
-.gridview {
+.topicview {
   color: #333;
   box-sizing: border-box;
   font-size: 0; }
-  .gridview span {
-    font-size: 2rem;
+  .topicview a {
+    font-size: 1.7rem;
     font-family: Century Gothic;
     font-weight: 400;
-    padding-bottom: 80px;
+    padding-right: 50px;
     vertical-align: top;
-    width: 50%;
     float: left; }
-  .gridview span :hover {
-    color: #08c98c; }
+    .topicview a:hover {
+      color: #08c98c; }
+
+/*
+* let shema be
+* <div gridview...
+*   <div figure
+*     < img ..
+*     < p ..
+*   <div figure
+*     < img ..
+*     < p ..
+*/
+.gridview * {
+  box-sizing: border-box;
+  width: 33%; }
+.gridview p {
+  color: #999;
+  width: 100%; }
+.gridview .figure {
+  text-align: center;
+  font-style: italic;
+  font-size: 14px;
+  display: inline-block;
+  border: thin silver solid;
+  overflow: hidden; }
 
 @media screen and (max-width: 655px) {
   .gridview > span, #main_content, .defaultContentLayout {

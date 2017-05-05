@@ -6,7 +6,7 @@
       },
       {
         "type": "social",
-        "major": "<p><em>@alteredcow</em><br><a target = '_blank' href = 'https://www.facebook.com/AlteredCow'>facebook</a>|<a target = '_blank' href = 'https://instagram.com/alteredcow'> instagram </a>| SnapChat</p>"
+        "major": "<p><em>@alteredcow</em><br><a target = '_blank' href = 'https://www.facebook.com/AlteredCow'>facebook</a><br><a target = '_blank' href = 'https://instagram.com/alteredcow'> instagram </a><br> SnapChat</p>"
       },
       {
         "type": "github",
@@ -14,7 +14,7 @@
       },
       {
         "type": "personal",
-        "major": "<br><p><a href = './tuckerware.html'>my personal site ~</a></p>"
+        "major": "<p><br><a href = './tuckerware.html'>my personal site ~</a><br></p>"
       }
     ]
 }

@@ -1,23 +1,30 @@
-@import "fonts";
-@import "colors";
-
-$grid-box-color: #333;
-.gridview{ // div | wrapper
-    color: $grid-box-color;
+/*
+* let shema be
+* <div gridview...
+*   <div figure
+*     < img ..
+*     < p ..
+*   <div figure
+*     < img ..
+*     < p ..
+*/
+.gridview {
+  *{
     box-sizing: border-box;
-    font-size: 0;
-    span{
-      font-size: $font_size-header;
-      font-family: $font_family-header;
-      font-weight: 400;
-
-      padding-bottom: 80px;
-      vertical-align: top;
-      width: 50%;
-      float: left;
-   }
-   span :hover{
-      color: $color_link-hover;
-   }
-
+    width: 33%;
+  }
+  img{
+  }
+  p{
+    color: #999;
+    width: 100%;
+  }
+  .figure{
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+    display: inline-block;
+    border: thin silver solid;
+    overflow: hidden;
+  }
 }

@@ -1,0 +1,21 @@
+@import "fonts";
+@import "colors";
+
+$grid-box-color: #333;
+.topicview{ // div | wrapper
+    color: $grid-box-color;
+    box-sizing: border-box;
+    font-size:0;
+    a{
+      font-size: $font_size-header;
+      font-family: $font_family-header;
+      font-weight: 400;
+      padding-right: 50px;
+      vertical-align: top;
+      float:left;
+      &:hover{
+      color: $color_link-hover;
+    }
+ }
+
+}

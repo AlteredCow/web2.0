@@ -34,8 +34,7 @@ $space-tiny: 2px;
   display: none; // to start of course
 	font-size: $font_size-article;
   clear:both;
-  // width: 70%;
-  white-space: initial;
+  white-space: initial; // important!
   padding: 15px;
 }
 
@@ -46,32 +45,29 @@ $space-tiny: 2px;
 
 // text boxes with sleek list style
 .cleanbox{
-  padding: 5px;
   background: white;
-  outline: 1px solid black;
-  margin-bottom: 60px;
-  a{
-      color: $color_link-hover;
+  outline: 1px solid #d3d3d3;
+  width: 65%;
+  margin: 40px 0;
+  & :not(h2){
+    text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
   }
-
+  a:hover{color: $color_link-hover;}
   ul{
     font-size: 0;
-    margin: 0;
-  }
-  li{
-    font-size: 28px;
-    margin: 0;
-    padding: 10px;
-    text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
-
-    &:nth-child(odd){
-      background: $color_bg-light;
+    li{
+      text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
+      font-size: 18px;
+      padding: 10px;
+      &:nth-child(odd){
+        background: $color_bg-light;
+      }
     }
   }
 
 }
 
-// after ng-include changes src
+// after ng-view changes route
 .ng-animate {
   transition: 0.1s linear all;
 }
@@ -81,21 +77,18 @@ $space-tiny: 2px;
     opacity:1;
   }
 }
-
 .ng-leave {
   opacity:0.4;
   &.ng-leave-active {
-    opacity:0.1;
-
+    opacity: 0.1;
   }
 }
-
 [ng-click],
 [data-ng-click],
 [x-ng-click] {
     cursor: pointer;
 }
-
+// ---- END(ng-animate) ----
 
 // arrow clickable meant for navigation
 .flipper{
@@ -113,20 +106,15 @@ $space-tiny: 2px;
 // currently: archives list
 .scrollList{
   font-size: 0;
-  width: 30%;
+  width: 25%;
   display: inline-block;
   vertical-align: top;
-  // float: left;
-  // max-height: 1000px;
-
   li{
-    font-size: 24px;
+    font-size: 18px;
     padding: 20px;
     box-shadow:  0px  0px 3px #333;
     overflow: hidden;
-}
-
-
+  }
 }
 
 /* ----- HTML TAGS ------------------------ */
@@ -169,7 +157,7 @@ h1{
 
 h2{
   color: $color_h2;
-  margin: 60px 0px;
+  padding: 40px 5px;
 }
 
 
