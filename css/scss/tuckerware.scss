@@ -89,8 +89,7 @@ $rightsideWidth: 100% - $leftsideWidth;
 #footnotes{
 	height: 5%;
 	padding: $space-tiny;
-
-	 p{
+	p{
 		font-size: $font_size-footnote;
 	}
 }
@@ -138,8 +137,6 @@ $rightsideWidth: 100% - $leftsideWidth;
 }
 
 
-
-
 #settings_cog{
 	background: $color_fair-grey;
 	height: 100px;
@@ -152,7 +149,6 @@ $rightsideWidth: 100% - $leftsideWidth;
 		height: 100%;
 		width: 100%;
 		display: inline-block;
-
 }
 
 
@@ -160,4 +156,4 @@ $rightsideWidth: 100% - $leftsideWidth;
 	@extend  .link-buffer;
 	height: 100px;
 	line-height: 100px;
-}
+	}

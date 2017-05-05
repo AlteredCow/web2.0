@@ -66,12 +66,14 @@
   transition: 0.1s linear all; }
 
 .ng-enter {
-  opacity: 0; }
+  opacity: 0.4; }
   .ng-enter.ng-enter-active {
     opacity: 1; }
 
 .ng-leave {
-  opacity: 1; }
+  opacity: 0.4; }
+  .ng-leave.ng-leave-active {
+    opacity: 0.1; }
 
 [ng-click],
 [data-ng-click],
@@ -199,11 +201,14 @@ h2 {
     float: left;
     width: 15%;
     font-weight: bold;
-    text-shadow: 2px 2px 5px #999;
+    text-shadow: 2px 2px 7px #c1c1c1;
     font-size: 1.7rem;
     height: 100px;
-    line-height: 100px; }
+    line-height: 100px;
+    border-right: 2px solid #f2f2f2;
+    padding-left: 10px; }
   #main_menu li > a {
+    width: 90%;
     padding-right: 10px; }
 
 /* ||| MAIN CONTENT AREA |||||||||||| */

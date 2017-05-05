@@ -76,13 +76,18 @@ $space-tiny: 2px;
   transition: 0.1s linear all;
 }
 .ng-enter {
-  opacity:0;
+  opacity:0.4;
   &.ng-enter-active {
     opacity:1;
   }
 }
+
 .ng-leave {
-  opacity:1;
+  opacity:0.4;
+  &.ng-leave-active {
+    opacity:0.1;
+
+  }
 }
 
 [ng-click],

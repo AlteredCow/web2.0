@@ -7,8 +7,9 @@
       <link  rel="stylesheet"  href="extras/lightbox/dist/css/lightbox.css"/>
       <script type = "text/javascript" src = "scripts/jquery-min.js"></script>
       <script type = "text/javascript" src = "scripts/tuckerware.js"></script>
-      <script type = "text/javascript"  src="scripts/angular-min.js"></script>
+      <script type = "text/javascript" src = "scripts/angular-min.js"></script>
       <script type = "text/javascript" src = "scripts/animate-min.js"></script>
+      <script type = "text/javascript" src = "scripts/route-min.js"></script>
       <script type = "text/javascript" src="extras/lightbox/dist/js/lightbox.js" ></script>
    </head>
    <body ng-app = "loaderApp" ng-controller="loaderController">
@@ -21,11 +22,11 @@
                 D(ebut), R(eveal), E(Entertain), A(maze), M(ore)
                 ~= Introduction, Bio, Apps and Art, Thoughts, Contact -->
          <ul id = "main_menu">
-           <li onmouseover = "menuGlow(0)" ng-click="showPage(0)"><a href = "#">Debut</a></li>
-           <li onmouseover = "menuGlow(1)" ng-click="showPage(1)"><a href = "#">R</a></li>
-           <li onmouseover = "menuGlow(2)" ng-click="showPage(2)"><a href = "#">E</a></li>
-           <li onmouseover = "menuGlow(3)" ng-click="showPage(3)"><a href = "#">A</a></li>
-           <li onmouseover = "menuGlow(4)" ng-click="showPage(4)"><a href = "#">M</a></li>
+           <li onmouseover = "menuGlow(0)" ><a href = "#/D">Debut</a></li>
+           <li onmouseover = "menuGlow(1)" ><a href = "#/R">R</a></li>
+           <li onmouseover = "menuGlow(2)" ><a href = "#/E">E</a></li>
+           <li onmouseover = "menuGlow(3)" ><a href = "#/A">A</a></li>
+           <li onmouseover = "menuGlow(4)" ><a href = "#/M">M</a></li>
          </ul>
      </div>
 
@@ -33,14 +34,13 @@
     <!-- For Title and Content -->
 
 
-      <pre  id = "main_content" ng-init = "key_letter = 'A'" ng-include src="'content/' + key_letter + '/base_' + key_letter + '.html'">
-      </pre>
+    <pre  id = "main_content"  ng-view></pre>
 
     <!-- For Settings and Logo -->
         <ul id = "right_panel" >
-            <li id = "settings_cog" onclick="deploySettings()"><a href = "#">*</a></li>
+            <!-- <li id = "settings_cog" onclick="deploySettings()"><a href = "#">*</a></li> -->
             <li><a id = "up_arrow" href = "javascript:scrollToTop()" >↑</a></li>
-            <li id = "site_logo">LOGO</li>
+            <!-- <li id = "site_logo">LOGO</li> -->
         </ul>
       <!-- <span id = "footnotes">
         <p  id = "footnote_left" >
