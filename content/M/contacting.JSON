@@ -1,20 +1,18 @@
-{
-    "contact": [
+{"contact": [
       {
-        "type": "basic",
-        "major": "<p>email: tucker.585@osu.edu<br/>mobile: (614) 806 - 6243</p>"
+        "name": "basic",
+        "info": "<p>email: tucker.585@osu.edu<br/>mobile: (614) 806 - 6243</p>"
       },
       {
-        "type": "social",
-        "major": "<p><em>@alteredcow</em><br><a target = '_blank' href = 'https://www.facebook.com/AlteredCow'>facebook</a><br><a target = '_blank' href = 'https://instagram.com/alteredcow'> instagram </a><br> SnapChat</p>"
+        "name": "social",
+        "info": "<p><em>@alteredcow</em><br><a target = '_blank' href = 'https://www.facebook.com/AlteredCow'>facebook</a><br><a target = '_blank' href = 'https://instagram.com/alteredcow'> instagram </a><br> SnapChat</p>"
       },
       {
-        "type": "github",
-        "major": "<br><p><a target = '_blank' href = 'https://github.com/AlteredCow'>to GitHub ~</a><br></p>"
+        "name": "github",
+        "info": "<br><p><a target = '_blank' href = 'https://github.com/AlteredCow'>to GitHub ~</a><br></p>"
       },
       {
-        "type": "personal",
-        "major": "<p><br><a href = './tuckerware.html'>my personal site ~</a><br></p>"
+        "name": "personal",
+        "info": "<p><br><a href = './tuckerware.html'>my personal site ~</a><br></p>"
       }
-    ]
-}
+]}

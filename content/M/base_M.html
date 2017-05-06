@@ -1,5 +1,5 @@
 <h1>more</h1>
 <div class="topicview">
-  <a ng-repeat = "data in contacts" class = "topic_choice" ng-click = "expandTopic('M', 'contact', $index)">{{data.type}}</a>
+  <a ng-repeat = "category in contacts" class = "topic_choice" ng-click = "expandTopic('M', 'contact', $index)">{{category.name}}</a>
   <div   class = "contentDisplay cleanbox" style = "display: block;"></div>
 </div>

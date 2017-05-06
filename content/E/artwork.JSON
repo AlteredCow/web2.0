@@ -1,17 +1,14 @@
-{
-  "piece":
-    [
+{"piece": [
       {
-        "img":"photobook_icon",
-        "caption":"",
-        "type":"",
-        "date":""
+        "src":"photo_icon.png",
+        "caption":"oh",
+        "medium":"art",
+        "date":"my"
       },
       {
-        "img":"",
+        "src":"photobook_icon",
         "caption":"",
-        "type":"",
+        "medium":"",
         "date":""
       }
-    ]
-}
+]}

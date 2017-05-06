@@ -1,36 +1,51 @@
+/* |||||||||||| NOTES ||||||||||||||||||||||||||||||||||| */
 //TODO: redundancy in variables; mixing privacy; FIXXX
 //TODO: make 'Archives' its own (sub-)app
-
+// TODO: move DOM-related functions to loader_app.directive
+// TODO: acknowledge GET only when appropiate (LAZY LOAD)
+// TODO: DOM content -- controller to directive
 
 /* |||||||||||| ON-READY||||||||||||||||||||||||||||||||||| */
 $(document).ready(function() {
   $("#main_menu li:first").trigger('mouseover'); // highlight 'D'
+  var loader_app = angular.module('loaderApp', ['ngAnimate', 'ngRoute']);
 
-    // TODO: move DOM-related functions to loader_app.directive
-    var loader_app = angular.module('loaderApp', ['ngAnimate', 'ngRoute']);
-
+    // URL-hash configuration: allows flipping through DREAM sections
     loader_app.config(function($routeProvider){
       $routeProvider
         .when('/:name',
                {
+                 // where :name == key_letter
                    templateUrl: function(params){ return 'content/'+params.name+'/base_'+params.name+'.html'; }
-        })
+              })
         .otherwise({
-            templateUrl: 'content/D/base_D.html'
+            templateUrl: 'content/D/base_D.html' // home-page
         });
-    });
+    }); // END(app-config)
+
+    loader_app.directive('dynamic', function($compile) {
+    return {
+        restrict: 'A',
+        replace: true,
+        link: function (scope, element, attrs) {
+            scope.$watch(attrs.dynamic, function(html) {
+                element[0].innerHTML = html;
+                $compile(element.contents())(scope);
+            });
+        }
+    };
+});
 
     loader_app.controller('loaderController', ['$scope', '$http', function($scope, $http) {
 
-      // TODO: acknowledge only when A and M
       $scope.archives_pageNOW = 0;
-       $scope.archives_displayLIMIT = 5;
+      $scope.archives_displayLIMIT = 5;
       var archives = "content/A/archives.JSON";
       $http.get(archives)
          .success(function(JSON){
            const ARCHIVES_ROOT = "topic";
            $scope.records = JSON[ARCHIVES_ROOT];
-           $scope.archives_pageMAX = Math.ceil($scope.records.length /  $scope.archives_displayLIMIT);
+           $scope.archives_pageTOTAL = Math.ceil($scope.records.length /  $scope.archives_displayLIMIT);
         });
       var contacts = "content/M/contacting.JSON";
       $http.get(contacts)
@@ -38,21 +53,27 @@ $(document).ready(function() {
            const ARCHIVES_ROOT = "contact";
            $scope.contacts = JSON[ARCHIVES_ROOT];
         });
+      var artwork = "content/E/artwork.JSON";
+      $http.get(artwork)
+         .success(function(JSON){
+           const ARCHIVES_ROOT = "piece";
+           $scope.artwork = JSON[ARCHIVES_ROOT];
+        });
 
 
-
-      /* @param key_letter: the menu choice key_letter
-      * @param selected_topic: the selected sub-material
-      * @param topic_index: numerical key for various purposes
-      * Each page has sub-content, sorted into several, narrower topics.
-      * This funcion grabs and replaces the content file and slides to display area
+      /* @param key_letter: the menu choice key letter
+      * @param selected_topic: the clicked sub-material
+      * @param topic_index: general purpose numerical key
+      * Each page has sub-content, which is sorted into several narrower topics.
+      * This funcion grabs content file, then displays it, and slides to display area
       */
       $scope.expandTopic = function(key_letter, selected_topic, topic_index) {
           const CONTENT_DISPLAY = $(".contentDisplay");
           CONTENT_DISPLAY.show(); //  'display: hidden' in HTML
 
+          // loads to page only content within JSON
           if (key_letter === 'M'){
-            CONTENT_DISPLAY.html($scope.contacts[topic_index].major);
+            CONTENT_DISPLAY.html($scope.contacts[topic_index].info);
           } else {
             // scroll-to-display action
             const SCROLL_TIME = 900;
@@ -62,16 +83,15 @@ $(document).ready(function() {
               scrollTop: spacing
             }, SCROLL_TIME);
 
-            // now load file
+            // now load topic file
             var parent_dir = "content/" + key_letter + "/";
-            var file = parent_dir + selected_topic + ".html";
-            CONTENT_DISPLAY.load(file);
+            var from_file_path = parent_dir + selected_topic + ".html";
+            CONTENT_DISPLAY.load(from_file_path);
           }
       }
 
       // navigates 'pages' of topic choices
       $scope.archivesMove = function(direction){
-
         var page_now = $scope.archives_pageNOW;
         if (direction === 'up'){
           page_now--;
@@ -80,7 +100,7 @@ $(document).ready(function() {
         }
 
         // stay within bounds
-        var page_max = $scope.archives_pageMAX;
+        var page_max = $scope.archives_pageTOTAL;
         if (page_now < 0){
           page_now = page_max - 1; // -1 for 0-index
         } else if (page_now >= page_max){
@@ -109,13 +129,12 @@ $(document).ready(function() {
 
         // if selection is non-empty list option, then update
         if (topic_index < archiveCount){
-          selected_topic = $scope.records[topic_index];
+          selected_archive = $scope.records[topic_index];
 
           // upper content
-          $(".contentDisplay").show().html(selected_topic.major);
-
+          $(".contentDisplay").show().html(selected_archive.major);
           // lower content
-          $(".contentDisplayHelper").show().html(selected_topic.minor);
+          $(".contentDisplayHelper").show().html(selected_archive.minor);
         }
       }
 
@@ -155,7 +174,6 @@ function clickPage(newPage) {
     window.location.hash = selected_page.html();
     selected_page.trigger('mouseover');
     window.scrollTo(0, 0);
-    console.log(   selected_page.find("a")[0] );
 }
 
 

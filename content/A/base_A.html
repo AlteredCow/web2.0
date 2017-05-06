@@ -1,6 +1,6 @@
 <h1>amaze</h1>
 <ul class = "scrollList">
-	<li>{{archives_pageNOW+1}} of {{archives_pageMAX}}</li>
+	<li>{{archives_pageNOW +1}} of {{archives_pageTOTAL}}</li>
 		<li class = "flipper" ng-click = "archivesMove('up')">^</li>
 		<li class = "choice" ng-repeat = "topic in grabArchives() track by $index" ng-click = "expandArchives($index)">{{topic.title}}</li>
 		<li class = "flipper"  ng-click = "archivesMove('down')">v</li>

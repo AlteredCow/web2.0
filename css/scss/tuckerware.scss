@@ -136,23 +136,15 @@ $rightsideWidth: 100% - $leftsideWidth;
 	text-align: center;
 	border: 2px solid #888;
 }
-
-
 #settings_cog{
 	background: $color_fair-grey;
 	height: 100px;
-
-
-
-}
-
-#settings_cog a{
+	a{
 		height: 100%;
 		width: 100%;
 		display: inline-block;
+	}
 }
-
-
 #up_arrow{
 	@extend  .link-buffer;
 	height: 100px;

@@ -69,18 +69,19 @@ $space-tiny: 2px;
 
 // after ng-view changes route
 .ng-animate {
-  transition: 0.1s linear all;
+  transition: 0.2s linear all;
 }
 .ng-enter {
-  opacity:0.4;
+  opacity:0;
   &.ng-enter-active {
     opacity:1;
   }
 }
 .ng-leave {
-  opacity:0.4;
+  opacity:1;
   &.ng-leave-active {
-    opacity: 0.1;
+    display: none;
+    // opacity: 0;
   }
 }
 [ng-click],
