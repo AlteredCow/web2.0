@@ -15,6 +15,7 @@ $(document).ready(function() {
       $routeProvider
         .when('/:name',
                {
+                controller: "loaderController",
                  // where :name == key_letter
                    templateUrl: function(params){ return 'content/'+params.name+'/base_'+params.name+'.html'; }
               })
@@ -23,24 +24,48 @@ $(document).ready(function() {
         });
     }); // END(app-config)
 
-    loader_app.directive('dynamic', function($compile) {
-    return {
-        restrict: 'A',
-        replace: true,
-        link: function (scope, element, attrs) {
-            scope.$watch(attrs.dynamic, function(html) {
-                element[0].innerHTML = html;
-                $compile(element.contents())(scope);
-            });
-        }
-    };
-});
 
-    loader_app.controller('loaderController', ['$scope', '$http', function($scope, $http) {
+  // loader_app.directive("myTopic", function(){
+  //   // return{
+  //   //   templateUrl: 'content/R/education.html'
+  //   // };
+  //   return{
+  //     restrict: 'E',
+  //     link: function(scope, element, attrs){
+  //       scope.
+  //       // return './content/' + {{obj.prop}} + "/" + {{obj.prop}} + ".html"; }
+  //   }
+  // });
 
+
+  // loader_app.directive('myTopic', function() {
+  //    return {
+  //        restrict: 'E',
+  //        link: function(scope, element, attrs) {
+  //          templateUrl: 'content/{{key_letter}}/{{partial}}.html'
+  //           //  scope.contentUrl = 'content/excerpts/hymn-' + attrs.ver + '.html';
+  //           //  attrs.$observe("ver",function(v){
+  //               //  scope.contentUrl = 'content/excerpts/hymn-' + v + '.html';
+  //            });
+  //        }
+  //       //  template: '<div ng-include="contentUrl"></div>'
+  // });
+
+
+
+    loader_app.controller('loaderController', ['$scope', '$http', '$route', '$routeParams', function($scope, $http, $route, $routeParams) {
+
+      $scope.obj = {prop: "hey"};
+      $scope.key_letter = 'D';
+      $scope.partial = "base_D.html";
       $scope.archives_pageNOW = 0;
       $scope.archives_displayLIMIT = 5;
       var archives = "content/A/archives.JSON";
+      $scope.key_letter = $routeParams.name;
+
+
+
+
       $http.get(archives)
          .success(function(JSON){
            const ARCHIVES_ROOT = "topic";
@@ -59,7 +84,9 @@ $(document).ready(function() {
            const ARCHIVES_ROOT = "piece";
            $scope.artwork = JSON[ARCHIVES_ROOT];
         });
-
+        // $.getJSON("data/full_res.json", function(json) {
+        // 		do something...
+        // });
 
       /* @param key_letter: the menu choice key letter
       * @param selected_topic: the clicked sub-material
@@ -68,27 +95,30 @@ $(document).ready(function() {
       * This funcion grabs content file, then displays it, and slides to display area
       */
       $scope.expandTopic = function(key_letter, selected_topic, topic_index) {
-          const CONTENT_DISPLAY = $(".contentDisplay");
-          CONTENT_DISPLAY.show(); //  'display: hidden' in HTML
+          // const CONTENT_DISPLAY = $(".contentDisplay");
+          // CONTENT_DISPLAY.show(); //  'display: hidden' in HTML
+          //
+          // // loads to page only content within JSON
+          // if (key_letter === 'M'){
+          //   CONTENT_DISPLAY.html($scope.contacts[topic_index].info);
+          // } else {
+          //   // scroll-to-display action
+          //   const SCROLL_TIME = 900;
+          //   const OFFSET = 150;
+          //   var spacing = CONTENT_DISPLAY.offset().top - OFFSET;
+          //   $('html,body').stop().animate({
+          //     scrollTop: spacing
+          //   }, SCROLL_TIME);
+          //
+          //   // now load topic file
+          //   var parent_dir = "content/" + key_letter + "/";
+          //   var from_file_path = parent_dir + selected_topic + ".html";
+          //   CONTENT_DISPLAY.load(from_file_path);
+          // }
 
-          // loads to page only content within JSON
-          if (key_letter === 'M'){
-            CONTENT_DISPLAY.html($scope.contacts[topic_index].info);
-          } else {
-            // scroll-to-display action
-            const SCROLL_TIME = 900;
-            const OFFSET = 150;
-            var spacing = CONTENT_DISPLAY.offset().top - OFFSET;
-            $('html,body').stop().animate({
-              scrollTop: spacing
-            }, SCROLL_TIME);
-
-            // now load topic file
-            var parent_dir = "content/" + key_letter + "/";
-            var from_file_path = parent_dir + selected_topic + ".html";
-            CONTENT_DISPLAY.load(from_file_path);
-          }
+          $scope.partial = 'content/' + key_letter + "/" + selected_topic + ".html";
       }
+
 
       // navigates 'pages' of topic choices
       $scope.archivesMove = function(direction){
