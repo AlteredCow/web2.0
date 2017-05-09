@@ -1,14 +1,253 @@
 {"piece": [
-      {
-        "src":"photo_icon.png",
-        "caption":"oh",
-        "medium":"art",
-        "date":"my"
-      },
-      {
-        "src":"photobook_icon",
-        "caption":"",
-        "medium":"",
-        "date":""
-      }
+{ "name" : "Blackout",
+  "src": "blackout.JPG",
+  "media" : "photo",
+  "year" : "2016",
+  "caption" : ""
+}
+,
+{ "name" : "Broadcast",
+  "src": "broadcast.JPG",
+  "media" : "chalk pastel",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Castaway",
+  "src": "castaway.JPG",
+  "media" : "photo",
+  "year" : "2016",
+  "caption" : ""
+}
+,
+{ "name" : "Chicken",
+  "src": "chicken.jpg",
+  "media" : "photo",
+  "year" : "2016",
+  "caption" : ""
+}
+,
+{ "name" : "Coffee and Camus",
+  "src": "coffee_and_camus.JPG",
+  "media" : "photo",
+  "year" : "2016",
+  "caption" : ""
+}
+,
+{ "name" : "Curositea",
+  "src": "curiositea.jpg",
+  "media" : "water paint",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Digs into You",
+  "src": "digs_into_you.jpg",
+  "media" : "pencil",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Domehead",
+  "src": "domehead.JPG",
+  "media" : "photo",
+  "year" : "2015",
+  "caption" : ""
+}
+,
+{ "name" : "Earth Dust",
+  "src": "earth_dust.jpg",
+  "media" : "water color",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Field Day",
+  "src": "field_day.jpg",
+  "media" : "acrylic",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Gold Dust",
+  "src": "gold_dust.JPG",
+  "media" : "photo",
+  "year" : "2015",
+  "caption" : ""
+}
+,
+{ "name" : "Golden Waters",
+  "src": "golden_waters.JPG",
+  "media" : "photo",
+  "year" : "2014",
+  "caption" : ""
+}
+,
+{ "name" : "Grounding",
+  "src": "grounding.jpg",
+  "media" : "oil",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Hazy Day",
+  "src": "hazy_day.jpg",
+  "media" : "oil pastel",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Cusp",
+  "src": "hhmk.JPG",
+  "media" : "photo",
+  "year" : "2016",
+  "caption" : ""
+}
+,
+{ "name" : "I am Drowning",
+  "src": "I'm_drowning.jpg",
+  "media" : "acrylic",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "In Session",
+  "src": "in_session.jpg",
+  "media" : "photo",
+  "year" : "2014",
+  "caption" : ""
+}
+,
+{ "name" : "Keep Swimming",
+  "src": "keep_swimming.jpg",
+  "media" : "ink",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Kiwiwi",
+  "src": "kiwiwi.jpg",
+  "media" : "colored pencil",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Like Father",
+  "src": "like father.JPG",
+  "media" : "photo",
+  "year" : "2016",
+  "caption" : ""
+}
+,
+{ "name" : "Loops",
+  "src": "loops.jpg",
+  "media" : "photo",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Nearly Cherry",
+  "src": "nearly cherry.jpg",
+  "media" : "acrylic",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "One as One",
+  "src": "one_as_one.jpg",
+  "media" : "water color",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Ought Ate",
+  "src": "ought_ate.jpg",
+  "media" : "colored pencil",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Restful",
+  "src": "restful.jpg",
+  "media" : "acrylic",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Ripple",
+  "src": "ripple.JPG",
+  "media" : "oil pastel",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Shimmer",
+  "src": "shimmer.JPG",
+  "media" : "photo",
+  "year" : "2015",
+  "caption" : ""
+}
+,
+{ "name" : "Soothing Ride",
+  "src": "soothing_ride.JPG",
+  "media" : "photo",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Squared In",
+  "src": "squared_in.JPG",
+  "media" : "photo",
+  "year" : "2015",
+  "caption" : ""
+}
+,
+{ "name" : "Stemming",
+  "src": "stemming.jpg",
+  "media" : "acrylic",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Steamline",
+  "src": "streamline.jpg",
+  "media" : "acrylic",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Stretch of Time",
+  "src": "stretch_of_time.jpg",
+  "media" : "pencil",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Stroll",
+  "src": "stroll.jpg",
+  "media" : "photo",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Sweetie",
+  "src": "sweetie.JPG",
+  "media" : "phto",
+  "year" : "2015",
+  "caption" : ""
+}
+,
+{ "name" : "Treeburst",
+  "src": "treeburst.JPG",
+  "media" : "acrylic",
+  "year" : "2013",
+  "caption" : ""
+}
+,
+{ "name" : "Yaa Man",
+  "src": "yaa_man.JPG",
+  "media" : "photo",
+  "year" : "2015",
+  "caption" : ""
+}
 ]}

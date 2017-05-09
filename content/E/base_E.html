@@ -4,4 +4,4 @@
     <a class = "topic_choice" ng-click = "expandTopic('E', 'projects', 1)">PROJECTS</a>
     <a class = "topic_choice" ng-click = "expandTopic('E', 'musings', 2);">MUSINGS</a>
 </div>
-<div ng-include = "$scope.partial" class = "contentDisplay"></div>
+<ng-include src = "this.partial" class = "contentDisplay"></ng-include>

@@ -4,11 +4,13 @@
 // TODO: move DOM-related functions to loader_app.directive
 // TODO: acknowledge GET only when appropiate (LAZY LOAD)
 // TODO: DOM content -- controller to directive
+// TODO: generalize menuGlow for @style/..., by glow(fx)
+// TODO: http requests hit twice?
 
 /* |||||||||||| ON-READY||||||||||||||||||||||||||||||||||| */
 $(document).ready(function() {
   $("#main_menu li:first").trigger('mouseover'); // highlight 'D'
-  var loader_app = angular.module('loaderApp', ['ngAnimate', 'ngRoute']);
+  var loader_app = angular.module('loaderApp', ['ngAnimate', 'ngRoute', 'infinite-scroll']);
 
     // URL-hash configuration: allows flipping through DREAM sections
     loader_app.config(function($routeProvider){
@@ -57,7 +59,7 @@ $(document).ready(function() {
 
       $scope.obj = {prop: "hey"};
       $scope.key_letter = 'D';
-      $scope.partial = "base_D.html";
+      $scope.partial = "";
       $scope.archives_pageNOW = 0;
       $scope.archives_displayLIMIT = 5;
       var archives = "content/A/archives.JSON";
@@ -82,11 +84,24 @@ $(document).ready(function() {
       $http.get(artwork)
          .success(function(JSON){
            const ARCHIVES_ROOT = "piece";
-           $scope.artwork = JSON[ARCHIVES_ROOT];
+           $scope.artbase = JSON[ARCHIVES_ROOT];
+           $scope.artwork = [];
         });
         // $.getJSON("data/full_res.json", function(json) {
         // 		do something...
         // });
+
+
+        $scope.loadImages = function(){
+          const display_multiple = 6;
+          var offset = $scope.artwork.length;
+          for (var x = 0; x < display_multiple; x++){
+            var new_img = $scope.artbase[x + offset];
+            $scope.artwork.push(new_img);
+          }
+
+        }
+
 
       /* @param key_letter: the menu choice key letter
       * @param selected_topic: the clicked sub-material
@@ -95,28 +110,32 @@ $(document).ready(function() {
       * This funcion grabs content file, then displays it, and slides to display area
       */
       $scope.expandTopic = function(key_letter, selected_topic, topic_index) {
-          // const CONTENT_DISPLAY = $(".contentDisplay");
           // CONTENT_DISPLAY.show(); //  'display: hidden' in HTML
           //
           // // loads to page only content within JSON
-          // if (key_letter === 'M'){
-          //   CONTENT_DISPLAY.html($scope.contacts[topic_index].info);
-          // } else {
-          //   // scroll-to-display action
-          //   const SCROLL_TIME = 900;
-          //   const OFFSET = 150;
-          //   var spacing = CONTENT_DISPLAY.offset().top - OFFSET;
-          //   $('html,body').stop().animate({
-          //     scrollTop: spacing
-          //   }, SCROLL_TIME);
-          //
+          var CONTENT_DISPLAY = $(".contentDisplay");
+
+
           //   // now load topic file
           //   var parent_dir = "content/" + key_letter + "/";
           //   var from_file_path = parent_dir + selected_topic + ".html";
           //   CONTENT_DISPLAY.load(from_file_path);
           // }
 
+          if (key_letter === 'M'){
+            CONTENT_DISPLAY.html($scope.contacts[topic_index].info);
+          }
           $scope.partial = 'content/' + key_letter + "/" + selected_topic + ".html";
+
+
+          CONTENT_DISPLAY = $(".contentDisplay");
+          // scroll-to-display action
+          const SCROLL_TIME = 900;
+          const OFFSET = 150;
+          var spacing = CONTENT_DISPLAY.offset().top - OFFSET;
+          $('html,body').stop().animate({
+            scrollTop: spacing
+          }, SCROLL_TIME);
       }
 
 
@@ -250,11 +269,11 @@ function menuGlow(hovered) {
         if (index == hovered) {
             // highlighting
             bar_visibility = "4px groove #dadada";
-            $(current_letter).css("width", "30%");
+            $(current_letter).css({"width": "30%"});
         } else {
             // dulling
             bar_visibility = "0";
-            $(current_letter).css("width", "15%");
+            $(current_letter).css({"width": "15%"});
         }
 
         // applying updates

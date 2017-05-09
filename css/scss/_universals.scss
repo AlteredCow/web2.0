@@ -31,7 +31,7 @@ $space-tiny: 2px;
 
 // the primary 'screens' of data
 .contentDisplay, .contentDisplayHelper{
-  display: none; // to start of course
+  // display: none; // to start of course
 	font-size: $font_size-article;
   clear:both;
   white-space: initial; // important!
@@ -118,6 +118,20 @@ $space-tiny: 2px;
   }
 }
 
+
+.figure{
+  text-align: center;
+  font-style: italic;
+  font-size: 14px;
+  display: inline-block;
+  border: thin silver solid;
+  overflow: hidden;
+  img{
+    width: 95%;
+    height: 95%;
+  }
+}
+
 /* ----- HTML TAGS ------------------------ */
 
 html{
@@ -159,6 +173,10 @@ h1{
 h2{
   color: $color_h2;
   padding: 40px 5px;
+}
+
+pre{
+  font-family: calibri;
 }
 
 

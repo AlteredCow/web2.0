@@ -1,6 +1,6 @@
-<div class ="gridview">
-  <div ng-repeat = "piece in artwork" class = "figure" >
-    <!-- <img ng-src = "../img/artwork/{{piece.src}}" alt = ""/> -->
-    <p>{{piece.caption}}     |     {{piece.date}}</p>
+<div class ="gridview" infinite-scroll = 'loadImages()'>
+  <div ng-repeat = "piece in artwork"  class = "figure" >
+    <img ng-src = "img/UI/photo_icon.png" ng-click = "window.open('img/artwork/{{piece.src}}', '_blank');"  />
+    <p>{{piece.name}}</p>
   </div>
 </div>

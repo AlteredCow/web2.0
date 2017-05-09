@@ -20,7 +20,7 @@
     background: #edeaea; }
   #archives_wrapper div {
     font-size: 20px;
-    border: 1px solid black; }
+    border: 1px solid #dadada; }
 
 .link-buffer, #main_menu li > a, #right_panel a, #up_arrow {
   width: 100%;
@@ -36,7 +36,6 @@
   width: 100%; }
 
 .contentDisplay, .contentDisplayHelper {
-  display: none;
   font-size: 1.8rem;
   clear: both;
   white-space: initial;
@@ -102,6 +101,17 @@
     box-shadow: 0px  0px 3px #333;
     overflow: hidden; }
 
+.figure {
+  text-align: center;
+  font-style: italic;
+  font-size: 14px;
+  display: inline-block;
+  border: thin silver solid;
+  overflow: hidden; }
+  .figure img {
+    width: 95%;
+    height: 95%; }
+
 /* ----- HTML TAGS ------------------------ */
 html {
   overflow-y: auto; }
@@ -128,6 +138,9 @@ h2 {
   color: #777;
   padding: 40px 5px; }
 
+pre {
+  font-family: calibri; }
+
 /* ----------------------------------------*/
 #buttonCtrl {
   display: none;
@@ -152,7 +165,7 @@ h2 {
 
 /* ||| UPPER / BANNER ||||||||||||||| */
 #banner {
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid #bababa;
   display: flex;
   justify-content: space-between;
   font-size: 1.7rem;
@@ -207,7 +220,7 @@ h2 {
     font-size: 1.7rem;
     height: 100px;
     line-height: 100px;
-    border-right: 2px solid #f2f2f2;
+    border-right: 2px solid #bababa;
     padding-left: 10px; }
   #main_menu li > a {
     width: 90%;
@@ -244,13 +257,6 @@ h2 {
 .gridview p {
   color: #999;
   width: 100%; }
-.gridview .figure {
-  text-align: center;
-  font-style: italic;
-  font-size: 14px;
-  display: inline-block;
-  border: thin silver solid;
-  overflow: hidden; }
 
 @media screen and (max-width: 655px) {
   .gridview > span, #main_content, .defaultContentLayout {
