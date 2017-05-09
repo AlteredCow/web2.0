@@ -45,16 +45,18 @@ $space-tiny: 2px;
 
 // text boxes with sleek list style
 .cleanbox{
-  background: white;
-  outline: 1px solid #d3d3d3;
   width: 65%;
   margin: 40px 0;
+
+  background: white;
+  outline: 1px solid #d3d3d3;
   & :not(h2){
+    // extrude main content text
     text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
   }
   a:hover{color: $color_link-hover;}
   ul{
-    font-size: 0;
+    font-size: 0; // remove unwanted whitespace
     li{
       text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
       font-size: 18px;
@@ -120,15 +122,29 @@ $space-tiny: 2px;
 
 
 .figure{
+  display: inline-block;
+  margin: 5px;
+
+
   text-align: center;
   font-style: italic;
   font-size: 14px;
-  display: inline-block;
-  border: thin silver solid;
-  overflow: hidden;
+  border-top: thin solid #dcdcdc;
+  border-bottom: thin solid #dcdcdc;
+
+  position: relative;
+  p{ // flush to bottom
+    position: absolute;
+    bottom: 0;
+    background: #F0F0F0;
+    padding: 10px 0px;
+    margin: 0;
+  }
+
   img{
-    width: 95%;
-    height: 95%;
+    // keep from overflow
+    max-height: 90%;
+    max-width: 100%;
   }
 }
 

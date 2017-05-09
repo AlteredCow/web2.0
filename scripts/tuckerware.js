@@ -6,6 +6,7 @@
 // TODO: DOM content -- controller to directive
 // TODO: generalize menuGlow for @style/..., by glow(fx)
 // TODO: http requests hit twice?
+// TODO: split controller into multiple, each with single responsibility
 
 /* |||||||||||| ON-READY||||||||||||||||||||||||||||||||||| */
 $(document).ready(function() {
@@ -55,7 +56,7 @@ $(document).ready(function() {
 
 
 
-    loader_app.controller('loaderController', ['$scope', '$http', '$route', '$routeParams', function($scope, $http, $route, $routeParams) {
+    loader_app.controller('loaderController', ['$scope', '$http', '$route', '$routeParams', '$window', function($scope, $http, $route, $routeParams, $window) {
 
       $scope.obj = {prop: "hey"};
       $scope.key_letter = 'D';
@@ -91,7 +92,7 @@ $(document).ready(function() {
         // 		do something...
         // });
 
-
+        // TODO: build filters per medium
         $scope.loadImages = function(){
           const display_multiple = 6;
           var offset = $scope.artwork.length;
@@ -99,7 +100,11 @@ $(document).ready(function() {
             var new_img = $scope.artbase[x + offset];
             $scope.artwork.push(new_img);
           }
+        }
 
+        $scope.openLink = function(url){
+          console.log(url);
+          $window.open(url, '_blank');
         }
 
 

@@ -2,21 +2,21 @@
 * let shema be
 * <div gridview...
 *   <div figure
-*     < img ..
-*     < p ..
+*     < xyz ..
 *   <div figure
-*     < img ..
-*     < p ..
+*     < xyz ..
 */
 .gridview {
   *{
     box-sizing: border-box;
-    width: 33%;
   }
-  img{
+  > div{
+    width: 30%;
+    height: 400px;
+    display: inline-block;
+    vertical-align: top;
   }
   p{
-    color: #999;
     width: 100%;
   }
 }

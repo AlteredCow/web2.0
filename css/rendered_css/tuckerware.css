@@ -46,10 +46,10 @@
   background: white; }
 
 .cleanbox {
-  background: white;
-  outline: 1px solid #d3d3d3;
   width: 65%;
-  margin: 40px 0; }
+  margin: 40px 0;
+  background: white;
+  outline: 1px solid #d3d3d3; }
   .cleanbox :not(h2) {
     text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88); }
   .cleanbox a:hover {
@@ -102,15 +102,23 @@
     overflow: hidden; }
 
 .figure {
+  display: inline-block;
+  margin: 5px;
   text-align: center;
   font-style: italic;
   font-size: 14px;
-  display: inline-block;
-  border: thin silver solid;
-  overflow: hidden; }
+  border-top: thin solid #dcdcdc;
+  border-bottom: thin solid #dcdcdc;
+  position: relative; }
+  .figure p {
+    position: absolute;
+    bottom: 0;
+    background: #F0F0F0;
+    padding: 10px 0px;
+    margin: 0; }
   .figure img {
-    width: 95%;
-    height: 95%; }
+    max-height: 90%;
+    max-width: 100%; }
 
 /* ----- HTML TAGS ------------------------ */
 html {
@@ -245,17 +253,18 @@ pre {
 * let shema be
 * <div gridview...
 *   <div figure
-*     < img ..
-*     < p ..
+*     < xyz ..
 *   <div figure
-*     < img ..
-*     < p ..
+*     < xyz ..
 */
 .gridview * {
-  box-sizing: border-box;
-  width: 33%; }
+  box-sizing: border-box; }
+.gridview > div {
+  width: 30%;
+  height: 400px;
+  display: inline-block;
+  vertical-align: top; }
 .gridview p {
-  color: #999;
   width: 100%; }
 
 @media screen and (max-width: 655px) {
