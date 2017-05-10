@@ -2,26 +2,30 @@
 #main_menu{
 	float: right;
 	width: 50%;
+	$text_padding: 9px;
 
   li{
   	box-sizing: border-box;
   	float: left;
 		width: 15%;
 
+		// stay equal
+		height: 100px;
+		line-height: 100px;
+
+		// aesthetic
 		font-weight: bold;
 		text-shadow: 2px 2px 7px #c1c1c1;
 		font-size:  $font_size-banner;
+		border-right: 2px double #F0F0F0;
 
-		height: 100px;
-  	line-height: 100px;
-		border-right: 2px solid #bababa;
-		padding-left: 10px;
+
+		padding-left: $text_padding;
   }
 
   li > a{
     @extend .link-buffer;
-		width: 90%;
-  	padding-right: 10px;
-		// background: #d1eaff;
+		width: 96%; // funky number to encapsulate all of <a> in <li>
+  	padding-right: $text_padding;
   }
 }

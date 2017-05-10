@@ -92,7 +92,7 @@ $(document).ready(function() {
         // 		do something...
         // });
 
-        // TODO: build filters per medium
+        // TODO: build filters (or sorting machines) per medium, date, ...
         $scope.loadImages = function(){
           const display_multiple = 6;
           var offset = $scope.artwork.length;
@@ -102,8 +102,8 @@ $(document).ready(function() {
           }
         }
 
+        // TODO: switch to lightbox
         $scope.openLink = function(url){
-          console.log(url);
           $window.open(url, '_blank');
         }
 
@@ -273,7 +273,7 @@ function menuGlow(hovered) {
         var current_letter = $("#main_menu > li ").eq(index);
         if (index == hovered) {
             // highlighting
-            bar_visibility = "4px groove #dadada";
+            bar_visibility = "6px solid white";
             $(current_letter).css({"width": "30%"});
         } else {
             // dulling
