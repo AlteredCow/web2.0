@@ -7,21 +7,23 @@ $grid-box-color: #333;
   align-items: center;
   box-sizing: border-box;
   font-size:0;
+  p{
+      // font-size: 20px;
+  }
 
-    a{
+  a{
       margin: auto;
       vertical-align: top;
       text-align: center;
 
       border-radius: 2px;
       padding: 20px 30px;
-      font-size: $font_size-header;
+      font-size: $font_size-root;
       font-family: $font_family-header;
-      font-weight: 400;
+      font-weight: bold;
 
       &:hover{
         color: $color_link-hover;
-        // text-shadow: 0px 0px 12px #eaeaea;
     }
  }
 

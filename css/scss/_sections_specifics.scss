@@ -1,0 +1,47 @@
+/* --- D ------ */
+#my_name{color: black;}
+
+#main_photo{
+  // height: 230px;
+  width: 80%;
+  border: 2px solid #cbcbcb;
+}
+
+#read_more{
+  padding: 20px;
+  text-align: center;
+  color: #888;
+}
+
+/* --- R ------ */
+/* --- E ------*/
+
+/* --- A ------*/
+
+#archives_wrapper{
+  width: 80%; // fill remaining
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  
+  .contentDisplay{
+    background: #ececec;
+  }
+  .contentDisplay:nth-child(2){ // second section override
+    background: white;
+    color: #999;
+  }
+  div{
+    border:{
+      width: 1px 0px 1px 0px;
+      color: #dadada;
+      style: solid;
+    }
+    padding: 10px;
+    margin-left: 2px; // away from box-shadow
+  }
+}
+
+
+
+/* --- M ------ */

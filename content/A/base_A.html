@@ -1,10 +1,8 @@
 <h1>amaze</h1>
 <ul class = "scrollList">
-	<li>{{archives_pageNOW +1}} of {{archives_pageTOTAL}}</li>
+	<li>{{archivesPageNow +1}} of {{archivesPagesTotal}}</li>
 		<li class = "flipper" ng-click = "archivesMove('up')">^</li>
 		<li class = "choice" ng-repeat = "topic in grabArchives() track by $index" ng-click = "expandArchives($index)">{{topic.title}}</li>
 		<li class = "flipper"  ng-click = "archivesMove('down')">v</li>
-</ul><div id = "archives_wrapper"><div class = "contentDisplay" ></div> <!-- keep inline -->
-	<div class = "contentDisplayHelper">
-	</div>
+</ul><div id = "archives_wrapper"><div class = "contentDisplay" ></div><div class = "contentDisplay"></div>
 </div>

@@ -7,7 +7,7 @@ $bg-primary: $color_light-grey;
 $score: 4px solid black;
 $min-width: 320px;
 $min-height: 1000px;
-$thmb-sm: 100px;
+$thmb-sm: 60px;
 $space-sm: 10px;
 $space-tiny: 2px;
 
@@ -29,48 +29,57 @@ $space-tiny: 2px;
   width: 100%;
 }
 
+
+.box-region{
+  box-sizing: border-box;
+  width: 45%; 
+  
+  
+  &:nth-child(4n+0), &:nth-child(4n+2){ // left column
+    float:left;
+    clear: left;
+    text-align: right;
+  }
+  &:nth-child(4n+1), &:nth-child(4n+3){ // right column
+    float:right;
+    clear: right;
+    text-align: left;
+  }
+
+}
+h2.box-region{padding:0px 10px;}
+
+
 // the primary 'screens' of data
-.contentDisplay, .contentDisplayHelper{
+.contentDisplay{
   clear:both;
 	font-size: $font_size-article;
   white-space: initial; // important!
-  // padding: 15px;
-  > div{
-		margin: 30px auto;
-    display: block;
-	}
-}
-
-.contentDisplayHelper{
-  color: #999;
-  background: white;
+  width: 100%;
 }
 
 // text boxes with sleek list style
 .cleanbox{
-  width: 65%;
-  margin: 40px 0;
-
+  margin: 0px 0px 40px 0;
   background: white;
-  outline: 1px solid #d3d3d3;
-  & :not(h2){
-    // extrude main content text
-    text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
-  }
+  outline: 1px solid silver;
   a:hover{color: $color_link-hover;}
   ul{
     font-size: 0; // remove unwanted whitespace
     li{
-      text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
-      font-size: 18px;
+      font-size: $font_size-article; // restore font
       padding: 10px;
+      text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
       &:nth-child(odd){
-        background: $color_bg-light;
+        background: $color_bg-primary;
       }
     }
   }
-
 }
+p.cleanbox{
+  padding: 10px;
+}
+
 
 // after ng-view changes route
 .ng-animate {
@@ -94,13 +103,8 @@ $space-tiny: 2px;
 [x-ng-click] {
     cursor: pointer;
 }
-// ---- END(ng-animate) ----
 
-// arrow clickable meant for navigation
-.flipper{
-  cursor: pointer;
-  background: $color_link-flipper;
-}
+
 
 // default clickable styles
 .choice:hover, .flipper:hover{
@@ -109,41 +113,21 @@ $space-tiny: 2px;
   background: $color_list-hover;
 }
 
-// currently: archives list
-.scrollList{
-  font-size: 0;
-  width: 25%;
-  display: inline-block;
-  vertical-align: top;
-  li{
-    font-size: 18px;
-    padding: 20px;
-    box-shadow:  0px  0px 3px #333;
-    overflow: hidden;
-  }
-}
-
-
+// as in image-figure (e.g. 'See figure F12')
 .figure{
   display: inline-block;
   margin: 8px;
-  // background: #0c0c0c;
+  position: relative;
 
   text-align: center;
   font-style: italic;
-  font-size: 14px;
-  // border-left: thin solid #dcdcdc;
-  // border: thin solid #dcdcdc;
   box-shadow: 5px 5px 5px #dcdcdc;
-
-  position: relative;
   p{
     position: absolute;
     bottom: 0;
     background: #CFCFCF;
     padding: 10px 0px;
     margin: 0;
-    font-size: 16px;
   }
 
   img{
@@ -154,20 +138,46 @@ $space-tiny: 2px;
   }
 }
 
+// clickable navigation arrow
+.flipper{
+  cursor: pointer;
+  background: $color_bg-secondary;
+}
+
 .modern_button{
-  border: 1px outset silver;
+  border: 1px solid silver;
   margin: 10px;
   padding: 10px;
   background: #555;
-  width: 200px;
+  // width: 180px;
+  box-shadow: 3px 7px 7px #cecece;
+  &:hover{
+    color: $color_link-hover;
+  }
+  // &:active{
+  //   box-shadow: 0px 0px 0px #111;
+  // }
+}
+
+
+// currently: archives list
+.scrollList{
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+  font-size: 0;
+  float: left;
+  li{
+    font-size: $font_size-list;
+    padding: 20px;
+    box-shadow:  0px  1px 3px #333;
+    overflow: hidden;
+  }
 }
 
 
 /* ----- HTML TAGS ------------------------ */
 
-html{
-  overflow-y: auto;
-}
 
 html, body{
 
@@ -175,11 +185,15 @@ html, body{
   @extend .expanded;
 
   font-family: $font_family-main;
+  font-size: $font_size-root;
 	min-width: $min-width;
   min-height: $min-height;
-	background: $color_bg-primary;
-
 }
+p{
+  line-height: 2em;
+  
+}
+
 
 a{
 	text-decoration:  none;
@@ -196,6 +210,7 @@ h1, h2, ul{
 }
 
 h1{
+  margin-top: 50px;
   color: $color_h1;
   opacity: 0.4;
   text-align: center;
@@ -204,7 +219,7 @@ h1{
 
 h2{
   color: $color_h2;
-  padding: 40px 5px;
+  padding: 40px 0px;
 }
 
 pre{

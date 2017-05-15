@@ -1,21 +1,19 @@
 <!doctype html>
 <html>
    <head>
-   <meta charset="UTF-8">
-      <title>great catch!</title>
-      <link  rel="stylesheet"  href="css/rendered_css/tuckerware.css"/>
-      <link  rel="stylesheet"  href="extras/lightbox/dist/css/lightbox.css"/>
-
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>great catch!</title>
+    <link  rel="stylesheet"  href="css/rendered_css/tuckerware.css"/>
+    <link  rel="stylesheet"  href="extras/lightbox/dist/css/lightbox.css"/>
    </head>
    <body ng-app = "loaderApp" ng-controller="loaderController">
      <!-- Banner holds Icon, Name, Moto, and Menu  -->
     <div id = "banner">
-           <p id = "my_name">Austin R Tucker</p>
-           <!--  LIGHTBOX -->
-                <a href="img/UI/gallery_icon.png" data-lightbox="photo_icon" data-title="My caption"><img  id = "photobook_icon" src = "img/UI/gallery_icon.png" onclick="openSelfGallery()"/></a>
+           <a href = "#/D" id = "my_name">Austin R Tucker</a>
+            <a href="img/UI/gallery_icon.png" data-lightbox="photo_icon" data-title="My caption"><img  id = "photobook_icon" src = "img/UI/gallery_icon.png" onclick="openSelfGallery()"/></a>
          <!-- Menu for page transitions
-                D(ebut), R(eveal), E(Entertain), A(maze), M(ore)
-                ~= Introduction, Bio, Apps and Art, Thoughts, Contact -->
+          D(ebut), R(eveal), E(Entertain), A(maze), M(ore)-->
          <ul id = "main_menu">
            <li onmouseover = "menuGlow(0)" ><a href = "#/D">Debut</a></li>
            <li onmouseover = "menuGlow(1)" ><a href = "#/R">R</a></li>
@@ -23,18 +21,13 @@
            <li onmouseover = "menuGlow(3)" ><a href = "#/A">A</a></li>
            <li onmouseover = "menuGlow(4)" ><a href = "#/M">M</a></li>
          </ul>
-     </div>
-
-   <!-- Two panels: one for content , one for settings and extras  -->
-    <!-- For Title and Content -->
-
-
+    </div>
+     
     <pre  id = "main_content"  ng-view></pre>
-
     <!-- For Settings and Logo -->
         <ul id = "right_panel" >
-            <!-- <li id = "settings_cog" onclick="deploySettings()"><a href = "#">*</a></li> -->
             <li><a id = "up_arrow" href = "javascript:scrollToTop()" >↑</a></li>
+            <!-- <li id = "settings_cog" onclick="deploySettings()"><a href = "#">*</a></li> -->
             <!-- <li id = "site_logo">LOGO</li> -->
         </ul>
       <!-- <span id = "footnotes">

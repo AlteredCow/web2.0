@@ -1,10 +1,6 @@
 // order is important, yo
 
-@import "d_specific";
-@import "r_specific";
-@import "e_specific";
-@import "a_specific";
-@import "m_specific";
+@import "sections_specifics";
 @import "universals";
 @import "accordion";
 @charset "utf-8";
@@ -12,48 +8,43 @@
 
 /* ||| UPPER / BANNER ||||||||||||||| */
 
-// TODO: modify to omit FLEX
 #banner{
 	height: 100px;
 	justify-content: space-between;
-
-	border-bottom: 3px solid #bababa;
-	font-size: $font_size-banner;
-	font-weight: bold;
+	
 
 	display: flex;
 	align-items: center;
-  -ms-flex-align: center;
+	-ms-flex-align: center;
 	-webkit-align-items: center;
 
-	background: $color_bg-light;
-
-	*{
+	border-bottom: 3px solid #bababa;
+	font-size: $font_size-header;
+	font-weight: bold;
+	background: $color_bg-primary;
+	* {
 		font-weight: lighter;
 	}
-	p{
-		white-space: nowrap;
-		line-height: 100px;
-		padding-left: 25px;
+	li {
+		padding-left: 10px;
 	}
-
 }
 
 
 #photobook_icon{
-	width: $thmb-sm * 0.75;
-	height: $thmb-sm * 0.75;
+	width: $thmb-sm;
+	height: $thmb-sm;
 
 	padding: $space-sm $space-sm/2 $space-sm $space-sm;
 	cursor: pointer;
-	background: #9ecff2;
+	background: $color_bg-secondary;
 	@include  glow-wrap(4px, $color_fair-grey);
 
 }
 
 #photobook_icon:hover{
-	width: $thmb-sm * 0.85 ;
-	height: $thmb-sm * 0.85;
+	width: $thmb-sm * 1.2 ;
+	height: $thmb-sm * 1.2;
 	@include  glow-wrap(4px, $color_dark-grey);
 }
 
@@ -64,26 +55,12 @@
 
 @import "topicview";
 @import "gridview";
-$leftsideWidth:90%;
-$rightsideWidth: 100% - $leftsideWidth;
-
-
-@media screen and (max-width: $min-width) {
-	.gridview > span, #main_content, .defaultContentLayout{
-		font-size: 1.2rem;
-	}
-}
-
-
-#main_content{
-	width: $leftsideWidth;
-}
 
 #main_content, .defaultContentLayout{
 	font-family: $font_family-main;
 	font-size: $font_size-article;
-	// margin: 0 auto;
-
+	margin: 0;
+	width: 100%;
 }
 
 /* ||| FOOTNOTES |||||||||||| */
@@ -112,21 +89,31 @@ $rightsideWidth: 100% - $leftsideWidth;
 /* ||| RIGHTSIDE PANEL |||||||||||| */
 
 #right_panel{
-	width: $rightsideWidth;
 	position: fixed;
-	right: 10px;
-	bottom: 10px;
+	right: 0px;
+	bottom: 0px;
 	text-align: center;
-	font-size: 42px;
+	font-size: $font_size-panel;
+	background: white;
+	
 
 	a{
-		box-sizing: border-box;
-		line-height: 70px;
-		color: #444;
+		// box-sizing: border-box;
+		line-height: 40px;
+		color: $color_dark-grey;
 		border: 5px solid #eaeaea;
 		@extend  .link-buffer;
 		&:hover{
 			@extend .choice:hover;
 		}
+	}
+}
+
+
+/* ||| MOBILE |||||||||||| */
+@media screen and (max-width: 500px){
+	.box-region{
+		display: inline-block;
+		float: none;
 	}
 }
