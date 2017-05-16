@@ -29,25 +29,33 @@ $space-tiny: 2px;
   width: 100%;
 }
 
-
-.box-region{
+.wide_panel{
+  width: 100%;
+  padding: 10px;
+  display: inline-block;
   box-sizing: border-box;
-  width: 45%; 
-  
-  
-  &:nth-child(4n+0), &:nth-child(4n+2){ // left column
-    float:left;
-    clear: left;
-    text-align: right;
+  &:nth-of-type(odd){
+    background: #F0F0F0;
+    h2, span{
+        float:left;
+        text-align: right;  
+    }
   }
-  &:nth-child(4n+1), &:nth-child(4n+3){ // right column
-    float:right;
-    clear: right;
-    text-align: left;
+  &:nth-of-type(even){
+    h2, span{
+      float:right;
+      text-align: left;  
+    }
   }
-
+  > h2, > span{
+    width: 50%;
+  }
+  // h2{padding: 0px 50px; line-height: 50px;}
 }
-h2.box-region{padding:0px 10px;}
+
+
+
+
 
 
 // the primary 'screens' of data
@@ -68,7 +76,7 @@ h2.box-region{padding:0px 10px;}
     font-size: 0; // remove unwanted whitespace
     li{
       font-size: $font_size-article; // restore font
-      padding: 10px;
+      padding: 20px;
       text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
       &:nth-child(odd){
         background: $color_bg-primary;
@@ -220,6 +228,7 @@ h1{
 h2{
   color: $color_h2;
   padding: 40px 0px;
+  font-size: 36px;
 }
 
 pre{

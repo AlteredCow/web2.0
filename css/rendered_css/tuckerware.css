@@ -45,20 +45,21 @@
   height: 100%;
   width: 100%; }
 
-.box-region {
-  box-sizing: border-box;
-  width: 45%; }
-  .box-region:nth-child(4n+0), .box-region:nth-child(4n+2) {
-    float: left;
-    clear: left;
-    text-align: right; }
-  .box-region:nth-child(4n+1), .box-region:nth-child(4n+3) {
+.wide_panel {
+  width: 100%;
+  padding: 10px;
+  display: inline-block;
+  box-sizing: border-box; }
+  .wide_panel:nth-of-type(odd) {
+    background: #F0F0F0; }
+    .wide_panel:nth-of-type(odd) h2, .wide_panel:nth-of-type(odd) span {
+      float: left;
+      text-align: right; }
+  .wide_panel:nth-of-type(even) h2, .wide_panel:nth-of-type(even) span {
     float: right;
-    clear: right;
     text-align: left; }
-
-h2.box-region {
-  padding: 0px 10px; }
+  .wide_panel > h2, .wide_panel > span {
+    width: 50%; }
 
 .contentDisplay {
   clear: both;
@@ -76,7 +77,7 @@ h2.box-region {
     font-size: 0; }
     .cleanbox ul li {
       font-size: 20px;
-      padding: 10px;
+      padding: 20px;
       text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88); }
       .cleanbox ul li:nth-child(odd) {
         background: #9ECFF2; }
@@ -176,7 +177,8 @@ h1 {
 
 h2 {
   color: #777;
-  padding: 40px 0px; }
+  padding: 40px 0px;
+  font-size: 36px; }
 
 pre {
   font-family: calibri; }
@@ -330,7 +332,7 @@ pre {
   font-size: 42px;
   background: white; }
   #right_panel a {
-    line-height: 40px;
+    line-height: 50px;
     color: #444;
     border: 5px solid #eaeaea; }
 

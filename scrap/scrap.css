@@ -1,0 +1,37 @@
+html{
+
+  
+}
+.wide_panel{
+  display: inline-block;
+     width: 100%;
+}
+
+.wide_panel:nth-child(even){
+  background: silver;
+}
+
+
+.wide_panel:nth-child(even) > p{
+  float: right;
+  /*clear: right;*/
+}
+.wide_panel:nth-child(even) > div{
+  float: left;
+  /*clear: left;*/
+}
+.wide_panel:nth-child(odd) > p{
+  float: left;
+  /*clear: left;*/
+}
+.wide_panel:nth-child(odd) > div{
+  float: right;
+  /*clear: right;*/
+}
+
+.wide_panel:after{
+  content: " ";
+  display: block; 
+  height: 0; 
+  clear: both;
+}
