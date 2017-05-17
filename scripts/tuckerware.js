@@ -25,7 +25,6 @@ $(document).ready(function() {
         });
     }); 
 
-
   // loader_app.directive("myTopic", function(){
   //   // return{
   //   //   templateUrl: 'content/R/education.html'

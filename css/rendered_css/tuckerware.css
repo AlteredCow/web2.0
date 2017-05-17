@@ -53,7 +53,6 @@
 .wide_panel {
   width: 100%;
   display: inline-block;
-  box-sizing: border-box;
   padding: 80px 0px;
   vertical-align: top; }
   .wide_panel h2 {
@@ -91,7 +90,7 @@
         background: #e4e4e4; }
 
 p.cleanbox {
-  padding: 10px; }
+  padding: 30px; }
 
 .ng-animate {
   transition: 0.2s linear all; }
@@ -111,7 +110,7 @@ p.cleanbox {
 [x-ng-click] {
   cursor: pointer; }
 
-.choice:hover, #right_panel a:hover, .flipper:hover {
+.choice:hover, a:hover, .flipper:hover {
   color: white;
   cursor: pointer;
   background: #9ECFF2; }
@@ -279,10 +278,10 @@ pre {
     display: inline-block;
     font-size: 20px;
     border-radius: 3px;
+    text-align: center;
     padding: 20px 30px;
     font-family: Century Gothic;
-    font-weight: bold;
-    text-align: center; }
+    font-weight: bold; }
     .topicview a:hover {
       color: #cc66ff; }
   .topicview:after {
@@ -291,7 +290,7 @@ pre {
     display: inline-block; }
 
 /*
-* let shema be
+* let schema be
 * <div gridview...
 *   <div figure
 *     < xyz ..
@@ -300,11 +299,19 @@ pre {
 */
 .gridview * {
   box-sizing: border-box; }
+.gridview > div, .gridview > p {
+  float: left;
+  width: 30%;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center; }
 .gridview > div {
-  width: 25%;
-  height: 400px;
-  vertical-align: top; }
-.gridview p {
+  height: 400px; }
+.gridview > p {
+  height: 150px;
+  width: 50%;
+  font-size: 24px; }
+.gridview p.caption {
   width: 100%; }
 
 #main_content, .defaultContentLayout {
@@ -352,6 +359,9 @@ pre {
     width: 90%;
     text-align: center; }
   .wide_panel:nth-of-type(even) > span {
-    text-align: center; } }
+    text-align: center; }
+
+  .gridview > p {
+    width: 100%; } }
 
 /*# sourceMappingURL=tuckerware.css.map */

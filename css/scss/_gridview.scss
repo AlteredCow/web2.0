@@ -1,5 +1,5 @@
 /*
-* let shema be
+* let schema be
 * <div gridview...
 *   <div figure
 *     < xyz ..
@@ -7,15 +7,27 @@
 *     < xyz ..
 */
 .gridview {
+  // width: 100%;
   *{
     box-sizing: border-box;
   }
-  > div{
-    width: 25%;
-    height: 400px;
+  > div, > p{
+    float: left;
+    width: 30%;
     vertical-align: top;
+    display: inline-block;
+    text-align: center;
   }
-  p{
+  > div{
+    height: 400px;
+  }
+  > p{
+    height: 150px;
+    width: 50%;
+    font-size: 24px;
+  }
+  
+  p.caption{
     width: 100%;
   }
 }

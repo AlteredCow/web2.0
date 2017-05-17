@@ -3,24 +3,19 @@
 
 $grid-box-color: #333;
 .topicview{ // div | wrapper
-  // display: flex;
-  // align-items: center;
   text-align: center;
   font-size:0;
   width: 100%;
-  // box-sizing: border-box;
-  
   a{
     display: inline-block;
     font-size: $font_size-root;
-
     border-radius: 3px;
+    
+    text-align: center;
     padding: 20px 30px;
     font-family: $font_family-header;
     font-weight: bold;
-    text-align: center;
-
-      &:hover{
+    &:hover{
         color: $color_link-hover;
     }
  }

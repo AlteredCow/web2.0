@@ -100,9 +100,7 @@
 		color: $color_dark-grey;
 		border: 5px solid #eaeaea;
 		@extend  .link-buffer;
-		&:hover{
-			@extend .choice:hover;
-		}
+		
 	}
 }
 
@@ -118,8 +116,14 @@
 			width: 90%;
 			text-align: center;
 		}
-	&:nth-of-type(even) > span{
-		text-align: center;
+		&:nth-of-type(even) > span{
+			text-align: center;
+		}
 	}
-}
+
+	.gridview > p{
+		width: 100%;
+	}
+
+
 }
