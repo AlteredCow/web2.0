@@ -1,26 +1,26 @@
 /* ---- DREAM MENU ---------------- */
 #main_menu{
-	float: right;
 	width: 50%;
 	$text_padding: 9px;
+	a{
+		padding-left: $text_padding;
+	}
 
   li{
   	box-sizing: border-box;
   	float: left;
 		width: 15%;
 
-		// stay equal
+		// stays equal
 		height: 100px;
 		line-height: 100px;
 
 		// aesthetic
-		font-weight: bold;
-		text-shadow: 2px 2px 7px #969696;
+		text-shadow: 2px 2px 9px #f2f2f2;
 		font-size:  $font_size-header;
 		border-right: 2px double #F0F0F0;
-
-
 		padding-left: $text_padding;
+		font-weight: 400;
   }
 
   li > a{

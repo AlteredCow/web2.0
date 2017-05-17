@@ -1,16 +1,24 @@
 /* --- D ------ */
-#my_name{color: black;}
+#my_name{
+  padding-left: 20px;
+  color:white;
+  text-shadow: 2px 2px 4px #999;
+  &:hover{
+    color: #3D76D2;
+    // text-shadow: none;
+  }
+}
 
 #main_photo{
-  // height: 230px;
   width: 80%;
   border: 2px solid #cbcbcb;
 }
 
 #read_more{
-  padding: 20px;
   text-align: center;
   color: #888;
+  line-height: 40px;
+  margin: 200px 0px;
 }
 
 /* --- R ------ */

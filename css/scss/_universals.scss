@@ -31,39 +31,39 @@ $space-tiny: 2px;
 
 .wide_panel{
   width: 100%;
-  padding: 10px;
   display: inline-block;
   box-sizing: border-box;
-  &:nth-of-type(odd){
-    background: #F0F0F0;
-    h2, span{
+  padding: 80px 0px;
+  vertical-align: top;
+  h2{text-align: center;}
+  
+  // design: alternating color and position
+  &:nth-of-type(odd) > *{
         float:left;
-        text-align: right;  
-    }
   }
   &:nth-of-type(even){
-    h2, span{
+    background: #C1E0F6;
+    > *{
       float:right;
-      text-align: left;  
+    }
+    > span{
+      text-align: right;
     }
   }
-  > h2, > span{
+  
+  > *{
     width: 50%;
+    box-sizing: border-box;
   }
-  // h2{padding: 0px 50px; line-height: 50px;}
+  
 }
-
-
-
-
 
 
 // the primary 'screens' of data
 .contentDisplay{
-  clear:both;
-	font-size: $font_size-article;
   white-space: initial; // important!
   width: 100%;
+  height: 100%;
 }
 
 // text boxes with sleek list style
@@ -79,7 +79,7 @@ $space-tiny: 2px;
       padding: 20px;
       text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
       &:nth-child(odd){
-        background: $color_bg-primary;
+        background: #e4e4e4;
       }
     }
   }
@@ -157,7 +157,6 @@ p.cleanbox{
   margin: 10px;
   padding: 10px;
   background: #555;
-  // width: 180px;
   box-shadow: 3px 7px 7px #cecece;
   &:hover{
     color: $color_link-hover;
@@ -197,11 +196,6 @@ html, body{
 	min-width: $min-width;
   min-height: $min-height;
 }
-p{
-  line-height: 2em;
-  
-}
-
 
 a{
 	text-decoration:  none;
@@ -218,7 +212,7 @@ h1, h2, ul{
 }
 
 h1{
-  margin-top: 50px;
+  padding-top: 50px;
   color: $color_h1;
   opacity: 0.4;
   text-align: center;
@@ -228,7 +222,7 @@ h1{
 h2{
   color: $color_h2;
   padding: 40px 0px;
-  font-size: 36px;
+  font-size: 48px;
 }
 
 pre{

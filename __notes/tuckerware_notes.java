@@ -1,8 +1,5 @@
-GENERAL NOTES
-	% encapsulate global variables
-	% make sure you meet priorities
-
 TRIVIAL / EASY
+% encapsulate global variables
 	* @media, @gridview: 30% to 20% (3 to 2 img in row)
 			[ decrease height as well as to reduce img to p spacing]
 	* fix content writing
@@ -36,5 +33,5 @@ STORED IDEAS
 		--> points are sizeless (misconstruded on paper)
 		--> misguided sense of 'universe'
 
-	[#fun] --> 'A' letter from bull
-	[#funfacts] --> proteus effect + stereotype threat + accents + randomization (itunes)
+	[#fun] --> 
+	[#funfacts] --> proteus effect + stereotype threat + accents + randomization (itunes) + 'A' from bull

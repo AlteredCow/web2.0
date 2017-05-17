@@ -1,37 +1,18 @@
-html{
-
-  
+.topicview {
+  height: 125px;
+  text-align: justify;
+  font-size: 0.1px; /* IE 9/10 don't like font-size: 0; */
+  min-width: 600px;
 }
-.wide_panel{
+
+.topicview div {
+  font-size: 20px;
+  width: 150px;
+  height: 125px;
   display: inline-block;
-     width: 100%;
 }
-
-.wide_panel:nth-child(even){
-  background: silver;
-}
-
-
-.wide_panel:nth-child(even) > p{
-  float: right;
-  /*clear: right;*/
-}
-.wide_panel:nth-child(even) > div{
-  float: left;
-  /*clear: left;*/
-}
-.wide_panel:nth-child(odd) > p{
-  float: left;
-  /*clear: left;*/
-}
-.wide_panel:nth-child(odd) > div{
-  float: right;
-  /*clear: right;*/
-}
-
-.wide_panel:after{
-  content: " ";
-  display: block; 
-  height: 0; 
-  clear: both;
+.topicview:after {
+  content: '';
+  width: 100%; /* Ensures there are at least 2 lines of text, so justification works */
+  display: inline-block;
 }
