@@ -29,9 +29,7 @@ APPS
 
 
 STORED IDEAS
-	[#ponder] --> my second as long as your second? discussion
+		--> my second as long as your second? discussion
 		--> points are sizeless (misconstruded on paper)
 		--> misguided sense of 'universe'
-
-	[#fun] --> 
-	[#funfacts] --> proteus effect + stereotype threat + accents + randomization (itunes) + 'A' from bull
+ 		--> proteus effect + stereotype threat + accents + randomization (itunes) + 'A' from bull

@@ -203,7 +203,7 @@ function deploySettings() {
 // @param hovered: menu choice in-focus, namely hovered
 // expands hovered menu item into full word of the DREAM acronym
 function launchWord(hovered) {
-    var menu_choices = ["Debut", "Reveal", "Entertain", "Amaze", "More"];
+    var menu_choices = ["Debut", "Reveal", "Enjoy", "Amaze", "More"];
     var key_letter = "DREAM"[hovered];
     var menu_achor = "<a href = '#/" + key_letter + "'>" + menu_choices[hovered] + "</a>";
     $("#main_menu > li").eq(hovered).html(menu_achor);
@@ -250,8 +250,35 @@ function openSelfGallery() {
 
 }
 
+// Animate return to page top 
 function scrollToTop() {
     $("html, body").animate({
-        scrollTop: 0
-    }, "slow");
+    scrollTop: 0}, "slow");
 }
+
+
+/* ----- MOBILE -------- */
+// Mobile Menu: replace text with selection
+$(function(){
+    $(".mobile_menu li a").click(function(){
+      $("button.mobile_menu").text($(this).text() + " ▼");
+      $("button.mobile_menu").val($(this).text() + " ▼");
+      $("ul.mobile_menu").toggle(300);
+   });
+});
+$(function(){
+  $("button.mobile_menu").click(function(){
+
+    var menu_content = $("ul.mobile_menu"); 
+    var isVisible = menu_content.is(":visible");
+    if (isVisible){
+      menu_content.toggle(400);
+    } else{ // sliding motion
+      menu_content.show();
+      menu_content.find("li").toggle();
+      menu_content.find("li").toggle(500);
+      
+    }
+
+  });
+});

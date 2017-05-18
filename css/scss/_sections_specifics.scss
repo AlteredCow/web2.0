@@ -1,11 +1,11 @@
 /* --- D ------ */
 #my_name{
-  padding-left: 20px;
   color:white;
   text-shadow: 2px 2px 4px #999;
+  font-weight: bold;
   &:hover{
-    color: #3D76D2;
-    // text-shadow: none;
+    color:#458CF7;
+    text-shadow: 2px 2px 4px silver;
   }
 }
 
@@ -53,3 +53,8 @@
 
 
 /* --- M ------ */
+#m_wrapper{
+  a:hover{
+    color: #9ECFF2;
+  }
+}

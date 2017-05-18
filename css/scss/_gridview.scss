@@ -7,15 +7,14 @@
 *     < xyz ..
 */
 .gridview {
-  // width: 100%;
   *{
     box-sizing: border-box;
   }
   > div, > p{
     float: left;
     width: 30%;
-    vertical-align: top;
     display: inline-block;
+    vertical-align: top;
     text-align: center;
   }
   > div{

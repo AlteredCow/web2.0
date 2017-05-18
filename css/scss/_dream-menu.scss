@@ -1,19 +1,15 @@
 /* ---- DREAM MENU ---------------- */
 #main_menu{
-	width: 50%;
+	width: 55%;
 	$text_padding: 9px;
-	a{
-		padding-left: $text_padding;
-	}
 
   li{
   	box-sizing: border-box;
   	float: left;
-		width: 15%;
 
-		// stays equal
-		height: 100px;
-		line-height: 100px;
+		// this.line-height = this.height = banner.height
+		height: 110px;
+		line-height: 110px;
 
 		// aesthetic
 		text-shadow: 2px 2px 9px #f2f2f2;

@@ -10,17 +10,22 @@
    <body ng-app = "loaderApp" ng-controller="loaderController">
      <!-- Banner holds Icon, Name, Moto, and Menu  -->
     <div id = "banner">
-            <a href = "#/D" id = "my_name">Austin R Tucker</a>
-            <a href="img/UI/gallery_icon.png" data-lightbox="photo_icon" data-title="My caption"><img  id = "photobook_icon" src = "img/UI/gallery_icon.png" onclick="openSelfGallery()"/></a>
-         <!-- Menu for page transitions
-          D(ebut), R(eveal), E(Entertain), A(maze), M(ore)-->
-         <ul id = "main_menu">
+        <button class="mobile_menu">Debut ▼</button><a href = "#/D" id = "my_name">Austin R Tucker</a><ul id = "main_menu">
            <li onmouseover = "menuGlow(0)" ><a href = "#/D">Debut</a></li>
            <li onmouseover = "menuGlow(1)" ><a href = "#/R">R</a></li>
            <li onmouseover = "menuGlow(2)" ><a href = "#/E">E</a></li>
            <li onmouseover = "menuGlow(3)" ><a href = "#/A">A</a></li>
            <li onmouseover = "menuGlow(4)" ><a href = "#/M">M</a></li>
+         </ul><a id = "photobook" href="img/UI/gallery_icon.png" data-lightbox="photo_icon" data-title="My caption"><img  id = "photobook_icon" src = "img/UI/gallery_icon.png" onclick="openSelfGallery()"/></a>
+        <br/><ul class = "mobile_menu">
+             <li><a href = "#/D">Debut</a></li>
+             <li><a href = "#/R">Reveal</a></li>
+             <li><a href = "#/E">Enjoy</a></li>
+             <li><a href = "#/A">Amaze</a></li>
+             <li><a href = "#/M">More</a></li>
          </ul>
+         <!-- Menu for page transitions
+          D(ebut), R(eveal), E(njoy), A(maze), M(ore) -->
     </div>
     <pre  id = "main_content"  ng-view></pre>
     <!-- For Settings and Logo -->
