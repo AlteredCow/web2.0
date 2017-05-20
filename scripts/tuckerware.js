@@ -7,10 +7,12 @@
 // TODO: generalize menuGlow for @style/..., by glow(fx)
 // TODO: http requests hit twice?
 
+var menu_choices = ["Debut", "Reveal", "Enjoy", "Amaze", "More"];
 /* |||||||||||| ON-READY||||||||||||||||||||||||||||||||||| */
 $(document).ready(function() {
   $("#main_menu li:first").trigger('mouseover'); // highlight 'D'
   var loader_app = angular.module('loaderApp', ['ngAnimate', 'ngRoute', 'infinite-scroll']);
+
 
     // URL-hash configuration: allows flipping through DREAM sections
     loader_app.config(function($routeProvider, $locationProvider){
@@ -45,9 +47,12 @@ $(document).ready(function() {
       $scope.archivesDisplayLimit = 5;
 
       
-      $scope.$on('$routeChangeStart', function(next, current) { 
-         console.log(next);
-       });
+      $scope.$on('$locationChangeSuccess', function(event) {
+        var current_letter = window.location.hash.substr(2, 3);
+        var current_letter_key = "DREAM".indexOf(current_letter);
+        $scope.key_word = menu_choices[current_letter_key];
+        $("ul.mobile_menu").hide(300);
+      });
 
       var archives = "content/A/archives.JSON";
       $http.get(archives)
@@ -92,18 +97,12 @@ $(document).ready(function() {
       $scope.expandTopic = function(key_letter, selected_topic, topic_index) {
           $scope.partial = 'content/' + key_letter + "/" + selected_topic + ".html";
 
-          // scroll to display
-          var CONTENT_DISPLAY = $(".contentDisplay");
-          const SCROLL_TIME = 900;
-          var location = CONTENT_DISPLAY.offset().top;
-          $('html,body').stop().animate({
-            scrollTop: location
-          }, SCROLL_TIME);
-      }
+      scrollToDisplay();
+    }
 
 
       // navigates 'pages' of topic choices
-      $scope.archivesMove = function(direction){
+      $scope.archivesFlip = function(direction){
         var page_now = $scope.archivesPageNow;
         if (direction === 'up'){
           page_now--;
@@ -128,7 +127,7 @@ $(document).ready(function() {
       // @helps showPage, expandTopic
       // @param topic_index: index within JSON of chosen topic
       // controls content of 'A' section
-      $scope.expandArchives = function(topic_index){
+      $scope.expandArchive = function(topic_index){
         var offset = $scope.archivesPageNow *  $scope.archivesDisplayLimit;
         var archiveCount = $scope.records.length;
 
@@ -142,11 +141,11 @@ $(document).ready(function() {
         // if selection is non-empty list option, then update
         if (topic_index < archiveCount){
           selected_archive = $scope.records[topic_index];
-
+          scrollToDisplay();
           // upper content
-          $(".contentDisplay").show().html(selected_archive.major);
+          $(".contentDisplay:nth-child(1)").hide().html(selected_archive.major).fadeIn('fastest');
           // lower content
-          $(".contentDisplay:nth-child(2)").show().html(selected_archive.minor);
+          $(".contentDisplay:nth-child(2)").hide().html(selected_archive.minor).fadeIn('slow');
         }
       }
 
@@ -170,6 +169,21 @@ $(document).ready(function() {
         
         return available_topics;
       }
+      
+      
+      function scrollToDisplay(){
+        var CONTENT_DISPLAY = $(".contentDisplay");
+        const SCROLL_TIME = 900;
+        var location = CONTENT_DISPLAY.offset().top;
+        if ($scope.key_letter === 'A'){
+          location -= 100;
+        }
+        $('html,body').stop().animate({
+          scrollTop: location
+        }, SCROLL_TIME);
+      }
+      
+      
     }]); // END(controller)
 }); //END(onready)
 
@@ -203,7 +217,7 @@ function deploySettings() {
 // @param hovered: menu choice in-focus, namely hovered
 // expands hovered menu item into full word of the DREAM acronym
 function launchWord(hovered) {
-    var menu_choices = ["Debut", "Reveal", "Enjoy", "Amaze", "More"];
+    
     var key_letter = "DREAM"[hovered];
     var menu_achor = "<a href = '#/" + key_letter + "'>" + menu_choices[hovered] + "</a>";
     $("#main_menu > li").eq(hovered).html(menu_achor);
@@ -212,7 +226,6 @@ function launchWord(hovered) {
 // // graphic finalize - to have accordian-layout
 // function loadAccordians(){
 //   $("button.accordian").on("click", function(){
-//     console.log('dog');
 //     this.classList.toggle("active");
 //     var panel = this.nextElementSibling;
 //     var disp = panel.style.display;
@@ -257,15 +270,10 @@ function scrollToTop() {
 }
 
 
+
+
 /* ----- MOBILE -------- */
-// Mobile Menu: replace text with selection
-$(function(){
-    $(".mobile_menu li a").click(function(){
-      $("button.mobile_menu").text($(this).text() + " ▼");
-      $("button.mobile_menu").val($(this).text() + " ▼");
-      $("ul.mobile_menu").toggle(300);
-   });
-});
+
 $(function(){
   $("button.mobile_menu").click(function(){
 
@@ -273,9 +281,9 @@ $(function(){
     var isVisible = menu_content.is(":visible");
     if (isVisible){
       menu_content.toggle(400);
-    } else{ // sliding motion
+    } else{ // text sliding motion
       menu_content.show();
-      menu_content.find("li").toggle();
+      menu_content.find("li").hide();
       menu_content.find("li").toggle(500);
       
     }

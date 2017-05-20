@@ -102,6 +102,7 @@
 	text-align: center;
 	font-size: $font_size-panel;
 	background: white;
+	opacity: 0.6;
 	
 
 	a{
@@ -110,7 +111,9 @@
 		color: $color_dark-grey;
 		border: 5px solid #eaeaea;
 		@extend  .link-buffer;
-		
+		&:hover{
+			background: $color_primary;
+		}
 	}
 }
 
@@ -163,7 +166,9 @@ button.mobile_menu{
 	}
 }
 
-@media screen and (max-width: 600px){
+
+
+@media screen and (max-width: 800px){
 	.wide_panel {
 		// nth here for specificity 
 		&:nth-of-type(odd) > *,   &:nth-of-type(even) > *{
@@ -178,15 +183,7 @@ button.mobile_menu{
 		}
 	}
 
-	.gridview{
-		> p{
-			width: 100%;
-		}
-		> div{
-			width: 40%;
-		}
-	}
-
+	
 	#banner{
 		position: fixed;
 		width: 100%;
@@ -194,16 +191,49 @@ button.mobile_menu{
 		border-bottom: 3px solid black;
 		height: 100px;
 		> *{
-			width: 27%;
+			width: 26%;
 		}
 		#photobook > img:hover{margin-top: 5px;}
 		
 		#main_menu{
 			display: none;
 		}
+	}
+	button.mobile_menu{
+		display: inline-block;
+	}
+	.gridview > div, .gridview > p{
+			width: 45%;
+	}	
+
 }
-button.mobile_menu{
-	display: inline-block;
+@media screen and (max-width: 600px){
+	.flipList, .flipList a, #archives_wrapper{
+		display: block;
+		width: 100%;
+	}
+	#archives_wrapper{
+		margin-top: 150px;
+	}
+	
+	.topicview a{
+		display: block;
+		width: 50%;
+		margin: 20px auto;
+	}
+
+	
+	#m_wrapper{
+	  &.gridview > p, 
+	  &.gridview > a, {
+			width: 100%;
+		}
+	}
 }
 
+
+@media screen and (max-width: 460px){
+	#archives_wrapper li a{
+		padding: 10px;
+	}
 }

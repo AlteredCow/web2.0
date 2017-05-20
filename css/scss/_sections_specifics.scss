@@ -27,33 +27,37 @@
 /* --- A ------*/
 
 #archives_wrapper{
-  width: 80%; // fill remaining
+  width: 75%; // fill remaining
   display: inline-block;
   vertical-align: top;
   text-align: left;
-  
+  box-sizing: border-box;
   .contentDisplay{
     background: #ececec;
   }
   .contentDisplay:nth-child(2){ // second section override
-    background: white;
+    background: #FAFAFA;
     color: #999;
   }
   div{
-    border:{
-      width: 1px 0px 1px 0px;
-      color: #dadada;
-      style: solid;
-    }
     padding: 10px;
-    margin-left: 2px; // away from box-shadow
   }
 }
 
+.mobile_menu li{font-weight: 400;}
 
 
 /* --- M ------ */
 #m_wrapper{
+  &.gridview > p, 
+  &.gridview > a, {
+    height: 100px;
+    width: 50%;
+    font-size: 28px;  
+    text-shadow: 2px 2px 4px #dddddd;
+    box-shadow: 2px 2px 4px #dddddd;
+    line-height: 100px;
+  }
   a:hover{
     color: #9ECFF2;
   }

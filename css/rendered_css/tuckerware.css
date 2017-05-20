@@ -21,23 +21,30 @@
 /* --- E ------*/
 /* --- A ------*/
 #archives_wrapper {
-  width: 80%;
+  width: 75%;
   display: inline-block;
   vertical-align: top;
-  text-align: left; }
+  text-align: left;
+  box-sizing: border-box; }
   #archives_wrapper .contentDisplay {
     background: #ececec; }
   #archives_wrapper .contentDisplay:nth-child(2) {
-    background: white;
+    background: #FAFAFA;
     color: #999; }
   #archives_wrapper div {
-    border-width: 1px 0px 1px 0px;
-    border-color: #dadada;
-    border-style: solid;
-    padding: 10px;
-    margin-left: 2px; }
+    padding: 10px; }
+
+.mobile_menu li {
+  font-weight: 400; }
 
 /* --- M ------ */
+#m_wrapper.gridview > p, #m_wrapper.gridview > a {
+  height: 100px;
+  width: 50%;
+  font-size: 28px;
+  text-shadow: 2px 2px 4px #dddddd;
+  box-shadow: 2px 2px 4px #dddddd;
+  line-height: 100px; }
 #m_wrapper a:hover {
   color: #9ECFF2; }
 
@@ -121,21 +128,21 @@ p.cleanbox {
 
 .figure {
   display: inline-block;
-  margin: 8px;
   position: relative;
+  margin: 8px;
   text-align: center;
   font-style: italic;
   box-shadow: 5px 5px 5px #dcdcdc; }
+  .figure img {
+    max-height: 80%;
+    max-width: 95%;
+    margin-top: 10px; }
   .figure p {
     position: absolute;
     bottom: 0;
     background: #CFCFCF;
     padding: 10px 0px;
     margin: 0; }
-  .figure img {
-    max-height: 80%;
-    max-width: 95%;
-    margin-top: 10px; }
 
 .flipper {
   cursor: pointer;
@@ -150,17 +157,22 @@ p.cleanbox {
   .modern_button:hover {
     color: #cc66ff; }
 
-.scrollList {
+.flipList {
   display: inline-block;
   vertical-align: top;
-  width: 20%;
+  width: 25%;
   font-size: 0;
-  float: left; }
-  .scrollList li {
+  box-sizing: border-box; }
+  .flipList li {
+    box-sizing: border-box;
     font-size: 14px;
     padding: 20px;
-    box-shadow: 0px  1px 3px #333;
+    box-sizing: border-box;
+    border-top: 1px solid silver;
     overflow: hidden; }
+    .flipList li:nth-child(1) {
+      background: #7EC2F2;
+      font-weight: bold; }
 
 /* ----- HTML TAGS ------------------------ */
 html, body {
@@ -168,6 +180,9 @@ html, body {
   font-size: 20px;
   min-width: 320px;
   min-height: 1000px; }
+
+html {
+  overflow-x: hidden; }
 
 a {
   text-decoration: none;
@@ -306,16 +321,12 @@ pre {
   box-sizing: border-box; }
 .gridview > div, .gridview > p {
   float: left;
-  width: 30%;
+  width: 29%;
   display: inline-block;
   vertical-align: top;
   text-align: center; }
 .gridview > div {
   height: 400px; }
-.gridview > p {
-  height: 150px;
-  width: 50%;
-  font-size: 24px; }
 .gridview p.caption {
   width: 100%; }
 
@@ -349,11 +360,14 @@ pre {
   bottom: 0px;
   text-align: center;
   font-size: 42px;
-  background: white; }
+  background: white;
+  opacity: 0.6; }
   #right_panel a {
     line-height: 50px;
     color: #444;
     border: 5px solid #eaeaea; }
+    #right_panel a:hover {
+      background: #9ECFF2; }
 
 /* ||| MOBILE |||||||||||| */
 .mobile_menu {
@@ -395,7 +409,7 @@ button.mobile_menu {
     box-shadow: none;
     box-shadow: 2px 3px 4px #666; }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .wide_panel:nth-of-type(odd) > *, .wide_panel:nth-of-type(even) > * {
     display: block;
     float: none;
@@ -405,11 +419,6 @@ button.mobile_menu {
   .wide_panel:nth-of-type(even) > span {
     text-align: center; }
 
-  .gridview > p {
-    width: 100%; }
-  .gridview > div {
-    width: 40%; }
-
   #banner {
     position: fixed;
     width: 100%;
@@ -417,13 +426,34 @@ button.mobile_menu {
     border-bottom: 3px solid black;
     height: 100px; }
     #banner > * {
-      width: 27%; }
+      width: 26%; }
     #banner #photobook > img:hover {
       margin-top: 5px; }
     #banner #main_menu {
       display: none; }
 
   button.mobile_menu {
-    display: inline-block; } }
+    display: inline-block; }
+
+  .gridview > div, .gridview > p {
+    width: 45%; } }
+@media screen and (max-width: 600px) {
+  .flipList, .flipList a, #archives_wrapper {
+    display: block;
+    width: 100%; }
+
+  #archives_wrapper {
+    margin-top: 150px; }
+
+  .topicview a {
+    display: block;
+    width: 50%;
+    margin: 20px auto; }
+
+  #m_wrapper.gridview > p, #m_wrapper.gridview > a {
+    width: 100%; } }
+@media screen and (max-width: 460px) {
+  #archives_wrapper li a {
+    padding: 10px; } }
 
 /*# sourceMappingURL=tuckerware.css.map */
