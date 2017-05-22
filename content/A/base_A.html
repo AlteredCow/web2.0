@@ -1,9 +1,9 @@
-<h1>amaze</h1>
+<h1>Amuse</h1>
 <ul class = "flipList">
-	<li>{{archivesPageNow +1}} of {{archivesPagesTotal}}</li><li class = "flipper" ng-click = "archivesFlip('up')">^</li><li class = "choice" ng-repeat = "topic in grabArchives() track by $index" ng-click = "expandArchive($index)">{{topic.title}}</li><li class = "flipper"  ng-click = "archivesFlip('down')">v</li></ul><div id = "archives_wrapper"><div class = "contentDisplay" >Welcome to the thought corner of the site!</br>
+	<li>{{archivesPageNow +1}} of {{archivesPagesTotal}}</li><li class = "flipper" ng-click = "archivesFlip('up')">^</li><li class = "choice" ng-repeat = "topic in grabArchives() track by $index" ng-click = "expandArchive($index)">{{topic.title}}</li><li class = "flipper"  ng-click = "archivesFlip('down')">v</li></ul><div id = "archives_wrapper"><button class = "revert_button sleek_button">◄ Topic View </button><p class = "contentDisplay ">Welcome to the thought corner of the site!</br>
 		It's pretty amazing.
 		The hope is that reading will both spark some curiosity
 		and that you have fun with my thoughts manifesting themselves into text.
 		Taken at face-value, a lot of content will appear absurd.
-		Yet we know that there is insight into the aburd anyhow.</div><div class = "contentDisplay">Enjoy!</div>
+		Yet we know that there is insight into the aburd anyhow.</p><hr /><p class = "contentDisplay">Enjoy!</p>
 </div>

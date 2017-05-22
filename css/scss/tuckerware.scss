@@ -118,7 +118,7 @@
 }
 
 
-/* ||| MOBILE |||||||||||| */
+/* ||| MOBILE MENU |||||||||||| */
 
 .mobile_menu{
 	display: none;
@@ -129,6 +129,7 @@ ul.mobile_menu{
 	float: left; 
 	position: absolute;
 	left: 0;
+	
 	background: white;
 	box-shadow: 3px 4px 6px #666;
 	border:{
@@ -157,7 +158,7 @@ button.mobile_menu{
 	box-shadow: 3px 4px 6px #666;
 	border-radius: 3px;
 	&:hover{
-		color: white;
+		color: $color_tertiary;
 	}
 	&:active{
 		box-shadow: none;
@@ -167,10 +168,10 @@ button.mobile_menu{
 }
 
 
-
+/* ||| GENERAL SCREEN RESPONSIVENESS |||||||||||| */
 @media screen and (max-width: 800px){
 	.wide_panel {
-		// nth here for specificity 
+		// nth selector repeated here for specificity dominance
 		&:nth-of-type(odd) > *,   &:nth-of-type(even) > *{
 			display: block;
 			float: none;
@@ -183,7 +184,7 @@ button.mobile_menu{
 		}
 	}
 
-	
+	// mainliy compress menu + limit gridview columns
 	#banner{
 		position: fixed;
 		width: 100%;
@@ -193,36 +194,52 @@ button.mobile_menu{
 		> *{
 			width: 26%;
 		}
-		#photobook > img:hover{margin-top: 5px;}
-		
-		#main_menu{
+		#photobook > img:hover{
+			margin-top: 5px;
+		}
+		#main_menu{ // transitition to mini-menu
 			display: none;
 		}
-	}
-	button.mobile_menu{
-		display: inline-block;
-	}
+		button.mobile_menu{
+			display: inline-block; // enable visibility
+		}
+	
+	// converting columns for .gridview adherents
 	.gridview > div, .gridview > p{
 			width: 45%;
-	}	
+		}	
+	}
 
 }
+
+// mainly to make 'Archives' secion more manageable
 @media screen and (max-width: 600px){
-	.flipList, .flipList a, #archives_wrapper{
-		display: block;
+	#archives_wrapper{
 		width: 100%;
 	}
-	#archives_wrapper{
-		margin-top: 150px;
+	.flipList, .flipList a{
+		display: none; // intro content first is why
+		width: 100%;
+	}
+	.revert_button{
+		display: inline-block;
+	}
+	#banner ul.mobile_menu{
+		width: auto;
+	}
+	ul.mobile_menu li{
+		display: block;
+		width: 200px;
 	}
 	
+		
 	.topicview a{
 		display: block;
 		width: 50%;
 		margin: 20px auto;
 	}
 
-	
+	// as 'M' takes .gridview, we need some minor adjustments	
 	#m_wrapper{
 	  &.gridview > p, 
 	  &.gridview > a, {
@@ -233,7 +250,5 @@ button.mobile_menu{
 
 
 @media screen and (max-width: 460px){
-	#archives_wrapper li a{
-		padding: 10px;
-	}
+	
 }

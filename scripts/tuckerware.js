@@ -7,7 +7,7 @@
 // TODO: generalize menuGlow for @style/..., by glow(fx)
 // TODO: http requests hit twice?
 
-var menu_choices = ["Debut", "Reveal", "Enjoy", "Amaze", "More"];
+var menu_choices = ["Debut", "Reveal", "Enjoy", "Amuse", "More"];
 /* |||||||||||| ON-READY||||||||||||||||||||||||||||||||||| */
 $(document).ready(function() {
   $("#main_menu li:first").trigger('mouseover'); // highlight 'D'
@@ -27,17 +27,6 @@ $(document).ready(function() {
         });
     }); 
 
-  // loader_app.directive("myTopic", function(){
-  //   // return{
-  //   //   templateUrl: 'content/R/education.html'
-  //   // };
-  //   return{
-  //     restrict: 'E',
-  //     link: function(scope, element, attrs){
-  //       scope.
-  //       // return './content/' + {{obj.prop}} + "/" + {{obj.prop}} + ".html"; }
-  //   }
-  // });
 
   loader_app.controller('loaderController', ['$scope', '$http', '$route', '$routeParams', '$window', function($scope, $http, $route, $routeParams, $window) {
 
@@ -46,7 +35,7 @@ $(document).ready(function() {
       $scope.archivesPageNow = 0;
       $scope.archivesDisplayLimit = 5;
 
-      
+      // mobile menu
       $scope.$on('$locationChangeSuccess', function(event) {
         var current_letter = window.location.hash.substr(2, 3);
         var current_letter_key = "DREAM".indexOf(current_letter);
@@ -96,9 +85,10 @@ $(document).ready(function() {
       */
       $scope.expandTopic = function(key_letter, selected_topic, topic_index) {
           $scope.partial = 'content/' + key_letter + "/" + selected_topic + ".html";
-
-      scrollToDisplay();
+          scrollToDisplay();
     }
+
+
 
 
       // navigates 'pages' of topic choices
@@ -123,6 +113,35 @@ $(document).ready(function() {
       }
 
 
+      // TODO: find a better system
+      // Archives RESPONSIVENESS PT1
+      // Reset all full-screen descriptions
+      var id;
+      $(window).resize(function() {
+          clearTimeout(id);
+          id = setTimeout(function(){
+            if ($scope.key_letter === 'A'){
+              if ($(document).width() > 600){
+                  $(".flipList").css("display", "inline-block");
+              } else {
+                $(".flipList").hide();
+              }
+               
+          }
+        }, 300);
+          
+      });
+      
+      // Archives RESPONSIVENESS PT2
+      // On mobile, return list after reading
+      $(function(){
+        $("button.revert_button").click(function(){ 
+          $(".flipList").css({"display":"block", "width":"100%;"});
+          $("#archives_wrapper").fadeOut(200);
+      });
+      });  
+
+
 
       // @helps showPage, expandTopic
       // @param topic_index: index within JSON of chosen topic
@@ -131,7 +150,7 @@ $(document).ready(function() {
         var offset = $scope.archivesPageNow *  $scope.archivesDisplayLimit;
         var archiveCount = $scope.records.length;
 
-        // offset is to find appropriate index in JSON array
+        // offset ~= page-index-multiplier 
         if (offset >= archiveCount){
           offset = 0;
           topic_index = archiveCount - 1; // final archive
@@ -141,13 +160,24 @@ $(document).ready(function() {
         // if selection is non-empty list option, then update
         if (topic_index < archiveCount){
           selected_archive = $scope.records[topic_index];
-          scrollToDisplay();
+          // scrollToDisplay();
+          
+          
+          // Archives RESPONSIVENESS PT3
+          // only temporarily hide list if in mobile
+          if ($(window).width() <= 600){
+            $(".flipList").hide();
+            $("#archives_wrapper").css("display", "inline-block");
+          } 
+
           // upper content
-          $(".contentDisplay:nth-child(1)").hide().html(selected_archive.major).fadeIn('fastest');
+          $(".contentDisplay:nth-of-type(1)").html(selected_archive.major).fadeIn('fastest');
           // lower content
-          $(".contentDisplay:nth-child(2)").hide().html(selected_archive.minor).fadeIn('slow');
+          $(".contentDisplay:nth-of-type(2)").html(selected_archive.minor).fadeIn('slow');
+          
         }
       }
+      
 
       // UI-list builder for Archives
       $scope.grabArchives = function(){
@@ -166,7 +196,6 @@ $(document).ready(function() {
             available_topics.push(empty_obj);
           }
         }
-        
         return available_topics;
       }
       
@@ -182,10 +211,15 @@ $(document).ready(function() {
           scrollTop: location
         }, SCROLL_TIME);
       }
+
       
       
-    }]); // END(controller)
+
+
+
+  }]); // END(controller)
 }); //END(onready)
+
 
 
 
@@ -274,19 +308,17 @@ function scrollToTop() {
 
 /* ----- MOBILE -------- */
 
+// Toggling mobile dropdown menu
 $(function(){
   $("button.mobile_menu").click(function(){
-
     var menu_content = $("ul.mobile_menu"); 
-    var isVisible = menu_content.is(":visible");
-    if (isVisible){
+    if (menu_content.is(":visible")){
       menu_content.toggle(400);
     } else{ // text sliding motion
       menu_content.show();
       menu_content.find("li").hide();
       menu_content.find("li").toggle(500);
-      
     }
-
   });
-});
+  });
+
