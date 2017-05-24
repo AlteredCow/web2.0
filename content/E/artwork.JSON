@@ -20,6 +20,13 @@
   "caption" : ""
 }
 ,
+{ "name" : "( gift )",
+  "src": "caro_christmas.png",
+  "media" : "digital",
+  "year" : "2016",
+  "caption" : ""
+}
+,
 { "name" : "Chicken",
   "src": "chicken.jpg",
   "media" : "photo",

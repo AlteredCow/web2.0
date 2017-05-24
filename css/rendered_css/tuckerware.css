@@ -72,15 +72,20 @@
   display: inline-block;
   padding: 80px 0px;
   vertical-align: top; }
-  .wide_panel h2 {
+  .wide_panel h2, .wide_panel p, .wide_panel a {
     text-align: center; }
+  .wide_panel a:hover {
+    color: #5aadeb;
+    text-shadow: 2px 2px 4px #333; }
   .wide_panel:nth-of-type(odd) > * {
     float: left; }
+  .wide_panel:nth-of-type(odd) > ul {
+    text-align: left; }
   .wide_panel:nth-of-type(even) {
     background: #C1E0F6; }
     .wide_panel:nth-of-type(even) > * {
       float: right; }
-    .wide_panel:nth-of-type(even) > span {
+    .wide_panel:nth-of-type(even) ul {
       text-align: right; }
   .wide_panel > * {
     width: 50%;
@@ -317,6 +322,7 @@ pre {
     display: inline-block;
     font-size: 20px;
     border-radius: 3px;
+    min-width: 200px;
     text-align: center;
     padding: 20px 30px;
     font-family: Century Gothic;

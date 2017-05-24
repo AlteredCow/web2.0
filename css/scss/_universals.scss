@@ -33,18 +33,25 @@ $space-tiny: 2px;
   display: inline-block;
   padding: 80px 0px;
   vertical-align: top;
-  h2{text-align: center;}
+  h2, p, a{text-align: center;}
+  a:hover{color:$color_tertiary; text-shadow: 2px 2px 4px #333;}
   
   // design: alternating color and position
-  &:nth-of-type(odd) > *{
+  &:nth-of-type(odd){
+     > *{
         float:left;
+      }
+      
+      > ul{
+        text-align: left;
+      }
   }
   &:nth-of-type(even){
     background: #C1E0F6;
     > *{
       float:right;
     }
-    > span{
+    ul{
       text-align: right;
     }
   }

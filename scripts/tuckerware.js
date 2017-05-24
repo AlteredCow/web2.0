@@ -57,21 +57,20 @@ $(document).ready(function() {
            $scope.artbase = JSON[ARCHIVES_ROOT];
            $scope.artwork = [];
         });
-        // $.getJSON("data/full_res.json", function(json) {
-        // 		do something...
-        // });
+
 
         // TODO: build filters (or sorting machines) per medium, date, ...
         $scope.loadImages = function(){
-          const DISPLAY_MULTIPLE = 6;
+          const DISPLAY_MULTIPLE = 3;
           var offset = $scope.artwork.length;
           for (var x = 0; x < DISPLAY_MULTIPLE; x++){
             var new_img = $scope.artbase[x + offset];
-            $scope.artwork.push(new_img);
+            if (new_img){
+              $scope.artwork.push(new_img);
+            }
           }
         }
 
-        // TODO: switch to lightbox
         $scope.openLink = function(url){
           $window.open(url, '_blank');
         }
@@ -79,11 +78,10 @@ $(document).ready(function() {
 
       /* @param key_letter: the menu choice key letter
       * @param selected_topic: the clicked sub-material
-      * @param topic_index: general purpose numerical key
       * Each page has sub-content, which is sorted into several narrower topics.
       * This funcion grabs content file, then displays it, and slides to display area
       */
-      $scope.expandTopic = function(key_letter, selected_topic, topic_index) {
+      $scope.expandTopic = function(key_letter, selected_topic) {
           $scope.partial = 'content/' + key_letter + "/" + selected_topic + ".html";
           scrollToDisplay();
     }
@@ -171,9 +169,9 @@ $(document).ready(function() {
           } 
 
           // upper content
-          $(".contentDisplay:nth-of-type(1)").html(selected_archive.major).fadeIn('fastest');
+          $(".contentDisplay:nth-of-type(1)").hide().html(selected_archive.major).fadeIn('fastest');
           // lower content
-          $(".contentDisplay:nth-of-type(2)").html(selected_archive.minor).fadeIn('slow');
+          $(".contentDisplay:nth-of-type(2)").hide().html(selected_archive.minor).fadeIn('slow');
           
         }
       }
@@ -228,7 +226,7 @@ $(document).ready(function() {
 // @param newPage: the letter indicating the page to load
 // flips pages - loads new page from menu choice
 // click for page; highlight menu choice;  reset window position
-function clickPage(newPage) {
+function goToPage(newPage) {
     var selected_page = $("#main_menu :nth-child(" + newPage + ")");
     window.location.hash = selected_page.html();
     selected_page.trigger('mouseover');
