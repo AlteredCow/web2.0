@@ -30,6 +30,7 @@ $(document).ready(function() {
       $scope.$on('$locationChangeSuccess', function(event) {
         var current_letter = window.location.hash.substr(2, 3);
         var current_letter_key = "DREAM".indexOf(current_letter);
+        $("#main_menu li").eq(current_letter_key).trigger('mouseover');
         $scope.key_word = menu_choices[current_letter_key];
         $("ul.mobile_menu").hide(300);
       });
