@@ -48,27 +48,45 @@
     background: white;
   }
   .contentDisplay:nth-of-type(2){ // second section override
-    
-
   }
 
 }
 
-.mobile_menu li{font-weight: 400;}
+.mobile_menu li{
+  font-weight: 400;
+}
 
 
 /* --- M ------ */
+#resume_button{
+  display: block;
+  width: 200px;
+  text-align: center;
+  margin: 0 auto;
+  &:hover{
+    background: #9ECFF2;
+    color: white;
+  }
+}
 #m_wrapper{
   &.gridview > p, 
   &.gridview > a, {
+    background: #f5f1f0;
     height: 100px;
     width: 50%;
     font-size: 28px;  
     text-shadow: 2px 2px 4px #dddddd;
     box-shadow: 2px 2px 4px #dddddd;
     line-height: 100px;
+    &:nth-of-type(4n+1), &:nth-of-type(4n+0){
+      background: #e0dfde;
+    }
+  }
+  a{
+    width: 100%;
+    display: inline-block;
   }
   a:hover{
-    color: #9ECFF2;
+    color: #92c9f1;
   }
 }

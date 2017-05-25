@@ -1,1 +1,0 @@
-function expandTopic(a,b,c){c--;const d=800;var e=$(".topicRowPresentation:eq("+topicRow_priorNumber+")"),f=$(".topicRowPresentation:eq("+c+")"),g=topicRow_priorNumber==c,h=b==theme_topic_prior,i=e.is(":visible");if((h&&i||!g)&&e.fadeOut(400),i&&g||f.fadeIn(d),topicRow_priorNumber=c,theme_topic_prior=b,"M"==a);else{var j="content/"+a+"/"+b+".txt";f.load(j)}}

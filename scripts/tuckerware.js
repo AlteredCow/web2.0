@@ -1,14 +1,5 @@
-/* |||||||||||| NOTES ||||||||||||||||||||||||||||||||||| */
-// TODO: redundancy in variables; mixing privacy; FIXXX
-// TODO: grant 'Archives' its own controller (overall, modular restructuring) 
-// TODO: split controller into multiple, each with single responsibility
-// TODO: move DOM-related functions to .directive
-// TODO: acknowledge GET only when appropiate (LAZY LOAD)
-// TODO: generalize menuGlow for @style/..., by glow(fx)
-// TODO: http requests hit twice?
-
-var menu_choices = ["Debut", "Reveal", "Enjoy", "Amuse", "More"];
 /* |||||||||||| ON-READY||||||||||||||||||||||||||||||||||| */
+const menu_choices = ["Debut", "Reveal", "Enjoy", "Amuse", "More"];
 $(document).ready(function() {
   $("#main_menu li:first").trigger('mouseover'); // highlight 'D'
   var loader_app = angular.module('loaderApp', ['ngAnimate', 'ngRoute', 'infinite-scroll']);
@@ -209,12 +200,7 @@ $(document).ready(function() {
           scrollTop: location
         }, SCROLL_TIME);
       }
-
       
-      
-
-
-
   }]); // END(controller)
 }); //END(onready)
 
@@ -223,47 +209,12 @@ $(document).ready(function() {
 
 /* |||||||||||| STANDARD FUNCTIONS  ||||||||||||||||||||||||||||||||||| */
 
-// @param newPage: the letter indicating the page to load
-// flips pages - loads new page from menu choice
-// click for page; highlight menu choice;  reset window position
-function goToPage(newPage) {
-    var selected_page = $("#main_menu :nth-child(" + newPage + ")");
-    window.location.hash = selected_page.html();
-    selected_page.trigger('mouseover');
-    window.scrollTo(0, 0);
-}
-
-
-/*
-* expands the right-panel menu for extended options
-*/
-function deploySettings() {
-    //var li_ = "<li><a href = ' '></a></li>"
-    // var appendage = li_ + li_ + li_
-    // $("#right_panel li:first").after(appendage);
-
-}
-
-
-// @helps menuGlow
 // @param hovered: menu choice in-focus, namely hovered
 // expands hovered menu item into full word of the DREAM acronym
 function launchWord(hovered) {
-    
     var key_letter = "DREAM"[hovered];
-    var menu_achor = "<a href = '#/" + key_letter + "'>" + menu_choices[hovered] + "</a>";
-    $("#main_menu > li").eq(hovered).html(menu_achor);
+    $("#main_menu li a").eq(hovered).text(menu_choices[hovered]);
 }
-
-// // graphic finalize - to have accordian-layout
-// function loadAccordians(){
-//   $("button.accordian").on("click", function(){
-//     this.classList.toggle("active");
-//     var panel = this.nextElementSibling;
-//     var disp = panel.style.display;
-//     disp = disp === "block"? "none" : "block";
-//   });
-// }
 
 // @param hovered: menu choice in-focus, namely hovered
 // graphic tracking - highlight hovered menu choice
@@ -284,15 +235,10 @@ function menuGlow(hovered) {
         }
 
         // applying updates
-        current_letter.text("DREAM" [index]);
+        current_letter.find("a").text("DREAM"[index]);
         $(current_letter).css("border-bottom", bar_visibility);
         launchWord(hovered);
     });
-}
-
-// operates the LightBox
-function openSelfGallery() {
-
 }
 
 // Animate return to page top 

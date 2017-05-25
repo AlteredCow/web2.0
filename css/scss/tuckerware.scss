@@ -126,10 +126,9 @@
 	@include no-highlight();
 }
 ul.mobile_menu{
-	float: left; 
 	position: absolute;
+	top: 82px;
 	left: 0;
-	
 	background: white;
 	box-shadow: 3px 4px 6px #666;
 	border:{
@@ -145,6 +144,7 @@ ul.mobile_menu{
 	li{
 		border-bottom: 1px silver solid;
 		box-sizing: border-box;
+		min-width: 200px;
 		&:hover{
 			@extend .choice;
 		}
@@ -192,23 +192,22 @@ button.mobile_menu{
 		border-bottom: 3px solid black;
 		height: 100px;
 		> *{
-			width: 26%;
-		}
-		#photobook > img:hover{
-			margin-top: 5px;
+			margin-top: 20px;
 		}
 		#main_menu{ // transitition to mini-menu
 			display: none;
 		}
 		button.mobile_menu{
-			display: inline-block; // enable visibility
+			display: inline-block;
+			min-width: 200px;
 		}
 	
+
+	}
 	// converting columns for .gridview adherents
 	.gridview > div, .gridview > p{
 			width: 45%;
 		}	
-	}
 
 }
 
@@ -225,11 +224,11 @@ button.mobile_menu{
 		display: inline-block;
 	}
 	#banner ul.mobile_menu{
-		width: auto;
+		min-width: 200px;
 	}
 	ul.mobile_menu li{
 		display: block;
-		width: 200px;
+		min-width: 200px;
 	}
 	
 		

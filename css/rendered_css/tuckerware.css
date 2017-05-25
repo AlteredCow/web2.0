@@ -44,15 +44,30 @@
   font-weight: 400; }
 
 /* --- M ------ */
+#resume_button {
+  display: block;
+  width: 200px;
+  text-align: center;
+  margin: 0 auto; }
+  #resume_button:hover {
+    background: #9ECFF2;
+    color: white; }
+
 #m_wrapper.gridview > p, #m_wrapper.gridview > a {
+  background: #f5f1f0;
   height: 100px;
   width: 50%;
   font-size: 28px;
   text-shadow: 2px 2px 4px #dddddd;
   box-shadow: 2px 2px 4px #dddddd;
   line-height: 100px; }
+  #m_wrapper.gridview > p:nth-of-type(4n+1), #m_wrapper.gridview > p:nth-of-type(4n+0), #m_wrapper.gridview > a:nth-of-type(4n+1), #m_wrapper.gridview > a:nth-of-type(4n+0) {
+    background: #e0dfde; }
+#m_wrapper a {
+  width: 100%;
+  display: inline-block; }
 #m_wrapper a:hover {
-  color: #9ECFF2; }
+  color: #92c9f1; }
 
 .link-buffer, #main_menu li > a, #right_panel a {
   width: 100%;
@@ -76,7 +91,7 @@
     text-align: center; }
   .wide_panel a:hover {
     color: #5aadeb;
-    text-shadow: 2px 2px 4px #333; }
+    text-shadow: 2px 2px 2px #777; }
   .wide_panel:nth-of-type(odd) > * {
     float: left; }
   .wide_panel:nth-of-type(odd) > ul {
@@ -322,7 +337,6 @@ pre {
     display: inline-block;
     font-size: 20px;
     border-radius: 3px;
-    min-width: 200px;
     text-align: center;
     padding: 20px 30px;
     font-family: Century Gothic;
@@ -406,8 +420,8 @@ pre {
   user-select: none; }
 
 ul.mobile_menu {
-  float: left;
   position: absolute;
+  top: 82px;
   left: 0;
   background: white;
   box-shadow: 3px 4px 6px #666;
@@ -420,7 +434,8 @@ ul.mobile_menu {
     padding: 20px 0px; }
   ul.mobile_menu li {
     border-bottom: 1px silver solid;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    min-width: 200px; }
 
 button.mobile_menu {
   border: 1px solid #666;
@@ -452,15 +467,15 @@ button.mobile_menu {
     border-bottom: 3px solid black;
     height: 100px; }
     #banner > * {
-      width: 26%; }
-    #banner #photobook > img:hover {
-      margin-top: 5px; }
+      margin-top: 20px; }
     #banner #main_menu {
       display: none; }
     #banner button.mobile_menu {
-      display: inline-block; }
-    #banner .gridview > div, #banner .gridview > p {
-      width: 45%; } }
+      display: inline-block;
+      min-width: 200px; }
+
+  .gridview > div, .gridview > p {
+    width: 45%; } }
 @media screen and (max-width: 600px) {
   #archives_wrapper {
     width: 100%; }
@@ -473,11 +488,11 @@ button.mobile_menu {
     display: inline-block; }
 
   #banner ul.mobile_menu {
-    width: auto; }
+    min-width: 200px; }
 
   ul.mobile_menu li {
     display: block;
-    width: 200px; }
+    min-width: 200px; }
 
   .topicview a {
     display: block;

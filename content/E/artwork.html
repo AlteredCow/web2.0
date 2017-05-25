@@ -1,4 +1,4 @@
-<div class ="gridview" infinite-scroll = 'loadImages()' infinite-scroll-distance="1">
+<div class ="gridview" infinite-scroll = 'loadImages()' infinite-scroll-distance="0">
   <div ng-repeat = "piece in artwork"  class = "figure" >
     <img ng-src = "img/artwork/{{piece.src}}" ng-click = "openLink('img/artwork/'+piece.src)"  />
     <p class = "caption">{{piece.name}}    |    {{piece.year}}</p>
