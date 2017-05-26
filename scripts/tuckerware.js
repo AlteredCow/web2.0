@@ -1,11 +1,11 @@
-/* |||||||||||| ON-READY||||||||||||||||||||||||||||||||||| */
+/* ------------ ON-READY --------------------------- */
 const menu_choices = ["Debut", "Reveal", "Enjoy", "Amuse", "More"];
 $(document).ready(function() {
   $("#main_menu li:first").trigger('mouseover'); // highlight 'D'
   var loader_app = angular.module('loaderApp', ['ngAnimate', 'ngRoute', 'infinite-scroll']);
 
-
-    // URL-hash configuration: allows flipping through DREAM sections
+    // URL-hash configuration (e.g. ...com#/D)
+    // allows flipping through DREAM sections
     loader_app.config(function($routeProvider, $locationProvider){
       $routeProvider
         .when('/:key_letter',
@@ -19,29 +19,51 @@ $(document).ready(function() {
     }); 
 
 
+  // massive, overarching content loader -- both for main pages (DREAM) and sub-pages (topics)
   loader_app.controller('loaderController', ['$scope', '$http', '$route', '$routeParams', '$window', function($scope, $http, $route, $routeParams, $window) {
 
+// ================= GENERAL ===================================
       $scope.key_letter = $routeParams.key_letter;
       $scope.partial = "content/empty.html"; // TODO: rename (partial is /topic_name.html)
-      $scope.archivesPageNow = 0;
+      $scope.archivesCurrentPage = 0;
       $scope.archivesDisplayLimit = 5;
 
-      // mobile menu
+      // @requires: #/_ page section navigation
+      // on section-change: update menu UI and scroll to page-top
       $scope.$on('$locationChangeSuccess', function(event) {
         var current_letter = window.location.hash.substr(2, 3);
         var current_letter_key = "DREAM".indexOf(current_letter);
         $("#main_menu li").eq(current_letter_key).trigger('mouseover');
         $scope.key_word = menu_choices[current_letter_key];
         $("ul.mobile_menu").hide(300);
+        scrollToTop();
       });
 
-      var archives = "content/A/archives.JSON";
-      $http.get(archives)
-         .success(function(JSON){
-           const ARCHIVES_ROOT = "topic";
-           $scope.records = JSON[ARCHIVES_ROOT];
-           $scope.archivesPagesTotal = Math.ceil($scope.records.length /  $scope.archivesDisplayLimit);
-        });
+      
+      function scrollToDisplay(){
+        var CONTENT_DISPLAY = $(".contentDisplay");
+        const SCROLL_TIME = 900;
+        var location = CONTENT_DISPLAY.offset().top;
+        if ($scope.key_letter === 'A'){
+          location -= 100;
+        }
+        $('html,body').stop().animate({
+          scrollTop: location
+        }, SCROLL_TIME);
+      }
+      
+      /* @param key_letter: the menu choice key letter
+      * @param selected_topic: the clicked sub-material
+      * Each page has sub-content, which is sorted into several narrower topics.
+      * This funcion grabs content file, then displays it, and slides to display area
+      */
+      $scope.expandTopic = function(key_letter, selected_topic) {
+          $scope.partial = 'content/' + key_letter + "/" + selected_topic + ".html";
+          scrollToDisplay();
+    }
+        
+// =============================================================
+// ================= ARTWORK ===================================
       var artwork = "content/E/artwork.JSON";
       $http.get(artwork)
          .success(function(JSON){
@@ -50,8 +72,7 @@ $(document).ready(function() {
            $scope.artwork = [];
         });
 
-
-        // TODO: build filters (or sorting machines) per medium, date, ...
+        
         $scope.loadImages = function(){
           const DISPLAY_MULTIPLE = 3;
           var offset = $scope.artwork.length;
@@ -66,42 +87,8 @@ $(document).ready(function() {
         $scope.openLink = function(url){
           $window.open(url, '_blank');
         }
-
-
-      /* @param key_letter: the menu choice key letter
-      * @param selected_topic: the clicked sub-material
-      * Each page has sub-content, which is sorted into several narrower topics.
-      * This funcion grabs content file, then displays it, and slides to display area
-      */
-      $scope.expandTopic = function(key_letter, selected_topic) {
-          $scope.partial = 'content/' + key_letter + "/" + selected_topic + ".html";
-          scrollToDisplay();
-    }
-
-
-
-
-      // navigates 'pages' of topic choices
-      $scope.archivesFlip = function(direction){
-        var page_now = $scope.archivesPageNow;
-        if (direction === 'up'){
-          page_now--;
-        } else {
-          page_now++;
-        }
-
-        // stay within bounds
-        var page_max = $scope.archivesPagesTotal;
-        if (page_now < 0){
-          page_now = page_max - 1; // -1 for 0-index
-        } else if (page_now >= page_max){
-          page_now = 0; // reset cycle
-        }
-
-        // update: track current page
-        $scope.archivesPageNow = page_now;
-      }
-
+// =============================================================
+// ====================== ARCHIVES =============================
 
       // TODO: find a better system
       // Archives RESPONSIVENESS PT1
@@ -122,6 +109,36 @@ $(document).ready(function() {
           
       });
       
+      // 'A' section -- let A stand for 'archives' or 'amuse'
+      var archives = "content/A/archives.JSON";
+      $http.get(archives)
+         .success(function(JSON){
+           const ARCHIVES_ROOT = "topic";
+           $scope.records = JSON[ARCHIVES_ROOT];
+           $scope.archivesPagesTotal = Math.ceil($scope.records.length /  $scope.archivesDisplayLimit);
+        });
+        
+        // navigates 'pages' of topic choices
+        $scope.archivesFlip = function(direction){
+          var page_now = $scope.archivesCurrentPage;
+          if (direction === 'up'){
+            page_now--;
+          } else {
+            page_now++;
+          }
+  
+          // stay within bounds
+          var page_max = $scope.archivesPagesTotal;
+          if (page_now < 0){
+            page_now = page_max - 1; // -1 for 0-index
+          } else if (page_now >= page_max){
+            page_now = 0; // reset cycle
+          }
+  
+          // update: track current page
+          $scope.archivesCurrentPage = page_now;
+        }
+      
       // Archives RESPONSIVENESS PT2
       // On mobile, return list after reading
       $(function(){
@@ -135,9 +152,9 @@ $(document).ready(function() {
 
       // @helps showPage, expandTopic
       // @param topic_index: index within JSON of chosen topic
-      // controls content of 'A' section
+      // controls content loading of 'A' section
       $scope.expandArchive = function(topic_index){
-        var offset = $scope.archivesPageNow *  $scope.archivesDisplayLimit;
+        var offset = $scope.archivesCurrentPage *  $scope.archivesDisplayLimit;
         var archiveCount = $scope.records.length;
 
         // offset ~= page-index-multiplier 
@@ -172,7 +189,7 @@ $(document).ready(function() {
       // UI-list builder for Archives
       $scope.grabArchives = function(){
         const SHOW_LIMIT =  $scope.archivesDisplayLimit;
-        var offset = SHOW_LIMIT * $scope.archivesPageNow;
+        var offset = SHOW_LIMIT * $scope.archivesCurrentPage;
         var available_topics = [];
         
         // grabbing current n-number of topics
@@ -189,18 +206,8 @@ $(document).ready(function() {
         return available_topics;
       }
       
-      
-      function scrollToDisplay(){
-        var CONTENT_DISPLAY = $(".contentDisplay");
-        const SCROLL_TIME = 900;
-        var location = CONTENT_DISPLAY.offset().top;
-        if ($scope.key_letter === 'A'){
-          location -= 100;
-        }
-        $('html,body').stop().animate({
-          scrollTop: location
-        }, SCROLL_TIME);
-      }
+// =============================================================
+  
       
   }]); // END(controller)
 }); //END(onready)
@@ -261,7 +268,7 @@ $(function(){
       menu_content.toggle(400);
     } else{ // text sliding motion
       menu_content.show();
-      menu_content.find("li").hide();
+      menu_content.find("li").hide(); // junky animation
       menu_content.find("li").toggle(500);
     }
   });

@@ -21,16 +21,15 @@
 /* --- E ------*/
 /* --- A ------*/
 #archives_wrapper {
-  background: #ececec;
   vertical-align: top;
   display: inline-block;
   width: 75%;
-  padding-bottom: 40%;
-  text-align: left;
   box-sizing: border-box;
+  padding-bottom: 40%;
   background: #C5E4FB;
-  border-left: 5px solid #afaaab;
-  line-height: 2em; }
+  text-align: left;
+  line-height: 2em;
+  border-left: 5px solid #afaaab; }
   #archives_wrapper .contentDisplay {
     box-sizing: border-box;
     margin: 20px;
@@ -39,9 +38,6 @@
     color: #999;
     box-shadow: 0px 0px 5px 7px white;
     background: white; }
-
-.mobile_menu li {
-  font-weight: 400; }
 
 /* --- M ------ */
 #resume_button {
@@ -54,9 +50,9 @@
     color: white; }
 
 #m_wrapper.gridview > p, #m_wrapper.gridview > a {
-  background: #f5f1f0;
   height: 100px;
   width: 50%;
+  background: #f5f1f0;
   font-size: 28px;
   text-shadow: 2px 2px 4px #dddddd;
   box-shadow: 2px 2px 4px #dddddd;
@@ -66,8 +62,8 @@
 #m_wrapper a {
   width: 100%;
   display: inline-block; }
-#m_wrapper a:hover {
-  color: #92c9f1; }
+  #m_wrapper a:hover {
+    color: #92c9f1; }
 
 .link-buffer, #main_menu li > a, #right_panel a {
   width: 100%;
@@ -111,24 +107,6 @@
   width: 100%;
   height: 100%; }
 
-.cleanbox {
-  margin: 0px 0px 40px 0;
-  background: white;
-  outline: 1px solid silver; }
-  .cleanbox a:hover {
-    color: #cc66ff; }
-  .cleanbox ul {
-    font-size: 0; }
-    .cleanbox ul li {
-      font-size: 20px;
-      padding: 20px;
-      text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88); }
-      .cleanbox ul li:nth-child(odd) {
-        background: #e4e4e4; }
-
-p.cleanbox {
-  padding: 30px; }
-
 .ng-animate {
   transition: 0.2s linear all; }
 
@@ -146,6 +124,24 @@ p.cleanbox {
 [data-ng-click],
 [x-ng-click] {
   cursor: pointer; }
+
+.cleanbox {
+  margin: 0px 0px 40px 0;
+  background: white;
+  outline: 1px solid silver; }
+  .cleanbox a:hover {
+    color: #cc66ff; }
+  .cleanbox ul {
+    font-size: 0; }
+    .cleanbox ul li {
+      font-size: 20px;
+      padding: 20px;
+      text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88); }
+      .cleanbox ul li:nth-child(odd) {
+        background: #e4e4e4; }
+
+p.cleanbox {
+  padding: 30px; }
 
 .choice:hover, ul.mobile_menu li:hover, .flipper:hover {
   color: white;
@@ -214,7 +210,6 @@ p.cleanbox {
 .revert_button {
   display: none; }
 
-/* ----- HTML TAGS ------------------------ */
 html, body {
   font-family: calibri;
   font-size: 20px;
@@ -245,7 +240,6 @@ h2 {
 pre {
   font-family: calibri; }
 
-/* ----------------------------------------*/
 #buttonCtrl {
   display: none;
   margin: 0; }
@@ -267,7 +261,6 @@ pre {
   outline: 1px solid black;
   background: #99cbef; }
 
-/* ||| UPPER / BANNER ||||||||||||||| */
 #banner {
   height: 110px;
   text-align: center;
@@ -328,17 +321,16 @@ pre {
       -moz-box-shadow: 0px 0px 4px #444;
       box-shadow: 0px 0px 4px #444; }
 
-/* ||| MAIN CONTENT AREA |||||||||||| */
 .topicview {
   text-align: center;
   font-size: 0;
   width: 100%; }
   .topicview a {
     display: inline-block;
-    font-size: 20px;
+    padding: 20px 30px;
     border-radius: 3px;
     text-align: center;
-    padding: 20px 30px;
+    font-size: 20px;
     font-family: Century Gothic;
     font-weight: bold; }
     .topicview a:hover {
@@ -349,7 +341,7 @@ pre {
     display: inline-block; }
 
 /*
-* let schema be
+* let base schema be
 * <div gridview...
 *   <div figure
 *     < xyz ..
@@ -376,23 +368,6 @@ pre {
   width: 100%;
   height: 100%; }
 
-/* ||| FOOTNOTES |||||||||||| */
-#footnotes {
-  height: 5%;
-  padding: 2px; }
-  #footnotes p {
-    font-size: 14px; }
-
-#footnote_left {
-  float: left;
-  color: grey; }
-
-#footnote_right {
-  float: right;
-  right: 21%;
-  color: #cc1d00; }
-
-/* ||| RIGHTSIDE PANEL |||||||||||| */
 #right_panel {
   position: fixed;
   right: 0px;
@@ -408,7 +383,6 @@ pre {
     #right_panel a:hover {
       background: #9ECFF2; }
 
-/* ||| MOBILE MENU |||||||||||| */
 .mobile_menu {
   display: none;
   color: #5aadeb;

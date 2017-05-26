@@ -6,7 +6,7 @@
 @charset "utf-8";
 
 
-/* ||| UPPER / BANNER ||||||||||||||| */
+// ============= UPPER AREA (banner) ===========================================
 
 #banner{
 	height: 110px;
@@ -53,11 +53,8 @@
 		}
 	}
 }
-
-
-
-
-/* ||| MAIN CONTENT AREA |||||||||||| */
+// =============================================================================
+// =============== MAIN CONTENT AREA ===========================================
 
 @import "topicview";
 @import "gridview";
@@ -70,30 +67,8 @@
 	height: 100%;
 }
 
-/* ||| FOOTNOTES |||||||||||| */
-
-#footnotes{
-	height: 5%;
-	padding: $space-tiny;
-	p{
-		font-size: $font_size-footnote;
-	}
-}
-
-#footnote_left{
-	float:left;
-	color:  grey;
-}
-
-#footnote_right{
-	float:right;
-	right: 21%;
-	color: $color_deep-red;
-
-}
-
-
-/* ||| RIGHTSIDE PANEL |||||||||||| */
+// =============================================================================
+// ========= RIGHTSIDE PANEL ===================================================
 
 #right_panel{
 	position: fixed;
@@ -118,7 +93,7 @@
 }
 
 
-/* ||| MOBILE MENU |||||||||||| */
+// ===============================================================
 
 .mobile_menu{
 	display: none;

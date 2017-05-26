@@ -1,14 +1,16 @@
 EASY
 	% namespace / encapsulate
-	* add JavaDoc
+	* documentation
 	% switch <classic> tags to more <semantic> ones
 	* mobile menu -- to <select><option>...
+	* css @TODO
 
 SOME LENGTH
-	* brand self a logo [banner + tab] >> AT merge design (a flows to T)
+	* brand self a logo [banner + tab] >> AT merge
 	* modulate more -- CSS, controllers
 	* compress and cleanup
 	* generalize menuGlow for @style/..., by glow(fx)
+	* @scope.loadImages: build ng filters (or sorting machines) per medium, date, ...
 
 MUSINGS
 	{} kap_const. calc :: show all (through animation)

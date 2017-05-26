@@ -1,3 +1,4 @@
+// TODO: modulate sections (e.g. button styles)
 // general variables
 @import "colors";
 @import "fonts";
@@ -10,6 +11,7 @@ $thmb-sm: 60px;
 $space-sm: 10px;
 $space-tiny: 2px;
 
+// ========== PRIMARY ==========================================
 
 // "fills" <a> link
 .link-buffer{
@@ -75,28 +77,9 @@ $space-tiny: 2px;
   height: 100%;
 }
 
-// text boxes with sleek list style
-.cleanbox{
-  margin: 0px 0px 40px 0;
-  background: white;
-  outline: 1px solid silver;
-  a:hover{color: $color_link-hover;}
-  ul{
-    font-size: 0; // remove unwanted whitespace
-    li{
-      font-size: $font_size-article; // restore font
-      padding: 20px;
-      text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
-      &:nth-child(odd){
-        background: #e4e4e4;
-      }
-    }
-  }
-}
-p.cleanbox{
-  padding: 30px;
-}
 
+// ===============================================================
+// ========== NG ANIMATE ========================================
 
 // after ng-view changes route
 .ng-animate {
@@ -120,8 +103,31 @@ p.cleanbox{
 [x-ng-click] {
     cursor: pointer;
 }
+// ===============================================================
+// ============ WIDGET-LIKE ITEMS ================================
 
 
+// text boxes with sleek list style
+.cleanbox{
+  margin: 0px 0px 40px 0;
+  background: white;
+  outline: 1px solid silver;
+  a:hover{color: $color_link-hover;}
+  ul{
+    font-size: 0; // remove unwanted whitespace
+    li{
+      font-size: $font_size-article; // restore font
+      padding: 20px;
+      text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
+      &:nth-child(odd){
+        background: #e4e4e4;
+      }
+    }
+  }
+}
+p.cleanbox{
+  padding: 30px;
+}
 
 // default clickable styles
 .choice:hover, .flipper:hover{
@@ -130,7 +136,7 @@ p.cleanbox{
   background: $color_list-hover;
 }
 
-// as in image-figure (e.g. 'See figure F12')
+// as in image-figure (e.g. textbook 'See figure F12')
 .figure{
   display: inline-block;
   position: relative;
@@ -207,9 +213,8 @@ p.cleanbox{
 .revert_button{
   display: none;
 }
-
-
-/* ----- HTML TAGS ------------------------ */
+// ===============================================================
+// ======= HTML TAGS =============================================
 
 
 html, body{
@@ -256,5 +261,4 @@ pre{
   font-family: calibri;
 }
 
-
-/* ----------------------------------------*/
+// ===============================================================

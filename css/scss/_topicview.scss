@@ -4,16 +4,15 @@
 $grid-box-color: #333;
 .topicview{ // div | wrapper
   text-align: center;
-  font-size:0;
+  font-size:0; // TODO: test with earlier versions of IE, bleh (-> :0.1?)
   width: 100%;
   a{
     display: inline-block;
-    font-size: $font_size-root;
+    padding: 20px 30px;
     border-radius: 3px;
-    // min-width: 170px;
     
     text-align: center;
-    padding: 20px 30px;
+    font-size: $font_size-root;
     font-family: $font_family-header;
     font-weight: bold;
     &:hover{
@@ -21,7 +20,7 @@ $grid-box-color: #333;
     }
  }
 
- &:after{
+ &:after{ // clearfix
     content: '';
     width: 100%; 
     display: inline-block;

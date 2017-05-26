@@ -1,5 +1,5 @@
 /*
-* let schema be
+* let base schema be
 * <div gridview...
 *   <div figure
 *     < xyz ..
@@ -10,14 +10,14 @@
   *{
     box-sizing: border-box;
   }
-  > div, > p{
+  > div, > p{ // general content pieces
     float: left;
     width: 29%;
     display: inline-block;
     vertical-align: top;
     text-align: center;
   }
-  > div{
+  > div{ // 'card' height
     height: 400px;
   }
   p.caption{

@@ -27,16 +27,16 @@
 /* --- A ------*/
 
 #archives_wrapper{
-  background: #ececec;
-  vertical-align: top;
+  vertical-align: top; // flush with menu
   display: inline-block;
   width: 75%;
-  padding-bottom: 40%;
-  text-align: left;
   box-sizing: border-box;
+  padding-bottom: 40%; // depth
+  
   background: #C5E4FB;
-  border-left: 5px solid #afaaab;
+  text-align: left;
   line-height: 2em;
+  border-left: 5px solid #afaaab;
   
   .contentDisplay{
     box-sizing: border-box;
@@ -47,18 +47,11 @@
     box-shadow: 0px 0px 5px 7px white;
     background: white;
   }
-  .contentDisplay:nth-of-type(2){ // second section override
-  }
-
-}
-
-.mobile_menu li{
-  font-weight: 400;
 }
 
 
 /* --- M ------ */
-#resume_button{
+#resume_button{ // rez-u-may || TODO: may merge with @sleek_button
   display: block;
   width: 200px;
   text-align: center;
@@ -70,23 +63,23 @@
 }
 #m_wrapper{
   &.gridview > p, 
-  &.gridview > a, {
-    background: #f5f1f0;
+  &.gridview > a, { // content boxes
     height: 100px;
     width: 50%;
+    background: #f5f1f0;
     font-size: 28px;  
     text-shadow: 2px 2px 4px #dddddd;
     box-shadow: 2px 2px 4px #dddddd;
     line-height: 100px;
     &:nth-of-type(4n+1), &:nth-of-type(4n+0){
-      background: #e0dfde;
+      background: #e0dfde; // alternating shades
     }
   }
-  a{
-    width: 100%;
+  a{ // whole box clickable
+    width: 100%; 
     display: inline-block;
-  }
-  a:hover{
-    color: #92c9f1;
+    &:hover{
+      color: #92c9f1;
+    }
   }
 }
