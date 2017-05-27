@@ -16,4 +16,3 @@ MUSINGS
 	{} kap_const. calc :: show all (through animation)
 	{} bayle's theorem
 	{} include project euler solutions
-	{} include algor solutions / animations
