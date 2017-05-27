@@ -1,5 +1,9 @@
+CRITICAL
+	SLOW LOAD TIMES ON SERVER
+
 EASY
 	% namespace / encapsulate
+	* <-- --> bottom of wide_panel dominant pages
 	* documentation
 	% switch <classic> tags to more <semantic> ones
 	* mobile menu -- to <select><option>...
