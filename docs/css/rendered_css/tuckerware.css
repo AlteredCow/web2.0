@@ -96,7 +96,7 @@
     background: #C1E0F6; }
     .wide_panel:nth-of-type(even) > * {
       float: right; }
-    .wide_panel:nth-of-type(even) > ul {
+    .wide_panel:nth-of-type(even) ul {
       text-align: right; }
   .wide_panel > * {
     width: 50%;
@@ -457,7 +457,7 @@ button.mobile_menu {
 @media screen and (max-width: 600px) {
   .gridview > div {
     width: 80%;
-    height: auto; }
+    height: 360px; }
 
   #archives_wrapper {
     width: 100%; }
