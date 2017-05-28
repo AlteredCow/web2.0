@@ -53,7 +53,7 @@
 		}
 	}
 }
-// =============================================================================
+// ============================================================================
 // =============== MAIN CONTENT AREA ===========================================
 
 @import "topicview";
@@ -65,6 +65,10 @@
 	margin: 0;
 	width: 100%;
 	height: 100%;
+	> * :not(span, img){
+		white-space: pre-line;
+		box-sizing: border-box;
+	}
 }
 
 // =============================================================================
@@ -102,8 +106,8 @@
 }
 ul.mobile_menu{
 	position: absolute;
-	top: 82px;
-	left: 0;
+	top: 100px;
+	left: 20%;
 	background: white;
 	box-shadow: 3px 4px 6px #666;
 	border:{
@@ -154,9 +158,6 @@ button.mobile_menu{
 			width: 90%;
 			text-align: center;
 		}
-		&:nth-of-type(even) > span{
-			text-align: center;
-		}
 	}
 
 	// mainliy compress menu + limit gridview columns
@@ -167,8 +168,9 @@ button.mobile_menu{
 		border-bottom: 3px solid black;
 		height: 100px;
 		> *{
-			margin-top: 20px;
+			width: 55%;
 		}
+
 		#main_menu{ // transitition to mini-menu
 			display: none;
 		}
@@ -176,18 +178,28 @@ button.mobile_menu{
 			display: inline-block;
 			min-width: 200px;
 		}
-	
-
+		
+		#main_photo{
+			width: 100%; 
+		}
 	}
-	// converting columns for .gridview adherents
-	.gridview > div, .gridview > p{
+	.gridview > div{
 			width: 45%;
-		}	
-
+	}
 }
+	// ---------------------------------
+	 
+// ------ END(media800)------------------------
 
 // mainly to make 'Archives' secion more manageable
 @media screen and (max-width: 600px){
+	// converting columns for .gridview adherents
+	.gridview > div{
+			width: 80%;
+			height: auto;
+		}	
+
+	
 	#archives_wrapper{
 		width: 100%;
 	}
@@ -217,12 +229,16 @@ button.mobile_menu{
 	#m_wrapper{
 	  &.gridview > p, 
 	  &.gridview > a, {
+			margin: 20px 0px;
 			width: 100%;
+	    &:nth-of-type(4n+1), &:nth-of-type(4n+0){
+	      background: #f5f1f0; // alternating shades
+	    }
 		}
 	}
-}
+} 
+// ------ END(media600)------------------------
 
 
 @media screen and (max-width: 460px){
-	
 }

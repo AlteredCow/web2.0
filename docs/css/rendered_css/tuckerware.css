@@ -14,7 +14,6 @@
 #read_more {
   text-align: center;
   color: #888;
-  line-height: 40px;
   margin: 200px 0px; }
 
 /* --- R ------ */
@@ -52,11 +51,11 @@
 #m_wrapper.gridview > p, #m_wrapper.gridview > a {
   height: 100px;
   width: 50%;
-  background: #f5f1f0;
   font-size: 28px;
   text-shadow: 2px 2px 4px #dddddd;
   box-shadow: 2px 2px 4px #dddddd;
-  line-height: 100px; }
+  line-height: 100px;
+  background: #f5f1f0; }
   #m_wrapper.gridview > p:nth-of-type(4n+1), #m_wrapper.gridview > p:nth-of-type(4n+0), #m_wrapper.gridview > a:nth-of-type(4n+1), #m_wrapper.gridview > a:nth-of-type(4n+0) {
     background: #e0dfde; }
 #m_wrapper a {
@@ -84,7 +83,8 @@
   padding: 80px 0px;
   vertical-align: top; }
   .wide_panel h2, .wide_panel p, .wide_panel a {
-    text-align: center; }
+    text-align: center;
+    white-space: pre-line; }
   .wide_panel a:hover {
     color: #5aadeb;
     text-shadow: 2px 2px 2px #777; }
@@ -96,7 +96,7 @@
     background: #C1E0F6; }
     .wide_panel:nth-of-type(even) > * {
       float: right; }
-    .wide_panel:nth-of-type(even) ul {
+    .wide_panel:nth-of-type(even) > ul {
       text-align: right; }
   .wide_panel > * {
     width: 50%;
@@ -230,7 +230,8 @@ h1 {
   color: #121212;
   opacity: 0.4;
   text-align: center;
-  text-shadow: -1px 0 #D3D3D3, 0 1px #D3D3D3, 1px 0 #D3D3D3, 0 -1px #D3D3D3; }
+  text-shadow: -1px 0 #D3D3D3, 0 1px #D3D3D3, 1px 0 #D3D3D3, 0 -1px #D3D3D3;
+  white-space: pre-line; }
 
 h2 {
   color: #666;
@@ -352,12 +353,12 @@ pre {
   box-sizing: border-box; }
 .gridview > div, .gridview > p {
   float: left;
-  width: 29%;
   display: inline-block;
   vertical-align: top;
   text-align: center; }
 .gridview > div {
-  height: 400px; }
+  height: 400px;
+  width: 30%; }
 .gridview p.caption {
   width: 100%; }
 
@@ -367,6 +368,9 @@ pre {
   margin: 0;
   width: 100%;
   height: 100%; }
+  #main_content > * :not(span, img), .defaultContentLayout > * :not(span, img) {
+    white-space: pre-line;
+    box-sizing: border-box; }
 
 #right_panel {
   position: fixed;
@@ -395,8 +399,8 @@ pre {
 
 ul.mobile_menu {
   position: absolute;
-  top: 82px;
-  left: 0;
+  top: 100px;
+  left: 20%;
   background: white;
   box-shadow: 3px 4px 6px #666;
   border-width: 0px 2px 2px 2px;
@@ -431,8 +435,6 @@ button.mobile_menu {
     margin: 0 auto;
     width: 90%;
     text-align: center; }
-  .wide_panel:nth-of-type(even) > span {
-    text-align: center; }
 
   #banner {
     position: fixed;
@@ -441,16 +443,22 @@ button.mobile_menu {
     border-bottom: 3px solid black;
     height: 100px; }
     #banner > * {
-      margin-top: 20px; }
+      width: 55%; }
     #banner #main_menu {
       display: none; }
     #banner button.mobile_menu {
       display: inline-block;
       min-width: 200px; }
+    #banner #main_photo {
+      width: 100%; }
 
-  .gridview > div, .gridview > p {
+  .gridview > div {
     width: 45%; } }
 @media screen and (max-width: 600px) {
+  .gridview > div {
+    width: 80%;
+    height: auto; }
+
   #archives_wrapper {
     width: 100%; }
 
@@ -474,6 +482,9 @@ button.mobile_menu {
     margin: 20px auto; }
 
   #m_wrapper.gridview > p, #m_wrapper.gridview > a {
-    width: 100%; } }
+    margin: 20px 0px;
+    width: 100%; }
+    #m_wrapper.gridview > p:nth-of-type(4n+1), #m_wrapper.gridview > p:nth-of-type(4n+0), #m_wrapper.gridview > a:nth-of-type(4n+1), #m_wrapper.gridview > a:nth-of-type(4n+0) {
+      background: #f5f1f0; } }
 
 /*# sourceMappingURL=tuckerware.css.map */

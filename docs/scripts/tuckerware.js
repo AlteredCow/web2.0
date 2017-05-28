@@ -262,15 +262,8 @@ function scrollToTop() {
 
 // Toggling mobile dropdown menu
 $(function(){
-  $("button.mobile_menu").click(function(){
-    var menu_content = $("ul.mobile_menu"); 
-    if (menu_content.is(":visible")){
-      menu_content.toggle(400);
-    } else{ // text sliding motion
-      menu_content.show();
-      menu_content.find("li").hide(); // junky animation
-      menu_content.find("li").toggle(500);
-    }
+  $(".mobile_menu").click(function(){
+    $("ul.mobile_menu").toggle(400);
   });
-  });
+});
 

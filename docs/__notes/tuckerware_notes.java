@@ -3,11 +3,11 @@ CRITICAL
 
 EASY
 	% namespace / encapsulate
-	* <-- --> bottom of wide_panel dominant pages
+	* --> bottom of wide_panel dominant pages
 	* documentation
 	% switch <classic> tags to more <semantic> ones
-	* mobile menu -- to <select><option>...
 	* css @TODO
+	* :M social icons + final words
 
 SOME LENGTH
 	* brand self a logo [banner + tab] >> AT merge
