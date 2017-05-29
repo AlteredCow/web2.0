@@ -107,9 +107,10 @@
 ul.mobile_menu{
 	position: absolute;
 	top: 100px;
-	left: 20%;
+	left: 15%;
 	background: white;
 	box-shadow: 3px 4px 6px #666;
+	min-width: 200px;
 	border:{
 		width: 0px 2px 2px 2px;
 		color: black;
@@ -119,6 +120,9 @@ ul.mobile_menu{
 		width: 100%;
 		display: inline-block;
 		padding: 20px 0px;
+		&:hover{
+			color: white;
+		}
 	}
 	li{
 		border-bottom: 1px silver solid;
@@ -203,6 +207,12 @@ button.mobile_menu{
 	#archives_wrapper{
 		width: 100%;
 	}
+	.wide_panel:nth-of-type(even){
+		ul{
+      text-align: center; // reset
+    }
+	}
+	
 	.flipList, .flipList a{
 		display: none; // intro content first is why
 		width: 100%;
@@ -210,15 +220,11 @@ button.mobile_menu{
 	.revert_button{
 		display: inline-block;
 	}
-	#banner ul.mobile_menu{
-		min-width: 200px;
-	}
-	ul.mobile_menu li{
+	
+	.mobile_menu li{
 		display: block;
 		min-width: 200px;
 	}
-	
-		
 	.topicview a{
 		display: block;
 		width: 50%;

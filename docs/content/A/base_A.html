@@ -1,6 +1,6 @@
 <h1>Amuse</h1>
 <ul class = "flipList">
-	<li>{{archivesPageNow +1}} of {{archivesPagesTotal}}</li><li class = "flipper" ng-click = "archivesFlip('up')">^</li><li class = "choice" ng-repeat = "topic in grabArchives() track by $index" ng-click = "expandArchive($index)">{{topic.title}}</li><li class = "flipper"  ng-click = "archivesFlip('down')">v</li></ul><div id = "archives_wrapper"><button class = "revert_button sleek_button">◄ Topic View </button><p class = "contentDisplay ">Welcome!</br>
+	<li>{{archivesCurrentPage +1}} of {{archivesPagesTotal}}</li><li class = "flipper" ng-click = "archivesFlip('up')">^</li><li class = "choice" ng-repeat = "topic in grabArchives() track by $index" ng-click = "expandArchive($index)">{{topic.title}}</li><li class = "flipper"  ng-click = "archivesFlip('down')">v</li></ul><div id = "archives_wrapper"><button class = "revert_button sleek_button">◄ Topic View </button><p class = "contentDisplay ">Welcome!</br>
 	You've stumbled on some sort of archive of fun facts and thoughts.
 	<br />How oddly specific. </p><p class = "contentDisplay">Let's explore!</p>
 </div>
