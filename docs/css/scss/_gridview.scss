@@ -6,21 +6,36 @@
 *   <div figure
 *     < xyz ..
 */
+
 .gridview {
-  *{
+  margin: 0 auto;
+  > *{
     box-sizing: border-box;
-  }
-  > div, > p{ // general content pieces
     float: left;
     display: inline-block;
     vertical-align:top;
-    text-align: center;
+    text-align: center; 
   }
   > div{ // 'card' height
     height: 400px;
     width: 30%;
   }
+  > li{
+    margin: 2%;
+    width: 25%;
+    background: #e0e0e0;
+    height: 200px;     
+    font-size: 1em;
+    line-height: 200px;     
+    box-shadow: 2px 2px 3px #d3d3d3;
+  }
+  
   p.caption{
     width: 100%;
+  }
+  &:after{
+    content: "";
+    display: table;
+    clear: both;
   }
 }

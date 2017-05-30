@@ -26,29 +26,32 @@
 
 /* --- A ------*/
 
-#archives_wrapper{
-  vertical-align: top; // flush with menu
-  display: inline-block;
-  width: 75%;
-  box-sizing: border-box;
-  padding-bottom: 40%; // depth
-  
-  background: #C5E4FB;
-  text-align: left;
-  line-height: 2em;
-  border-left: 5px solid #afaaab;
-  
-  .contentDisplay{
-    box-sizing: border-box;
-    margin: 20px;
-    width: 80%;
-    padding: 20px;
-    color: #999;
-    box-shadow: 0px 0px 5px 7px white;
-    background: white;
-  }
+#archive_intro{
+  text-align: center;
+  white-space: pre-line;
 }
 
+#archive_grid{
+  // li{
+  //   background: silver;
+  //   display: inline-block;
+  //   width: 30%;
+  // }
+  // 
+}
+#archive_nav{
+  width: 100%;
+  text-align:  center;
+  > * {
+    display: inline-block;
+    width: 20%;
+    height: 50px;
+    line-height: 50px;
+  }
+  a{
+    border-radius: 3px;
+  }
+}
 
 /* --- M ------ */
 #resume_button{ // rez-u-may || TODO: may merge with @sleek_button

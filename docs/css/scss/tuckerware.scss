@@ -190,6 +190,12 @@ button.mobile_menu{
 	.gridview > div{
 			width: 45%;
 	}
+	.gridview > li{
+		width: 45%;
+		height: 100px;     
+		line-height: 100px;   
+		font-size: 16px;
+	}
 }
 	// ---------------------------------
 	 
@@ -202,11 +208,11 @@ button.mobile_menu{
 			width: 80%;
 			height: 360px;
 		}	
+		
+		
+
 
 	
-	#archives_wrapper{
-		width: 100%;
-	}
 	.wide_panel:nth-of-type(even){
 		ul{
       text-align: center; // reset
@@ -230,6 +236,7 @@ button.mobile_menu{
 		width: 50%;
 		margin: 20px auto;
 	}
+
 
 	// as 'M' takes .gridview, we need some minor adjustments	
 	#m_wrapper{

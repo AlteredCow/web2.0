@@ -26,12 +26,12 @@ $(document).ready(function() {
       $scope.key_letter = $routeParams.key_letter;
       $scope.partial = "content/empty.html"; // TODO: rename (partial is /topic_name.html)
       $scope.archivesCurrentPage = 0;
-      $scope.archivesDisplayLimit = 5;
+      $scope.archivesDisplayLimit = 6;
 
       // @requires: #/_ page section navigation
       // on section-change: update menu UI and scroll to page-top
       $scope.$on('$locationChangeSuccess', function(event) {
-        var current_letter = window.location.hash.substr(2, 3);
+        var current_letter = document.location.hash.substr(2, 3);
         var current_letter_key = "DREAM".indexOf(current_letter);
         $("#main_menu li").eq(current_letter_key).trigger('mouseover');
         $scope.key_word = menu_choices[current_letter_key];
@@ -45,7 +45,7 @@ $(document).ready(function() {
         const SCROLL_TIME = 900;
         var location = CONTENT_DISPLAY.offset().top;
         if ($scope.key_letter === 'A'){
-          location -= 100;
+          location -= 100;// mobile graphic fix
         }
         $('html,body').stop().animate({
           scrollTop: location
@@ -138,15 +138,15 @@ $(document).ready(function() {
           // update: track current page
           $scope.archivesCurrentPage = page_now;
         }
-      
-      // Archives RESPONSIVENESS PT2
-      // On mobile, return list after reading
-      $(function(){
-        $("button.revert_button").click(function(){ 
-          $(".flipList").css({"display":"block", "width":"100%;"});
-          $("#archives_wrapper").fadeOut(200);
-      });
-      });  
+      // 
+      // // Archives RESPONSIVENESS PT2
+      // // On mobile, return list after reading
+      // $(function(){
+      //   $("button.revert_button").click(function(){ 
+      //     $(".flipList").css({"display":"block", "width":"100%;"});
+      //     $("#archives_wrapper").fadeOut(200);
+      // });
+      // });  
 
 
 
@@ -167,15 +167,13 @@ $(document).ready(function() {
         // if selection is non-empty list option, then update
         if (topic_index < archiveCount){
           selected_archive = $scope.records[topic_index];
-          // scrollToDisplay();
           
-          
-          // Archives RESPONSIVENESS PT3
-          // only temporarily hide list if in mobile
-          if ($(window).width() <= 600){
-            $(".flipList").hide();
-            $("#archives_wrapper").css("display", "inline-block");
-          } 
+          // // Archives RESPONSIVENESS PT3
+          // // only temporarily hide list if in mobile
+          // if ($(window).width() <= 600){
+          //   $(".flipList").hide();
+          //   $("#archives_wrapper").css("display", "inline-block");
+          // } 
 
           // upper content
           $(".contentDisplay:nth-of-type(1)").hide().html(selected_archive.major).fadeIn('fastest');
