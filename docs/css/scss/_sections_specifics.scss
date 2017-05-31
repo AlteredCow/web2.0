@@ -29,28 +29,30 @@
 #archive_intro{
   text-align: center;
   white-space: pre-line;
+  color: silver;
 }
 
 #archive_grid{
-  // li{
-  //   background: silver;
-  //   display: inline-block;
-  //   width: 30%;
-  // }
-  // 
 }
 #archive_nav{
   width: 100%;
   text-align:  center;
+  padding-bottom: 50px;
+  
   > * {
     display: inline-block;
     width: 20%;
+    margin-right: 6%;
     height: 50px;
     line-height: 50px;
   }
   a{
     border-radius: 3px;
   }
+}
+
+.contentScreen:nth-of-type(3){
+  color: silver;
 }
 
 /* --- M ------ */

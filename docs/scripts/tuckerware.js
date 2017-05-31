@@ -41,7 +41,7 @@ $(document).ready(function() {
 
       
       function scrollToDisplay(){
-        var CONTENT_DISPLAY = $(".contentDisplay");
+        var CONTENT_DISPLAY = $(".contentScreen");
         const SCROLL_TIME = 900;
         var location = CONTENT_DISPLAY.offset().top;
         if ($scope.key_letter === 'A'){
@@ -60,6 +60,15 @@ $(document).ready(function() {
       $scope.expandTopic = function(key_letter, selected_topic) {
           $scope.partial = 'content/' + key_letter + "/" + selected_topic + ".html";
           scrollToDisplay();
+    }
+    
+    $scope.swapViewSets = function(incoming, outgoing){
+      $.each(incoming, function(){
+        this.fadeIn();
+      });
+      $.each(outgoing, function(){
+        this.fadeOut();
+      });
     }
         
 // =============================================================
@@ -90,25 +99,6 @@ $(document).ready(function() {
 // =============================================================
 // ====================== ARCHIVES =============================
 
-      // TODO: find a better system
-      // Archives RESPONSIVENESS PT1
-      // Reset all full-screen descriptions
-      var id;
-      $(window).resize(function() {
-          clearTimeout(id);
-          id = setTimeout(function(){
-            if ($scope.key_letter === 'A'){
-              if ($(document).width() > 600){
-                  $(".flipList").css("display", "inline-block");
-              } else {
-                $(".flipList").hide();
-              }
-               
-          }
-        }, 300);
-          
-      });
-      
       // 'A' section -- let A stand for 'archives' or 'amuse'
       var archives = "content/A/archives.JSON";
       $http.get(archives)
@@ -138,17 +128,9 @@ $(document).ready(function() {
           // update: track current page
           $scope.archivesCurrentPage = page_now;
         }
-      // 
-      // // Archives RESPONSIVENESS PT2
-      // // On mobile, return list after reading
-      // $(function(){
-      //   $("button.revert_button").click(function(){ 
-      //     $(".flipList").css({"display":"block", "width":"100%;"});
-      //     $("#archives_wrapper").fadeOut(200);
-      // });
-      // });  
 
-
+      $scope.archiveDefaultView = [$("#archive_intro"), $("#archive_grid"), $("#archive_nav")];
+      $scope.archiveReaderView = [$(".contentScreen"), $(".reverter")];
 
       // @helps showPage, expandTopic
       // @param topic_index: index within JSON of chosen topic
@@ -167,22 +149,18 @@ $(document).ready(function() {
         // if selection is non-empty list option, then update
         if (topic_index < archiveCount){
           selected_archive = $scope.records[topic_index];
-          
-          // // Archives RESPONSIVENESS PT3
-          // // only temporarily hide list if in mobile
-          // if ($(window).width() <= 600){
-          //   $(".flipList").hide();
-          //   $("#archives_wrapper").css("display", "inline-block");
-          // } 
+          // $("#archive_nav").fadeOut();
+          // $("#archive_grid").slideUp();
+          this.swapViewSets(this.archiveReaderView, this.archiveDefaultView);
 
           // upper content
-          $(".contentDisplay:nth-of-type(1)").hide().html(selected_archive.major).fadeIn('fastest');
+          $(".contentScreen:nth-of-type(2)").html(selected_archive.major).fadeIn('slowest');
+          
           // lower content
-          $(".contentDisplay:nth-of-type(2)").hide().html(selected_archive.minor).fadeIn('slow');
+          $(".contentScreen:nth-of-type(3)").html(selected_archive.minor).fadeIn('slowest');
           
         }
       }
-      
 
       // UI-list builder for Archives
       $scope.grabArchives = function(){

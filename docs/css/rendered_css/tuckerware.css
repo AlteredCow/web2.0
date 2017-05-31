@@ -21,18 +21,24 @@
 /* --- A ------*/
 #archive_intro {
   text-align: center;
-  white-space: pre-line; }
+  white-space: pre-line;
+  color: silver; }
 
 #archive_nav {
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  padding-bottom: 50px; }
   #archive_nav > * {
     display: inline-block;
     width: 20%;
+    margin-right: 6%;
     height: 50px;
     line-height: 50px; }
   #archive_nav a {
     border-radius: 3px; }
+
+.contentScreen:nth-of-type(3) {
+  color: silver; }
 
 /* --- M ------ */
 #resume_button {
@@ -73,6 +79,12 @@
   height: 100%;
   width: 100%; }
 
+.reverter {
+  display: none; }
+
+.cloudy_box {
+  background: #9ECFF2; }
+
 .wide_panel {
   width: 100%;
   display: inline-block;
@@ -98,10 +110,9 @@
     width: 50%;
     box-sizing: border-box; }
 
-.contentDisplay {
+.contentScreen {
   white-space: initial;
-  width: 100%;
-  height: 100%; }
+  width: 100%; }
 
 .ng-animate {
   transition: 0.2s linear all; }
@@ -170,9 +181,9 @@ p.cleanbox {
   border: 1px solid silver;
   border-radius: 5px;
   padding: 10px;
-  margin: 10px;
-  color: #9ECFF2; }
+  margin: 10px; }
   .sleek_button:hover {
+    color: #9ECFF2;
     background: white; }
 
 .modern_button {
@@ -211,15 +222,15 @@ html, body {
   font-size: 20px;
   min-width: 320px; }
 
-html {
-  overflow-x: hidden; }
-
 a {
   text-decoration: none;
   color: #458CF7; }
 
 li {
   list-style-type: none; }
+  li:active {
+    background: #5aadeb;
+    color: white; }
 
 h1 {
   padding-top: 50px;
@@ -232,7 +243,8 @@ h1 {
 h2 {
   color: #666;
   padding: 40px 0px;
-  font-size: 48px; }
+  font-size: 48px;
+  text-align: center; }
 
 pre {
   font-family: calibri; }
@@ -357,19 +369,25 @@ pre {
     height: 400px;
     width: 30%; }
   .gridview > li {
-    margin: 2%;
+    box-sizing: border-box;
     width: 25%;
+    margin: 1% 4%;
     background: #e0e0e0;
     height: 200px;
     font-size: 1em;
     line-height: 200px;
-    box-shadow: 2px 2px 3px #d3d3d3; }
+    box-shadow: 2px 2px 3px #d3d3d3;
+    display: table-cell; }
   .gridview p.caption {
     width: 100%; }
   .gridview:after {
     content: "";
     display: table;
     clear: both; }
+
+ul.gridview {
+  width: 100%;
+  text-align: center; }
 
 #main_content, .defaultContentLayout {
   font-family: calibri;
@@ -471,7 +489,8 @@ button.mobile_menu {
     width: 45%;
     height: 100px;
     line-height: 100px;
-    font-size: 16px; } }
+    font-size: 16px;
+    margin: 2%; } }
 @media screen and (max-width: 600px) {
   .gridview > div {
     width: 80%;

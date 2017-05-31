@@ -21,13 +21,15 @@
     width: 30%;
   }
   > li{
-    margin: 2%;
+    box-sizing: border-box;
     width: 25%;
+    margin: 1% 4%;
     background: #e0e0e0;
     height: 200px;     
     font-size: 1em;
     line-height: 200px;     
     box-shadow: 2px 2px 3px #d3d3d3;
+    display: table-cell;
   }
   
   p.caption{
@@ -38,4 +40,9 @@
     display: table;
     clear: both;
   }
+}
+
+ul.gridview{
+  width: 100%;
+  text-align: center;
 }
