@@ -105,9 +105,9 @@
 	@include no-highlight();
 }
 ul.mobile_menu{
-	position: absolute;
+	position: fixed;
+	left: 20%;
 	top: 100px;
-	left: 15%;
 	background: white;
 	box-shadow: 3px 4px 6px #666;
 	min-width: 200px;
@@ -187,6 +187,10 @@ button.mobile_menu{
 			width: 100%; 
 		}
 	}
+	
+	#main_content{
+	}
+	
 	.gridview > div{
 			width: 45%;
 	}
