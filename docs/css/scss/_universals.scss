@@ -35,7 +35,16 @@ $space-tiny: 2px;
 }
 
 .cloudy_box{
-  background: $color_primary
+  display: none;
+  background: $color_primary;
+  color: white;
+  box-shadow: inset 0px 0px 20px 20px white;
+  &.contentScreen{
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px;
+  }
+
 }
 
 .wide_panel{
@@ -81,7 +90,7 @@ $space-tiny: 2px;
 
 
 // the primary 'screens' of data
-.contentDisplay{
+.contentScreen{
   white-space: initial; // important!
   width: 100%;
   // height: 100%;
@@ -104,8 +113,8 @@ $space-tiny: 2px;
 .ng-leave {
   opacity:1;
   &.ng-leave-active {
-    display: none;
-    // opacity: 0;
+    // display: none;
+    opacity: 0;
   }
 }
 [ng-click],

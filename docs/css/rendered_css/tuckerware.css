@@ -9,7 +9,7 @@
 
 #main_photo {
   width: 80%;
-  box-shadow: 0px -2px 2px rgba(34, 34, 34, 0.6); }
+  border: 2px solid #cbcbcb; }
 
 #read_more {
   text-align: center;
@@ -24,6 +24,15 @@
   white-space: pre-line;
   color: silver; }
 
+#archive_grid > li {
+  background: #E1E1E1;
+  font-size: 1em;
+  box-shadow: 2px 2px 3px #A9A9A9; }
+  #archive_grid > li:hover {
+    background: #9ECFF2; }
+#archive_grid + div {
+  margin-top: -3em; }
+
 #archive_nav {
   width: 100%;
   text-align: center;
@@ -36,9 +45,6 @@
     line-height: 50px; }
   #archive_nav a {
     border-radius: 3px; }
-
-.contentScreen:nth-of-type(3) {
-  color: silver; }
 
 /* --- M ------ */
 #resume_button {
@@ -83,7 +89,14 @@
   display: none; }
 
 .cloudy_box {
-  background: #9ECFF2; }
+  display: none;
+  background: #9ECFF2;
+  color: white;
+  box-shadow: inset 0px 0px 20px 20px white; }
+  .cloudy_box.contentScreen {
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px; }
 
 .wide_panel {
   width: 100%;
@@ -125,7 +138,7 @@
 .ng-leave {
   opacity: 1; }
   .ng-leave.ng-leave-active {
-    display: none; }
+    opacity: 0; }
 
 [ng-click],
 [data-ng-click],
@@ -372,11 +385,8 @@ pre {
     box-sizing: border-box;
     width: 25%;
     margin: 1% 4%;
-    background: #e0e0e0;
     height: 200px;
-    font-size: 1em;
     line-height: 200px;
-    box-shadow: 2px 2px 3px #d3d3d3;
     display: table-cell; }
   .gridview p.caption {
     width: 100%; }
@@ -427,7 +437,7 @@ ul.gridview {
 ul.mobile_menu {
   position: absolute;
   top: 100px;
-  left: 15%;
+  left: 21%;
   background: white;
   box-shadow: 3px 4px 6px #666;
   min-width: 200px;
@@ -454,8 +464,7 @@ button.mobile_menu {
   button.mobile_menu:hover {
     color: #5aadeb; }
   button.mobile_menu:active {
-    box-shadow: none;
-    box-shadow: 2px 3px 4px #666; }
+    box-shadow: inset 0px 0px 4px #666; }
 
 /* ||| GENERAL SCREEN RESPONSIVENESS |||||||||||| */
 @media screen and (max-width: 800px) {

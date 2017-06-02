@@ -62,6 +62,7 @@ $(document).ready(function() {
           scrollToDisplay();
     }
     
+    // TODO: make these two into directive
     $scope.swapViewSets = function(incoming, outgoing){
       $.each(incoming, function(){
         this.fadeIn();
@@ -69,6 +70,22 @@ $(document).ready(function() {
       $.each(outgoing, function(){
         this.fadeOut();
       });
+      $("html, body").animate({
+        scrollTop: incoming[0].offset().top - 100}, "slow");
+    }
+    
+    $scope.main_img_set = ["profile.png", "mirra.JPG", "maybe.JPG"];
+    $scope.main_img_key = 0;
+    $scope.main_img = $scope.main_img_set[0];
+    $scope.cycleImages = function(set_name){
+      var set = $scope[set_name + "_img_set"];
+      var index = $scope[set_name + "_img_key"]+1;
+      if (index === set.length){
+        index = 0;
+      }
+      var next_img = set[index];
+      $scope[set_name + "_img_key"] = index; // update from alias
+      $scope[set_name + "_img"] = next_img;
     }
         
 // =============================================================
@@ -99,6 +116,9 @@ $(document).ready(function() {
 // =============================================================
 // ====================== ARCHIVES =============================
 
+    $scope.archiveDefaultView = [$("#archive_grid"), $("#archive_intro"), $("#archive_nav")];
+    $scope.archiveReaderView = [$(".contentScreen").eq(0), $(".contentScreen").eq(1), $(".reverter")];
+    
       // 'A' section -- let A stand for 'archives' or 'amuse'
       var archives = "content/A/archives.JSON";
       $http.get(archives)
@@ -129,8 +149,6 @@ $(document).ready(function() {
           $scope.archivesCurrentPage = page_now;
         }
 
-      $scope.archiveDefaultView = [$("#archive_intro"), $("#archive_grid"), $("#archive_nav")];
-      $scope.archiveReaderView = [$(".contentScreen"), $(".reverter")];
 
       // @helps showPage, expandTopic
       // @param topic_index: index within JSON of chosen topic
