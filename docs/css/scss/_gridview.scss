@@ -20,18 +20,16 @@
     height: 400px;
     width: 30%;
   }
-  font-size: 0;
   > li{
-    font-size: 18px;
-    width: 25%;
     box-sizing: border-box;
-    display: table-cell;
+    width: 25%;
     margin: 1% 4%;
+    background: #e0e0e0;
     height: 200px;     
-    line-height: 150px;     
-    
-    background: #ebebeb;
+    font-size: 1em;
+    line-height: 200px;     
     box-shadow: 2px 2px 3px #d3d3d3;
+    display: table-cell;
   }
   
   p.caption{

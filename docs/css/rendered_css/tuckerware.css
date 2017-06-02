@@ -9,8 +9,7 @@
 
 #main_photo {
   width: 80%;
-  border: 2px solid #cbcbcb;
-  box-shadow: 0 0 100px black inset; }
+  box-shadow: 0px -2px 2px rgba(34, 34, 34, 0.6); }
 
 #read_more {
   text-align: center;
@@ -25,10 +24,6 @@
   white-space: pre-line;
   color: silver; }
 
-#archive_grid > li {
-  text-shadow: 0px #fff;
-  box-shadow: inset 0 0 5px 10px #fff; }
-
 #archive_nav {
   width: 100%;
   text-align: center;
@@ -41,6 +36,9 @@
     line-height: 50px; }
   #archive_nav a {
     border-radius: 3px; }
+
+.contentScreen:nth-of-type(3) {
+  color: silver; }
 
 /* --- M ------ */
 #resume_button {
@@ -85,14 +83,7 @@
   display: none; }
 
 .cloudy_box {
-  display: none;
-  background: #9ECFF2;
-  color: white;
-  box-shadow: inset 0px 0px 20px 20px white; }
-  .cloudy_box.contentScreen {
-    width: 80%;
-    margin: 0 auto;
-    padding: 50px; }
+  background: #9ECFF2; }
 
 .wide_panel {
   width: 100%;
@@ -150,7 +141,7 @@
   .cleanbox ul {
     font-size: 0; }
     .cleanbox ul li {
-      font-size: 18px;
+      font-size: 20px;
       padding: 20px;
       text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88); }
       .cleanbox ul li:nth-child(odd) {
@@ -367,8 +358,7 @@ pre {
 *     < xyz ..
 */
 .gridview {
-  margin: 0 auto;
-  font-size: 0; }
+  margin: 0 auto; }
   .gridview > * {
     box-sizing: border-box;
     float: left;
@@ -379,15 +369,15 @@ pre {
     height: 400px;
     width: 30%; }
   .gridview > li {
-    font-size: 18px;
-    width: 25%;
     box-sizing: border-box;
-    display: table-cell;
+    width: 25%;
     margin: 1% 4%;
+    background: #e0e0e0;
     height: 200px;
-    line-height: 150px;
-    background: #ebebeb;
-    box-shadow: 2px 2px 3px #d3d3d3; }
+    font-size: 1em;
+    line-height: 200px;
+    box-shadow: 2px 2px 3px #d3d3d3;
+    display: table-cell; }
   .gridview p.caption {
     width: 100%; }
   .gridview:after {
@@ -401,7 +391,7 @@ ul.gridview {
 
 #main_content, .defaultContentLayout {
   font-family: calibri;
-  font-size: 1.2em;
+  font-size: 20px;
   margin: 0;
   width: 100%;
   height: 100%; }
@@ -435,9 +425,9 @@ ul.gridview {
   user-select: none; }
 
 ul.mobile_menu {
-  position: fixed;
-  left: 20%;
+  position: absolute;
   top: 100px;
+  left: 15%;
   background: white;
   box-shadow: 3px 4px 6px #666;
   min-width: 200px;

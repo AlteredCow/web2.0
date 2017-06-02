@@ -42,8 +42,11 @@ $(document).ready(function() {
       
       function scrollToDisplay(){
         var CONTENT_DISPLAY = $(".contentScreen");
-        const SCROLL_TIME = 1500;
-        var location = CONTENT_DISPLAY.offset().top - 500;
+        const SCROLL_TIME = 900;
+        var location = CONTENT_DISPLAY.offset().top;
+        if ($scope.key_letter === 'A'){
+          location -= 100;// mobile graphic fix
+        }
         $('html,body').stop().animate({
           scrollTop: location
         }, SCROLL_TIME);
@@ -66,8 +69,6 @@ $(document).ready(function() {
       $.each(outgoing, function(){
         this.fadeOut();
       });
-      $("html, body").animate({
-      scrollTop: 100}, "slow");
     }
         
 // =============================================================
@@ -128,7 +129,7 @@ $(document).ready(function() {
           $scope.archivesCurrentPage = page_now;
         }
 
-      $scope.archiveDefaultView = [$("h2"), $("#archive_intro"), $("#archive_grid"), $("#archive_nav")];
+      $scope.archiveDefaultView = [$("#archive_intro"), $("#archive_grid"), $("#archive_nav")];
       $scope.archiveReaderView = [$(".contentScreen"), $(".reverter")];
 
       // @helps showPage, expandTopic
@@ -148,12 +149,16 @@ $(document).ready(function() {
         // if selection is non-empty list option, then update
         if (topic_index < archiveCount){
           selected_archive = $scope.records[topic_index];
+          // $("#archive_nav").fadeOut();
+          // $("#archive_grid").slideUp();
           this.swapViewSets(this.archiveReaderView, this.archiveDefaultView);
 
-          // // upper content
-          $(".contentScreen:nth-of-type(2)").hide().html(selected_archive.major).fadeIn('slowest');
+          // upper content
+          $(".contentScreen:nth-of-type(2)").html(selected_archive.major).fadeIn('slowest');
+          
           // lower content
-          $(".contentScreen:nth-of-type(3)").hide().html(selected_archive.minor).fadeIn('slowest');
+          $(".contentScreen:nth-of-type(3)").html(selected_archive.minor).fadeIn('slowest');
+          
         }
       }
 

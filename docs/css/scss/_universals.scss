@@ -35,18 +35,8 @@ $space-tiny: 2px;
 }
 
 .cloudy_box{
-  display: none;
-  background: $color_primary;
-  color: white;
-  box-shadow: inset 0px 0px 20px 20px white;
-  &.contentScreen{
-    width: 80%;
-    margin: 0 auto;
-    padding: 50px;
-  }
-
+  background: $color_primary
 }
-
 
 .wide_panel{
   width: 100%;
@@ -91,9 +81,10 @@ $space-tiny: 2px;
 
 
 // the primary 'screens' of data
-.contentScreen{
+.contentDisplay{
   white-space: initial; // important!
-  width: 100%; 
+  width: 100%;
+  // height: 100%;
 }
 
 
@@ -135,7 +126,7 @@ $space-tiny: 2px;
   ul{
     font-size: 0; // remove unwanted whitespace
     li{
-      font-size: 18px; // restore font
+      font-size: $font_size-article; // restore font
       padding: 20px;
       text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
       &:nth-child(odd){
