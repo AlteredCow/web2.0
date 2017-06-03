@@ -74,7 +74,8 @@ $(document).ready(function() {
         scrollTop: incoming[0].offset().top - 100}, "slow");
     }
     
-    $scope.main_img_set = ["profile.png", "mirra.JPG", "maybe.JPG"];
+    $scope.main_img_set = ["profile_A.JPG", "profile_B.jpg", "profile_C.jpg"];
+    // $scope.main_img_set = ["profile.png", "mirra.JPG", "maybe.JPG"];
     $scope.main_img_key = 0;
     $scope.main_img = $scope.main_img_set[0];
     $scope.cycleImages = function(set_name){

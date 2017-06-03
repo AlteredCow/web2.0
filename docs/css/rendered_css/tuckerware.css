@@ -8,8 +8,9 @@
     text-shadow: 2px 2px 4px silver; }
 
 #main_photo {
-  width: 80%;
-  border: 2px solid #cbcbcb; }
+  max-width: 80%;
+  max-height: 420px;
+  box-shadow: 2px 2px 2px #222; }
 
 #read_more {
   text-align: center;
