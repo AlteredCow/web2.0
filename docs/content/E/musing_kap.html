@@ -1,0 +1,35 @@
+<script>
+  var input = x;
+  if (input < 1000){
+    err; // ng-require xxxx
+  }
+  // DISPLAYING TEMPORARY DATA? use service?
+  var min_ordered = [];
+  var max_ordered = [];
+  for (var i = 0; i < 4; i++) {
+    input = input%10;
+    min_ordered[i] = input;
+  }
+  SORT(min_ordered);
+  max_ordered = REV(min_ordered);
+  
+</script>
+
+<div ng-controller = "kaprekar_ctrl">
+  <p>Intro</p>
+  <p>Rules</p>
+  <input ng-model = ""/>
+  <!--  screen is scrollable -->
+  <ul>
+    <li ng-repeat = "base_number in kaprekar_steps">
+      {{base_number}}
+      <br/>{{base_number.minify}}
+      -<br/>{{min_ordered.maxify}}
+      _____________________________
+      {{base_number.updated}}
+    </li>  
+  </ul>
+  <p ng-show="kaprekar_steps.length != 0"></p>
+</div> 
+  
+

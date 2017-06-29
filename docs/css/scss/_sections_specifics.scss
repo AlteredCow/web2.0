@@ -13,7 +13,8 @@
 #main_photo{
   max-width: 80%;
   max-height: 420px;
-  box-shadow: 2px 2px 2px #222;
+  border: 1px solid #cbcbcb;
+  margin-left: 30px;
 }
 
 #read_more{
@@ -75,11 +76,13 @@
     color: white;
   }
 }
+
 #m_wrapper{
   &.gridview > p, 
   &.gridview > a, { // content boxes
     height: 100px;
-    width: 50%;
+    width: 46%;
+    margin: 2%;
     font-size: 28px;  
     text-shadow: 2px 2px 4px #dddddd;
     box-shadow: 2px 2px 4px #dddddd;

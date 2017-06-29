@@ -50,14 +50,15 @@ $space-tiny: 2px;
 .wide_panel{
   width: 100%;
   display: inline-block;
-  padding: 80px 0px;
+  padding: 50px 0px;
   vertical-align: top;
   
   h2, p, a{
     text-align: center;  white-space: pre-line;
   }
   a:hover{
-    color:$color_tertiary; text-shadow: 2px 2px 2px #777;
+    color:$color_tertiary; 
+    text-shadow: 2px 2px 2px #666;
   }
   
   // design: alternating color and position
@@ -70,6 +71,7 @@ $space-tiny: 2px;
         text-align: left;
       }
   }
+  // design: alternating color and position
   &:nth-of-type(even){
     background: #C1E0F6;
     > *{

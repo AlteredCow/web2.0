@@ -10,7 +10,8 @@
 #main_photo {
   max-width: 80%;
   max-height: 420px;
-  box-shadow: 2px 2px 2px #222; }
+  border: 1px solid #cbcbcb;
+  margin-left: 30px; }
 
 #read_more {
   text-align: center;
@@ -59,7 +60,8 @@
 
 #m_wrapper.gridview > p, #m_wrapper.gridview > a {
   height: 100px;
-  width: 50%;
+  width: 46%;
+  margin: 2%;
   font-size: 28px;
   text-shadow: 2px 2px 4px #dddddd;
   box-shadow: 2px 2px 4px #dddddd;
@@ -102,14 +104,14 @@
 .wide_panel {
   width: 100%;
   display: inline-block;
-  padding: 80px 0px;
+  padding: 50px 0px;
   vertical-align: top; }
   .wide_panel h2, .wide_panel p, .wide_panel a {
     text-align: center;
     white-space: pre-line; }
   .wide_panel a:hover {
     color: #5aadeb;
-    text-shadow: 2px 2px 2px #777; }
+    text-shadow: 2px 2px 2px #666; }
   .wide_panel:nth-of-type(odd) > * {
     float: left; }
   .wide_panel:nth-of-type(odd) > ul {
@@ -474,6 +476,8 @@ button.mobile_menu {
     float: none;
     margin: 0 auto;
     width: 90%;
+    text-align: center; }
+  .wide_panel:nth-of-type(even) ul {
     text-align: center; }
 
   #banner {
