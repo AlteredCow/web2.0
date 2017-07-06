@@ -15,8 +15,12 @@ $grid-box-color: #333;
     font-size: $font_size-root;
     font-family: $font_family-header;
     font-weight: bold;
+    width: 150px;
+    transition: width 0.5s;
     &:hover{
         color: $color_link-hover;
+        width: 250px;
+        // transform: scale(1.1, 1.1);
     }
  }
 
