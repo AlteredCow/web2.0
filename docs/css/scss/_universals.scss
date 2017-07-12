@@ -137,6 +137,7 @@ $space-tiny: 2px;
   ul{
     font-size: 0; // remove unwanted whitespace
     li{
+      animation: mymove 5s infinite;
       font-size: $font_size-article; // restore font
       padding: 20px;
       text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88);
@@ -148,6 +149,11 @@ $space-tiny: 2px;
 }
 p.cleanbox{
   padding: 30px;
+}
+
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 100px;}
 }
 
 // default clickable styles

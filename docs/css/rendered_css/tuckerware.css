@@ -161,6 +161,7 @@
   .cleanbox ul {
     font-size: 0; }
     .cleanbox ul li {
+      animation: mymove 5s infinite;
       font-size: 20px;
       padding: 20px;
       text-shadow: 2px 2px 4px rgba(196, 196, 196, 0.88); }
@@ -170,6 +171,11 @@
 p.cleanbox {
   padding: 30px; }
 
+@keyframes mymove {
+  from {
+    left: 0px; }
+  to {
+    left: 100px; } }
 .choice:hover, ul.mobile_menu li:hover, .flipper:hover {
   color: white;
   cursor: pointer;
@@ -325,33 +331,6 @@ pre {
   #main_menu li > a {
     width: 96%;
     padding-right: 9px; }
-
-#photobook {
-  height: 100%; }
-  #photobook img {
-    margin-top: 10px;
-    width: 60px;
-    padding: 10px 5px 10px 10px;
-    background: #C5E4FB;
-    cursor: pointer;
-    border: 1px solid #333;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    -webkit-box-shadow: 0px 0px 4px #333;
-    -moz-box-shadow: 0px 0px 4px #333;
-    box-shadow: 0px 0px 4px #333; }
-    #photobook img:hover {
-      width: 72px;
-      height: 72px;
-      background: #5aadeb;
-      border: 1px solid #444;
-      -webkit-border-radius: 4px;
-      -moz-border-radius: 4px;
-      border-radius: 4px;
-      -webkit-box-shadow: 0px 0px 4px #444;
-      -moz-box-shadow: 0px 0px 4px #444;
-      box-shadow: 0px 0px 4px #444; }
 
 .topicview {
   text-align: center;

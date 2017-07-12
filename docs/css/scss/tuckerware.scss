@@ -1,3 +1,5 @@
+
+
 // order is important, yo
 
 @import "sections_specifics";
@@ -7,6 +9,7 @@
 
 
 // ============= UPPER AREA (banner) ===========================================
+
 
 #banner{
 	height: 110px;
@@ -33,26 +36,26 @@
 }
 @import "dream-menu";
 
-
-#photobook{
-	height: 100%;
-	img{
-		margin-top: 10px;
-		width: $thmb-sm;
-		padding: $space-sm $space-sm/2 $space-sm $space-sm;
-		background: $color_secondary;
-		cursor: pointer;
-		@include  glow-wrap(4px, #333);
-
-
-		&:hover{
-			width: $thmb-sm * 1.2;
-			height: $thmb-sm * 1.2;
-			background: $color_tertiary;
-			@include  glow-wrap(4px, $color_dark-grey);
-		}
-	}
-}
+// REMOVED - PLACEHOLDER FOR LOGO
+// #photobook{
+// 	height: 100%;
+// 	img{
+// 		margin-top: 10px;
+// 		width: $thmb-sm;
+// 		padding: $space-sm $space-sm/2 $space-sm $space-sm;
+// 		background: $color_secondary;
+// 		cursor: pointer;
+// 		@include  glow-wrap(4px, #333);
+// 
+// 
+// 		&:hover{
+// 			width: $thmb-sm * 1.2;
+// 			height: $thmb-sm * 1.2;
+// 			background: $color_tertiary;
+// 			@include  glow-wrap(4px, $color_dark-grey);
+// 		}
+// 	}
+// }
 // ======================================================================
 // =============== MAIN CONTENT AREA ===========================================
 
@@ -73,6 +76,7 @@
 
 // ======================================================================
 // ========= RIGHTSIDE PANEL ===================================================
+
 
 #right_panel{
 	position: fixed;

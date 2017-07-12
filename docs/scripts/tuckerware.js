@@ -1,5 +1,6 @@
 /* ------------ ON-READY --------------------------- */
-const menu_choices = ["Debut", "Reveal", "Enjoy", "Amuse", "More"];
+
+const MENU_CHOICES = ["Debut", "Reveal", "Enjoy", "Amuse", "More"];
 $(document).ready(function() {
   $("#main_menu li:first").trigger('mouseover'); // highlight 'D'
   var loader_app = angular.module('loaderApp', ['ngAnimate', 'ngRoute', 'infinite-scroll']);
@@ -22,7 +23,7 @@ $(document).ready(function() {
   // massive, overarching content loader -- both for main pages (DREAM) and sub-pages (topics)
   loader_app.controller('loaderController', ['$scope', '$http', '$route', '$routeParams', '$window', function($scope, $http, $route, $routeParams, $window) {
 
-// ================= GENERAL ===================================
+// ================= GENERAL VIEWS ===================================
       $scope.key_letter = $routeParams.key_letter;
       $scope.partial = "content/empty.html"; // TODO: rename (partial is /topic_name.html)
       $scope.archivesCurrentPage = 0;
@@ -34,7 +35,7 @@ $(document).ready(function() {
         var current_letter = document.location.hash.substr(2, 3);
         var current_letter_key = "DREAM".indexOf(current_letter);
         $("#main_menu li").eq(current_letter_key).trigger('mouseover');
-        $scope.key_word = menu_choices[current_letter_key];
+        $scope.key_word = MENU_CHOICES[current_letter_key];
         $("ul.mobile_menu").hide(300);
         scrollToTop();
       });
@@ -216,7 +217,7 @@ $(document).ready(function() {
 // expands hovered menu item into full word of the DREAM acronym
 function launchWord(hovered) {
     var key_letter = "DREAM"[hovered];
-    $("#main_menu li a").eq(hovered).text(menu_choices[hovered]);
+    $("#main_menu li a").eq(hovered).text(MENU_CHOICES[hovered]);
 }
 
 // @param hovered: menu choice in-focus, namely hovered

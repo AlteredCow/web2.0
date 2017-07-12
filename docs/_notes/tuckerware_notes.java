@@ -11,6 +11,7 @@ EASY
 	* add some animations (eg flying text)
 	* home buttons to rightside
 	! main image scale down
+	! @A - bottom panel remains stuck
 
 SOME LENGTH
 	* brand self a logo [banner + tab] >> AT merge
