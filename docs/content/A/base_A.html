@@ -5,7 +5,7 @@
 	<br/>Hmm, I'd give it a shot  ¯\_(ツ)_/¯
 </p>
 <ul id = "archive_grid" class = "gridview">
-	<li ng-if ="topic.title" class = "choice" ng-repeat = "topic in grabArchives() track by $index "  ng-click = "expandArchive($index)"><p>{{topic.title}}</p></li>
+	<li ng-if = "topic.title" class = "choice" ng-repeat = "topic in grabArchives() track by $index"  ng-click = "expandArchive($index)"><p>{{topic.title}}</p></li>
 </ul>
 <div id = "archive_nav">
 	<a class = "flipper" ng-click = "archivesFlip('up')"><<</a><p>{{archivesCurrentPage +1}} of {{archivesPagesTotal}}</p><a class = "flipper" ng-click = "archivesFlip('down')">>></a></div>

@@ -25,7 +25,7 @@ $(document).ready(function() {
 
 // ================= GENERAL VIEWS ===================================
       $scope.key_letter = $routeParams.key_letter;
-      $scope.partial = "content/empty.html"; // TODO: rename (partial is /topic_name.html)
+      $scope.partial = "content/empty.html";
       $scope.archivesCurrentPage = 0;
       $scope.archivesDisplayLimit = 6;
 
@@ -59,7 +59,7 @@ $(document).ready(function() {
       * This funcion grabs content file, then displays it, and slides to display area
       */
       $scope.expandTopic = function(key_letter, selected_topic) {
-          $scope.partial = 'content/' + key_letter + "/" + selected_topic + ".html";
+          $scope.partial = 'content/' + $scope.key_letter + "/" + selected_topic + ".html";
           scrollToDisplay();
     }
     
@@ -91,31 +91,13 @@ $(document).ready(function() {
     }
         
 // =============================================================
-// ================= ARTWORK ===================================
-      var artwork = "content/E/artwork.JSON";
-      $http.get(artwork)
-         .success(function(JSON){
-           const ARCHIVES_ROOT = "piece";
-           $scope.artbase = JSON[ARCHIVES_ROOT];
-           $scope.artwork = [];
-        });
 
-        
-        $scope.loadImages = function(){
-          const DISPLAY_MULTIPLE = 3;
-          var offset = $scope.artwork.length;
-          for (var x = 0; x < DISPLAY_MULTIPLE; x++){
-            var new_img = $scope.artbase[x + offset];
-            if (new_img){
-              $scope.artwork.push(new_img);
-            }
-          }
-        }
+// import * from 'content/E/artwork';
+// var _ = require(filepath)
+// import $ from 'file/pathNoExtension'
+// import * as _artwork from 'content/E/artwork';
 
-        $scope.openLink = function(url){
-          $window.open(url, '_blank');
-        }
-// =============================================================
+
 // ====================== ARCHIVES =============================
 
     $scope.archiveDefaultView = [$("#archive_grid"), $("#archive_intro"), $("#archive_nav")];
