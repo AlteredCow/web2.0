@@ -59,7 +59,7 @@ $(document).ready(function() {
       * This funcion grabs content file, then displays it, and slides to display area
       */
       $scope.expandTopic = function(key_letter, selected_topic) {
-          $scope.partial = 'content/' + $scope.key_letter + "/" + selected_topic + ".html";
+          $scope.partial = 'content/' + key_letter + "/" + selected_topic + ".html";
           scrollToDisplay();
     }
     
