@@ -3,11 +3,11 @@
    <head>
     <meta charset="UTF-8" name=viewport content="width=device-width, initial-scale=1">
     <title>♥ welcome ♥</title>
-    <link  rel="stylesheet"  href="css/rendered_css/tuckerware.css"/>
+    <link  rel="stylesheet"  href="css/dist/tuckerware.css"/>
    </head>
    <body ng-app = "loaderApp" ng-controller="loaderController">
-    <div id = "banner" >
-      <a href = "#/D" id = "my_name">Austin R Tucker</a><button class="mobile_menu">{{key_word}} ▼</button><ul id = "main_menu">
+    <div id = "banner">
+      <a href = "#/D" class = "animated bounceIn" id = "my_name">Austin R Tucker</a><button class="mobile_menu">{{key_word}} ▼</button><ul id = "main_menu">
            <li onmouseover = "menuGlow(0)" ><a href = "#/D">Debut</a></li>
            <li onmouseover = "menuGlow(1)" ><a href = "#/R">R</a></li>
            <li onmouseover = "menuGlow(2)" ><a href = "#/E">E</a></li>
@@ -21,19 +21,17 @@
              <li><a href = "#/M">More</a></li>
          </ul>
     </div>
-    <pre  id = "main_content" ng-view>
-    </pre>
+    <pre  id = "main_content" ng-view></pre>
     <ul id = "right_panel" >
       <li><a id = "up_arrow" href = "javascript:scrollToTop()" >↑</a></li>
       <!-- <li id = "settings_cog"><a href = "#">*</a></li> -->
       <!-- <li id = "site_logo">LOGO</li> -->
     </ul>
-   <!-- <script type = "text/javascript" src = "scripts/lib/bundle.js"></script> -->
-   <script type = "text/javascript" src = "scripts/jquery-min.js"></script>
-   <script type = "text/javascript" src = "scripts/tuckerware.js"></script>
+   <script type = "text/javascript" src = "scripts/dist/main.bundle.js"></script>
+   <script type = "text/javascript" src = "scripts/src/tuckerware.js"></script>
    <script type = "text/javascript" src = "scripts/angular-min.js"></script>
    <script type = "text/javascript" src = "scripts/animate-min.js"></script>
    <script type = "text/javascript" src = "scripts/route-min.js"></script>
-   <script type = "text/javascript" src = 'scripts/ng-infinite-scroll.js'></script>
+   <script type = "text/javascript" src = 'scripts/libs/ng-infinite-scroll.js'></script>
  </body>
 </html>
