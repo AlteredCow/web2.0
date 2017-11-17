@@ -1,0 +1,15 @@
+<h1>amuse</h1>
+<h2>why hello there</h2>
+<p id = "archive_intro">
+	You've stumbled on some sort of archive of fun facts and peculiar thoughts
+	<br/>How oddly specific
+	<br/>Hmm, I'd give it a shot  ¯\_(ツ)_/¯
+</p>
+<ul id = "archive_grid" class = "gridview">
+	<li ng-if = "topic.title" class = "choice" ng-repeat = "topic in grabArchives() track by $index"  ng-click = "expandArchive($index)"><p>{{topic.title}}</p></li>
+</ul>
+<div id = "archive_nav">
+	<a class = "flipper" ng-click = "archivesFlip('up')"><<</a><p>{{archivesCurrentPage +1}} of {{archivesPagesTotal}}</p><a class = "flipper" ng-click = "archivesFlip('down')">>></a></div>
+<div class="contentScreen cloudy_box"></div>
+<div class="contentScreen cloudy_box"></div>
+<button class="sleek_button reverter" ng-click = "swapViewSets(archiveDefaultView,archiveReaderView)">< Return</button>

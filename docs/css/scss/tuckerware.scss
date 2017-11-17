@@ -178,7 +178,7 @@ button.mobile_menu{
 		border-bottom: 3px solid black;
 		height: 100px;
 		> *{
-			width: 55%;
+			width: 60%;
 		}
 
 		#main_menu{ // transitition to mini-menu
@@ -186,7 +186,7 @@ button.mobile_menu{
 		}
 		button.mobile_menu{
 			display: inline-block;
-			min-width: 200px;
+			min-width: 100px;
 		}
 		
 		#main_photo{
@@ -232,8 +232,6 @@ button.mobile_menu{
 	}
 	
 	.mobile_menu li{
-		display: block;
-		min-width: 200px;
 	}
 	.topicview a{
 		display: block;

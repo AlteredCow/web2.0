@@ -1,0 +1,27 @@
+<div >
+  <h3>Rules</h3>
+  <p>We are on a hunt for Kaprekar's constant, the number 6174!
+    Pick a 4-digit number (1000 - 9999), let's do the magical process!
+    Make 2 new numbers by arranging the digits in decreasing and increasing order.
+    So 1364 becomes 6431 and 1346 -- and now subtract them.
+    Rinse and repeat with the difference!
+    If your number is all-repeating, say 1111, you'll hit 0 immediately.
+    Otherwise, you will eventually arrive at 6147.
+    The fun part: 6147 will *ahem* constantly produce itself.
+    So once you've arrived, you're forever captured by this process!
+  </p>  
+  <!--  User Interaction -->
+  <input name = "kaprekarValue" type = "number" min="1000" max = "9999"/>
+  <ul>
+    <li ng-repeat = "round in kaprekar_steps">
+      <!-- Schema:  highest - lowest = updated_base -->
+      {{round.descending}}<br/>
+      {{round.ascending}}<br/>
+      _____________________________<br />
+      {{round.newValue}}
+    </li>  
+  </ul>
+</div> 
+  
+
+

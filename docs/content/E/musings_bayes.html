@@ -1,0 +1,53 @@
+<html>
+  <body>
+    <p>
+      <!-- example: prediction of a snake on a trail  -->
+      
+      Bayes' Thereom is this: <img src="img/entries/bayes_formula.png" alt="P(A|B) = P(B|A) * P(B)/P(A)">
+      So, what does any of this mean? Why should you care?
+      Bayes' Theorem gives us probabilities of 'events' or 'truths.'
+       
+      
+      "A | B" means if A is true, then B is also true.
+      "A | B" is false when A is true and B false.
+      You might say A being true <em>requires</em> B to be true too.
+      For example, A = it is raining and B = I will bring an umbrella.
+      So You can determine the probability of this, P(A|B), rather easily.
+      
+      Some argue that our minds are "Bayesian."
+      Meaning, we build models of the world using Bayesian probabilities.
+      So then, what we believe is dependent on our experiences.
+      For example, if you worked with snakes a lot, you may believe
+      that the blown-out bike tire on the trail was a snake too.
+      This is becuase your mind said the chances of 
+      "long stringy thing" being a snake is the most probable explanation.
+      
+      Bayes' Theorem is a beautiful tool to determine cause-and-effect relations: 
+      How likely you are to get a cold in a given environment.
+      How likely you will enjoy some flavor ice cream.
+      How likely a pitch will go well depending on past experiences.
+      Many many things -- the theorem is found subtly in nature.
+    </p>
+    <!-- User interaction -->
+    <form>
+      <label>P(A)</label>
+      <input type="range" min="0" max ="100" />
+      <label>P(B)</label>
+      <input type="range"  min="0" max ="100" />
+      <label>P(B|A)</label>
+      <input type="range" min="0" max ="100" />
+      <p>{{bayesValue}}</p>
+      <input type="submit" value="bayesSubmit" onclick="bayesCalculate({bayesInput})" />
+    </form>
+  </body>
+</html>
+
+<script>
+  // @param root_number <int>: user input
+  // @value bayesValue <float>: P(A|B)
+  function bayesCalculate(pBA, pA, pB){
+      $scope.bayesValue = pBA*pA/pB;  
+  }
+
+  
+</script>
