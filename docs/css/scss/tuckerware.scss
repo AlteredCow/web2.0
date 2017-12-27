@@ -5,8 +5,11 @@
 @import "sections_specifics";
 @import "universals";
 @import "accordion";
+@import "main_menu";
+@import "media_screen";
 @charset "utf-8";
 
+$banner_height: 110px;
 
 // ============= UPPER AREA (banner) ===========================================
 
@@ -26,37 +29,12 @@
 		box-sizing: border-box;
 		margin: 0px 10px;
 		font-size: 20px;
-		
 		&:not(.mobile_menu){
 			display: inline-block;
 		}
-
 	}
-
 }
-@import "dream-menu";
 
-// REMOVED - PLACEHOLDER FOR LOGO
-// #photobook{
-// 	height: 100%;
-// 	img{
-// 		margin-top: 10px;
-// 		width: $thmb-sm;
-// 		padding: $space-sm $space-sm/2 $space-sm $space-sm;
-// 		background: $color_secondary;
-// 		cursor: pointer;
-// 		@include  glow-wrap(4px, #333);
-// 
-// 
-// 		&:hover{
-// 			width: $thmb-sm * 1.2;
-// 			height: $thmb-sm * 1.2;
-// 			background: $color_tertiary;
-// 			@include  glow-wrap(4px, $color_dark-grey);
-// 		}
-// 	}
-// }
-// ======================================================================
 // =============== MAIN CONTENT AREA ===========================================
 
 @import "topicview";
@@ -74,44 +52,35 @@
 	}
 }
 
-// ======================================================================
-// ========= RIGHTSIDE PANEL ===================================================
+// =====================================
 
-
-#right_panel{
-	position: fixed;
-	right: 0px;
-	bottom: 0px;
-	text-align: center;
-	font-size: $font_size-panel;
-	background: white;
-	opacity: 0.6;
-	
-
-	a{
-		// box-sizing: border-box;
-		line-height: 50px;
-		color: $color_dark-grey;
-		border: 5px solid #eaeaea;
-		@extend  .link-buffer;
-		&:hover{
-			background: $color_primary;
-		}
-	}
+#scrollup_arrow{
+  line-height: 50px;
+  text-align: center;
+  font-size: 42px;
+  
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+	padding: 14px;
+  border: 5px solid #eaeaea;
+  color: #444;
+  background: white;
+  opacity: 0.6;
+  &:hover{
+    background: #9ECFF2; 
+  }
 }
-
-
-// ===============================================================
 
 .mobile_menu{
 	display: none;
 	color: $color_tertiary;
 	@include no-highlight();
 }
+
 ul.mobile_menu{
 	position: absolute;
-	top: 100px;
-	left: 21%;
+	top: $banner_height;
 	background: white;
 	box-shadow: 3px 4px 6px #666;
 	min-width: 200px;
@@ -135,9 +104,9 @@ ul.mobile_menu{
 		&:hover{
 			@extend .choice;
 		}
-		
 	}
 }
+
 button.mobile_menu{
 	border: 1px solid #666;
 	padding: 10px;
@@ -153,107 +122,3 @@ button.mobile_menu{
 	}
 }
 
-
-/* ||| GENERAL SCREEN RESPONSIVENESS |||||||||||| */
-@media screen and (max-width: 800px){
-	.wide_panel {
-		// nth selector repeated here for specificity dominance
-		&:nth-of-type(odd) > *,   &:nth-of-type(even) > *{
-			display: block;
-			float: none;
-			margin: 0 auto;
-			width: 90%;
-			text-align: center;
-		}
-		&:nth-of-type(even) ul{
-			text-align: center; // specificity override
-		}
-	}
-
-	// mainliy compress menu + limit gridview columns
-	#banner{
-		position: fixed;
-		width: 100%;
-		z-index: 999;
-		border-bottom: 3px solid black;
-		height: 100px;
-		> *{
-			width: 60%;
-		}
-
-		#main_menu{ // transitition to mini-menu
-			display: none;
-		}
-		button.mobile_menu{
-			display: inline-block;
-			min-width: 100px;
-		}
-		
-		#main_photo{
-			width: 100%; 
-		}
-	}
-	.gridview > div{
-			width: 45%;
-	}
-	.gridview > li{
-		width: 45%;
-		height: 100px;     
-		line-height: 100px;   
-		font-size: 16px;
-		margin: 2%;
-	}
-}
-	// ---------------------------------
-	 
-// ------ END(media800)------------------------
-
-// mainly to make 'Archives' secion more manageable
-@media screen and (max-width: 600px){
-	// converting columns for .gridview adherents
-	.gridview > div{
-			width: 80%;
-			height: 360px;
-		}	
-		
-	
-	.wide_panel:nth-of-type(even){
-		ul{
-      text-align: center; // reset
-    }
-	}
-	
-	.flipList, .flipList a{
-		display: none; // intro content first is why
-		width: 100%;
-	}
-	.revert_button{
-		display: inline-block;
-	}
-	
-	.mobile_menu li{
-	}
-	.topicview a{
-		display: block;
-		width: 50%;
-		margin: 20px auto;
-	}
-
-
-	// as 'M' takes .gridview, we need some minor adjustments	
-	#m_wrapper{
-	  &.gridview > p, 
-	  &.gridview > a, {
-			margin: 20px 0px;
-			width: 100%;
-	    &:nth-of-type(4n+1), &:nth-of-type(4n+0){
-	      background: #f5f1f0; // alternating shades
-	    }
-		}
-	}
-} 
-// ------ END(media600)------------------------
-
-
-@media screen and (max-width: 460px){
-}

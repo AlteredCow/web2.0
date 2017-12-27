@@ -1,10 +1,6 @@
-// TEMPLATE:
+// TAKES FORM OF:
 // <input type = "checkbox" id = "buttonCtrl"/>
 // <label class = "accordian" for = "buttonCtrl">P1</label>
-
-
-$color_accordian-primary: "red";
-$color_accordian-secondary: "green";
 
 #buttonCtrl {
     display: none;
@@ -30,7 +26,4 @@ $color_accordian-secondary: "green";
 .accordian:active {
   outline: 1px solid black;
   background: #99cbef;
-}
-
-#buttonCtrl:checked + label {
 }

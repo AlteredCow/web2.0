@@ -44,7 +44,6 @@ $space-tiny: 2px;
     margin: 0 auto;
     padding: 50px;
   }
-
 }
 
 .wide_panel{
@@ -90,12 +89,14 @@ $space-tiny: 2px;
 
 }
 
+button:hover{
+  	cursor: pointer;
+}
 
 // the primary 'screens' of data
 .contentScreen{
   white-space: initial; // important!
   width: 100%;
-  // height: 100%;
 }
 
 

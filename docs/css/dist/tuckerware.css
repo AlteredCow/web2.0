@@ -9,8 +9,8 @@
 
 #main_photo {
   max-width: 80%;
-  max-height: 420px;
-  margin-left: 30px; }
+  margin: 30px auto 0px auto;
+  display: block; }
 
 #read_more {
   text-align: center;
@@ -78,7 +78,7 @@
     color: #81c1f0;
     transform: scale(1.3, 1.3); }
 
-.link-buffer, #main_menu li > a, #right_panel a {
+.link-buffer, #main_menu li > a {
   width: 100%;
   height: 100%;
   display: inline-block; }
@@ -128,6 +128,9 @@
   .wide_panel > * {
     width: 50%;
     box-sizing: border-box; }
+
+button:hover {
+  cursor: pointer; }
 
 .contentScreen {
   white-space: initial;
@@ -298,22 +301,6 @@ pre {
   outline: 1px solid black;
   background: #99cbef; }
 
-#banner {
-  height: 110px;
-  text-align: center;
-  font-size: 0;
-  border-bottom: 3px solid silver;
-  font-size: 24px;
-  background: #9ECFF2;
-  font-weight: lighter; }
-  #banner > * {
-    vertical-align: middle;
-    box-sizing: border-box;
-    margin: 0px 10px;
-    font-size: 20px; }
-    #banner > *:not(.mobile_menu) {
-      display: inline-block; }
-
 /* ---- DREAM MENU ---------------- */
 #main_menu {
   width: 55%; }
@@ -330,6 +317,89 @@ pre {
   #main_menu li > a {
     width: 96%;
     padding-right: 9px; }
+
+#main_logo {
+  height: 100%;
+  width: auto;
+  min-width: 80px; }
+
+@media screen and (max-width: 800px) {
+  .wide_panel:nth-of-type(odd) > *, .wide_panel:nth-of-type(even) > * {
+    display: block;
+    float: none;
+    margin: 0 auto;
+    width: 90%;
+    text-align: center; }
+  .wide_panel:nth-of-type(even) ul {
+    text-align: center; }
+
+  #banner {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    border-bottom: 3px solid black;
+    height: 100px; }
+    #banner > * {
+      width: 60%; }
+    #banner #main_menu {
+      display: none; }
+    #banner button.mobile_menu {
+      display: inline-block;
+      min-width: 100px; }
+    #banner #my_name {
+      display: none; }
+    #banner #main_logo {
+      width: 20%; }
+
+  .gridview > div {
+    width: 45%; }
+
+  .gridview > li {
+    width: 45%;
+    height: 100px;
+    line-height: 100px;
+    font-size: 16px;
+    margin: 2%; } }
+@media screen and (max-width: 600px) {
+  .gridview > div {
+    width: 80%;
+    height: 360px; }
+
+  .wide_panel:nth-of-type(even) ul {
+    text-align: center; }
+
+  .flipList, .flipList a {
+    display: none;
+    width: 100%; }
+
+  .revert_button {
+    display: inline-block; }
+
+  .topicview a {
+    display: block;
+    width: 50%;
+    margin: 20px auto; }
+
+  #m_wrapper.gridview > p, #m_wrapper.gridview > a {
+    margin: 20px 0px;
+    width: 100%; }
+    #m_wrapper.gridview > p:nth-of-type(4n+1), #m_wrapper.gridview > p:nth-of-type(4n+0), #m_wrapper.gridview > a:nth-of-type(4n+1), #m_wrapper.gridview > a:nth-of-type(4n+0) {
+      background: #f5f1f0; } }
+#banner {
+  height: 110px;
+  text-align: center;
+  font-size: 0;
+  border-bottom: 3px solid silver;
+  font-size: 24px;
+  background: #9ECFF2;
+  font-weight: lighter; }
+  #banner > * {
+    vertical-align: middle;
+    box-sizing: border-box;
+    margin: 0px 10px;
+    font-size: 20px; }
+    #banner > *:not(.mobile_menu) {
+      display: inline-block; }
 
 .topicview {
   text-align: center;
@@ -400,20 +470,20 @@ ul.gridview {
     white-space: pre-line;
     box-sizing: border-box; }
 
-#right_panel {
+#scrollup_arrow {
+  line-height: 50px;
+  text-align: center;
+  font-size: 42px;
   position: fixed;
   right: 0px;
   bottom: 0px;
-  text-align: center;
-  font-size: 42px;
+  padding: 14px;
+  border: 5px solid #eaeaea;
+  color: #444;
   background: white;
   opacity: 0.6; }
-  #right_panel a {
-    line-height: 50px;
-    color: #444;
-    border: 5px solid #eaeaea; }
-    #right_panel a:hover {
-      background: #9ECFF2; }
+  #scrollup_arrow:hover {
+    background: #9ECFF2; }
 
 .mobile_menu {
   display: none;
@@ -427,8 +497,7 @@ ul.gridview {
 
 ul.mobile_menu {
   position: absolute;
-  top: 100px;
-  left: 21%;
+  top: 110px;
   background: white;
   box-shadow: 3px 4px 6px #666;
   min-width: 200px;
@@ -456,67 +525,5 @@ button.mobile_menu {
     color: #5aadeb; }
   button.mobile_menu:active {
     box-shadow: inset 0px 0px 4px #666; }
-
-/* ||| GENERAL SCREEN RESPONSIVENESS |||||||||||| */
-@media screen and (max-width: 800px) {
-  .wide_panel:nth-of-type(odd) > *, .wide_panel:nth-of-type(even) > * {
-    display: block;
-    float: none;
-    margin: 0 auto;
-    width: 90%;
-    text-align: center; }
-  .wide_panel:nth-of-type(even) ul {
-    text-align: center; }
-
-  #banner {
-    position: fixed;
-    width: 100%;
-    z-index: 999;
-    border-bottom: 3px solid black;
-    height: 100px; }
-    #banner > * {
-      width: 60%; }
-    #banner #main_menu {
-      display: none; }
-    #banner button.mobile_menu {
-      display: inline-block;
-      min-width: 100px; }
-    #banner #main_photo {
-      width: 100%; }
-
-  .gridview > div {
-    width: 45%; }
-
-  .gridview > li {
-    width: 45%;
-    height: 100px;
-    line-height: 100px;
-    font-size: 16px;
-    margin: 2%; } }
-@media screen and (max-width: 600px) {
-  .gridview > div {
-    width: 80%;
-    height: 360px; }
-
-  .wide_panel:nth-of-type(even) ul {
-    text-align: center; }
-
-  .flipList, .flipList a {
-    display: none;
-    width: 100%; }
-
-  .revert_button {
-    display: inline-block; }
-
-  .topicview a {
-    display: block;
-    width: 50%;
-    margin: 20px auto; }
-
-  #m_wrapper.gridview > p, #m_wrapper.gridview > a {
-    margin: 20px 0px;
-    width: 100%; }
-    #m_wrapper.gridview > p:nth-of-type(4n+1), #m_wrapper.gridview > p:nth-of-type(4n+0), #m_wrapper.gridview > a:nth-of-type(4n+1), #m_wrapper.gridview > a:nth-of-type(4n+0) {
-      background: #f5f1f0; } }
 
 /*# sourceMappingURL=tuckerware.css.map */

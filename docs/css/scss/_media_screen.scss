@@ -1,0 +1,96 @@
+
+@media screen and (max-width: 800px){
+	.wide_panel {
+		// nth selector repeated here for specificity dominance
+		&:nth-of-type(odd) > *,   &:nth-of-type(even) > *{
+			display: block;
+			float: none;
+			margin: 0 auto;
+			width: 90%;
+			text-align: center;
+		}
+		&:nth-of-type(even) ul{
+			text-align: center; // specificity override
+		}
+	}
+
+	// mainliy compress menu + limit gridview columns
+	#banner{
+		position: fixed;
+		width: 100%;
+		z-index: 999;
+		border-bottom: 3px solid black;
+		height: 100px;
+		> *{
+			width: 60%;
+		}
+
+		#main_menu{ // transitition to mini-menu
+			display: none;
+		}
+		button.mobile_menu{
+			display: inline-block;
+			min-width: 100px;
+		}
+    ul.mobile_menu{
+      
+    }
+    #my_name{
+      display: none;
+    }
+		#main_logo{
+			width: 20%; 
+		}
+	}
+  .gridview > div{
+			width: 45%;
+	}
+	.gridview > li{
+		width: 45%;
+		height: 100px;     
+		line-height: 100px;   
+		font-size: 16px;
+		margin: 2%;
+	}
+}
+// ===============================
+	 
+@media screen and (max-width: 600px){
+	// adjusting columns
+	.gridview > div{
+			width: 80%;
+			height: 360px;
+		}	
+		
+	.wide_panel:nth-of-type(even){
+		ul{
+      text-align: center; // reset
+    }
+	}
+	
+	.flipList, .flipList a{
+		display: none; 
+		width: 100%;
+	}
+	.revert_button{
+		display: inline-block;
+	}
+	
+	.topicview a{
+		display: block;
+		width: 50%;
+		margin: 20px auto;
+	}
+  
+	// while 'M' takes .gridview, we need some minor adjustments	
+	#m_wrapper{
+	  &.gridview > p, 
+	  &.gridview > a, {
+			margin: 20px 0px;
+			width: 100%;
+	    &:nth-of-type(4n+1), &:nth-of-type(4n+0){
+	      background: #f5f1f0; // alternating shades
+	    }
+		}
+	}
+} 
