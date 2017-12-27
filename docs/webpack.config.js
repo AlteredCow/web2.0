@@ -2,10 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-// const extractSass = new ExtractTextPlugin({
-//     filename: "tuckerware.css",
-//     disable: process.env.NODE_ENV === "development"
-// });
+
 
 module.exports = {
   context: path.resolve(__dirname, './scripts/src'),
@@ -20,7 +17,7 @@ module.exports = {
   },
   devtool: 'source-map',
   devServer: {
-    contentBase: 'demo/'
+    contentBase: '/'
   },
   module: {
     rules: [

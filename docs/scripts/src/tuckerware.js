@@ -15,7 +15,7 @@ $(document).ready(function() {
                 templateUrl: function(params){ return 'content/bases/base_'+params.key_letter+'.html'; }
               })
         .otherwise({
-            templateUrl: 'content/bases/base_D.html' // home-page
+            templateUrl: 'content/bases/base_D.html' // home
         });
     }); 
 
@@ -25,7 +25,7 @@ $(document).ready(function() {
 
 // ================= GENERAL VIEWS ===================================
       $scope.key_letter = $routeParams.key_letter;
-      $scope.partial = "content/empty.html";
+      $scope.partial = "content/other/_empty.html";
       $scope.archivesCurrentPage = 0;
       $scope.archivesDisplayLimit = 6;
 
@@ -57,7 +57,7 @@ $(document).ready(function() {
       
       /* @param key_letter: the menu choice letter parameter
       * @param selected_topic: the section sub-material
-      * Each section (each letter) has sub-material spread across topic names
+      * Each section (letter) has sub-material spread across topic names
       * This funcion grabs content files, displays it, and slides to view
       */
       $scope.expandTopic = function(key_letter, selected_topic) {
@@ -208,9 +208,7 @@ $http.get(artwork)
 }); //END(onready)
 
 
-
-
-/* |||||||||||| STANDARD FUNCTIONS  ||||||||||||||||||||||||||||||||||| */
+/* === STANDARD FUNCTIONS  ======== */
 
 // @param hovered: menu choice in-focus, namely hovered
 // expands hovered menu item into full word of the DREAM acronym
@@ -227,18 +225,18 @@ function menuGlow(hovered) {
     // full scan and update
     $("#main_menu > li").each(function(index, value) {
         var current_letter = $("#main_menu > li ").eq(index);
+
+        // highlight or dull 
         if (index == hovered) {
-            // highlighting
             bar_visibility = "6px solid white";
             $(current_letter).css({"width": "30%"});
         } else {
-            // dulling
             bar_visibility = "0";
             $(current_letter).css({"width": "15%"});
         }
 
         // applying updates
-        current_letter.find("a").text("DREAM"[index]);
+        current_letter.find("a").text("DREAM"[index]); // "a" as in <a> 
         $(current_letter).css("border-bottom", bar_visibility);
         launchWord(hovered);
     });
@@ -246,8 +244,7 @@ function menuGlow(hovered) {
 
 // Animate return to page top 
 function scrollToTop() {
-    $("html, body").animate({
-    scrollTop: 0}, "slow");
+    $("html, body").animate({scrollTop: 0}, "slow");
 }
 
 /* ----- MOBILE -------- */

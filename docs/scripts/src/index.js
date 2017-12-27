@@ -2,9 +2,3 @@
 import _ from 'lodash';
 const $ = require("jquery");
 window.$ = window.jQuery = $; 
-// const anim = require("animate.css");
-// import css from '../../css/dist/tuckerware.css';
-import css from '../../node_modules/animate.css';
-// require('./artwork');
-// import * from 'artwork';
-// const scss = require('node-sass');
