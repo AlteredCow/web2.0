@@ -10,6 +10,7 @@
 		* tidy code
 		* generalize menuGlow to @style/..., by glow(fx)
 		* @scope.loadImages: build ng filters (or sorting machines) per medium, date, ...
+    * replace hacky spots
 
 	MUSINGS
 		{} kap_const. calc :: show all (through animation)
