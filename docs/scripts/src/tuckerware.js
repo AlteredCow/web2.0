@@ -15,7 +15,7 @@ $(document).ready(function() {
                 templateUrl: function(params){ return 'content/_bases/base_'+params.key_letter+'.html'; }
               })
         .otherwise({
-            templateUrl: 'content/_base/base_D.html' // home
+            templateUrl: 'content/_bases/base_D.html' // home
         });
     }); 
 
@@ -25,7 +25,7 @@ $(document).ready(function() {
 
 // ================= GENERAL VIEWS ===================================
       $scope.key_letter = $routeParams.key_letter;
-      $scope.partial = "content/_bases/base_other/_empty.html";
+      $scope.partial = "content/_other/empty.html";
       $scope.archivesCurrentPage = 0;
       $scope.archivesDisplayLimit = 6;
 
@@ -61,7 +61,7 @@ $(document).ready(function() {
       * This funcion grabs content files, displays it, and slides to view
       */
       $scope.expandTopic = function(key_letter, selected_topic) {
-          $scope.partial = 'content/_bases/base_' + key_letter + "/" + selected_topic + ".html";
+          $scope.partial = 'content/' + key_letter + "/" + selected_topic + ".html";
           scrollToDisplay();
     }
     
@@ -94,7 +94,7 @@ $(document).ready(function() {
 // =============================================================
 // ====================== ARTWORK =============================
 
-const artwork = "content/_bases/base_E/artwork.JSON";
+const artwork = "content/E/artwork.JSON";
 $http.get(artwork)
    .success(function(JSON){
      const ARCHIVES_ROOT = "piece";
