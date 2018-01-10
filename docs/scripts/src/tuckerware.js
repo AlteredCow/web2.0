@@ -1,6 +1,7 @@
+const MENU_CHOICES = ["Debut", "Reveal", "Enjoy", "Amuse", "More"];
+
 /* ------------ ON-READY --------------------------- */
 
-const MENU_CHOICES = ["Debut", "Reveal", "Enjoy", "Amuse", "More"];
 $(document).ready(function() {
   $("#main_menu li:first").trigger('mouseover'); // highlight 'D'
   var loader_app = angular.module('loaderApp', ['ngAnimate', 'ngRoute', 'infinite-scroll']);

@@ -1,15 +1,18 @@
  @TODO
 
-	EASY
-		% namespace / encapsulate
-		% switch <classic> tags to more <semantic> ones
+   EASY
+   % emp/s-out (lance) on home
+   % namespace / encapsulate
+   % switch <classic> tags to more <semantic> ones
 
-	SOME LENGTH
-		* revise menu, simplify
-		* email to email function
-		* tidy code
+  SOME LENGTH
+   // * switch to states
+   // * replace 1ctrl to multiple
+   * revise menu, simplify
+   * email to email function
+   * tidy code
 		* generalize menuGlow to @style/..., by glow(fx)
-		* @scope.loadImages: build ng filters (or sorting machines) per medium, date, ...
+		* @scope.loadImages: build ng filters (or sorting machines) 
     * replace hacky spots
 
 	MUSINGS
