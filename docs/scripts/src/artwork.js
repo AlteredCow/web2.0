@@ -3,7 +3,7 @@ $(document).ready(function() {
 var loader_app = angular.module('loaderApp', ['ngAnimate', 'ngRoute', 'infinite-scroll']);
 loader_app.controller('loaderController', ['$scope', '$http', function($scope, $http){
 // 
-// var artwork = "content/bases/base_E/artwork.JSON";
+// var artwork = "content/_bases/base_E/artwork.JSON";
 // $http.get(artwork)
 //    .success(function(JSON){
 //      const ARCHIVES_ROOT = "piece";

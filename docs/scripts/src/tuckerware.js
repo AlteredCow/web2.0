@@ -12,10 +12,10 @@ $(document).ready(function() {
         .when('/:key_letter',
                {
                 controller: "loaderController",
-                templateUrl: function(params){ return 'content/bases/base_'+params.key_letter+'.html'; }
+                templateUrl: function(params){ return 'content/_bases/base_'+params.key_letter+'.html'; }
               })
         .otherwise({
-            templateUrl: 'content/bases/base_D.html' // home
+            templateUrl: 'content/_bases/base_D.html' // home
         });
     }); 
 
@@ -25,12 +25,12 @@ $(document).ready(function() {
 
 // ================= GENERAL VIEWS ===================================
       $scope.key_letter = $routeParams.key_letter;
-      $scope.partial = "content/other/empty.html";
+      $scope.partial = "content/_other/empty.html";
       $scope.archivesCurrentPage = 0;
       $scope.archivesDisplayLimit = 6;
 
       // @requires: #/_ page section navigation
-      // / UI: upon changing topics, update menu and scroll to page-top
+      // on section-change: update menu UI and scroll to page-top
       $scope.$on('$locationChangeSuccess', function(event) {
         var current_letter = document.location.hash.substr(2, 3);
         var current_letter_key = "DREAM".indexOf(current_letter);
@@ -43,7 +43,7 @@ $(document).ready(function() {
       // scroll to newly visible content
       function scrollToDisplay(){
         setTimeout(function () { // allow section to load
-          const CONTENT_DISPLAY = $(".contentScreen");
+          var CONTENT_DISPLAY = $(".contentScreen");
           const SCROLL_TIME = 900;
           var location = CONTENT_DISPLAY.offset().top;
           if ($scope.key_letter === 'A'){
@@ -65,7 +65,7 @@ $(document).ready(function() {
           scrollToDisplay();
     }
     
-    // TODO: migrate these two behaviors into directive
+    // TODO: make these two into directive
     $scope.swapViewSets = function(incoming, outgoing){
       $.each(incoming, function(){
         this.fadeIn();
@@ -124,7 +124,7 @@ $http.get(artwork)
     $scope.archiveReaderView = [$(".contentScreen:nth-of-type(2)"), $(".contentScreen:nth-of-type(3)"), $(".reverter")];
     
       // 'A' section -- let A stand for 'archives' or 'amuse'
-      var archives = "content/A/archives.JSON";
+      var archives = "content/_bases/base_A/archives.JSON";
       $http.get(archives)
          .success(function(JSON){
            const ARCHIVES_ROOT = "topic";
